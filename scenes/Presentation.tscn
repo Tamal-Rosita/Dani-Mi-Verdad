@@ -25,5 +25,5 @@ near = 0.01
 far = 500.0
 
 [node name="Jaime_Character" parent="." instance=ExtResource("6_x758s")]
-relaxed_base = -0.255
-twerk_blend_amount = -0.11
+dancing_offset = -0.25
+relaxed_offset = 0.0

@@ -6,18 +6,14 @@ extends CharacterBody3D
 @export_category("Animation")
 @onready var animation_tree: AnimationTree = $AnimationTree
 
-@export var initial_anim: String = "Idle":
+@export var dancing_offset: float = 0.5:
 	set(v):
-		initial_anim = v
+		dancing_offset = v
 		if (animation_tree):
-			animation_tree.initial_anim = v
-@export var relaxed_base: float = 0.5:
+			animation_tree.dancing_offset = v
+
+@export var relaxed_offset: float = 0.5:
 	set(v):
-		relaxed_base = v
+		relaxed_offset = v
 		if (animation_tree):
-			animation_tree.relaxed_base = v
-@export var twerk_blend_amount: float = 0.5:
-	set(v):
-		twerk_blend_amount = v
-		if (animation_tree):
-			animation_tree.twerk_blend_amount = v
+			animation_tree.relaxed_offset = v
