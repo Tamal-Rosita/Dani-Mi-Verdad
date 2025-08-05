@@ -14,6 +14,10 @@ jaime: Aprecio todo tipo de arte, especialmente los videojuegos y la música.
 jaime: La plataforma que utilizo para jugar es la PC, aunque también disfruto de las consolas portátiles.
 [signal arg_type="dict" arg="{"character":"Jaime", "mood":"angry", "mood_amount":"70", "relax_amount": "70", "dance_amount":"1"}"]
 jaime: Me gusta jugar una variedad de géneros, pero sin duda los juegos de Rockstar Games son mis favoritos.
+[signal arg_type="dict" arg="{"character":"Jaime", "mood":"sad", "mood_amount":"50", "relax_amount": "30", "dance_amount":"0"}"]
+jaime: Respecto al tiempo que le dedico a los videojuegos, a veces es mucho, a veces es poco, depende realmente de cuán enganchado esté con un juego en particular.
+[signal arg_type="dict" arg="{"character":"Jaime", "mood":"surprised", "mood_amount":"50", "relax_amount": "40", "dance_amount":"10"}"]
+jaime: Los dejo a continuación con un video conceptual que hice sobre la idea de videojuego que tengo en mente para el Diplomado. ¡Créditos a la Inteligencia Artificial Generativa!
 [signal arg_type="dict" arg="{"character":"Jaime", "mood":"happy", "mood_amount":"60", "relax_amount": "30", "dance_amount":"30"}"]
 jaime: ¡Gracias por ver mi presentación, espero verlos en clase!
 
