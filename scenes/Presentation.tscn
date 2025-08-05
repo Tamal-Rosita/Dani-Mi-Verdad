@@ -21,6 +21,8 @@ keep_aspect = 0
 projection = 1
 current = true
 size = 0.85
+near = 0.01
+far = 500.0
 
 [node name="Jaime_Character" parent="." instance=ExtResource("6_x758s")]
 relaxed_base = -0.255
