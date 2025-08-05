@@ -1,0 +1,20 @@
+[signal arg_type="dict" arg="{"animation":"Greeting","character":"Jaime"}"]
+jaime: ¡Hola! Mucho gusto, mi nombre es Jaime y es como me gusta que me llamen.
+[signal arg_type="dict" arg="{"animation":"Happy","character":"Jaime"}"]
+jaime: Soy originario de la Ciudad de México.
+[signal arg_type="dict" arg="{"animation":"Neutral","character":"Jaime"}"]
+jaime: Espero poder completar el proceso de Titulación, después de tantos años... ¡mediante el Diplomado de Videojuegos!
+[signal arg_type="dict" arg="{"animation":"Neutral","character":"Jaime"}"]
+jaime: También espero actualizar y practicar mis habilidades de programación y diseño de videojuegos para poder trabajar en la industria, ¡y no solo como hobby!
+[signal arg_type="dict" arg="{"animation":"Happy","character":"Jaime"}"]
+jaime: En mi tiempo libre me gusta caminar, enterarme de noticias y aprender cosas nuevas.
+[signal arg_type="dict" arg="{"animation":"Neutral","character":"Jaime"}"]
+jaime: Aprecio todo tipo de arte, especialmente los videojuegos y la música.
+[signal arg_type="dict" arg="{"animation":"Neutral","character":"Jaime"}"]
+jaime: La plataforma que utilizo para jugar es la PC, aunque también disfruto de las consolas portátiles.
+[signal arg_type="dict" arg="{"animation":"Excited","character":"Jaime"}"]
+jaime: Me gusta jugar una variedad de géneros, pero sin duda los juegos de Rockstar Games son mis favoritos.
+[signal arg_type="dict" arg="{"animation":"Happy","character":"Jaime"}"]
+jaime: ¡Gracias por ver mi presentación, espero verlos en clase!
+
+[end_timeline]
