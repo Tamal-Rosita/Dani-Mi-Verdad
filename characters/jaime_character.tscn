@@ -1400,7 +1400,7 @@ bones/109/rotation = Quaternion(-0.0846067, 0.663198, -0.743007, -0.030835)
 bones/110/rotation = Quaternion(-0.00624683, 0.999785, 0.0193468, 0.00399553)
 
 [node name="Head" parent="jaime/GeneralSkeleton" index="4"]
-transform = Transform3D(0.999949, 0.00741554, -0.00690199, -0.00734616, 0.999923, 0.0100221, 0.00697577, -0.00997084, 0.999926, 0.0177883, 1.45988, 0.0253586)
+transform = Transform3D(0.999949, 0.00741573, -0.00690203, -0.00734633, 0.999923, 0.010022, 0.00697582, -0.00997071, 0.999926, 0.0177883, 1.45988, 0.0253587)
 
 [node name="secondary" parent="jaime" index="2"]
 update_in_editor = true

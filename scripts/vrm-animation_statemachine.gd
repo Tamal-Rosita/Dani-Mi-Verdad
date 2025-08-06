@@ -8,9 +8,9 @@ extends AnimationTree
 @onready var character: CharacterBody3D  = get_parent() as CharacterBody3D #parent
 @onready var character_name: String = character.character_name
 
-var total_time = 0
-var relaxed_blend_path = "parameters/idle/blend_amount"
-var belly_twerk_blend_path = "parameters/expressions/add_amount"
+var total_time: int                = 0
+var relaxed_blend_path: String     = "parameters/idle/blend_amount"
+var belly_twerk_blend_path: String = "parameters/expressions/add_amount"
 
 func _process(delta):
 	total_time += delta
@@ -31,11 +31,11 @@ func update_anim(time: float):
 func set_animation_condition(condition_name:String, value: bool):
 	# Cancel previous anim
 	if initial_anim != "":
-		var path ="parameters/conditions/" + initial_anim
+		var path: String = "parameters/conditions/" + initial_anim
 		set(path, false)
 		
 	# Construct the parameter path
-	var parameter_path ="parameters/conditions/" + condition_name
+	var parameter_path: String = "parameters/conditions/" + condition_name
 	
 	# Check if the parameter exists
 	# if animation_tree.has_node(parameter_path):
@@ -50,7 +50,7 @@ func set_animation_condition(condition_name:String, value: bool):
 ## Process Dictionary signal sent from Dialogic	
 ## Take Arguments:
 ## Dictionary="{"animation":"Dance","character":"ArchLinux-Chan"}
-func _on_dialogic_dictionary_signal(argument: Dictionary):
+func _on_dialogic_dictionary_signal(argument: Dictionary) -> void:
 	if argument["character"] != "All" && argument["character"] != character_name:
 		return
 	if argument["animation"] == null:
