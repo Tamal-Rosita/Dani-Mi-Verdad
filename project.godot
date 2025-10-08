@@ -63,6 +63,10 @@ window/size/viewport_height=720
 
 enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/orbit_camera/plugin.cfg", "res://addons/vrm/plugin.cfg")
 
+[global_group]
+
+ControllableCharacter="Controllable Characters that use ActionContainer"
+
 [input]
 
 dialogic_default_action={

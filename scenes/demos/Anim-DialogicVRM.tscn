@@ -4,9 +4,9 @@
 [ext_resource type="Environment" uid="uid://loc7egiabhbn" path="res://scenes/main_environment.tres" id="2_xj5od"]
 [ext_resource type="CameraAttributesPractical" uid="uid://griw7imxte1w" path="res://scenes/main_camera_attributes_practical.tres" id="3_a37n3"]
 [ext_resource type="Script" uid="uid://r317w7cq2oju" path="res://addons/orbit_camera/orbit_camera.gd" id="4_xuro3"]
-[ext_resource type="PackedScene" uid="uid://e2w2uk33s4my" path="res://characters/dorita-corona_character.tscn" id="5_jemyy"]
-[ext_resource type="PackedScene" uid="uid://bvk8jqxm5vvqc" path="res://characters/jaime_character.tscn" id="6_ksbam"]
-[ext_resource type="PackedScene" uid="uid://6s1ymbiwitu2" path="res://characters/archlinux-chan_character.tscn" id="7_mb4kk"]
+[ext_resource type="PackedScene" uid="uid://e2w2uk33s4my" path="res://scenes/characters/dorita-corona_character.tscn" id="5_jemyy"]
+[ext_resource type="PackedScene" uid="uid://bvk8jqxm5vvqc" path="res://scenes/characters/jaime_character.tscn" id="6_ksbam"]
+[ext_resource type="PackedScene" uid="uid://6s1ymbiwitu2" path="res://scenes/characters/archlinux-chan_character.tscn" id="7_mb4kk"]
 
 [node name="Base" type="Node3D"]
 

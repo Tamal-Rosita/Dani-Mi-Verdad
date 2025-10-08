@@ -1,0 +1,11 @@
+Model Information:
+* title:	Halloween graveyard pack
+* source:	https://sketchfab.com/3d-models/halloween-graveyard-pack-9d2ba5dfc9ec401b87e88fd121bc249c
+* author:	rudolfs (https://sketchfab.com/rudolfs)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Halloween graveyard pack" (https://sketchfab.com/3d-models/halloween-graveyard-pack-9d2ba5dfc9ec401b87e88fd121bc249c) by rudolfs (https://sketchfab.com/rudolfs) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
