@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://iiucm15urfno"]
+[gd_scene load_steps=10 format=3 uid="uid://iiucm15urfno"]
 
 [ext_resource type="Script" uid="uid://3eqo7411bjwq" path="res://controller_examples/scripts/simple_character/collision_shape_3d.gd" id="1_33180"]
 [ext_resource type="PackedScene" uid="uid://6s1ymbiwitu2" path="res://scenes/characters/archlinux-chan_character.tscn" id="2_xpvjh"]
 [ext_resource type="Script" uid="uid://812l427pcbu6" path="res://controller_examples/scripts/cameras/third_person_cam.gd" id="3_xpvjh"]
 [ext_resource type="Script" uid="uid://cavoehjg14dyj" path="res://addons/character_controller/scripts/action_container.gd" id="4_0xybg"]
+[ext_resource type="Script" uid="uid://dn0l3kkomlwu7" path="res://controller_examples/scripts/simple_character/actions/action_move_simple.gd" id="5_njd1i"]
+[ext_resource type="Script" uid="uid://cqdsr3d0jkd4b" path="res://controller_examples/scripts/simple_character/actions/action_jump_simple.gd" id="6_8d2uj"]
 [ext_resource type="Script" uid="uid://to2l8lodveh7" path="res://controller_examples/scripts/simple_character/movement_grounded_complex.gd" id="6_lmc2y"]
 [ext_resource type="Script" uid="uid://dhxeoug7ju6y3" path="res://addons/character_controller/scripts/movement_state_manager.gd" id="6_wxsl1"]
 
@@ -11,7 +13,7 @@
 radius = 0.32373047
 height = 1.6567383
 
-[node name="CharacterBody3D" type="CharacterBody3D" groups=["ControllableCharacter"]]
+[node name="ThirdPersonCharacter" type="CharacterBody3D" groups=["ControllableCharacter"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
@@ -34,11 +36,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 script = ExtResource("4_0xybg")
 metadata/_custom_type_script = "uid://cavoehjg14dyj"
 
-[node name="MovementStateManager" type="Node" parent="." node_paths=PackedStringArray("active_state")]
+[node name="Move" type="Node" parent="ActionContainer"]
+script = ExtResource("5_njd1i")
+
+[node name="Jump" type="Node" parent="ActionContainer"]
+script = ExtResource("6_8d2uj")
+
+[node name="MovementManager" type="Node" parent="." node_paths=PackedStringArray("active_state")]
 script = ExtResource("6_wxsl1")
-active_state = NodePath("MovementGroundedComplex")
+active_state = NodePath("GroundedMovement")
 metadata/_custom_type_script = "uid://dhxeoug7ju6y3"
 
-[node name="MovementGroundedComplex" type="Node" parent="MovementStateManager"]
+[node name="GroundedMovement" type="Node" parent="MovementManager"]
 script = ExtResource("6_lmc2y")
+enabled = true
 metadata/_custom_type_script = "uid://to2l8lodveh7"
