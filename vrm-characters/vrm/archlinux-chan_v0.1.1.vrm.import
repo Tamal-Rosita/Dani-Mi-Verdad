@@ -3,21 +3,23 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1bbfo5ds5i7y"
-path="res://.godot/imported/DoritaCorona.vrm-bc37fffd215a65f095b2071c881cbf87.scn"
+uid="uid://vjnkt0u433vy"
+path="res://.godot/imported/archlinux-chan_v0.1.1.vrm-cb32c85e9d931b73d3c6f9faa89dd151.scn"
 
 [deps]
 
-source_file="res://vrm/DoritaCorona.vrm"
-dest_files=["res://.godot/imported/DoritaCorona.vrm-bc37fffd215a65f095b2071c881cbf87.scn"]
+source_file="res://vrm-characters/vrm/archlinux-chan_v0.1.1.vrm"
+dest_files=["res://.godot/imported/archlinux-chan_v0.1.1.vrm-cb32c85e9d931b73d3c6f9faa89dd151.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,6 +34,9 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "nodes": {
 "PATH:GeneralSkeleton": {

@@ -3,21 +3,23 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://vjnkt0u433vy"
-path="res://.godot/imported/archlinux-chan_v0.1.1.vrm-2e903318acb5dd54ee248606b733bdf7.scn"
+uid="uid://by6iaxdb0bhia"
+path="res://.godot/imported/jaime.vrm-c5cccb5f71d0dd32dd9cf520dd6f8008.scn"
 
 [deps]
 
-source_file="res://vrm/archlinux-chan_v0.1.1.vrm"
-dest_files=["res://.godot/imported/archlinux-chan_v0.1.1.vrm-2e903318acb5dd54ee248606b733bdf7.scn"]
+source_file="res://vrm-characters/vrm/jaime.vrm"
+dest_files=["res://.godot/imported/jaime.vrm-c5cccb5f71d0dd32dd9cf520dd6f8008.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,6 +34,9 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "nodes": {
 "PATH:GeneralSkeleton": {

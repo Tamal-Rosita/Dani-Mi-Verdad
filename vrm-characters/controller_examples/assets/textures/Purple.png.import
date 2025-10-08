@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkpqh8de7tb3n"
-path.bptc="res://.godot/imported/Green.png-e68eeff3b8216b819aa1efa6cb60e47d.bptc.ctex"
+uid="uid://b70qkbc614vpe"
+path.bptc="res://.godot/imported/Purple.png-a853938164f71db5fcea6b0a87c4b035.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://controller_examples/assets/textures/Green.png"
-dest_files=["res://.godot/imported/Green.png-e68eeff3b8216b819aa1efa6cb60e47d.bptc.ctex"]
+source_file="res://vrm-characters/controller_examples/assets/textures/Purple.png"
+dest_files=["res://.godot/imported/Purple.png-a853938164f71db5fcea6b0a87c4b035.bptc.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b70qkbc614vpe"
-path.bptc="res://.godot/imported/Purple.png-bda875e161fc8c0b56750727cec51537.bptc.ctex"
+uid="uid://doyodkg1ds7td"
+path.bptc="res://.godot/imported/Sky.png-2675c51f71c6dd724824f6276f7be152.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://controller_examples/assets/textures/Purple.png"
-dest_files=["res://.godot/imported/Purple.png-bda875e161fc8c0b56750727cec51537.bptc.ctex"]
+source_file="res://vrm-characters/controller_examples/assets/textures/Sky.png"
+dest_files=["res://.godot/imported/Sky.png-2675c51f71c6dd724824f6276f7be152.bptc.ctex"]
 
 [params]
 

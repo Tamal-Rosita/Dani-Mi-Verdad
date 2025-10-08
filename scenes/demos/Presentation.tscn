@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b6uru0j3wwlxv" path="res://scenes/dialogic_control.tscn" id="1_pecbj"]
 [ext_resource type="Environment" uid="uid://loc7egiabhbn" path="res://scenes/main_environment.tres" id="2_y6c4c"]
 [ext_resource type="CameraAttributesPractical" uid="uid://griw7imxte1w" path="res://scenes/main_camera_attributes_practical.tres" id="3_t4rdm"]
-[ext_resource type="PackedScene" uid="uid://bvk8jqxm5vvqc" path="res://scenes/characters/jaime_character.tscn" id="6_x758s"]
+[ext_resource type="PackedScene" uid="uid://bvk8jqxm5vvqc" path="res://scenes/demos/characters/jaime_character.tscn" id="6_x758s"]
 
 [node name="Base" type="Node3D"]
 

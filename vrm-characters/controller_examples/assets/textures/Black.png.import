@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gwt4mrbmdv01"
-path.bptc="res://.godot/imported/Orange.png-5a915872110de546fd3b604ae5fac9c7.bptc.ctex"
+uid="uid://b8q44ipg8a3cq"
+path.bptc="res://.godot/imported/Black.png-16c0dd48779d9ffcb0bb961c7cf41586.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://controller_examples/assets/textures/Orange.png"
-dest_files=["res://.godot/imported/Orange.png-5a915872110de546fd3b604ae5fac9c7.bptc.ctex"]
+source_file="res://vrm-characters/controller_examples/assets/textures/Black.png"
+dest_files=["res://.godot/imported/Black.png-16c0dd48779d9ffcb0bb961c7cf41586.bptc.ctex"]
 
 [params]
 
