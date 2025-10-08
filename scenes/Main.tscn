@@ -1,17 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4jw7etvdxnx1"]
+[gd_scene load_steps=9 format=3 uid="uid://c4jw7etvdxnx1"]
 
 [ext_resource type="Environment" uid="uid://loc7egiabhbn" path="res://scenes/main_environment.tres" id="1_rvslj"]
 [ext_resource type="CameraAttributesPractical" uid="uid://griw7imxte1w" path="res://scenes/main_camera_attributes_practical.tres" id="2_0bbpv"]
-[ext_resource type="PackedScene" uid="uid://b6uru0j3wwlxv" path="res://scenes/dialogic_control.tscn" id="4_c01mt"]
-[ext_resource type="PackedScene" uid="uid://6s1ymbiwitu2" path="res://scenes/characters/archlinux-chan_character.tscn" id="8_jlsqs"]
+[ext_resource type="PackedScene" uid="uid://iiucm15urfno" path="res://scenes/ThirdPersonCharacter.tscn" id="3_0bbpv"]
+[ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://controller_examples/scripts/controllers/controller_player.gd" id="4_rarhs"]
 
-[node name="Base" type="Node3D"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rarhs"]
+load_path = "res://.godot/imported/Black.png-011a83b0ab22e74f6f017cc708298872.bptc.ctex"
 
-[node name="DialogicControl" parent="." instance=ExtResource("4_c01mt")]
-visible = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vcsgt"]
+albedo_texture = SubResource("CompressedTexture2D_rarhs")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c01mt"]
+material = SubResource("StandardMaterial3D_vcsgt")
+size = Vector2(50, 50)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nxtc6"]
+
+[node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_rvslj")
 camera_attributes = ExtResource("2_0bbpv")
 
-[node name="ArchLinux-Chan_Character" parent="." instance=ExtResource("8_jlsqs")]
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_c01mt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nxtc6")
+
+[node name="ThirdPersonCharacter" parent="." instance=ExtResource("3_0bbpv")]
+
+[node name="Controllers" type="Node" parent="."]
+
+[node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+script = ExtResource("4_rarhs")
+controlled_obj = NodePath("../../ThirdPersonCharacter")
