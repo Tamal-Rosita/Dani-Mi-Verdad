@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VRM-NovelEngine"
-run/main_scene="uid://c4jw7etvdxnx1"
+run/main_scene="uid://l8bpgmry05va"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://bklxfuuu03836"
 
@@ -118,3 +118,7 @@ dialogic_default_action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

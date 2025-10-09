@@ -4,3 +4,6 @@
 .builds/
 /android/
 /builds/
+
+*.blend1
+*.zip

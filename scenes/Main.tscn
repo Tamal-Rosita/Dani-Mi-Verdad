@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4jw7etvdxnx1"]
+[gd_scene load_steps=13 format=3 uid="uid://c4jw7etvdxnx1"]
 
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://vrm-characters/controller_examples/assets/textures/Sky.png" id="1_c01mt"]
 [ext_resource type="Script" uid="uid://b4c5qx68b6owi" path="res://vrm-characters/controller_examples/scripts/level_script.gd" id="1_nxtc6"]
-[ext_resource type="PackedScene" uid="uid://iiucm15urfno" path="res://scenes/ThirdPersonCharacter.tscn" id="3_0bbpv"]
 [ext_resource type="Script" uid="uid://brsvrykk3p5is" path="res://vrm-characters/controller_examples/scripts/controllers/controller_ai.gd" id="3_c01mt"]
 [ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://vrm-characters/controller_examples/scripts/controllers/controller_player.gd" id="4_rarhs"]
-[ext_resource type="PackedScene" uid="uid://cx6yw7mm2s808" path="res://vrm-characters/controller_examples/scenes/SimpleCharacter.tscn" id="4_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://b7fsxspjqkhle" path="res://vrm-characters/scenes/Dani.scn" id="5_jlsqs"]
+[ext_resource type="PackedScene" uid="uid://4q8ygrqul147" path="res://vrm-characters/scenes/ArchLinux-Chan.scn" id="6_jlsqs"]
 [ext_resource type="Texture2D" uid="uid://fexmap0owos0" path="res://addons/kenney_prototype_textures/light/texture_06.png" id="7_nxtc6"]
+[ext_resource type="PackedScene" uid="uid://bq4h34rux0fcu" path="res://vrm-characters/scenes/Dorita.scn" id="7_q8u5g"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
 panorama = ExtResource("1_c01mt")
@@ -28,9 +29,9 @@ uv1_scale = Vector3(10, 10, 10)
 [node name="Main" type="Node3D" node_paths=PackedStringArray("player_controller", "ai_controller", "player_character", "ai_character")]
 script = ExtResource("1_nxtc6")
 player_controller = NodePath("Controllers/PlayerController")
-ai_controller = NodePath("Controllers/AIController")
-player_character = NodePath("Characters/SimpleCharacter")
-ai_character = NodePath("Characters/ThirdPersonCharacter")
+ai_controller = NodePath("Controllers/AIController-Arch")
+player_character = NodePath("Characters/Dani")
+ai_character = NodePath("Characters/ArchLinux-Chan")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ctwiv")
@@ -45,21 +46,27 @@ directional_shadow_blend_splits = true
 
 [node name="Controllers" type="Node" parent="."]
 
-[node name="AIController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+[node name="AIController-Arch" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
 script = ExtResource("3_c01mt")
-controlled_obj = NodePath("../../Characters/ThirdPersonCharacter")
+controlled_obj = NodePath("../../Characters/ArchLinux-Chan")
+
+[node name="AIController-Dorita" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+script = ExtResource("3_c01mt")
+controlled_obj = NodePath("../../Characters/Dorita")
 
 [node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
 script = ExtResource("4_rarhs")
-controlled_obj = NodePath("../../Characters/SimpleCharacter")
+controlled_obj = NodePath("../../Characters/Dani")
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="SimpleCharacter" parent="Characters" instance=ExtResource("4_vcsgt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185151, 0, 5.83012)
+[node name="Dani" parent="Characters" instance=ExtResource("5_jlsqs")]
 
-[node name="ThirdPersonCharacter" parent="Characters" instance=ExtResource("3_0bbpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0961535, 0, 0)
+[node name="ArchLinux-Chan" parent="Characters" instance=ExtResource("6_jlsqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.205055, 0.006919265, 3.3295555)
+
+[node name="Dorita" parent="Characters" instance=ExtResource("7_q8u5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185151, 0, 5.83012)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

@@ -1,0 +1,175 @@
+[gd_scene load_steps=14 format=3 uid="uid://l8bpgmry05va"]
+
+[ext_resource type="Script" uid="uid://b4c5qx68b6owi" path="res://vrm-characters/controller_examples/scripts/level_script.gd" id="1_ukcpv"]
+[ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://vrm-characters/controller_examples/assets/textures/Sky.png" id="2_d4g1l"]
+[ext_resource type="Script" uid="uid://brsvrykk3p5is" path="res://vrm-characters/controller_examples/scripts/controllers/controller_ai.gd" id="3_1o2xk"]
+[ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://vrm-characters/controller_examples/scripts/controllers/controller_player.gd" id="4_p7ss6"]
+[ext_resource type="PackedScene" uid="uid://b7fsxspjqkhle" path="res://vrm-characters/scenes/Dani.scn" id="5_3q2kj"]
+[ext_resource type="PackedScene" uid="uid://4q8ygrqul147" path="res://vrm-characters/scenes/ArchLinux-Chan.scn" id="6_s2nf1"]
+[ext_resource type="PackedScene" uid="uid://bq4h34rux0fcu" path="res://vrm-characters/scenes/Dorita.scn" id="7_ayl4p"]
+[ext_resource type="PackedScene" uid="uid://c12jnr3jlsoku" path="res://meshes/lowpoly_berlin_u-bahn_station/lowpoly_berlin_u-bahn_station.glb" id="9_n6uri"]
+[ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://vrm-characters/controller_examples/assets/textures/Black.png" id="9_ukcpv"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
+panorama = ExtResource("2_d4g1l")
+
+[sub_resource type="Sky" id="Sky_5ngqa"]
+sky_material = SubResource("PanoramaSkyMaterial_6c4vd")
+
+[sub_resource type="Environment" id="Environment_ctwiv"]
+background_mode = 1
+background_color = Color(0.16206557, 0.1620656, 0.16206554, 1)
+background_energy_multiplier = 1.25
+sky = SubResource("Sky_5ngqa")
+tonemap_mode = 2
+tonemap_white = 1.5
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.17613995, 0.19138414, 0.2218684, 1)
+adjustment_enabled = true
+adjustment_saturation = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxtc6"]
+albedo_texture = ExtResource("9_ukcpv")
+uv1_scale = Vector3(10, 10, 10)
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("player_controller", "ai_controller", "player_character", "ai_character")]
+script = ExtResource("1_ukcpv")
+player_controller = NodePath("Controllers/PlayerController")
+ai_controller = NodePath("Controllers/AIController-PatrolLine")
+player_character = NodePath("Characters/Dani")
+ai_character = NodePath("Characters/ArchLinux-Chan")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ctwiv")
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+
+[node name="Controllers" type="Node" parent="."]
+
+[node name="AIController-PatrolLine" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+script = ExtResource("3_1o2xk")
+INPUT_DELAY = 1.0
+rotation_angle = 180.0
+controlled_obj = NodePath("../../Characters/ArchLinux-Chan")
+
+[node name="AIController-PatrolSquare" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+script = ExtResource("3_1o2xk")
+INPUT_DELAY = 0.25
+controlled_obj = NodePath("../../Characters/Dorita")
+
+[node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+script = ExtResource("4_p7ss6")
+controlled_obj = NodePath("../../Characters/Dani")
+
+[node name="Characters" type="Node" parent="."]
+
+[node name="Dani" parent="Characters" instance=ExtResource("5_3q2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9556823, 1.1134133, 13.302963)
+
+[node name="ArchLinux-Chan" parent="Characters" instance=ExtResource("6_s2nf1")]
+transform = Transform3D(0.54656976, 0, 0.83741355, 0, 1, 0, -0.83741355, 0, 0.54656976, 6.1355486, 1.1149004, -11.503197)
+
+[node name="Dorita" parent="Characters" instance=ExtResource("7_ayl4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2824, 1.1149004, -33.618584)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("9_n6uri")]
+
+[node name="Collisions" type="Node3D" parent="."]
+
+[node name="Ground_CSGBox3D" type="CSGBox3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(150, 1, 150)
+material = SubResource("StandardMaterial3D_nxtc6")
+
+[node name="Platform-Walls" type="Node3D" parent="Collisions"]
+
+[node name="Platform_CSGBox3D" type="CSGBox3D" parent="Collisions/Platform-Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2926617, 0.5639389, -15.64336)
+transparency = 1.0
+use_collision = true
+size = Vector3(5.17511, 1.0981445, 62.721375)
+material = SubResource("StandardMaterial3D_nxtc6")
+
+[node name="Columns_CSGBox3D" type="CSGBox3D" parent="Collisions/Platform-Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9350715, 2.9604232, -23.876791)
+transparency = 1.0
+use_collision = true
+size = Vector3(1.5296097, 3.5929432, 7.5191307)
+material = SubResource("StandardMaterial3D_nxtc6")
+
+[node name="Columns_CSGBox3D3" type="CSGBox3D" parent="Collisions/Platform-Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9350715, 2.9604232, -7.1596074)
+transparency = 1.0
+use_collision = true
+size = Vector3(1.5296097, 3.5929432, 6.741599)
+material = SubResource("StandardMaterial3D_nxtc6")
+
+[node name="Columns_CSGBox3D4" type="CSGBox3D" parent="Collisions/Platform-Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9350715, 2.9604232, 7.423981)
+transparency = 1.0
+use_collision = true
+size = Vector3(1.5296097, 3.5929432, 9.534595)
+material = SubResource("StandardMaterial3D_nxtc6")
+
+[node name="Columns_CSGBox3D2" type="CSGBox3D" parent="Collisions/Platform-Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9350715, 2.9604232, -38.504044)
+transparency = 1.0
+use_collision = true
+size = Vector3(1.5296097, 3.5929432, 8.677807)
+material = SubResource("StandardMaterial3D_nxtc6")
+
+[node name="Wall-Begin_CSGBox3D" type="CSGBox3D" parent="Collisions/Platform-Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5472298, 2.425413, 16.053537)
+use_collision = true
+size = Vector3(8.691, 4.898, 0.5)
+material = SubResource("StandardMaterial3D_nxtc6")
+
+[node name="Wall-End_CSGBox3D" type="CSGBox3D" parent="Collisions/Platform-Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5472298, 2.425413, -47.395313)
+use_collision = true
+size = Vector3(8.691, 4.898, 0.5)
+material = SubResource("StandardMaterial3D_nxtc6")
+
+[node name="Wall-Platform_CSGBox3D" type="CSGBox3D" parent="Collisions/Platform-Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0841494, 2.437764, -15.64336)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.31565142, 4.8457947, 62.721375)
+material = SubResource("StandardMaterial3D_nxtc6")
+
+[node name="Wall-Rails_CSGBox3D" type="CSGBox3D" parent="Collisions/Platform-Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9246264, 2.437764, -15.64336)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.31565142, 4.8457947, 62.721375)
+material = SubResource("StandardMaterial3D_nxtc6")
+
+[node name="Metro_CSGBox3D" type="CSGBox3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21146011, 2.0520341, -19.094852)
+transparency = 1.0
+use_collision = true
+size = Vector3(2.8586426, 4.0571594, 30.923553)
+material = SubResource("StandardMaterial3D_nxtc6")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5345154, 2.1210022, 10.065524)
+size = Vector3(8.427307, 5.119812, 14.530327)
+
+[node name="ReflectionProbe4" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5345154, 2.1210022, -1.0445099)
+size = Vector3(8.427307, 5.119812, 8.323707)
+
+[node name="ReflectionProbe2" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5345154, 2.1210022, -18.085785)
+size = Vector3(8.427307, 5.119812, 35.616173)
+
+[node name="ReflectionProbe3" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5345154, 2.1210022, -44.127377)
+size = Vector3(8.427307, 5.119812, 5.933078)
+
+[node name="ReflectionProbe5" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5345154, 2.1210022, -37.349438)
+size = Vector3(8.427307, 5.119812, 9.06035)

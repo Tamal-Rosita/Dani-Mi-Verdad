@@ -1,7 +1,8 @@
 extends Controller
 
 
-const INPUT_DELAY: float = 0.5
+@export var INPUT_DELAY: float = 0.5
+@export var rotation_angle: float = 90.0
 
 var _last_input_window: float = 0.0
 var _current_direction: Vector3 = Vector3.FORWARD
@@ -16,7 +17,7 @@ func _on_controlled_obj_change():
 
 func _process(delta: float) -> void:
 	if _last_input_window < 0.0:
-		_current_direction = _current_direction.rotated(Vector3.UP, deg_to_rad(90.0))
+		_current_direction = _current_direction.rotated(Vector3.UP, deg_to_rad(rotation_angle))
 		_last_input_window = INPUT_DELAY
 	else:
 		_last_input_window -= delta
