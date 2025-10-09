@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4jw7etvdxnx1"]
+[gd_scene load_steps=12 format=3 uid="uid://c4jw7etvdxnx1"]
 
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://vrm-characters/controller_examples/assets/textures/Sky.png" id="1_c01mt"]
 [ext_resource type="Script" uid="uid://b4c5qx68b6owi" path="res://vrm-characters/controller_examples/scripts/level_script.gd" id="1_nxtc6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://brsvrykk3p5is" path="res://vrm-characters/controller_examples/scripts/controllers/controller_ai.gd" id="3_c01mt"]
 [ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://vrm-characters/controller_examples/scripts/controllers/controller_player.gd" id="4_rarhs"]
 [ext_resource type="PackedScene" uid="uid://cx6yw7mm2s808" path="res://vrm-characters/controller_examples/scenes/SimpleCharacter.tscn" id="4_vcsgt"]
+[ext_resource type="Texture2D" uid="uid://fexmap0owos0" path="res://addons/kenney_prototype_textures/light/texture_06.png" id="7_nxtc6"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
 panorama = ExtResource("1_c01mt")
@@ -19,6 +20,10 @@ background_energy_multiplier = 0.85
 sky = SubResource("Sky_5ngqa")
 tonemap_mode = 3
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxtc6"]
+albedo_texture = ExtResource("7_nxtc6")
+uv1_scale = Vector3(10, 10, 10)
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("player_controller", "ai_controller", "player_character", "ai_character")]
 script = ExtResource("1_nxtc6")
@@ -57,5 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185151, 0, 5.83012)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0961535, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
+size = Vector3(50, 1, 50)
+material = SubResource("StandardMaterial3D_nxtc6")
