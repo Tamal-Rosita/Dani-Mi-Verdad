@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8q44ipg8a3cq"
 path.bptc="res://.godot/imported/Black.png-16c0dd48779d9ffcb0bb961c7cf41586.bptc.ctex"
+path.astc="res://.godot/imported/Black.png-16c0dd48779d9ffcb0bb961c7cf41586.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://vrm-characters/controller_examples/assets/textures/Black.png"
-dest_files=["res://.godot/imported/Black.png-16c0dd48779d9ffcb0bb961c7cf41586.bptc.ctex"]
+dest_files=["res://.godot/imported/Black.png-16c0dd48779d9ffcb0bb961c7cf41586.bptc.ctex", "res://.godot/imported/Black.png-16c0dd48779d9ffcb0bb961c7cf41586.astc.ctex"]
 
 [params]
 

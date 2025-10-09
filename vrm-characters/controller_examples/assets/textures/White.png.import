@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://6wofk4ae5yf3"
 path.bptc="res://.godot/imported/White.png-3a7d066aa4c9aad78658a2827d7f01e4.bptc.ctex"
+path.astc="res://.godot/imported/White.png-3a7d066aa4c9aad78658a2827d7f01e4.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://vrm-characters/controller_examples/assets/textures/White.png"
-dest_files=["res://.godot/imported/White.png-3a7d066aa4c9aad78658a2827d7f01e4.bptc.ctex"]
+dest_files=["res://.godot/imported/White.png-3a7d066aa4c9aad78658a2827d7f01e4.bptc.ctex", "res://.godot/imported/White.png-3a7d066aa4c9aad78658a2827d7f01e4.astc.ctex"]
 
 [params]
 

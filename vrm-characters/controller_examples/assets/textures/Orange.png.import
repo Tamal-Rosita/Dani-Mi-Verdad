@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://gwt4mrbmdv01"
 path.bptc="res://.godot/imported/Orange.png-37af4ef19d3cd9cdb0a0ad9efb2b34da.bptc.ctex"
+path.astc="res://.godot/imported/Orange.png-37af4ef19d3cd9cdb0a0ad9efb2b34da.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://vrm-characters/controller_examples/assets/textures/Orange.png"
-dest_files=["res://.godot/imported/Orange.png-37af4ef19d3cd9cdb0a0ad9efb2b34da.bptc.ctex"]
+dest_files=["res://.godot/imported/Orange.png-37af4ef19d3cd9cdb0a0ad9efb2b34da.bptc.ctex", "res://.godot/imported/Orange.png-37af4ef19d3cd9cdb0a0ad9efb2b34da.astc.ctex"]
 
 [params]
 

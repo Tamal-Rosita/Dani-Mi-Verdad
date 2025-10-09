@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cutbjd0u33v4t"
 path.bptc="res://.godot/imported/Red.png-5c18dfc79fcfe79c6b53dae481fe0bf6.bptc.ctex"
+path.astc="res://.godot/imported/Red.png-5c18dfc79fcfe79c6b53dae481fe0bf6.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://vrm-characters/controller_examples/assets/textures/Red.png"
-dest_files=["res://.godot/imported/Red.png-5c18dfc79fcfe79c6b53dae481fe0bf6.bptc.ctex"]
+dest_files=["res://.godot/imported/Red.png-5c18dfc79fcfe79c6b53dae481fe0bf6.bptc.ctex", "res://.godot/imported/Red.png-5c18dfc79fcfe79c6b53dae481fe0bf6.astc.ctex"]
 
 [params]
 

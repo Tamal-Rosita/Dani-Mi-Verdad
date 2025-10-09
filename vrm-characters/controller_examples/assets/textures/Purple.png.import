@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b70qkbc614vpe"
 path.bptc="res://.godot/imported/Purple.png-a853938164f71db5fcea6b0a87c4b035.bptc.ctex"
+path.astc="res://.godot/imported/Purple.png-a853938164f71db5fcea6b0a87c4b035.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://vrm-characters/controller_examples/assets/textures/Purple.png"
-dest_files=["res://.godot/imported/Purple.png-a853938164f71db5fcea6b0a87c4b035.bptc.ctex"]
+dest_files=["res://.godot/imported/Purple.png-a853938164f71db5fcea6b0a87c4b035.bptc.ctex", "res://.godot/imported/Purple.png-a853938164f71db5fcea6b0a87c4b035.astc.ctex"]
 
 [params]
 
