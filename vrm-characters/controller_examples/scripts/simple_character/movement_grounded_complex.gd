@@ -132,6 +132,10 @@ func _process_velocity(delta: float) -> void:
 	# add gravity
 	if is_movement_enabled(Behavior.GRAVITY):
 		_character.velocity += (_character.get_gravity() * mass) * delta
+		
+	var move_anim_speed = clampf(_character.velocity.length(), 0.0, 1.0)
+	print(move_anim_speed)
+	_animation_tree.set("parameters/Motion/blend_position", move_anim_speed)
 
 
 func _step_up_correction() -> bool:
