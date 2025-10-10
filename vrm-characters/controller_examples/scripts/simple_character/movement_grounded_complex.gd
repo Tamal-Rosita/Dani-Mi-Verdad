@@ -22,6 +22,7 @@ var _enabled_movement: int = Behavior.ALL
 
 @export var max_step_up: float = 1.0
 @export var max_step_down: float = 1.0
+@export var anim_idle_threshold: float = 0.2
 
 var was_on_floor: bool
 var root_motion_override: bool = false
@@ -133,8 +134,7 @@ func _process_velocity(delta: float) -> void:
 	if is_movement_enabled(Behavior.GRAVITY):
 		_character.velocity += (_character.get_gravity() * mass) * delta
 		
-	var move_anim_speed = clampf(_character.velocity.length(), 0.0, 1.0)
-	print(move_anim_speed)
+	var move_anim_speed = clampf(_character.velocity.length() - anim_idle_threshold, 0.0, 1.0)
 	_animation_tree.set("parameters/Motion/blend_position", move_anim_speed)
 
 
