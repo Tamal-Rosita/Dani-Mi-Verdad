@@ -1,7 +1,7 @@
 extends ActionNode
 
 
-const SPEED: float = 3.0
+@export var speed: float = 3.0
 
 var _movement_class: MovementState 
 var _movement_manager: MovementStateManager
@@ -28,7 +28,7 @@ func can_play() -> bool:
 
 func play(_params: Dictionary = {}) -> void:
 	if _params.has("input_direction"):
-		_movement_class.move(_params["input_direction"], SPEED)
+		_movement_class.move(_params["input_direction"], speed)
 		super.play()
 
 func stop() -> void:
