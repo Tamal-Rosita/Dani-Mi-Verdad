@@ -3,9 +3,9 @@ extends Controller
 
 @export var INPUT_DELAY: float = 0.5
 @export var rotation_angle: float = 90.0
+@export var current_direction: Vector3 = Vector3.RIGHT
 
 var _last_input_window: float = 0.0
-var _current_direction: Vector3 = Vector3.FORWARD
 var _action_container: ActionContainer
 var _cam_pivot: Node3D
 
@@ -17,11 +17,11 @@ func _on_controlled_obj_change():
 
 func _process(delta: float) -> void:
 	if _last_input_window < 0.0:
-		_current_direction = _current_direction.rotated(Vector3.UP, deg_to_rad(rotation_angle))
+		current_direction = current_direction.rotated(Vector3.UP, deg_to_rad(rotation_angle))
 		_last_input_window = INPUT_DELAY
 	else:
 		_last_input_window -= delta
 	
-	_action_container.play_action("MOVE", {"input_direction":_current_direction})
+	_action_container.play_action("MOVE", {"input_direction":current_direction})
 	if _cam_pivot:
-		_cam_pivot.set_direction(Vector2(_current_direction.x, _current_direction.z))
+		_cam_pivot.set_direction(Vector2(current_direction.x, current_direction.z))
