@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b4c5qx68b6owi" path="res://vrm-characters/controller_examples/scripts/level_script.gd" id="1_ukcpv"]
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://vrm-characters/controller_examples/assets/textures/Sky.png" id="2_d4g1l"]
-[ext_resource type="Script" uid="uid://brsvrykk3p5is" path="res://vrm-characters/controller_examples/scripts/controllers/controller_ai.gd" id="3_1o2xk"]
 [ext_resource type="LightmapGIData" uid="uid://doxpkb7am7d7s" path="res://scenes/Metro/Metro.lmbake" id="3_d4g1l"]
-[ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://vrm-characters/controller_examples/scripts/controllers/controller_player.gd" id="4_p7ss6"]
-[ext_resource type="PackedScene" uid="uid://ci6awoa2bxs0" path="res://vrm-characters/scenes/Dani_NPC.scn" id="8_jbw4d"]
-[ext_resource type="PackedScene" uid="uid://b4mo77etnecyx" path="res://vrm-characters/scenes/Gael_NPC.scn" id="9_mb38d"]
+[ext_resource type="Script" uid="uid://dmcynp0g0020r" path="res://vrm-characters/controller_examples/scripts/controllers/controller_side-ai.gd" id="6_jbw4d"]
+[ext_resource type="Script" uid="uid://cve242f0ec8v" path="res://vrm-characters/controller_examples/scripts/controllers/controller_side-player.gd" id="7_jbw4d"]
+[ext_resource type="PackedScene" uid="uid://ci6awoa2bxs0" path="res://vrm-characters/scenes/Dani_Side.scn" id="8_jbw4d"]
+[ext_resource type="PackedScene" uid="uid://b4mo77etnecyx" path="res://vrm-characters/scenes/Gael_Side.scn" id="9_mb38d"]
 [ext_resource type="PackedScene" uid="uid://cv3goqrxq422y" path="res://meshes/metro-panteones_lowploy_ex-berlin/metro_panteones.scn" id="10_mb38d"]
 [ext_resource type="Script" uid="uid://ci8jypb046k3x" path="res://camera/tunnel-side-follow.gd" id="11_1o2xk"]
 
@@ -64,11 +64,12 @@ size = Vector3(8.427307, 5.119812, 30.04321)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42.02074, 2.1210022, 2.5345173)
 size = Vector3(8.427307, 5.119812, 10.874702)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.75, 6)
 current = true
 far = 500.0
 script = ExtResource("11_1o2xk")
+target = NodePath("../Characters/Gael")
 offset = Vector3(0, 1, 0.5)
 dead_zone_width = 2.5
 dead_zone_depth = 3.0
@@ -82,13 +83,13 @@ z_max_limit = 7.5
 [node name="Controllers" type="Node" parent="."]
 
 [node name="AIController-PatrolLine" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
-script = ExtResource("3_1o2xk")
-INPUT_DELAY = 5.0
+script = ExtResource("6_jbw4d")
+INPUT_DELAY = 4.5
 rotation_angle = 180.0
 controlled_obj = NodePath("../../Characters/Dani")
 
 [node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
-script = ExtResource("4_p7ss6")
+script = ExtResource("7_jbw4d")
 controlled_obj = NodePath("../../Characters/Gael")
 
 [node name="Characters" type="Node" parent="."]
