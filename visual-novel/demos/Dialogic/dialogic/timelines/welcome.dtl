@@ -1,0 +1,14 @@
+[signal arg_type="dict" arg="{"character":"Dani", "mood":"relaxed", "mood_amount":"30", "relax_amount":"45", "dance_amount":"6"}"]
+Dani: ¡Hola! Mucho gusto, mi nombre es Dani y así es como me gusta que me llamen.
+[signal arg_type="dict" arg="{"character":"Dani", "mood":"angry", "mood_amount":"60", "relax_amount":"60", "dance_amount":"5"}",]
+Dani: Soy originaria de la Ciudad de México.
+[signal arg_type="dict" arg="{"character":"Dani", "mood":"happy", "mood_amount":"70", "relax_amount": "20", "dance_amount":"8"}"]
+Dani: Espero que les guste nuestro juego, una aventura en novela grafica.
+[signal arg_type="dict" arg="{"character":"Dani", "mood":"surprised", "mood_amount":"50", "relax_amount": "30", "dance_amount":"5"}"]
+Dani: Tambien espero que voten por Tamal Rosita en las jams de Mermelada de Juegos!
+[signal arg_type="dict" arg="{"character":"Dani", "mood":"sad", "mood_amount":"100", "relax_amount": "50", "dance_amount":"0"}"]
+Dani: Me entere que mi abuelo fallecio, necesito ir a su funeral. Acompaname en esta aventura!
+[signal arg_type="dict" arg="{"character":"Dani", "mood":"relaxed", "mood_amount":"50", "relax_amount": "80", "dance_amount":"0"}"]
+Dani: ¡Gracias por ver mi presentación, espero verlos en el juego!
+
+[end_timeline]
