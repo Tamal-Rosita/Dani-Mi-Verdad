@@ -1,4 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
+.build/
+.builds/
 /android/
 /builds/
+
+*.blend1
+*.zip
