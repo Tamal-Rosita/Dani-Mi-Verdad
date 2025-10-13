@@ -22,7 +22,6 @@ var _enabled_movement: int = Behavior.ALL
 
 @export var max_step_up: float = 1.0
 @export var max_step_down: float = 1.0
-@export var anim_idle_threshold: float = 0.2
 
 var was_on_floor: bool
 var root_motion_override: bool = false
@@ -48,8 +47,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	was_on_floor = _character.is_on_floor() # save state before moving the character
 	
-	_process_velocity(delta)
-	
+	var velocity: Vector3 = _process_velocity(delta)
+	var speed: float = velocity.length()
+		
 	# ledge step up correction
 	var stepped_up: bool = false
 	if is_movement_enabled(Behavior.STEP) and (!input_direction.is_zero_approx() or root_motion_override):
@@ -68,6 +68,13 @@ func _physics_process(delta: float) -> void:
 		_character.apply_floor_snap()
 	else:
 		enable_movement(Behavior.FLOOR_SNAP)
+	
+	if _animation_tree:
+		var move_anim_speed = remap (speed, 0.15, 1.5, 0.0, 1.0)
+		print(was_on_floor)
+		_animation_tree.set("parameters/Motion/blend_position", move_anim_speed)
+		_animation_tree.set("parameters/Jump/blend_position", move_anim_speed)		
+		_animation_tree.set("parameters/conditions/JUMP", !was_on_floor)
 
 
 #region Movement Modification
@@ -96,7 +103,7 @@ func is_movement_enabled(movement_type: Behavior) -> bool:
 
 
 #region Private Methods
-func _process_velocity(delta: float) -> void:
+func _process_velocity(delta: float) -> Vector3:
 	# handle root motion if detected 
 	root_motion_override = false
 	if _animation_tree and is_movement_enabled(Behavior.ROOT_MOTION) and _animation_tree.get_root_motion_position() != Vector3.ZERO:
@@ -134,8 +141,7 @@ func _process_velocity(delta: float) -> void:
 	if is_movement_enabled(Behavior.GRAVITY):
 		_character.velocity += (_character.get_gravity() * mass) * delta
 		
-	var move_anim_speed = clampf(_character.velocity.length() - anim_idle_threshold, 0.0, 1.0)
-	_animation_tree.set("parameters/Motion/blend_position", move_anim_speed)
+	return _character.velocity
 
 
 func _step_up_correction() -> bool:

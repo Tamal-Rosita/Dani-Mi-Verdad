@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://l8bpgmry05va"]
+
+[ext_resource type="Script" uid="uid://b4c5qx68b6owi" path="res://vrm-characters/controller_examples/scripts/level_script.gd" id="1_ukcpv"]
+[ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://vrm-characters/controller_examples/assets/textures/Sky.png" id="2_d4g1l"]
+[ext_resource type="LightmapGIData" uid="uid://doxpkb7am7d7s" path="res://visual-novel/demos/SideScroller/Metro/Metro.lmbake" id="3_d4g1l"]
+[ext_resource type="Script" uid="uid://dmcynp0g0020r" path="res://visual-novel/scripts/controllers/controller_side-ai.gd" id="6_jbw4d"]
+[ext_resource type="Script" uid="uid://cve242f0ec8v" path="res://visual-novel/scripts/controllers/controller_side-player.gd" id="7_jbw4d"]
+[ext_resource type="PackedScene" uid="uid://ci6awoa2bxs0" path="res://visual-novel/demos/SideScroller/Dani_Side.scn" id="8_jbw4d"]
+[ext_resource type="PackedScene" uid="uid://b4mo77etnecyx" path="res://visual-novel/demos/SideScroller/Gael_Side.scn" id="9_mb38d"]
+[ext_resource type="PackedScene" uid="uid://cv3goqrxq422y" path="res://visual-novel/demos/SideScroller/Metro/metro-panteones_lowploy_ex-berlin/metro_panteones.scn" id="10_mb38d"]
+[ext_resource type="Script" uid="uid://ci8jypb046k3x" path="res://visual-novel/scripts/camera/tunnel-side-follow.gd" id="11_1o2xk"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
+panorama = ExtResource("2_d4g1l")
+
+[sub_resource type="Sky" id="Sky_5ngqa"]
+sky_material = SubResource("PanoramaSkyMaterial_6c4vd")
+
+[sub_resource type="Environment" id="Environment_ctwiv"]
+background_mode = 1
+background_color = Color(0.5686275, 0.5686275, 0.5019608, 1)
+background_energy_multiplier = 1.15
+sky = SubResource("Sky_5ngqa")
+ambient_light_energy = 2.5
+tonemap_mode = 4
+tonemap_exposure = 1.5
+tonemap_white = 1.5
+fog_enabled = true
+fog_sky_affect = 0.25
+adjustment_saturation = 1.5
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("player_controller", "ai_controller", "player_character", "ai_character")]
+script = ExtResource("1_ukcpv")
+player_controller = NodePath("Controllers/PlayerController")
+ai_controller = NodePath("Controllers/AIController-PatrolLine")
+player_character = NodePath("Characters/Gael")
+ai_character = NodePath("Characters/Dani")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ctwiv")
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+quality = 0
+supersampling = true
+bounces = 5
+bounce_indirect_energy = 2.0
+interior = true
+max_texture_size = 2048
+generate_probes_subdiv = 1
+light_data = ExtResource("3_d4g1l")
+
+[node name="MetroPanteones" parent="." instance=ExtResource("10_mb38d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.598075, 2.1904144, 2.4616544)
+size = Vector3(8.573029, 5.2586365, 20.516815)
+
+[node name="ReflectionProbe2" type="ReflectionProbe" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18.872053, 2.1210022, 2.534516)
+size = Vector3(8.427307, 5.119812, 30.04321)
+
+[node name="ReflectionProbe3" type="ReflectionProbe" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42.02074, 2.1210022, 2.5345173)
+size = Vector3(8.427307, 5.119812, 10.874702)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.75, 6.3383217)
+current = true
+far = 500.0
+script = ExtResource("11_1o2xk")
+target = NodePath("../Characters/Gael")
+offset = Vector3(0, 1, 0.5)
+dead_zone_width = 2.5
+dead_zone_depth = 3.0
+follow_speed = 0.5
+use_limits = true
+x_min_limit = -11.0
+x_max_limit = 40.0
+z_min_limit = 4.5
+z_max_limit = 7.5
+
+[node name="Controllers" type="Node" parent="."]
+
+[node name="AIController-PatrolLine" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+script = ExtResource("6_jbw4d")
+INPUT_DELAY = 4.0
+rotation_angle = 180.0
+controlled_obj = NodePath("../../Characters/Dani")
+
+[node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+script = ExtResource("7_jbw4d")
+controlled_obj = NodePath("../../Characters/Gael")
+
+[node name="Characters" type="Node" parent="."]
+
+[node name="Dani" parent="Characters" instance=ExtResource("8_jbw4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.484283, 1.1149004, 5.591963)
+
+[node name="Gael" parent="Characters" instance=ExtResource("9_mb38d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.132, 3.96)

@@ -1,7 +1,7 @@
 extends ActionNode
 
 
-const JUMP_STRENGTH: float = 5.0
+@export var JUMP_STRENGTH: float = 5.0
 
 var _movement_class: MovementState 
 var _movement_manager: MovementStateManager

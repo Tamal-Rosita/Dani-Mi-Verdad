@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VRM-NovelEngine"
-run/main_scene="uid://l8bpgmry05va"
+run/main_scene="uid://v55rysb3elor"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://bklxfuuu03836"
 
@@ -22,12 +22,13 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"archlinux-chan": "res://dialogic/characters/archlinux-chan.dch",
-"jaime": "res://dialogic/characters/jaime.dch"
+"archlinux-chan": "res://visual-novel/demos/Dialogic/dialogic/characters/archlinux-chan.dch",
+"jaime": "res://visual-novel/demos/Dialogic/dialogic/characters/jaime.dch"
 }
 directories/dtl_directory={
-"chapterA": "res://dialogic/timelines/chapterA.dtl",
-"presentation": "res://dialogic/timelines/presentation.dtl"
+"presentation": "res://visual-novel/demos/Dialogic/dialogic/timelines/presentation.dtl",
+"timelines/chapterA": "res://visual-novel/demos/Dialogic/dialogic/timelines/chapterA.dtl",
+"timelines/presentation": "res://visual-novel/demos/Dialogic/dialogic/timelines/presentation.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://dialogic/styles/my_new_style.tres"]
