@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VRM-NovelEngine"
-run/main_scene="uid://b0aaoaja30a5j"
+run/main_scene="uid://bqsjjyfdbycmx"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://bklxfuuu03836"
 
@@ -22,15 +22,15 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"Dani": "res://visual-novel/demos/Dialogic/dialogic/characters/Dani.dch",
-"archlinux-chan": "res://visual-novel/demos/Dialogic/dialogic/characters/archlinux-chan.dch",
-"jaime": "res://visual-novel/demos/Dialogic/dialogic/characters/jaime.dch"
+"Dani": "res://dialogic/characters/Dani.dch",
+"archlinux-chan": "res://dialogic/characters/archlinux-chan.dch",
+"jaime": "res://dialogic/characters/jaime.dch"
 }
 directories/dtl_directory={
-"presentation": "res://visual-novel/demos/Dialogic/dialogic/timelines/presentation.dtl",
-"timelines/chapterA": "res://visual-novel/demos/Dialogic/dialogic/timelines/chapterA.dtl",
-"timelines/presentation": "res://visual-novel/demos/Dialogic/dialogic/timelines/presentation.dtl",
-"welcome": "res://visual-novel/demos/Dialogic/dialogic/timelines/welcome.dtl"
+"presentation": "res://dialogic/timelines/presentation.dtl",
+"test": "res://dialogic/timelines/test.dtl",
+"timelines/welcome": "res://dialogic/timelines/welcome.dtl",
+"welcome": "res://dialogic/timelines/welcome.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://dialogic/styles/my_new_style.tres"]
