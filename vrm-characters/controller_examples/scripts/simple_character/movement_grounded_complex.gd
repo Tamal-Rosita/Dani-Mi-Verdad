@@ -1,8 +1,6 @@
 extends MovementState
 class_name MovementGroundedComplex
 
-
-
 signal step(step_data: Dictionary)
 signal climb_ledge(step_data: Dictionary)
 
@@ -70,8 +68,9 @@ func _physics_process(delta: float) -> void:
 		enable_movement(Behavior.FLOOR_SNAP)
 	
 	if _animation_tree:
-		var move_anim_speed = remap (speed, 0.15, 1.5, 0.0, 1.0)
-		print(was_on_floor)
+		var move_anim_speed = remap (speed, 0.15, 1.5, 0.0, 1.0)		
+		# print(owner.name + ": " + str(was_on_floor))
+		# TODO: Fix this with jump status.
 		_animation_tree.set("parameters/Motion/blend_position", move_anim_speed)
 		_animation_tree.set("parameters/Jump/blend_position", move_anim_speed)		
 		_animation_tree.set("parameters/conditions/JUMP", !was_on_floor)
