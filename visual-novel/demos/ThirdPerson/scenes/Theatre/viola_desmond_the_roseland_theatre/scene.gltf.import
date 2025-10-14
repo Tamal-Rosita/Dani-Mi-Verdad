@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dwkjatqipg35i"
-path="res://.godot/imported/scene.gltf-4bf17754185b61f7965bf0696892f802.scn"
+path="res://.godot/imported/scene.gltf-cacf1b5b0d791f7c536cb3cfb25a7d42.scn"
 
 [deps]
 
-source_file="res://meshes/viola_desmond_the_roseland_theatre/scene.gltf"
-dest_files=["res://.godot/imported/scene.gltf-4bf17754185b61f7965bf0696892f802.scn"]
+source_file="res://visual-novel/demos/ThirdPerson/scenes/Theatre/viola_desmond_the_roseland_theatre/scene.gltf"
+dest_files=["res://.godot/imported/scene.gltf-cacf1b5b0d791f7c536cb3cfb25a7d42.scn"]
 
 [params]
 
@@ -24,7 +24,7 @@ nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=1
+meshes/light_baking=2
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true

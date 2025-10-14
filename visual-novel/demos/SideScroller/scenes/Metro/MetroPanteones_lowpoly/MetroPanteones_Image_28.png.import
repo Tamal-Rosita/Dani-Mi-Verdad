@@ -2,18 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf4n1r2w0txua"
-path.s3tc="res://.godot/imported/aiStandardSurface1SG_baseColor.png-a5e757e75d646ef3c2aa6b456458133b.s3tc.ctex"
-path.etc2="res://.godot/imported/aiStandardSurface1SG_baseColor.png-a5e757e75d646ef3c2aa6b456458133b.etc2.ctex"
+uid="uid://chbh44dioivv8"
+path.s3tc="res://.godot/imported/MetroPanteones_Image_28.png-b099a42b4f1d714e63737baca16c0edf.s3tc.ctex"
+path.etc2="res://.godot/imported/MetroPanteones_Image_28.png-b099a42b4f1d714e63737baca16c0edf.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "b83ea0f0332a12f8ab7426313fdeee89"
+}
 
 [deps]
 
-source_file="res://meshes/viola_desmond_the_roseland_theatre/textures/aiStandardSurface1SG_baseColor.png"
-dest_files=["res://.godot/imported/aiStandardSurface1SG_baseColor.png-a5e757e75d646ef3c2aa6b456458133b.s3tc.ctex", "res://.godot/imported/aiStandardSurface1SG_baseColor.png-a5e757e75d646ef3c2aa6b456458133b.etc2.ctex"]
+source_file="res://visual-novel/demos/SideScroller/scenes/Metro/MetroPanteones_lowpoly/MetroPanteones_Image_28.png"
+dest_files=["res://.godot/imported/MetroPanteones_Image_28.png-b099a42b4f1d714e63737baca16c0edf.s3tc.ctex", "res://.godot/imported/MetroPanteones_Image_28.png-b099a42b4f1d714e63737baca16c0edf.etc2.ctex"]
 
 [params]
 
