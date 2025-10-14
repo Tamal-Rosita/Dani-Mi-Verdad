@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://vrm-characters/controller_examples/assets/textures/Sky.png" id="2_sg4lm"]
 [ext_resource type="Script" uid="uid://brsvrykk3p5is" path="res://vrm-characters/controller_examples/scripts/controllers/controller_ai.gd" id="3_v6u2d"]
 [ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://vrm-characters/controller_examples/scripts/controllers/controller_player.gd" id="4_kjn6m"]
-[ext_resource type="PackedScene" uid="uid://csfnoih5mr7g3" path="res://visual-novel/scenes/ThirdPersonCharacter.tscn" id="5_2up8n"]
+[ext_resource type="PackedScene" uid="uid://csfnoih5mr7g3" path="res://visual-novel/scenes/ThirdPersonCharacter.tscn" id="5_66rht"]
 [ext_resource type="PackedScene" uid="uid://cx6yw7mm2s808" path="res://vrm-characters/controller_examples/scenes/SimpleCharacter.tscn" id="6_r3t1q"]
 [ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://vrm-characters/controller_examples/assets/textures/Black.png" id="7_qkvml"]
 [ext_resource type="Texture2D" uid="uid://6wofk4ae5yf3" path="res://vrm-characters/controller_examples/assets/textures/White.png" id="8_ce15b"]
@@ -94,7 +94,7 @@ controlled_obj = NodePath("../../Characters/SimpleCharacter")
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="ExampleCharacter2" parent="Characters" instance=ExtResource("5_2up8n")]
+[node name="ExampleCharacter2" parent="Characters" instance=ExtResource("5_66rht")]
 
 [node name="SimpleCharacter" parent="Characters" instance=ExtResource("6_r3t1q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185151, 0, 5.83012)
