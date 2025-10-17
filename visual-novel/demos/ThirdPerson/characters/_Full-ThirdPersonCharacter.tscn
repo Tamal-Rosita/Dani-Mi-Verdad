@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://3eqo7411bjwq" path="res://vrm-characters/controller_examples/scripts/simple_character/collision_shape_3d.gd" id="7_14o7e"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://b7ylgyss6jgi2" path="res://vrm-characters/animations/basic_female_locomotion_state-machine.tres" id="7_ajs3u"]
 [ext_resource type="AnimationLibrary" uid="uid://dcqciprq58now" path="res://vrm-characters/animations/basic_female_locomotion_library.res" id="7_t7a7k"]
-[ext_resource type="PackedScene" uid="uid://cbddb5kh8c7xr" path="res://vrm-characters/vrm/Dani.vrm" id="7_wug5i"]
+[ext_resource type="PackedScene" uid="uid://cbddb5kh8c7xr" path="res://vrm-characters/vrm/Dani_jp.vrm" id="7_wug5i"]
 [ext_resource type="Script" uid="uid://812l427pcbu6" path="res://vrm-characters/controller_examples/scripts/cameras/third_person_cam.gd" id="9_f116s"]
 [ext_resource type="Script" uid="uid://cavoehjg14dyj" path="res://vrm-characters/character_controller/scripts/action_container.gd" id="10_1wfu5"]
 [ext_resource type="Script" uid="uid://0s27mb2d6unm" path="res://vrm-characters/character_controller/scripts/action_container_config.gd" id="11_uhyae"]

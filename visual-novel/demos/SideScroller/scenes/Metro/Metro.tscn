@@ -48,8 +48,8 @@ light_data = ExtResource("3_k1euc")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.775061, 2.870354, 2.5841658)
-size = Vector3(9.94696, 5.990593, 62.627254)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.755188, 2.5835783, 2.6792662)
+size = Vector3(10.108871, 6.564144, 63.259476)
 interior = true
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]

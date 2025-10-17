@@ -1,7 +1,7 @@
 [gd_scene load_steps=70 format=3 uid="uid://cc3pmslcb170x"]
 
 [ext_resource type="Script" uid="uid://bgnmwonlivjeg" path="res://visual-novel/scripts/vrm/vrm-character.gd" id="1_mudop"]
-[ext_resource type="PackedScene" uid="uid://cbddb5kh8c7xr" path="res://vrm-characters/vrm/Dani.vrm" id="2_ur51b"]
+[ext_resource type="PackedScene" uid="uid://cbddb5kh8c7xr" path="res://vrm-characters/vrm/Dani_jp.vrm" id="2_ur51b"]
 [ext_resource type="Script" uid="uid://bh0kts1q2t2iu" path="res://addons/vrm/vrm_spring_bone.gd" id="3_ur51b"]
 [ext_resource type="Script" uid="uid://k0tkdr1fej6k" path="res://addons/vrm/vrm_collider_group.gd" id="4_vfvmn"]
 [ext_resource type="Script" uid="uid://p4cpsh67l24x" path="res://addons/vrm/vrm_collider.gd" id="5_7y3gr"]
