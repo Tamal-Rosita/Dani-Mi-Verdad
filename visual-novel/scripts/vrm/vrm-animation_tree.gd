@@ -11,7 +11,7 @@ var total_time: int                   = 0
 var mood_amount_path: String          = "parameters/expression/add_amount"
 var dance_amount_path: String         = "parameters/dance/blend_amount"
 var mood_state_path: String           = "parameters/mood/transition_request"
-var straight_idle_amount_path: String = "parameters/straight/blend_amount"
+var straight_idle_amount_path: String = "parameters/straight/blend_amount"	
 var viseme_amount_path: String        = "parameters/viseme/add_amount"
 var viseme_state_path: String         = "parameters/syllabus/transition_request"
 

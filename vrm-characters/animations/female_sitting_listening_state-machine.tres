@@ -1,0 +1,15 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=3 format=3 uid="uid://cxfy8yoexr8he"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pr7wv"]
+animation = &"basic_female_idle_actions_library/Sitting Crossed Listening"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8jwh8"]
+advance_mode = 2
+
+[resource]
+states/End/position = Vector2(984, 83)
+states/Start/position = Vector2(26, 53)
+"states/basic_female_idle_actions_library_Sitting Crossed Listening/node" = SubResource("AnimationNodeAnimation_pr7wv")
+"states/basic_female_idle_actions_library_Sitting Crossed Listening/position" = Vector2(356, 191)
+transitions = ["Start", "basic_female_idle_actions_library_Sitting Crossed Listening", SubResource("AnimationNodeStateMachineTransition_8jwh8")]
+graph_offset = Vector2(-267, 19)

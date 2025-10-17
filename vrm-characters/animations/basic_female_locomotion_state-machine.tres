@@ -41,11 +41,11 @@ advance_mode = 2
 advance_mode = 2
 
 [resource]
-states/End/position = Vector2(454, 55)
+states/End/position = Vector2(426, 121)
 states/Jump/node = SubResource("AnimationNodeBlendSpace1D_ybftw")
-states/Jump/position = Vector2(220, -24)
+states/Jump/position = Vector2(192, 42)
 states/Motion/node = SubResource("AnimationNodeBlendSpace1D_aihfo")
-states/Motion/position = Vector2(220, 116)
-states/Start/position = Vector2(-19, 34)
+states/Motion/position = Vector2(192, 182)
+states/Start/position = Vector2(-47, 100)
 transitions = ["Motion", "Jump", SubResource("AnimationNodeStateMachineTransition_jvanm"), "Jump", "Motion", SubResource("AnimationNodeStateMachineTransition_rip2l"), "Start", "Motion", SubResource("AnimationNodeStateMachineTransition_08lbb")]
 graph_offset = Vector2(-470.0428, -65)
