@@ -1,0 +1,11 @@
+Model Information:
+* title:	Coffin
+* source:	https://sketchfab.com/3d-models/coffin-e5750f903f664fc6ab5d9937af1990ed
+* author:	pityblithe (https://sketchfab.com/pityblithe)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Coffin" (https://sketchfab.com/3d-models/coffin-e5750f903f664fc6ab5d9937af1990ed) by pityblithe (https://sketchfab.com/pityblithe) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
