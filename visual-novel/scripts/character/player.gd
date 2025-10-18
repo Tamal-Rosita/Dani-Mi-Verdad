@@ -1,14 +1,16 @@
-extends CharacterBody3D
+@icon("res://visual-novel/scripts/icons/player3d_icon.svg")
 
 class_name Player
+extends NovelCharacter
 
-@export_category("Locomotion")
-@export var speed: float = 2
-@export var jump_strength: float = 3
+signal dialogue_focus
 
-@onready var move_action: ActionNode = $ActionContainer/Move
-@onready var jump_action: ActionNode = $ActionContainer/Jump
-
-func _ready() -> void:
-	move_action.speed = speed
-	jump_action.JUMP_STRENGTH = jump_strength
+func set_dialogue(active: bool) -> void:
+	if Dialogic.current_timeline != null:
+		return
+	dialogue_focus.emit(active)
+	
+	get_viewport().set_input_as_handled()
+	Dialogic.start('teatro_cinematica01')
+	
+	
