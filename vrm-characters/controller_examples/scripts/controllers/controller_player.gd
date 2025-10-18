@@ -3,10 +3,13 @@ extends Controller
 ## provides input to ActionContainer
 ## example of player controller
 
+@export var can_control: bool = true
+
 const DOUBLE_TAP_DELAY: float = 0.25
 
 var _cam_pivot: Node3D
 var _action_container: ActionContainer
+var _player: Player
 
 var _last_input_window: float = 0.0
 var _last_input: StringName
@@ -32,6 +35,14 @@ func _on_controlled_obj_change():
 		# warning: can cause inf loop
 		# evaluate_all_input -> stop_action -> action_exit -> evaluate_all_input
 		# actions must not enter and exit in the same frame
+		
+	_player = controlled_obj as Player
+	_player.dialogue_focus.connect(_on_player_dialogue_focus)
+	
+
+func _on_player_dialogue_focus(active: bool):
+	can_control = !active
+	print("Can control Player: ", can_control)
 
 
 func _process(delta: float) -> void:
@@ -42,6 +53,9 @@ func _process(delta: float) -> void:
 	
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
+		
+	if not can_control:
+		return
 	
 	var input: Vector2 = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards").rotated(-_cam_pivot.rotation.y)
 	_input_tracking["move"] = Vector3(input.x, 0.0, input.y)
@@ -49,6 +63,9 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		return
+		
+	if not can_control:
 		return
 	
 	if event is InputEventMouseMotion:
