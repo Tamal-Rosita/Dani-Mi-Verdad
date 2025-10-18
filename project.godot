@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VRM-NovelEngine"
-run/main_scene="uid://b0aaoaja30a5j"
+run/main_scene="uid://dvxg1dwf5bdk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://bklxfuuu03836"
 
@@ -22,12 +22,16 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Celia": "res://dialogic/characters/Celia.dch",
 "Dani": "res://dialogic/characters/Dani.dch",
+"Georgino": "res://dialogic/characters/Georgino.dch",
+"NPC": "res://dialogic/characters/NPC.dch",
 "archlinux-chan": "res://dialogic/characters/archlinux-chan.dch",
 "jaime": "res://dialogic/characters/jaime.dch"
 }
 directories/dtl_directory={
 "presentation": "res://dialogic/timelines/presentation.dtl",
+"teatro_cinematica01": "res://dialogic/timelines/teatro_cinematica01.dtl",
 "test": "res://dialogic/timelines/test.dtl",
 "timelines/welcome": "res://dialogic/timelines/welcome.dtl",
 "welcome": "res://dialogic/timelines/welcome.dtl"
