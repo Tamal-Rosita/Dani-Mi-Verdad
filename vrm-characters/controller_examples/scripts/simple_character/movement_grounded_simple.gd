@@ -1,11 +1,8 @@
 extends MovementState
 class_name MovementGroundedSimple
 
-
-
 var slow_down_speed: float = 5.0
 var _character: CharacterBody3D 
-
 
 func _ready() -> void:
 	if get_parent() is CharacterBody3D:
