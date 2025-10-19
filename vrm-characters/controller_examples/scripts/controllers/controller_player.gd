@@ -37,12 +37,12 @@ func _on_controlled_obj_change():
 		# actions must not enter and exit in the same frame
 		
 	_player = controlled_obj as Player
-	_player.dialogue_focus.connect(_on_player_dialogue_focus)
+	_player.interaction_toggle.connect(_on_interaction_toggle)
 	
 
-func _on_player_dialogue_focus(active: bool):
-	can_control = !active
-	print("Can control Player: ", can_control)
+func _on_interaction_toggle(is_active: bool):
+	can_control = !is_active
+	print("Player interaction " + ("started" if is_active else "ended"))
 
 
 func _process(delta: float) -> void:

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bn03sfnx6rmlh" path="res://visual-novel/GJDDM/characters/Celia_NPC.scn" id="5_alhdd"]
 [ext_resource type="PackedScene" uid="uid://b5vc1c2uhsch" path="res://visual-novel/GJDDM/characters/Georgino_NPC.scn" id="6_kl2vs"]
 [ext_resource type="PackedScene" uid="uid://dhvhvr08or4d5" path="res://visual-novel/GJDDM/characters/Gael_NPC.scn" id="6_uwggp"]
-[ext_resource type="PackedScene" uid="uid://x8uvs4pwhbb7" path="res://visual-novel/GJDDM/characters/Dani_Player.scn" id="6_vuobj"]
+[ext_resource type="PackedScene" uid="uid://x8uvs4pwhbb7" path="res://visual-novel/GJDDM/characters/Player.scn" id="6_vuobj"]
 [ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://vrm-characters/controller_examples/assets/textures/Black.png" id="7_1i10u"]
 [ext_resource type="Texture2D" uid="uid://6wofk4ae5yf3" path="res://vrm-characters/controller_examples/assets/textures/White.png" id="8_elbb0"]
 [ext_resource type="PackedScene" uid="uid://b4mo77etnecyx" path="res://visual-novel/demos/SideScroller/characters/Gael_Side.scn" id="8_kl2vs"]
