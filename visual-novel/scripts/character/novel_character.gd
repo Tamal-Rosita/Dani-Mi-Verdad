@@ -1,6 +1,7 @@
-extends CharacterBody3D
+class_name NovelCharacter extends CharacterBody3D
 
-class_name NovelCharacter
+@export_category("Dialogic")
+@export var character: DialogicCharacter
 
 @export_category("Locomotion")
 @export var speed: float = 2
@@ -16,16 +17,17 @@ func _ready() -> void:
 	move_action.speed = speed
 	jump_action.JUMP_STRENGTH = jump_strength
 	
-func set_focus(is_focus:bool) -> void:
-	animation_tree.set("parameters/conditions/Focus", is_focus)
-	animation_tree.set("parameters/conditions/Talk", !is_focus)
-	dialogue_camera.current = is_focus
+func focus_character(active: bool) -> void:
+	dialogue_camera.current = active
+	## Animation Focus parameter
+	animation_tree.set("parameters/conditions/Focus", active)
+	## Other parameters
+	animation_tree.set("parameters/conditions/Talk", !active)
 	
 func _on_interaction_area_3d_body_entered(body: Node3D) -> void:
 	if body is NovelCharacter:
-		set_focus(true)	
-
+		print("Entered character interaction area")
 
 func _on_interaction_area_3d_body_exited(body: Node3D) -> void:
 	if  body is NovelCharacter:
-		set_focus(false) 
+		print("Exited character interaction area")

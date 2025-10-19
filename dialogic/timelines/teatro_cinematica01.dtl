@@ -1,4 +1,4 @@
-[signal arg_type="dict" arg="{"character":"Celia", "mood":"relaxed", "mood_amount":"30", "relax_amount":"45", "dance_amount":"0}"]
+[signal arg_type="dict" arg="{"character":"Celia", "mood":"relaxed", "mood_amount":"30"}"]
 Celia: Pensé que no vendrías
 Dani: Pensé en no hacerlo
 Georgino: A la familia le dará gusto que estés aquí
