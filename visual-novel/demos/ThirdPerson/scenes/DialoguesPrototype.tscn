@@ -107,7 +107,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_26ptr")
 
 [node name="Wall" type="MeshInstance3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -7.3128)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -12.273128)
 mesh = SubResource("BoxMesh_plpqy")
 skeleton = NodePath("../..")
 
@@ -215,25 +215,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.6)
 [node name="CSGBox3D5" type="CSGBox3D" parent="Level/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -0.8)
 
+[node name="DashPickup" parent="." instance=ExtResource("10_0ag41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78498, 0, -1.4562)
+
 [node name="Characters" type="Node" parent="."]
 
 [node name="Dani" parent="Characters" instance=ExtResource("6_vuobj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12346, 0, -1.6626062)
 
 [node name="Celia" parent="Characters" instance=ExtResource("5_alhdd")]
-transform = Transform3D(0.9616887, 0, -0.27414387, 0, 1, 0, 0.27414387, 0, 0.9616887, -0.33746976, 0, 4.9084387)
+transform = Transform3D(-0.9616887, 0, 0.27414396, 0, 1, 0, -0.27414396, 0, -0.9616887, 0.6478145, 0, -9.869755)
 
 [node name="Georgino" parent="Characters" instance=ExtResource("6_kl2vs")]
-transform = Transform3D(0.87724674, 0, 0.48003978, 0, 1, 0, -0.48003978, 0, 0.87724674, 1.13998, 0, 4.9172907)
+transform = Transform3D(-0.8772468, 0, -0.4800397, 0, 1, 0, 0.4800397, 0, -0.8772468, -0.809896, 0, -9.859331)
 
 [node name="Gael2" parent="Characters" instance=ExtResource("8_kl2vs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3722134, 0, 0)
 
 [node name="Gael" parent="Characters" instance=ExtResource("6_uwggp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.12912, 0, -0.34603596)
-
-[node name="DashPickup" parent="." instance=ExtResource("10_0ag41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78498, 0, -1.4562)
 
 [node name="Cameras" type="Node" parent="."]
 

@@ -2,8 +2,6 @@
 
 class_name Player extends NovelCharacter
 
-@export var interaction_key: Key = KEY_E
-
 signal interaction_toggle
 
 var _interaction_character: DialogicNpc
@@ -14,7 +12,7 @@ var _interaction_character: DialogicNpc
 func _ready() -> void:
 	_interaction_hud.visible = false	
 	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
-	Dialogic.timeline_started.connect(_on_dialogic_timeline_started)
+	Dialogic.timeline_started.connect(_on_dialogic_timeline_started)	
 	
 func _on_dialogic_timeline_ended() -> void:
 	if _cam_pivot.camera:
@@ -44,9 +42,6 @@ func play_interaction() -> void:
 		print_rich("[color=yellow]No timeline loaded to NPC")
 		return		
 	start_dialogue(_interaction_character.timeline)
-	
-	_interaction_character.focus_character(true) ## TODO: Update with timeline events
-
 
 func start_dialogue(timeline: DialogicTimeline) -> void:
 	if Dialogic.current_timeline != null: return

@@ -15,10 +15,22 @@ class_name NovelCharacter extends CharacterBody3D
 
 func _ready() -> void:
 	move_action.speed = speed
-	jump_action.JUMP_STRENGTH = jump_strength
+	jump_action.JUMP_STRENGTH = jump_strength	
+	Dialogic.Text.speaker_updated.connect(_on_dialogic_speaker_updated) # This is working
 	
+	Dialogic.Portraits.character_joined.connect(_on_dialogic_character_joined) # TODO: Use this as reference for Custom Event
+func _on_dialogic_character_joined(info: Dictionary) -> void:
+	print("Timeline character joined")
+	print(info)
+	
+func _on_dialogic_speaker_updated(new_character: DialogicCharacter) -> void:
+	if new_character == character:
+		print("Speaker updated: " + new_character.display_name)
+		focus_character(true)
+	
+		
 func focus_character(active: bool) -> void:
-	dialogue_camera.current = active
+	dialogue_camera.make_current()
 	## Animation Focus parameter
 	animation_tree.set("parameters/conditions/Focus", active)
 	## Other parameters
