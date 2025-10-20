@@ -1,17 +1,20 @@
-[gd_scene load_steps=27 format=3 uid="uid://dvxg1dwf5bdk"]
+[gd_scene load_steps=88 format=3 uid="uid://dvxg1dwf5bdk"]
 
 [ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/controllers/pointer_capture.gd" id="2_m17ss"]
-[ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://vrm-characters/controller_examples/assets/textures/Sky.png" id="2_vuobj"]
-[ext_resource type="Script" uid="uid://brsvrykk3p5is" path="res://vrm-characters/controller_examples/scripts/controllers/controller_ai.gd" id="3_alhdd"]
-[ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://vrm-characters/controller_examples/scripts/controllers/controller_player.gd" id="4_kl2vs"]
-[ext_resource type="PackedScene" uid="uid://bn03sfnx6rmlh" path="res://visual-novel/characters/Celia_NPC.scn" id="5_alhdd"]
-[ext_resource type="PackedScene" uid="uid://bott2umyuqpu2" path="res://visual-novel/characters/Georgino_NPC.scn" id="6_kl2vs"]
-[ext_resource type="PackedScene" uid="uid://x8uvs4pwhbb7" path="res://visual-novel/characters/Player.scn" id="6_vuobj"]
-[ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://vrm-characters/controller_examples/assets/textures/Black.png" id="7_1i10u"]
-[ext_resource type="Texture2D" uid="uid://6wofk4ae5yf3" path="res://vrm-characters/controller_examples/assets/textures/White.png" id="8_elbb0"]
-[ext_resource type="Texture2D" uid="uid://dkpqh8de7tb3n" path="res://vrm-characters/controller_examples/assets/textures/Green.png" id="9_03lyo"]
-[ext_resource type="PackedScene" uid="uid://cqe35jnafmlk" path="res://vrm-characters/controller_examples/scenes/DashPickup.tscn" id="10_0ag41"]
-[ext_resource type="PackedScene" uid="uid://dhvhvr08or4d5" path="res://visual-novel/characters/Gael_NPC.scn" id="13_kl2vs"]
+[ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="2_vuobj"]
+[ext_resource type="Script" uid="uid://brsvrykk3p5is" path="res://controller_examples/scripts/controllers/controller_ai.gd" id="3_alhdd"]
+[ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://controller_examples/scripts/controllers/controller_player.gd" id="4_kl2vs"]
+[ext_resource type="PackedScene" uid="uid://bn03sfnx6rmlh" path="res://visual-novel/GJDDM/characters/Celia_NPC.scn" id="5_alhdd"]
+[ext_resource type="PackedScene" uid="uid://bott2umyuqpu2" path="res://visual-novel/GJDDM/characters/Georgino_NPC.scn" id="6_kl2vs"]
+[ext_resource type="PackedScene" uid="uid://x8uvs4pwhbb7" path="res://visual-novel/GJDDM/characters/Dani_Player.scn" id="6_vuobj"]
+[ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://controller_examples/assets/textures/Black.png" id="7_1i10u"]
+[ext_resource type="Texture2D" uid="uid://6wofk4ae5yf3" path="res://controller_examples/assets/textures/White.png" id="8_elbb0"]
+[ext_resource type="Texture2D" uid="uid://dkpqh8de7tb3n" path="res://controller_examples/assets/textures/Green.png" id="9_03lyo"]
+[ext_resource type="PackedScene" uid="uid://cqe35jnafmlk" path="res://controller_examples/scenes/DashPickup.tscn" id="10_0ag41"]
+[ext_resource type="Script" uid="uid://bh0kts1q2t2iu" path="res://addons/vrm/vrm_spring_bone.gd" id="11_1i10u"]
+[ext_resource type="Script" uid="uid://k0tkdr1fej6k" path="res://addons/vrm/vrm_collider_group.gd" id="12_elbb0"]
+[ext_resource type="Script" uid="uid://p4cpsh67l24x" path="res://addons/vrm/vrm_collider.gd" id="13_03lyo"]
+[ext_resource type="PackedScene" uid="uid://dhvhvr08or4d5" path="res://visual-novel/GJDDM/characters/Gael_NPC.scn" id="13_kl2vs"]
 [ext_resource type="Script" uid="uid://b60p0g332w41m" path="res://visual-novel/scripts/camera/cinematic_camera.gd" id="14_m17ss"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
@@ -66,6 +69,484 @@ data = PackedVector3Array(-12.5, 2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, -12.
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qj2g"]
 albedo_color = Color(0.95, 0.665, 0.66975, 1)
+
+[sub_resource type="Resource" id="Resource_vb702"]
+resource_name = "Bust"
+script = ExtResource("11_1i10u")
+comment = "Bust"
+joint_nodes = PackedStringArray("J_Sec_L_Bust1", "J_Sec_L_Bust2", "")
+stiffness_scale = 0.75
+drag_force_scale = 0.05
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_oqrga"]
+resource_name = "Bust"
+script = ExtResource("11_1i10u")
+comment = "Bust"
+joint_nodes = PackedStringArray("J_Sec_R_Bust1", "J_Sec_R_Bust2", "")
+stiffness_scale = 0.75
+drag_force_scale = 0.05
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_776yu"]
+resource_name = "Head"
+script = ExtResource("13_03lyo")
+bone = "Head"
+offset = Vector3(9.313226e-09, 0.079275966, -0.0099074105)
+tail = Vector3(9.313226e-09, 0.079275966, -0.0099074105)
+radius = 0.0888932
+
+[sub_resource type="Resource" id="Resource_qf2cc"]
+script = ExtResource("12_elbb0")
+colliders = Array[ExtResource("13_03lyo")]([SubResource("Resource_776yu")])
+
+[sub_resource type="Resource" id="Resource_epwh7"]
+resource_name = "LeftUpperArm"
+script = ExtResource("13_03lyo")
+bone = "LeftUpperArm"
+offset = Vector3(0.0008374592, -0.00038387626, 0.008395076)
+tail = Vector3(0.0008374592, -0.00038387626, 0.008395076)
+radius = 0.0459496677
+
+[sub_resource type="Resource" id="Resource_1t4pq"]
+resource_name = "LeftUpperArm"
+script = ExtResource("13_03lyo")
+bone = "LeftUpperArm"
+offset = Vector3(0.00030665752, 0.0628865, 0.011341095)
+tail = Vector3(0.00030665752, 0.0628865, 0.011341095)
+radius = 0.0459496677
+
+[sub_resource type="Resource" id="Resource_nablc"]
+resource_name = "LeftUpperArm"
+script = ExtResource("13_03lyo")
+bone = "LeftUpperArm"
+offset = Vector3(-0.00022414373, 0.1261569, 0.014287233)
+tail = Vector3(-0.00022414373, 0.1261569, 0.014287233)
+radius = 0.0459496677
+
+[sub_resource type="Resource" id="Resource_cqvyd"]
+script = ExtResource("12_elbb0")
+colliders = Array[ExtResource("13_03lyo")]([SubResource("Resource_epwh7"), SubResource("Resource_1t4pq"), SubResource("Resource_nablc")])
+
+[sub_resource type="Resource" id="Resource_uqvkf"]
+resource_name = "RightUpperArm"
+script = ExtResource("13_03lyo")
+bone = "RightUpperArm"
+offset = Vector3(-0.0008408781, -0.0003829077, 0.008394837)
+tail = Vector3(-0.0008408781, -0.0003829077, 0.008394837)
+radius = 0.0459496677
+
+[sub_resource type="Resource" id="Resource_06l0e"]
+resource_name = "RightUpperArm"
+script = ExtResource("13_03lyo")
+bone = "RightUpperArm"
+offset = Vector3(-0.00030031428, 0.06288765, 0.011334896)
+tail = Vector3(-0.00030031428, 0.06288765, 0.011334896)
+radius = 0.0459496677
+
+[sub_resource type="Resource" id="Resource_burcl"]
+resource_name = "RightUpperArm"
+script = ExtResource("13_03lyo")
+bone = "RightUpperArm"
+offset = Vector3(0.00024024956, 0.12615824, 0.014274955)
+tail = Vector3(0.00024024956, 0.12615824, 0.014274955)
+radius = 0.0459496677
+
+[sub_resource type="Resource" id="Resource_oikg5"]
+script = ExtResource("12_elbb0")
+colliders = Array[ExtResource("13_03lyo")]([SubResource("Resource_uqvkf"), SubResource("Resource_06l0e"), SubResource("Resource_burcl")])
+
+[sub_resource type="Resource" id="Resource_1koam"]
+resource_name = "LeftLowerArm"
+script = ExtResource("13_03lyo")
+bone = "LeftLowerArm"
+offset = Vector3(0, 0, 2.7939677e-09)
+tail = Vector3(0, 0, 2.7939677e-09)
+radius = 0.0275698
+
+[sub_resource type="Resource" id="Resource_n5ffy"]
+resource_name = "LeftLowerArm"
+script = ExtResource("13_03lyo")
+bone = "LeftLowerArm"
+offset = Vector3(9.179115e-05, 0.042084217, 0.0034738972)
+tail = Vector3(9.179115e-05, 0.042084217, 0.0034738972)
+radius = 0.0321647674
+
+[sub_resource type="Resource" id="Resource_mk1iv"]
+resource_name = "LeftLowerArm"
+script = ExtResource("13_03lyo")
+bone = "LeftLowerArm"
+offset = Vector3(0.0001834631, 0.084168404, 0.0069477917)
+tail = Vector3(0.0001834631, 0.084168404, 0.0069477917)
+radius = 0.0275698
+
+[sub_resource type="Resource" id="Resource_yvc6e"]
+resource_name = "LeftLowerArm"
+script = ExtResource("13_03lyo")
+bone = "LeftLowerArm"
+offset = Vector3(0.00027525425, 0.12625259, 0.010421686)
+tail = Vector3(0.00027525425, 0.12625259, 0.010421686)
+radius = 0.0275698
+
+[sub_resource type="Resource" id="Resource_4tc2x"]
+script = ExtResource("12_elbb0")
+colliders = Array[ExtResource("13_03lyo")]([SubResource("Resource_1koam"), SubResource("Resource_n5ffy"), SubResource("Resource_mk1iv"), SubResource("Resource_yvc6e")])
+
+[sub_resource type="Resource" id="Resource_fx38e"]
+resource_name = "RightLowerArm"
+script = ExtResource("13_03lyo")
+bone = "RightLowerArm"
+offset = Vector3(0, 0, -6.519258e-09)
+tail = Vector3(0, 0, -6.519258e-09)
+radius = 0.0275698
+
+[sub_resource type="Resource" id="Resource_vmfaq"]
+resource_name = "RightLowerArm"
+script = ExtResource("13_03lyo")
+bone = "RightLowerArm"
+offset = Vector3(-9.8109245e-05, 0.04208362, 0.0034806784)
+tail = Vector3(-9.8109245e-05, 0.04208362, 0.0034806784)
+radius = 0.0321647674
+
+[sub_resource type="Resource" id="Resource_d0gy4"]
+resource_name = "RightLowerArm"
+script = ExtResource("13_03lyo")
+bone = "RightLowerArm"
+offset = Vector3(-0.0001963377, 0.08416727, 0.0069613634)
+tail = Vector3(-0.0001963377, 0.08416727, 0.0069613634)
+radius = 0.0275698
+
+[sub_resource type="Resource" id="Resource_y5o6j"]
+resource_name = "RightLowerArm"
+script = ExtResource("13_03lyo")
+bone = "RightLowerArm"
+offset = Vector3(-0.00029444695, 0.1262509, 0.010442048)
+tail = Vector3(-0.00029444695, 0.1262509, 0.010442048)
+radius = 0.0275698
+
+[sub_resource type="Resource" id="Resource_cc1bq"]
+script = ExtResource("12_elbb0")
+colliders = Array[ExtResource("13_03lyo")]([SubResource("Resource_fx38e"), SubResource("Resource_vmfaq"), SubResource("Resource_d0gy4"), SubResource("Resource_y5o6j")])
+
+[sub_resource type="Resource" id="Resource_xwer1"]
+resource_name = "LeftHand"
+script = ExtResource("13_03lyo")
+bone = "LeftHand"
+offset = Vector3(-0.0011622058, 0.0141225755, 8.08239e-05)
+tail = Vector3(-0.0011622058, 0.0141225755, 8.08239e-05)
+radius = 0.0254906267
+
+[sub_resource type="Resource" id="Resource_al4sf"]
+script = ExtResource("12_elbb0")
+colliders = Array[ExtResource("13_03lyo")]([SubResource("Resource_xwer1")])
+
+[sub_resource type="Resource" id="Resource_ovohw"]
+resource_name = "RightHand"
+script = ExtResource("13_03lyo")
+bone = "RightHand"
+offset = Vector3(0.001164645, 0.014122307, 8.2969666e-05)
+tail = Vector3(0.001164645, 0.014122307, 8.2969666e-05)
+radius = 0.0254906267
+
+[sub_resource type="Resource" id="Resource_dcqia"]
+script = ExtResource("12_elbb0")
+colliders = Array[ExtResource("13_03lyo")]([SubResource("Resource_ovohw")])
+
+[sub_resource type="Resource" id="Resource_cstuw"]
+resource_name = "UpperChest"
+script = ExtResource("13_03lyo")
+bone = "UpperChest"
+offset = Vector3(-6.4028427e-10, 0.0023624897, 0.008108312)
+tail = Vector3(-6.4028427e-10, 0.0023624897, 0.008108312)
+radius = 0.09189933
+
+[sub_resource type="Resource" id="Resource_jfpcv"]
+resource_name = "UpperChest"
+script = ExtResource("13_03lyo")
+bone = "UpperChest"
+offset = Vector3(0.04222743, 0.050341487, -0.023464784)
+tail = Vector3(0.04222743, 0.050341487, -0.023464784)
+radius = 0.06432953
+
+[sub_resource type="Resource" id="Resource_rpgje"]
+resource_name = "UpperChest"
+script = ExtResource("13_03lyo")
+bone = "UpperChest"
+offset = Vector3(-0.042227436, 0.050341487, -0.023464788)
+tail = Vector3(-0.042227436, 0.050341487, -0.023464788)
+radius = 0.06432953
+
+[sub_resource type="Resource" id="Resource_du448"]
+script = ExtResource("12_elbb0")
+colliders = Array[ExtResource("13_03lyo")]([SubResource("Resource_cstuw"), SubResource("Resource_jfpcv"), SubResource("Resource_rpgje")])
+
+[sub_resource type="Resource" id="Resource_xnxvc"]
+resource_name = "Spine"
+script = ExtResource("13_03lyo")
+bone = "Spine"
+radius = 0.110279195
+
+[sub_resource type="Resource" id="Resource_wwq3a"]
+script = ExtResource("12_elbb0")
+colliders = Array[ExtResource("13_03lyo")]([SubResource("Resource_xnxvc")])
+
+[sub_resource type="Resource" id="Resource_40c74"]
+resource_name = "Neck"
+script = ExtResource("13_03lyo")
+bone = "Neck"
+offset = Vector3(6.4028427e-09, 0.023725271, 0.014127841)
+tail = Vector3(6.4028427e-09, 0.023725271, 0.014127841)
+radius = 0.0459496677
+
+[sub_resource type="Resource" id="Resource_v6840"]
+script = ExtResource("12_elbb0")
+colliders = Array[ExtResource("13_03lyo")]([SubResource("Resource_40c74")])
+
+[sub_resource type="Resource" id="Resource_su235"]
+resource_name = "Hair"
+script = ExtResource("11_1i10u")
+comment = "Hair"
+joint_nodes = PackedStringArray("HairJoint-90bd578a-0a02-4b1d-8448-1d427c264eb8", "HairJoint-f109139e-4b37-4b37-8753-4e9d3d78c518", "HairJoint-680f2639-47ad-4a44-bfba-84a7656b4e4c", "HairJoint-a522c3e7-8e05-43be-9725-cc9633356a6e", "")
+stiffness_scale = 0.5
+drag_force_scale = 0.4
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_qf2cc"), SubResource("Resource_cqvyd"), SubResource("Resource_oikg5"), SubResource("Resource_4tc2x"), SubResource("Resource_cc1bq"), SubResource("Resource_al4sf"), SubResource("Resource_dcqia"), SubResource("Resource_du448"), SubResource("Resource_wwq3a"), SubResource("Resource_v6840")])
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_srrrr"]
+resource_name = "Hair"
+script = ExtResource("11_1i10u")
+comment = "Hair"
+joint_nodes = PackedStringArray("HairJoint-8f75599b-6719-4a23-9df3-7bafb987c83e", "HairJoint-62725a20-77c6-4e3f-9c16-d67a06847f32", "HairJoint-adc6646e-d1b4-414d-95cc-2b34441a9b08", "HairJoint-94107030-a1ca-47cf-bad8-55e241b853fc", "")
+stiffness_scale = 0.5
+drag_force_scale = 0.4
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_qf2cc"), SubResource("Resource_cqvyd"), SubResource("Resource_oikg5"), SubResource("Resource_4tc2x"), SubResource("Resource_cc1bq"), SubResource("Resource_al4sf"), SubResource("Resource_dcqia"), SubResource("Resource_du448"), SubResource("Resource_wwq3a"), SubResource("Resource_v6840")])
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_dfgg3"]
+resource_name = "Hair"
+script = ExtResource("11_1i10u")
+comment = "Hair"
+joint_nodes = PackedStringArray("HairJoint-dfbbe1f8-551f-494e-92b1-f31602e51ce5", "HairJoint-bdc09e40-dd31-41b2-a7db-18229e902446", "HairJoint-eeeeee4b-dc6b-4362-a7b1-401b207aaef1", "")
+stiffness_scale = 0.501315832
+drag_force_scale = 0.4
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_qf2cc"), SubResource("Resource_cqvyd"), SubResource("Resource_oikg5"), SubResource("Resource_4tc2x"), SubResource("Resource_cc1bq"), SubResource("Resource_al4sf"), SubResource("Resource_dcqia"), SubResource("Resource_du448"), SubResource("Resource_wwq3a"), SubResource("Resource_v6840")])
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_utaf4"]
+resource_name = "Hair"
+script = ExtResource("11_1i10u")
+comment = "Hair"
+joint_nodes = PackedStringArray("HairJoint-392d3846-d81f-4440-b15c-f874adf10bf3", "HairJoint-541ba6e5-f44e-4e6f-813f-e5e9dd48f1d2", "HairJoint-cce96e42-96cb-4df6-bb4f-b04dad7c38f2", "")
+stiffness_scale = 0.5973684
+drag_force_scale = 0.4
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_qf2cc"), SubResource("Resource_cqvyd"), SubResource("Resource_oikg5"), SubResource("Resource_4tc2x"), SubResource("Resource_cc1bq"), SubResource("Resource_al4sf"), SubResource("Resource_dcqia"), SubResource("Resource_du448"), SubResource("Resource_wwq3a"), SubResource("Resource_v6840")])
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_yo30n"]
+resource_name = "Hair"
+script = ExtResource("11_1i10u")
+comment = "Hair"
+joint_nodes = PackedStringArray("HairJoint-6092f063-b8ac-4a47-ae69-651c359ef7d6", "HairJoint-497b5a37-ae8c-4c2b-a626-45adbce9cbfc", "HairJoint-4fbf0ca4-3381-4561-82ba-3527297f501b", "")
+stiffness_scale = 0.5019737
+drag_force_scale = 0.4
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_qf2cc"), SubResource("Resource_cqvyd"), SubResource("Resource_oikg5"), SubResource("Resource_4tc2x"), SubResource("Resource_cc1bq"), SubResource("Resource_al4sf"), SubResource("Resource_dcqia"), SubResource("Resource_du448"), SubResource("Resource_wwq3a"), SubResource("Resource_v6840")])
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_6qktg"]
+resource_name = "Hair"
+script = ExtResource("11_1i10u")
+comment = "Hair"
+joint_nodes = PackedStringArray("HairJoint-73a91f69-c99f-455f-8555-b1f8292e0d34", "HairJoint-366b58a6-0d39-4b46-bf1c-d35021262b43", "HairJoint-dfbb8086-4791-4a6d-8501-bde80bc0f064", "")
+stiffness_scale = 0.498684227
+drag_force_scale = 0.4
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_qf2cc"), SubResource("Resource_cqvyd"), SubResource("Resource_oikg5"), SubResource("Resource_4tc2x"), SubResource("Resource_cc1bq"), SubResource("Resource_al4sf"), SubResource("Resource_dcqia"), SubResource("Resource_du448"), SubResource("Resource_wwq3a"), SubResource("Resource_v6840")])
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_5wpxh"]
+resource_name = "LeftUpperLeg"
+script = ExtResource("13_03lyo")
+bone = "LeftUpperLeg"
+offset = Vector3(0, 0, -4.656613e-10)
+tail = Vector3(0, 0, -4.656613e-10)
+radius = 0.07443846
+
+[sub_resource type="Resource" id="Resource_elftd"]
+resource_name = "LeftUpperLeg"
+script = ExtResource("13_03lyo")
+bone = "LeftUpperLeg"
+offset = Vector3(0.0058207586, 0.101162255, -0.0018170056)
+tail = Vector3(0.0058207586, 0.101162255, -0.0018170056)
+radius = 0.07443846
+
+[sub_resource type="Resource" id="Resource_fubc5"]
+resource_name = "LeftUpperLeg"
+script = ExtResource("13_03lyo")
+bone = "LeftUpperLeg"
+offset = Vector3(0.010671388, 0.18546408, -0.0033311765)
+tail = Vector3(0.010671388, 0.18546408, -0.0033311765)
+radius = 0.07443846
+
+[sub_resource type="Resource" id="Resource_m4j7a"]
+script = ExtResource("12_elbb0")
+colliders = Array[ExtResource("13_03lyo")]([SubResource("Resource_5wpxh"), SubResource("Resource_elftd"), SubResource("Resource_fubc5")])
+
+[sub_resource type="Resource" id="Resource_n0nlu"]
+resource_name = "RightUpperLeg"
+script = ExtResource("13_03lyo")
+bone = "RightUpperLeg"
+radius = 0.07443846
+
+[sub_resource type="Resource" id="Resource_eufc6"]
+resource_name = "RightUpperLeg"
+script = ExtResource("13_03lyo")
+bone = "RightUpperLeg"
+offset = Vector3(-0.0058208406, 0.101162255, -0.0018169772)
+tail = Vector3(-0.0058208406, 0.101162255, -0.0018169772)
+radius = 0.07443846
+
+[sub_resource type="Resource" id="Resource_edjt8"]
+resource_name = "RightUpperLeg"
+script = ExtResource("13_03lyo")
+bone = "RightUpperLeg"
+offset = Vector3(-0.010671541, 0.18546408, -0.0033311248)
+tail = Vector3(-0.010671541, 0.18546408, -0.0033311248)
+radius = 0.07443846
+
+[sub_resource type="Resource" id="Resource_djr8k"]
+script = ExtResource("12_elbb0")
+colliders = Array[ExtResource("13_03lyo")]([SubResource("Resource_n0nlu"), SubResource("Resource_eufc6"), SubResource("Resource_edjt8")])
+
+[sub_resource type="Resource" id="Resource_3ndf2"]
+resource_name = "Skirt"
+script = ExtResource("11_1i10u")
+comment = "Skirt"
+joint_nodes = PackedStringArray("J_Sec_L_SkirtBack1", "J_Sec_L_SkirtBack2", "J_Sec_L_SkirtBack2_end", "")
+stiffness_scale = 0.5
+drag_force_scale = 0.05
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_m4j7a"), SubResource("Resource_djr8k")])
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_hr71y"]
+resource_name = "Skirt"
+script = ExtResource("11_1i10u")
+comment = "Skirt"
+joint_nodes = PackedStringArray("J_Sec_L_SkirtFront1", "J_Sec_L_SkirtFront2", "J_Sec_L_SkirtFront2_end", "")
+stiffness_scale = 0.5
+drag_force_scale = 0.05
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_m4j7a"), SubResource("Resource_djr8k")])
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_3oj50"]
+resource_name = "Skirt"
+script = ExtResource("11_1i10u")
+comment = "Skirt"
+joint_nodes = PackedStringArray("J_Sec_L_SkirtSide1", "J_Sec_L_SkirtSide2", "J_Sec_L_SkirtSide2_end", "")
+stiffness_scale = 0.5
+drag_force_scale = 0.05
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_m4j7a"), SubResource("Resource_djr8k")])
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_rua4n"]
+resource_name = "Skirt"
+script = ExtResource("11_1i10u")
+comment = "Skirt"
+joint_nodes = PackedStringArray("J_Sec_R_SkirtBack1", "J_Sec_R_SkirtBack2", "J_Sec_R_SkirtBack2_end", "")
+stiffness_scale = 0.5
+drag_force_scale = 0.05
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_m4j7a"), SubResource("Resource_djr8k")])
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_hww1q"]
+resource_name = "Skirt"
+script = ExtResource("11_1i10u")
+comment = "Skirt"
+joint_nodes = PackedStringArray("J_Sec_R_SkirtFront1", "J_Sec_R_SkirtFront2", "J_Sec_R_SkirtFront2_end", "")
+stiffness_scale = 0.5
+drag_force_scale = 0.05
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_m4j7a"), SubResource("Resource_djr8k")])
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_cfe13"]
+resource_name = "Skirt"
+script = ExtResource("11_1i10u")
+comment = "Skirt"
+joint_nodes = PackedStringArray("J_Sec_R_SkirtSide1", "J_Sec_R_SkirtSide2", "J_Sec_R_SkirtSide2_end", "")
+stiffness_scale = 0.5
+drag_force_scale = 0.05
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_m4j7a"), SubResource("Resource_djr8k")])
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_3vjhs"]
+resource_name = "Sleeve"
+script = ExtResource("11_1i10u")
+comment = "Sleeve"
+joint_nodes = PackedStringArray("J_Sec_L_LowerSleeve", "J_Sec_L_LowerSleeve_end", "")
+stiffness_scale = 0.5
+drag_force_scale = 0.05
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_unvo4"]
+resource_name = "Sleeve"
+script = ExtResource("11_1i10u")
+comment = "Sleeve"
+joint_nodes = PackedStringArray("J_Sec_L_TipSleeve", "J_Sec_L_TipSleeve_end", "")
+stiffness_scale = 0.5
+drag_force_scale = 0.05
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_jng4m"]
+resource_name = "Sleeve"
+script = ExtResource("11_1i10u")
+comment = "Sleeve"
+joint_nodes = PackedStringArray("J_Sec_R_LowerSleeve", "J_Sec_R_LowerSleeve_end", "")
+stiffness_scale = 0.5
+drag_force_scale = 0.05
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+center_node = NodePath("../Root_")
+
+[sub_resource type="Resource" id="Resource_g74v4"]
+resource_name = "Sleeve"
+script = ExtResource("11_1i10u")
+comment = "Sleeve"
+joint_nodes = PackedStringArray("J_Sec_R_TipSleeve", "J_Sec_R_TipSleeve_end", "")
+stiffness_scale = 0.5
+drag_force_scale = 0.05
+hit_radius_scale = 0.02
+gravity_scale = 0.0
+center_node = NodePath("../Root_")
 
 [node name="Dialogues-Proto" type="Node3D"]
 
@@ -223,48 +704,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 [node name="Celia" parent="Characters" instance=ExtResource("5_alhdd")]
 transform = Transform3D(0.92172104, 0, -0.38785353, 0, 1, 0, 0.38785353, 0, 0.92172104, 0.6478145, 0, -9.869755)
 
+[node name="VRM" parent="Characters/Celia/CollisionShape3D" index="0"]
+spring_bones = Array[ExtResource("11_1i10u")]([SubResource("Resource_vb702"), SubResource("Resource_oqrga"), SubResource("Resource_su235"), SubResource("Resource_srrrr"), SubResource("Resource_dfgg3"), SubResource("Resource_utaf4"), SubResource("Resource_yo30n"), SubResource("Resource_6qktg"), SubResource("Resource_3ndf2"), SubResource("Resource_hr71y"), SubResource("Resource_3oj50"), SubResource("Resource_rua4n"), SubResource("Resource_hww1q"), SubResource("Resource_cfe13"), SubResource("Resource_3vjhs"), SubResource("Resource_unvo4"), SubResource("Resource_jng4m"), SubResource("Resource_g74v4")])
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_qf2cc"), SubResource("Resource_cqvyd"), SubResource("Resource_oikg5"), SubResource("Resource_4tc2x"), SubResource("Resource_cc1bq"), SubResource("Resource_al4sf"), SubResource("Resource_dcqia"), SubResource("Resource_du448"), SubResource("Resource_wwq3a"), SubResource("Resource_v6840"), SubResource("Resource_m4j7a"), SubResource("Resource_djr8k")])
+collider_library = Array[ExtResource("13_03lyo")]([SubResource("Resource_776yu"), SubResource("Resource_epwh7"), SubResource("Resource_1t4pq"), SubResource("Resource_nablc"), SubResource("Resource_uqvkf"), SubResource("Resource_06l0e"), SubResource("Resource_burcl"), SubResource("Resource_1koam"), SubResource("Resource_n5ffy"), SubResource("Resource_mk1iv"), SubResource("Resource_yvc6e"), SubResource("Resource_fx38e"), SubResource("Resource_vmfaq"), SubResource("Resource_d0gy4"), SubResource("Resource_y5o6j"), SubResource("Resource_xwer1"), SubResource("Resource_ovohw"), SubResource("Resource_cstuw"), SubResource("Resource_jfpcv"), SubResource("Resource_rpgje"), SubResource("Resource_xnxvc"), SubResource("Resource_40c74"), SubResource("Resource_5wpxh"), SubResource("Resource_elftd"), SubResource("Resource_fubc5"), SubResource("Resource_n0nlu"), SubResource("Resource_eufc6"), SubResource("Resource_edjt8")])
+
 [node name="GeneralSkeleton" parent="Characters/Celia/CollisionShape3D/VRM/Root_" index="0"]
-bones/0/position = Vector3(0.04085513, 0.80874515, 0.022112116)
-bones/0/rotation = Quaternion(-0.007030829, -0.045690745, -0.028856741, 0.998514)
-bones/9/rotation = Quaternion(0.009068962, 0.004015585, 0.015565562, 0.99982965)
-bones/10/rotation = Quaternion(0.018124357, 0.007923044, 0.027000114, 0.9994398)
-bones/11/rotation = Quaternion(0.018124377, 0.00792303, 0.027000122, 0.9994397)
-bones/16/rotation = Quaternion(-0.09464499, -0.0017055307, 0.007017488, 0.99548495)
-bones/17/rotation = Quaternion(0.028955702, 0.007926493, -0.049302362, 0.9983326)
-bones/40/rotation = Quaternion(0.5083351, 0.47621614, 0.5752173, -0.4288807)
-bones/41/rotation = Quaternion(0.11711932, 0.838524, -0.5068801, -0.16196713)
-bones/42/rotation = Quaternion(0.10490914, -0.7084619, 0.104373604, 0.6900594)
-bones/45/rotation = Quaternion(-0.011337305, 0.58400583, 0.13700119, 0.80002457)
-bones/46/rotation = Quaternion(0.119509295, -0.05810614, -0.104595974, 0.9855968)
-bones/47/rotation = Quaternion(0.09938293, 0.0050481413, -0.008964167, 0.9949961)
-bones/50/rotation = Quaternion(0.24405554, 0.045918778, -0.06484045, 0.96650106)
-bones/51/rotation = Quaternion(0.14318813, -0.0024911116, 0.024934307, 0.9893783)
-bones/54/rotation = Quaternion(0.09366518, -0.009824843, -0.059811927, 0.993757)
-bones/55/rotation = Quaternion(0.09078634, 0.00024329389, 0.0030752302, 0.9958657)
-bones/58/rotation = Quaternion(0.16665803, 0.0092145465, -0.056421008, 0.98435616)
-bones/59/rotation = Quaternion(0.09149903, -0.0012856721, -0.00083418767, 0.9958041)
-bones/68/rotation = Quaternion(0.51746476, -0.47155058, -0.5461744, -0.45996058)
-bones/69/rotation = Quaternion(-0.11295147, 0.828038, -0.49157077, 0.24485388)
-bones/70/rotation = Quaternion(0.11989428, 0.7072378, -0.119493395, 0.6864121)
-bones/73/rotation = Quaternion(-0.12689343, -0.47839653, -0.17046694, 0.85204214)
-bones/74/rotation = Quaternion(0.13082956, 0.060068786, 0.06778056, 0.98725945)
-bones/75/rotation = Quaternion(0.056618158, -0.0006865363, 0.005169549, 0.99838233)
-bones/78/rotation = Quaternion(0.24282597, -0.003488984, 0.030528761, 0.96958315)
-bones/79/rotation = Quaternion(0.1575478, 0.010676815, -0.041740995, 0.9865711)
-bones/82/rotation = Quaternion(0.1402827, 0.0062073153, 0.051483057, 0.98875266)
-bones/83/rotation = Quaternion(0.111186706, 0.000587985, -0.005882902, 0.9937819)
-bones/86/rotation = Quaternion(0.2110078, 0.012980248, 0.030452233, 0.9769237)
-bones/87/rotation = Quaternion(0.11619121, 0.0039002365, -0.0063930126, 0.99319875)
-bones/96/rotation = Quaternion(0.023324696, 0.12763456, 0.98867166, -0.07545745)
-bones/105/rotation = Quaternion(0.004816158, 0.99151856, -0.1298722, 0.0009871989)
-bones/106/rotation = Quaternion(0.09712719, 0.71544886, -0.6790105, 0.13283093)
-bones/107/rotation = Quaternion(-0.03197814, 0.999337, 0.002338682, 0.017249957)
-bones/109/rotation = Quaternion(-0.060353808, 0.020239672, 0.99630463, -0.057661816)
-bones/118/rotation = Quaternion(-0.0020496235, 0.9974317, -0.07159477, 6.989247e-05)
-bones/119/rotation = Quaternion(-0.094186425, 0.6720588, -0.7324811, -0.054197524)
+bones/0/position = Vector3(0.033792555, 0.808864, 0.025223602)
+bones/0/rotation = Quaternion(-0.0029443789, -0.04087173, -0.02460368, 0.99885714)
+bones/9/rotation = Quaternion(0.009002772, 0.0058499468, 0.014513258, 0.99983704)
+bones/10/rotation = Quaternion(0.017839288, 0.011719517, 0.025333155, 0.99945116)
+bones/11/rotation = Quaternion(0.017839294, 0.011719504, 0.025333164, 0.9994512)
+bones/16/rotation = Quaternion(-0.094256, 0.0020090113, -0.0018695793, 0.9955443)
+bones/17/rotation = Quaternion(0.028804392, 0.0064788274, -0.040002465, 0.9987633)
+bones/40/rotation = Quaternion(0.5090318, 0.4758277, 0.57400274, -0.43011108)
+bones/41/rotation = Quaternion(0.106743574, 0.84368485, -0.4988842, -0.16708164)
+bones/42/rotation = Quaternion(0.11895015, -0.7075814, 0.11845035, 0.68640304)
+bones/45/rotation = Quaternion(-0.018985912, 0.58162, 0.1342669, 0.80207866)
+bones/46/rotation = Quaternion(0.11923367, -0.05809827, -0.104599446, 0.9856302)
+bones/47/rotation = Quaternion(0.09292816, 0.0049628303, -0.008558769, 0.9956237)
+bones/50/rotation = Quaternion(0.23994444, 0.046329282, -0.06542686, 0.96747077)
+bones/51/rotation = Quaternion(0.13902485, -0.0024375566, 0.024162505, 0.98999107)
+bones/54/rotation = Quaternion(0.09177532, -0.009703541, -0.059942283, 0.99392664)
+bones/55/rotation = Quaternion(0.0839626, 0.0002487707, 0.0026795866, 0.9964653)
+bones/58/rotation = Quaternion(0.1657139, 0.00928947, -0.05650794, 0.9845098)
+bones/59/rotation = Quaternion(0.09054457, -0.0012718929, -0.00093096576, 0.9958912)
+bones/68/rotation = Quaternion(0.5103199, -0.47789562, -0.5510768, -0.45552576)
+bones/69/rotation = Quaternion(-0.10688745, 0.82812476, -0.49555704, 0.23918147)
+bones/70/rotation = Quaternion(0.12050417, 0.70685554, -0.12022208, 0.6865717)
+bones/73/rotation = Quaternion(-0.12050358, -0.49479097, -0.1737161, 0.84290195)
+bones/74/rotation = Quaternion(0.09759644, 0.050762866, 0.07099755, 0.99139166)
+bones/75/rotation = Quaternion(0.022587484, -0.0077862786, 0.0067629777, 0.9996917)
+bones/78/rotation = Quaternion(0.18768354, -0.008994912, 0.035919774, 0.9815313)
+bones/79/rotation = Quaternion(0.10129137, 0.011555811, -0.034851104, 0.99417907)
+bones/82/rotation = Quaternion(0.11195331, 0.004473348, 0.053703636, 0.99225116)
+bones/83/rotation = Quaternion(0.082709424, 0.0005100146, -0.0038646432, 0.9965662)
+bones/86/rotation = Quaternion(0.16957453, 0.011041261, 0.03378186, 0.9848764)
+bones/87/rotation = Quaternion(0.07416046, 0.003845901, -0.0034170968, 0.99723315)
+bones/96/rotation = Quaternion(0.023096114, 0.12627333, 0.98888814, -0.07497946)
+bones/105/rotation = Quaternion(0.0044711516, 0.99267256, -0.1207491, 0.00097551843)
+bones/106/rotation = Quaternion(0.09233876, 0.71874774, -0.6761123, 0.13321997)
+bones/107/rotation = Quaternion(-0.028392442, 0.9994957, -0.00060966203, 0.014211441)
+bones/109/rotation = Quaternion(-0.060664244, 0.022867182, 0.9961808, -0.05848772)
+bones/118/rotation = Quaternion(-0.002038555, 0.99742633, -0.071669884, 0.00013819645)
+bones/119/rotation = Quaternion(-0.10035365, 0.67066276, -0.7329372, -0.05425548)
 
 [node name="Head" parent="Characters/Celia/CollisionShape3D/VRM/Root_/GeneralSkeleton" index="8"]
-transform = Transform3D(0.9986482, 0.0053763003, -0.051696833, -0.002369858, 0.9983113, 0.058041606, 0.0519216, -0.05784061, 0.99697477, 0.027718365, 1.250926, 0.012630013)
+transform = Transform3D(0.99984485, 0.0020088027, -0.017497065, -0.0011125935, 0.9986939, 0.051081132, 0.017576825, -0.05105372, 0.9985413, 0.019675989, 1.2511904, 0.019642029)
+
+[node name="secondary" parent="Characters/Celia/CollisionShape3D/VRM" index="1"]
+collider_groups = Array[ExtResource("12_elbb0")]([SubResource("Resource_qf2cc"), SubResource("Resource_cqvyd"), SubResource("Resource_oikg5"), SubResource("Resource_4tc2x"), SubResource("Resource_cc1bq"), SubResource("Resource_al4sf"), SubResource("Resource_dcqia"), SubResource("Resource_du448"), SubResource("Resource_wwq3a"), SubResource("Resource_v6840"), SubResource("Resource_m4j7a"), SubResource("Resource_djr8k")])
+collider_library = Array[ExtResource("13_03lyo")]([SubResource("Resource_776yu"), SubResource("Resource_epwh7"), SubResource("Resource_1t4pq"), SubResource("Resource_nablc"), SubResource("Resource_uqvkf"), SubResource("Resource_06l0e"), SubResource("Resource_burcl"), SubResource("Resource_1koam"), SubResource("Resource_n5ffy"), SubResource("Resource_mk1iv"), SubResource("Resource_yvc6e"), SubResource("Resource_fx38e"), SubResource("Resource_vmfaq"), SubResource("Resource_d0gy4"), SubResource("Resource_y5o6j"), SubResource("Resource_xwer1"), SubResource("Resource_ovohw"), SubResource("Resource_cstuw"), SubResource("Resource_jfpcv"), SubResource("Resource_rpgje"), SubResource("Resource_xnxvc"), SubResource("Resource_40c74"), SubResource("Resource_5wpxh"), SubResource("Resource_elftd"), SubResource("Resource_fubc5"), SubResource("Resource_n0nlu"), SubResource("Resource_eufc6"), SubResource("Resource_edjt8")])
 
 [node name="Georgino" parent="Characters" instance=ExtResource("6_kl2vs")]
 transform = Transform3D(0.86139894, 0, 0.5079291, 0, 1, 0, -0.5079291, 0, 0.86139894, -0.809896, 0, -9.859331)

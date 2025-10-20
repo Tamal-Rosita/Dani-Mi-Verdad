@@ -1,18 +1,18 @@
-[gd_scene load_steps=24 format=3 uid="uid://v55rysb3elor"]
+[gd_scene load_steps=24 format=3 uid="uid://coue2qehpn4fr"]
 
-[ext_resource type="Script" uid="uid://b4c5qx68b6owi" path="res://controller_examples/scripts/level_script.gd" id="1_66rht"]
-[ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="2_sg4lm"]
-[ext_resource type="Script" uid="uid://brsvrykk3p5is" path="res://controller_examples/scripts/controllers/controller_ai.gd" id="3_v6u2d"]
-[ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://controller_examples/scripts/controllers/controller_player.gd" id="4_kjn6m"]
-[ext_resource type="PackedScene" uid="uid://csfnoih5mr7g3" path="res://visual-novel/demos/ThirdPerson/characters/_Full-ThirdPersonCharacter.tscn" id="5_66rht"]
-[ext_resource type="PackedScene" uid="uid://cx6yw7mm2s808" path="res://controller_examples/scenes/SimpleCharacter.tscn" id="6_r3t1q"]
-[ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://controller_examples/assets/textures/Black.png" id="7_qkvml"]
-[ext_resource type="Texture2D" uid="uid://6wofk4ae5yf3" path="res://controller_examples/assets/textures/White.png" id="8_ce15b"]
-[ext_resource type="Texture2D" uid="uid://dkpqh8de7tb3n" path="res://controller_examples/assets/textures/Green.png" id="9_0s8e1"]
-[ext_resource type="PackedScene" uid="uid://cqe35jnafmlk" path="res://controller_examples/scenes/DashPickup.tscn" id="10_u2ifm"]
+[ext_resource type="Script" uid="uid://b4c5qx68b6owi" path="res://controller_examples/scripts/level_script.gd" id="1_w83py"]
+[ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="2_u3clc"]
+[ext_resource type="Script" uid="uid://brsvrykk3p5is" path="res://controller_examples/scripts/controllers/controller_ai.gd" id="3_hcb45"]
+[ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://controller_examples/scripts/controllers/controller_player.gd" id="4_2jtsw"]
+[ext_resource type="PackedScene" uid="uid://cx6yw7mm2s808" path="res://controller_examples/scenes/SimpleCharacter.tscn" id="5_ui4wt"]
+[ext_resource type="PackedScene" uid="uid://omib6sy0i28x" path="res://controller_examples/scenes/ExampleCharacter.tscn" id="6_8fbgn"]
+[ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://controller_examples/assets/textures/Black.png" id="7_7wscq"]
+[ext_resource type="Texture2D" uid="uid://6wofk4ae5yf3" path="res://controller_examples/assets/textures/White.png" id="8_hcgt1"]
+[ext_resource type="Texture2D" uid="uid://dkpqh8de7tb3n" path="res://controller_examples/assets/textures/Green.png" id="9_25513"]
+[ext_resource type="PackedScene" uid="uid://cqe35jnafmlk" path="res://controller_examples/scenes/DashPickup.tscn" id="10_gddtd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
-panorama = ExtResource("2_sg4lm")
+panorama = ExtResource("2_u3clc")
 
 [sub_resource type="Sky" id="Sky_5ngqa"]
 sky_material = SubResource("PanoramaSkyMaterial_6c4vd")
@@ -25,7 +25,7 @@ tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajchh"]
-albedo_texture = ExtResource("7_qkvml")
+albedo_texture = ExtResource("7_7wscq")
 uv1_triplanar = true
 texture_filter = 5
 
@@ -38,7 +38,7 @@ data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0,
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkvud"]
 albedo_color = Color(0.156, 0.78, 0.6656, 1)
-albedo_texture = ExtResource("8_ce15b")
+albedo_texture = ExtResource("8_hcgt1")
 uv1_triplanar = true
 texture_filter = 5
 
@@ -54,7 +54,7 @@ left_to_right = -2.0
 size = Vector3(5, 5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfpgv"]
-albedo_texture = ExtResource("9_0s8e1")
+albedo_texture = ExtResource("9_25513")
 uv1_triplanar = true
 texture_filter = 5
 
@@ -65,11 +65,11 @@ data = PackedVector3Array(-12.5, 2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, -12.
 albedo_color = Color(0.95, 0.665, 0.66975, 1)
 
 [node name="Prototype" type="Node3D" node_paths=PackedStringArray("player_controller", "ai_controller", "player_character", "ai_character")]
-script = ExtResource("1_66rht")
+script = ExtResource("1_w83py")
 player_controller = NodePath("Controllers/PlayerController")
 ai_controller = NodePath("Controllers/AIController")
 player_character = NodePath("Characters/SimpleCharacter")
-ai_character = NodePath("Characters/ExampleCharacter2")
+ai_character = NodePath("Characters/ExampleCharacter")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ctwiv")
@@ -85,19 +85,19 @@ directional_shadow_blend_splits = true
 [node name="Controllers" type="Node" parent="."]
 
 [node name="AIController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
-script = ExtResource("3_v6u2d")
-controlled_obj = NodePath("../../Characters/ExampleCharacter2")
+script = ExtResource("3_hcb45")
+controlled_obj = NodePath("../../Characters/ExampleCharacter")
 
 [node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
-script = ExtResource("4_kjn6m")
+script = ExtResource("4_2jtsw")
 controlled_obj = NodePath("../../Characters/SimpleCharacter")
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="ExampleCharacter2" parent="Characters" instance=ExtResource("5_66rht")]
-
-[node name="SimpleCharacter" parent="Characters" instance=ExtResource("6_r3t1q")]
+[node name="SimpleCharacter" parent="Characters" instance=ExtResource("5_ui4wt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185151, 0, 5.83012)
+
+[node name="ExampleCharacter" parent="Characters" instance=ExtResource("6_8fbgn")]
 
 [node name="Level" type="Node" parent="."]
 
@@ -206,5 +206,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.6)
 [node name="CSGBox3D5" type="CSGBox3D" parent="Level/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -0.8)
 
-[node name="DashPickup" parent="." instance=ExtResource("10_u2ifm")]
+[node name="DashPickup" parent="." instance=ExtResource("10_gddtd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78498, 0, -1.4562)

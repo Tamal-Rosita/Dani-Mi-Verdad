@@ -1,11 +1,15 @@
-[signal arg_type="dict" arg="{"amount":"1","character":"Celia","mood":"happy"}"]
+[signal arg_type="dict" arg="{"amount":"0.4","character":"Celia","mood":"happy"}"]
 Celia: Pensé que no vendrías
-[signal arg_type="dict" arg="{"amount":"1","character":"Dani","mood":"angry"}"]
+[signal arg_type="dict" arg="{"amount":"0.6","character":"Dani","mood":"angry"}"]
 Dani: Pensé en no hacerlo
-[signal arg_type="dict" arg="{"amount":"1","character":"Georgino","mood":"angry"}"]
+[signal arg_type="dict" arg="{"amount":".55","character":"Georgino","mood":"angry"}"]
 Georgino: A la familia le dará gusto que estés aquí
+[signal arg_type="dict" arg="{"amount":"0.35","character":"Dani","mood":"sad"}"]
 Dani: De qué estaba enfermo,.. mi papá?
+[signal arg_type="dict" arg="{"amount":"0.35","character":"Celia","mood":"surprised"}"]
 Celia: Enfermo? No estaba enfermo?
+[signal arg_type="dict" arg="{"amount":"0.65","character":"Dani","mood":"surprised"}"]
 Dani: De qué murió?
+[signal arg_type="dict" arg="{"amount":"0.45","character":"Georgino","mood":"surprised"}"]
 Georgino: No te dijeron?
 [end_timeline]

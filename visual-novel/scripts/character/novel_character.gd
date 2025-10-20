@@ -4,8 +4,17 @@ class_name NovelCharacter extends CharacterBody3D
 @export var character: DialogicCharacter
 
 @export_category("Locomotion")
-@export var speed: float = 2
-@export var jump_strength: float = 3
+@export var speed: float = 2:
+	set(v):
+		speed = v
+		if (move_action != null):
+			move_action.speed = speed
+					
+@export var jump_strength: float = 3:
+	set(v):
+		jump_strength = v
+		if (jump_action != null):
+			jump_action.JUMP_STRENGTH = jump_strength		
 
 signal interaction_toggle
 
@@ -16,6 +25,7 @@ signal interaction_toggle
 @onready var dialogue_camera: Camera3D = $DialogueCamera
 
 func _ready() -> void:
+	# TODO: Verify if necessary:
 	move_action.speed = speed
 	jump_action.JUMP_STRENGTH = jump_strength
 	
