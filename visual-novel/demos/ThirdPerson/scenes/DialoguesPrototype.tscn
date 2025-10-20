@@ -1,18 +1,17 @@
-[gd_scene load_steps=28 format=3 uid="uid://dvxg1dwf5bdk"]
+[gd_scene load_steps=27 format=3 uid="uid://dvxg1dwf5bdk"]
 
 [ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/controllers/pointer_capture.gd" id="2_m17ss"]
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://vrm-characters/controller_examples/assets/textures/Sky.png" id="2_vuobj"]
 [ext_resource type="Script" uid="uid://brsvrykk3p5is" path="res://vrm-characters/controller_examples/scripts/controllers/controller_ai.gd" id="3_alhdd"]
 [ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://vrm-characters/controller_examples/scripts/controllers/controller_player.gd" id="4_kl2vs"]
-[ext_resource type="PackedScene" uid="uid://bn03sfnx6rmlh" path="res://visual-novel/GJDDM/characters/Celia_NPC.scn" id="5_alhdd"]
-[ext_resource type="PackedScene" uid="uid://b5vc1c2uhsch" path="res://visual-novel/GJDDM/characters/Georgino_NPC.scn" id="6_kl2vs"]
-[ext_resource type="PackedScene" uid="uid://dhvhvr08or4d5" path="res://visual-novel/GJDDM/characters/Gael_NPC.scn" id="6_uwggp"]
-[ext_resource type="PackedScene" uid="uid://x8uvs4pwhbb7" path="res://visual-novel/GJDDM/characters/Player.scn" id="6_vuobj"]
+[ext_resource type="PackedScene" uid="uid://bn03sfnx6rmlh" path="res://visual-novel/characters/Celia_NPC.scn" id="5_alhdd"]
+[ext_resource type="PackedScene" uid="uid://bott2umyuqpu2" path="res://visual-novel/characters/Georgino_NPC.scn" id="6_kl2vs"]
+[ext_resource type="PackedScene" uid="uid://x8uvs4pwhbb7" path="res://visual-novel/characters/Player.scn" id="6_vuobj"]
 [ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://vrm-characters/controller_examples/assets/textures/Black.png" id="7_1i10u"]
 [ext_resource type="Texture2D" uid="uid://6wofk4ae5yf3" path="res://vrm-characters/controller_examples/assets/textures/White.png" id="8_elbb0"]
-[ext_resource type="PackedScene" uid="uid://b4mo77etnecyx" path="res://visual-novel/demos/SideScroller/characters/Gael_Side.scn" id="8_kl2vs"]
 [ext_resource type="Texture2D" uid="uid://dkpqh8de7tb3n" path="res://vrm-characters/controller_examples/assets/textures/Green.png" id="9_03lyo"]
 [ext_resource type="PackedScene" uid="uid://cqe35jnafmlk" path="res://vrm-characters/controller_examples/scenes/DashPickup.tscn" id="10_0ag41"]
+[ext_resource type="PackedScene" uid="uid://dhvhvr08or4d5" path="res://visual-novel/characters/Gael_NPC.scn" id="13_kl2vs"]
 [ext_resource type="Script" uid="uid://b60p0g332w41m" path="res://visual-novel/scripts/camera/cinematic_camera.gd" id="14_m17ss"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
@@ -86,10 +85,8 @@ script = ExtResource("2_m17ss")
 
 [node name="AIController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
 script = ExtResource("3_alhdd")
-INPUT_DELAY = 0.3
-rotation_angle = 72.0
 current_direction = Vector3(0, 0, 1)
-controlled_obj = NodePath("../../Characters/Gael2")
+controlled_obj = NodePath("../../Characters/Gael")
 
 [node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
 script = ExtResource("4_kl2vs")
@@ -221,19 +218,59 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78498, 0, -1.4562)
 [node name="Characters" type="Node" parent="."]
 
 [node name="Dani" parent="Characters" instance=ExtResource("6_vuobj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12346, 0, -1.6626062)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 
 [node name="Celia" parent="Characters" instance=ExtResource("5_alhdd")]
-transform = Transform3D(-0.9616887, 0, 0.27414396, 0, 1, 0, -0.27414396, 0, -0.9616887, 0.6478145, 0, -9.869755)
+transform = Transform3D(0.92172104, 0, -0.38785353, 0, 1, 0, 0.38785353, 0, 0.92172104, 0.6478145, 0, -9.869755)
+
+[node name="GeneralSkeleton" parent="Characters/Celia/CollisionShape3D/VRM/Root_" index="0"]
+bones/0/position = Vector3(0.04085513, 0.80874515, 0.022112116)
+bones/0/rotation = Quaternion(-0.007030829, -0.045690745, -0.028856741, 0.998514)
+bones/9/rotation = Quaternion(0.009068962, 0.004015585, 0.015565562, 0.99982965)
+bones/10/rotation = Quaternion(0.018124357, 0.007923044, 0.027000114, 0.9994398)
+bones/11/rotation = Quaternion(0.018124377, 0.00792303, 0.027000122, 0.9994397)
+bones/16/rotation = Quaternion(-0.09464499, -0.0017055307, 0.007017488, 0.99548495)
+bones/17/rotation = Quaternion(0.028955702, 0.007926493, -0.049302362, 0.9983326)
+bones/40/rotation = Quaternion(0.5083351, 0.47621614, 0.5752173, -0.4288807)
+bones/41/rotation = Quaternion(0.11711932, 0.838524, -0.5068801, -0.16196713)
+bones/42/rotation = Quaternion(0.10490914, -0.7084619, 0.104373604, 0.6900594)
+bones/45/rotation = Quaternion(-0.011337305, 0.58400583, 0.13700119, 0.80002457)
+bones/46/rotation = Quaternion(0.119509295, -0.05810614, -0.104595974, 0.9855968)
+bones/47/rotation = Quaternion(0.09938293, 0.0050481413, -0.008964167, 0.9949961)
+bones/50/rotation = Quaternion(0.24405554, 0.045918778, -0.06484045, 0.96650106)
+bones/51/rotation = Quaternion(0.14318813, -0.0024911116, 0.024934307, 0.9893783)
+bones/54/rotation = Quaternion(0.09366518, -0.009824843, -0.059811927, 0.993757)
+bones/55/rotation = Quaternion(0.09078634, 0.00024329389, 0.0030752302, 0.9958657)
+bones/58/rotation = Quaternion(0.16665803, 0.0092145465, -0.056421008, 0.98435616)
+bones/59/rotation = Quaternion(0.09149903, -0.0012856721, -0.00083418767, 0.9958041)
+bones/68/rotation = Quaternion(0.51746476, -0.47155058, -0.5461744, -0.45996058)
+bones/69/rotation = Quaternion(-0.11295147, 0.828038, -0.49157077, 0.24485388)
+bones/70/rotation = Quaternion(0.11989428, 0.7072378, -0.119493395, 0.6864121)
+bones/73/rotation = Quaternion(-0.12689343, -0.47839653, -0.17046694, 0.85204214)
+bones/74/rotation = Quaternion(0.13082956, 0.060068786, 0.06778056, 0.98725945)
+bones/75/rotation = Quaternion(0.056618158, -0.0006865363, 0.005169549, 0.99838233)
+bones/78/rotation = Quaternion(0.24282597, -0.003488984, 0.030528761, 0.96958315)
+bones/79/rotation = Quaternion(0.1575478, 0.010676815, -0.041740995, 0.9865711)
+bones/82/rotation = Quaternion(0.1402827, 0.0062073153, 0.051483057, 0.98875266)
+bones/83/rotation = Quaternion(0.111186706, 0.000587985, -0.005882902, 0.9937819)
+bones/86/rotation = Quaternion(0.2110078, 0.012980248, 0.030452233, 0.9769237)
+bones/87/rotation = Quaternion(0.11619121, 0.0039002365, -0.0063930126, 0.99319875)
+bones/96/rotation = Quaternion(0.023324696, 0.12763456, 0.98867166, -0.07545745)
+bones/105/rotation = Quaternion(0.004816158, 0.99151856, -0.1298722, 0.0009871989)
+bones/106/rotation = Quaternion(0.09712719, 0.71544886, -0.6790105, 0.13283093)
+bones/107/rotation = Quaternion(-0.03197814, 0.999337, 0.002338682, 0.017249957)
+bones/109/rotation = Quaternion(-0.060353808, 0.020239672, 0.99630463, -0.057661816)
+bones/118/rotation = Quaternion(-0.0020496235, 0.9974317, -0.07159477, 6.989247e-05)
+bones/119/rotation = Quaternion(-0.094186425, 0.6720588, -0.7324811, -0.054197524)
+
+[node name="Head" parent="Characters/Celia/CollisionShape3D/VRM/Root_/GeneralSkeleton" index="8"]
+transform = Transform3D(0.9986482, 0.0053763003, -0.051696833, -0.002369858, 0.9983113, 0.058041606, 0.0519216, -0.05784061, 0.99697477, 0.027718365, 1.250926, 0.012630013)
 
 [node name="Georgino" parent="Characters" instance=ExtResource("6_kl2vs")]
-transform = Transform3D(-0.8772468, 0, -0.4800397, 0, 1, 0, 0.4800397, 0, -0.8772468, -0.809896, 0, -9.859331)
+transform = Transform3D(0.86139894, 0, 0.5079291, 0, 1, 0, -0.5079291, 0, 0.86139894, -0.809896, 0, -9.859331)
 
-[node name="Gael2" parent="Characters" instance=ExtResource("8_kl2vs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3722134, 0, 0)
-
-[node name="Gael" parent="Characters" instance=ExtResource("6_uwggp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.12912, 0, -0.34603596)
+[node name="Gael" parent="Characters" instance=ExtResource("13_kl2vs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.80974, 2.3841858e-07, -5.0245576)
 
 [node name="Cameras" type="Node" parent="."]
 
@@ -245,3 +282,6 @@ script = ExtResource("14_m17ss")
 transform = Transform3D(0.0031589572, 0.17020866, -0.985403, 6.6087464e-09, 0.9854079, 0.17020951, 0.99999505, -0.00053769106, 0.00311286, -2.6623623, 1.753995, 4.1197286)
 fov = 30.0
 script = ExtResource("14_m17ss")
+
+[editable path="Characters/Celia"]
+[editable path="Characters/Celia/CollisionShape3D/VRM"]

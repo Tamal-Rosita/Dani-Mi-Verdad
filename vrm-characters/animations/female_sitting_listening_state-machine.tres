@@ -34,4 +34,4 @@ states/Start/position = Vector2(26, 53)
 states/surprised/node = SubResource("AnimationNodeAnimation_l78jn")
 states/surprised/position = Vector2(318, 228)
 transitions = ["Start", "basic_female_idle_actions_library_Sitting Crossed Listening", SubResource("AnimationNodeStateMachineTransition_8jwh8"), "basic_female_idle_actions_library_Sitting Crossed Listening", "basic_female_idle_actions_library_Sitting Idle", SubResource("AnimationNodeStateMachineTransition_l78jn"), "basic_female_idle_actions_library_Sitting Idle", "basic_female_idle_actions_library_Sitting Crossed Listening", SubResource("AnimationNodeStateMachineTransition_a5yk6")]
-graph_offset = Vector2(-212, -154)
+graph_offset = Vector2(-320, -47)
