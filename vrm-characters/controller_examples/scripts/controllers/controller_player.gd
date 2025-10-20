@@ -9,6 +9,7 @@ const DOUBLE_TAP_DELAY: float = 0.25
 
 var _cam_pivot: Node3D
 var _action_container: ActionContainer
+
 var _player: Player
 
 var _last_input_window: float = 0.0
@@ -41,7 +42,7 @@ func _on_controlled_obj_change():
 	
 
 func _on_interaction_toggle(is_active: bool):
-	can_control = !is_active
+	can_control = not is_active
 	print("Player interaction " + ("started" if is_active else "ended"))
 
 

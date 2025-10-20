@@ -32,6 +32,8 @@ var _character: CharacterBody3D
 var _collision_shape_3d: CollisionShape3D
 var _animation_tree: AnimationTree
 
+## Breaking stop code
+var input_vector: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
 	if get_parent() is CharacterBody3D:
@@ -39,7 +41,7 @@ func _ready() -> void:
 	else:
 		_character = get_parent().get_parent()
 	_collision_shape_3d = _character.get_node("CollisionShape3D") # its NOT ok if _collision_shape_3d is null
-	_animation_tree = _character.find_child("AnimationTree", false) # its ok if _animation_tree is null
+	_animation_tree = _character.find_child("AnimationTree") # its ok if _animation_tree is null
 	super._ready()
 
 func _physics_process(delta: float) -> void:
@@ -66,14 +68,15 @@ func _physics_process(delta: float) -> void:
 		_character.apply_floor_snap()
 	else:
 		enable_movement(Behavior.FLOOR_SNAP)
+		
 	
 	if _animation_tree:
 		var move_anim_speed = remap (speed, 0.15, 1.5, 0.0, 1.0)		
 		# print(owner.name + ": " + str(was_on_floor))
 		# TODO: Fix this with jump status.
-		_animation_tree.set("parameters/Motion/blend_position", move_anim_speed)
-		_animation_tree.set("parameters/Jump/blend_position", move_anim_speed)		
-		_animation_tree.set("parameters/conditions/JUMP", !was_on_floor)
+		_animation_tree.set("parameters/Locomotion/Motion/blend_position", move_anim_speed)
+		_animation_tree.set("parameters/Locomotion/Jump/blend_position", move_anim_speed)		
+		_animation_tree.set("parameters/Locomotion/conditions/JUMP", !was_on_floor)
 
 
 #region Movement Modification
@@ -119,7 +122,7 @@ func _process_velocity(delta: float) -> Vector3:
 	# handle input for velocity over time
 	elif is_movement_enabled(Behavior.MOVE):
 		if input_direction:
-			var input_vector: Vector3 = input_direction * input_magnitude
+			input_vector = input_direction * input_magnitude
 			if _character.is_on_floor():
 				_character.velocity = Vector3(input_vector.x, _character.velocity.y, input_vector.z)
 			else: # accelerate to direction in air instead of snapping to it like when on ground
