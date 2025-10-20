@@ -1,0 +1,33 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=6 format=3 uid="uid://blnqyc7fcd2dc"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_noqqs"]
+animation = &"basic_female_idle_actions_library/Sitting Crossed Talking"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rbqef"]
+animation = &"basic_female_idle_actions_library/Sitting Crossed Talking_Loop"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p8878"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dpvcg"]
+xfade_time = 1.0
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"turn"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a2bva"]
+xfade_time = 1.0
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+
+[resource]
+states/End/position = Vector2(984, 83)
+states/Start/position = Vector2(-14, 100)
+"states/basic_female_idle_actions_library_Sitting Crossed Talking/node" = SubResource("AnimationNodeAnimation_noqqs")
+"states/basic_female_idle_actions_library_Sitting Crossed Talking/position" = Vector2(644, 222)
+"states/basic_female_idle_actions_library_Sitting Crossed Talking_Loop/node" = SubResource("AnimationNodeAnimation_rbqef")
+"states/basic_female_idle_actions_library_Sitting Crossed Talking_Loop/position" = Vector2(478, 31)
+transitions = ["Start", "basic_female_idle_actions_library_Sitting Crossed Talking_Loop", SubResource("AnimationNodeStateMachineTransition_p8878"), "basic_female_idle_actions_library_Sitting Crossed Talking_Loop", "basic_female_idle_actions_library_Sitting Crossed Talking", SubResource("AnimationNodeStateMachineTransition_dpvcg"), "basic_female_idle_actions_library_Sitting Crossed Talking", "basic_female_idle_actions_library_Sitting Crossed Talking_Loop", SubResource("AnimationNodeStateMachineTransition_a2bva")]
+graph_offset = Vector2(-190, -38)

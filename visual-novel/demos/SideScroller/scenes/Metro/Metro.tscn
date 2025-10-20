@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://l8bpgmry05va"]
 
-[ext_resource type="Script" uid="uid://b4c5qx68b6owi" path="res://vrm-characters/controller_examples/scripts/level_script.gd" id="1_ukcpv"]
-[ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://vrm-characters/controller_examples/assets/textures/Sky.png" id="2_d4g1l"]
+[ext_resource type="Script" uid="uid://b4c5qx68b6owi" path="res://controller_examples/scripts/level_script.gd" id="1_ukcpv"]
+[ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="2_d4g1l"]
 [ext_resource type="LightmapGIData" uid="uid://doxpkb7am7d7s" path="res://visual-novel/demos/SideScroller/scenes/Metro/Metro.lmbake" id="3_k1euc"]
 [ext_resource type="PackedScene" uid="uid://56203yb3xiie" path="res://visual-novel/demos/SideScroller/scenes/Metro/MetroPanteones_lowpoly/MetroPanteones.glb" id="4_cees5"]
 [ext_resource type="Script" uid="uid://dmcynp0g0020r" path="res://visual-novel/scripts/controllers/controller_side-ai.gd" id="6_jbw4d"]
@@ -48,8 +48,8 @@ light_data = ExtResource("3_k1euc")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.775061, 2.870354, 2.5841658)
-size = Vector3(9.94696, 5.990593, 62.627254)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.755188, 2.5835783, 2.6792662)
+size = Vector3(10.108871, 6.564144, 63.259476)
 interior = true
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]

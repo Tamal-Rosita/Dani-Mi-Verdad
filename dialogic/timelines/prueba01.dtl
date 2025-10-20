@@ -1,0 +1,7 @@
+[signal arg_type="dict" arg="{"amount":"0.7","character":"Gael","mood":"Happy"}"]
+Gael: Hola! Mi nombre es Gael
+[signal arg_type="dict" arg="{"amount":"0.9","character":"Gael","mood":"Surprised"}"]
+Gael: Estoy muy preocupado, no puedo dejar de moverme
+[signal arg_type="dict" arg="{"amount":"0.66","character":"Gael","mood":"Sad"}"]
+Gael: OK
+[end_timeline]

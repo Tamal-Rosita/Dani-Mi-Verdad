@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bd23u6ihxe26s"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0.4)
+size = Vector3(2, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0.2)
+size = Vector3(2, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+size = Vector3(2, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.2)
+size = Vector3(2, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -0.4)
+size = Vector3(2, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.6)
+size = Vector3(2, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -0.8)
+size = Vector3(2, 1, 1)
+
+[node name="Intersection" type="CSGBox3D" parent="."]
+transform = Transform3D(0.99999595, 0, 0, 0, 1, 0, 0, 0, 0.99999595, 0, 0.85, 0)
+operation = 1
+size = Vector3(3, 2, 2)
