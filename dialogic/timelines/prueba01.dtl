@@ -1,0 +1,5 @@
+[signal arg_type="dict" arg="{"amount":"0.1","character":"Gael","mood":"Angry"}"]
+Gael: Hola! Mi nombre es Gael
+Gael: Estoy muy preocupado, no puedo dejar de moverme
+Gael: OK
+[end_timeline]
