@@ -1,6 +1,6 @@
 @tool
-class_name DialogicAvatarEvent
 extends DialogicEvent
+class_name DialogicCharacter3dEvent
 
 # Define properties of the event here
 var character: DialogicCharacter = null
@@ -18,12 +18,13 @@ var character_identifier: String:
 	set(value):
 		character_identifier = value
 		character = DialogicResourceUtil.get_character_resource(value)
-
+		
 
 func _execute() -> void:
-#	if mood.is_empty():
-#		finish()
-#		return
+	# This will execute when the event is reached
+	if mood.is_empty():
+		finish()
+		return
 	
 	print("Setting " + character.display_name + " avatar mood: "+ mood +" ("+ str(amount) +").")
 	
@@ -33,7 +34,7 @@ func _execute() -> void:
 		"amount": str(amount)
 	}
 	Dialogic.signal_event.emit(dictionary)
-	# This will execute when the event is reached
+	
 	finish() # called to continue with the next event
 
 
@@ -41,7 +42,7 @@ func _execute() -> void:
 ################################################################################
 # Set fixed settings of this event
 func _init() -> void:
-	event_name = "Avatar"
+	event_name = "Character 3D"
 	set_default_color('Color2')
 	event_category = "Main"
 	expand_by_default = true
@@ -52,7 +53,7 @@ func _init() -> void:
 #region SAVING/LOADING
 ################################################################################
 func get_shortcode() -> String:
-	return "avatar"
+	return "character_3d"
 
 func get_shortcode_parameters() -> Dictionary:
 	return {
@@ -78,9 +79,8 @@ func build_event_editor() -> void:
 			'empty_text' 		: '(No one)',
 			'icon' 				: load("res://addons/dialogic/Editor/Images/Resources/character.svg")},
 			'do_any_characters_exist()')
-	add_header_edit("mood", ValueType.SINGLELINE_TEXT)
-	add_header_edit("amount", ValueType.NUMBER)
-	pass
+	add_body_edit("mood", ValueType.SINGLELINE_TEXT)
+	add_body_edit("amount", ValueType.NUMBER)
 	
 func do_any_characters_exist() -> bool:
 	return not DialogicResourceUtil.get_character_directory().is_empty()

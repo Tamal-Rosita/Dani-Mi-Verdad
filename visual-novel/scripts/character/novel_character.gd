@@ -33,7 +33,8 @@ func _ready() -> void:
 	Dialogic.timeline_started.connect(_on_dialogic_timeline_started)
 	
 	Dialogic.Text.speaker_updated.connect(_on_dialogic_speaker_updated) # This is working
-	Dialogic.Portraits.character_joined.connect(_on_dialogic_character_joined) # TODO: Use this as reference for Custom Event
+	## TODO: Replace with signal of custom event (Cameras)?
+	# Dialogic.Portraits.character_joined.connect(_on_dialogic_character_joined) # TODO: Use this as reference for Custom Event
 	
 func _on_dialogic_timeline_ended() -> void:
 	interaction_toggle.emit(false)
