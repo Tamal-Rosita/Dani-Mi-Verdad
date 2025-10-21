@@ -1,22 +1,22 @@
-[signal arg_type="dict" arg="{"amount":"0.25","character":"Celia","mood":"happy"}"]
+[avatar character="Celia" mood="" amount="0.3"]
 [voice path="res://dialogic/voice/Act1-Celia_Pense-que-no-vendrias.mp3" volume="0.0"]
 Celia: Pensé que no vendrías
-[signal arg_type="dict" arg="{"amount":"0.4","character":"Dani","mood":"angry"}"]
+[avatar character="Dani" mood="angry" amount="0.4"]
 [voice path="res://dialogic/voice/Act1-Dani_Pense-en-no-hacerlo.mp3" volume="0.0"]
 Dani: Pensé en no hacerlo
-[signal arg_type="dict" arg="{"amount":".55","character":"Georgino","mood":"angry"}"]
+[avatar character="Georgino" mood="angry" amount="0.5"]
 [voice path="res://dialogic/voice/Act1-Georgino_A-la-familia-le-dara-gusto-que-estes.mp3" volume="0.0"]
 Georgino: A la familia le dará gusto que estés aquí
-[signal arg_type="dict" arg="{"amount":"0.25","character":"Dani","mood":"sad"}"]
+[avatar character="Dani" mood="sad" amount="0.3"]
 [voice path="res://dialogic/voice/Act1-Dani_De-que-estaba-enfermo-mi-papa.mp3" volume="0.0"]
 Dani: De qué estaba enfermo,.. mi papá?
-[signal arg_type="dict" arg="{"amount":"0.25","character":"Celia","mood":"surprised"}"]
-[voice path="res://dialogic/voice/Act1-Celia_Enfermo?No-estaba-enfermo.mp3" volume="0.0"]
+[avatar character="Celia" mood="surprised" amount="0.25"]
+[voice path="res://dialogic/voice/Act1-Celia_Enfermo-No-estaba-enfermo.mp3" volume="0.0"]
 Celia: Enfermo? No estaba enfermo?
-[signal arg_type="dict" arg="{"amount":"0.5","character":"Dani","mood":"surprised"}"]
-[voice path="res://dialogic/voice/Act1-Dani_De-que-murio?.mp3" volume="0.0"]
+[avatar character="Dani" mood="surprised" amount="0.4"]
+[voice path="res://dialogic/voice/Act1-Dani_De-que-murio.mp3" volume="0.0"]
 Dani: De qué murió?
-[signal arg_type="dict" arg="{"amount":"0.45","character":"Georgino","mood":"surprised"}"]
+[avatar character="Georgino" mood="surprised" amount="0.4"]
 [voice path="res://dialogic/voice/Act1-Georgino_No-te-dijeron.mp3" volume="0.0"]
 Georgino: No te dijeron?
 [end_timeline]
