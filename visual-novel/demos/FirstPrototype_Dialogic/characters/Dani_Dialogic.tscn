@@ -1,12 +1,12 @@
 [gd_scene load_steps=70 format=3 uid="uid://cc3pmslcb170x"]
 
 [ext_resource type="Script" uid="uid://bgnmwonlivjeg" path="res://visual-novel/demos/FirstPrototype_Dialogic/scripts/vrm-character.gd" id="1_mudop"]
-[ext_resource type="PackedScene" uid="uid://cbddb5kh8c7xr" path="res://vrm-characters/vrm/Dani_jp.vrm" id="2_ur51b"]
+[ext_resource type="PackedScene" uid="uid://cbddb5kh8c7xr" path="res://character_samples/vrm/Dani_jp.vrm" id="2_ur51b"]
 [ext_resource type="Script" uid="uid://bh0kts1q2t2iu" path="res://addons/vrm/vrm_spring_bone.gd" id="3_ur51b"]
 [ext_resource type="Script" uid="uid://k0tkdr1fej6k" path="res://addons/vrm/vrm_collider_group.gd" id="4_vfvmn"]
 [ext_resource type="Script" uid="uid://p4cpsh67l24x" path="res://addons/vrm/vrm_collider.gd" id="5_7y3gr"]
-[ext_resource type="AnimationLibrary" uid="uid://w6ygba13mihu" path="res://vrm-characters/animations/legacy/mixamo-female_locomotion.res" id="6_85p8n"]
-[ext_resource type="AnimationNodeBlendTree" uid="uid://4obcxtn7pipn" path="res://vrm-characters/animations/legacy/vrm-mood_blendtree.res" id="7_n5vjr"]
+[ext_resource type="AnimationLibrary" uid="uid://w6ygba13mihu" path="res://visual-novel/animations/legacy/mixamo-female_locomotion.res" id="6_85p8n"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://4obcxtn7pipn" path="res://visual-novel/animations/legacy/vrm-mood_blendtree.res" id="7_n5vjr"]
 [ext_resource type="Script" uid="uid://dofuv8cgmsp48" path="res://visual-novel/demos/FirstPrototype_Dialogic/scripts/vrm-animation_tree.gd" id="8_fk5vl"]
 
 [sub_resource type="Resource" id="Resource_e4kof"]

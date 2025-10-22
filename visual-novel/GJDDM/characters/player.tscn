@@ -7,18 +7,18 @@
 [ext_resource type="Script" uid="uid://bh0kts1q2t2iu" path="res://addons/vrm/vrm_spring_bone.gd" id="5_i2jvt"]
 [ext_resource type="Script" uid="uid://k0tkdr1fej6k" path="res://addons/vrm/vrm_collider_group.gd" id="6_1fste"]
 [ext_resource type="Script" uid="uid://p4cpsh67l24x" path="res://addons/vrm/vrm_collider.gd" id="7_sxmky"]
-[ext_resource type="AnimationLibrary" uid="uid://dcqciprq58now" path="res://vrm-characters/animations/basic-locomotion_library.res" id="8_tp3l7"]
-[ext_resource type="AnimationLibrary" uid="uid://df6mxd8sv1wkv" path="res://vrm-characters/animations/female_idle_actions_library.res" id="9_vbrew"]
-[ext_resource type="AnimationLibrary" uid="uid://w6ygba13mihu" path="res://vrm-characters/animations/legacy/mixamo-female_locomotion.res" id="10_svupw"]
-[ext_resource type="Script" uid="uid://cavoehjg14dyj" path="res://character_controller/scripts/action_container.gd" id="11_hwbhh"]
+[ext_resource type="AnimationLibrary" uid="uid://dcqciprq58now" path="res://visual-novel/animations/basic-locomotion_library.res" id="8_tp3l7"]
+[ext_resource type="AnimationLibrary" uid="uid://df6mxd8sv1wkv" path="res://visual-novel/animations/female_idle_actions_library.res" id="9_vbrew"]
+[ext_resource type="AnimationLibrary" uid="uid://w6ygba13mihu" path="res://visual-novel/animations/legacy/mixamo-female_locomotion.res" id="10_svupw"]
+[ext_resource type="Script" uid="uid://cavoehjg14dyj" path="res://addons/character_controller/scripts/action_container.gd" id="11_hwbhh"]
 [ext_resource type="Script" uid="uid://dn0l3kkomlwu7" path="res://controller_examples/scripts/simple_character/actions/action_move_simple.gd" id="12_s6j0e"]
 [ext_resource type="Script" uid="uid://cqdsr3d0jkd4b" path="res://controller_examples/scripts/simple_character/actions/action_jump_simple.gd" id="13_msili"]
-[ext_resource type="AnimationNodeBlendTree" uid="uid://dgubwui2tiafd" path="res://vrm-characters/animations/novel-character_blendtree.tres" id="14_pxmlv"]
-[ext_resource type="Script" uid="uid://b76mxvtweu40c" path="res://visual-novel/scripts/character/character_mood_anim-tree.gd" id="15_wh8mx"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://dgubwui2tiafd" path="res://visual-novel/animations/novel-character_blendtree.tres" id="14_pxmlv"]
+[ext_resource type="Script" uid="uid://b76mxvtweu40c" path="res://visual-novel/scripts/character/character_animation_tree.gd" id="15_wh8mx"]
 [ext_resource type="Script" uid="uid://boe8j3nxneke" path="res://visual-novel/scripts/camera/third_person_camera.gd" id="16_vsgv7"]
 [ext_resource type="Script" uid="uid://bfko83h8e0kgo" path="res://visual-novel/scripts/character/interaction_hud.gd" id="17_88tpe"]
 [ext_resource type="FontFile" uid="uid://be864bbfg1jpj" path="res://visual-novel/GJDDM/Lexend-VariableFont_wght.ttf" id="18_nsmjp"]
-[ext_resource type="Script" uid="uid://dhxeoug7ju6y3" path="res://character_controller/scripts/movement_state_manager.gd" id="19_a43ja"]
+[ext_resource type="Script" uid="uid://dhxeoug7ju6y3" path="res://addons/character_controller/scripts/movement_state_manager.gd" id="19_a43ja"]
 [ext_resource type="Script" uid="uid://to2l8lodveh7" path="res://controller_examples/scripts/simple_character/movement_grounded_complex.gd" id="20_qsu3e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_giq0b"]
@@ -1136,62 +1136,62 @@ collider_groups = Array[ExtResource("6_1fste")]([SubResource("Resource_co0g3"), 
 collider_library = Array[ExtResource("7_sxmky")]([SubResource("Resource_j80vn"), SubResource("Resource_gflx5"), SubResource("Resource_rath7"), SubResource("Resource_ly31c"), SubResource("Resource_lasuo"), SubResource("Resource_e0u6r"), SubResource("Resource_ju40e"), SubResource("Resource_5vime"), SubResource("Resource_1iepb"), SubResource("Resource_jxsw0"), SubResource("Resource_ycnk4"), SubResource("Resource_o32kg"), SubResource("Resource_u6omo"), SubResource("Resource_sh625"), SubResource("Resource_pes3v"), SubResource("Resource_cp7fb"), SubResource("Resource_fvs8t"), SubResource("Resource_2b400"), SubResource("Resource_0onbs"), SubResource("Resource_286hy"), SubResource("Resource_vscig"), SubResource("Resource_dwg8c"), SubResource("Resource_8t5s8"), SubResource("Resource_ooicb"), SubResource("Resource_qvbq7"), SubResource("Resource_anvej"), SubResource("Resource_2futs"), SubResource("Resource_314tm")])
 
 [node name="GeneralSkeleton" parent="CollisionShape3D/VRM/Root_" index="0"]
-bones/0/position = Vector3(0.042879377, 0.90027714, 0.02488692)
-bones/0/rotation = Quaternion(-0.0058743376, -0.04133662, -0.025059273, 0.99881375)
-bones/9/rotation = Quaternion(0.010244732, 0.0060428362, 0.014722899, 0.99982095)
-bones/10/rotation = Quaternion(0.020688223, 0.01226198, 0.025678817, 0.999381)
-bones/11/rotation = Quaternion(0.020688213, 0.012261965, 0.025678813, 0.99938095)
-bones/16/rotation = Quaternion(-0.09083283, 0.0015663955, -0.0027782023, 0.9958611)
-bones/17/rotation = Quaternion(0.037081696, 0.0066266158, -0.040777516, 0.998458)
-bones/42/rotation = Quaternion(0.50912935, 0.475802, 0.5737186, -0.430403)
-bones/43/rotation = Quaternion(0.14870496, 0.83714974, -0.50872654, -0.13514689)
-bones/44/rotation = Quaternion(0.052157726, -0.71106446, 0.05149119, 0.6992966)
-bones/47/rotation = Quaternion(0.021781435, 0.56927246, 0.16342206, 0.8054488)
-bones/48/rotation = Quaternion(0.11928865, -0.058099937, -0.10459873, 0.98562354)
-bones/49/rotation = Quaternion(0.0990067, 0.0050432524, -0.008940522, 0.9950339)
+bones/0/position = Vector3(0.045936264, 0.9001718, 0.021261986)
+bones/0/rotation = Quaternion(-0.0088616805, -0.048609626, -0.030191481, 0.9983222)
+bones/9/rotation = Quaternion(0.010256468, 0.0035407036, 0.015554447, 0.99982023)
+bones/10/rotation = Quaternion(0.02082065, 0.006830723, 0.02689854, 0.999398)
+bones/11/rotation = Quaternion(0.020820666, 0.0068307095, 0.02689856, 0.999398)
+bones/16/rotation = Quaternion(-0.09144168, 0.00016169382, 0.0064129853, 0.9957899)
+bones/17/rotation = Quaternion(0.034600396, 0.009373653, -0.04799865, 0.998204)
+bones/42/rotation = Quaternion(0.5085299, 0.4764098, 0.57368505, -0.43048403)
+bones/43/rotation = Quaternion(0.14751695, 0.83806926, -0.5064104, -0.1393818)
+bones/44/rotation = Quaternion(0.057375815, -0.71054995, 0.05675136, 0.6990036)
+bones/47/rotation = Quaternion(0.02312092, 0.5782698, 0.1584632, 0.79997444)
+bones/48/rotation = Quaternion(0.11976355, -0.058113277, -0.104592785, 0.9855658)
+bones/49/rotation = Quaternion(0.099816516, 0.005053776, -0.0089914175, 0.9949525)
 bones/50/rotation = Quaternion(5.9604645e-08, 4.4703484e-08, 0, 1)
-bones/52/rotation = Quaternion(0.24331315, 0.045997024, -0.06494194, 0.9666776)
-bones/53/rotation = Quaternion(0.14243592, -0.0024815525, 0.024794856, 0.9894904)
+bones/52/rotation = Quaternion(0.28993857, 0.04116353, -0.058275804, 0.95438206)
+bones/53/rotation = Quaternion(0.18979576, -0.0030881024, 0.03357392, 0.9812445)
 bones/54/rotation = Quaternion(5.9604645e-08, 5.9604645e-08, 5.9604645e-08, 1)
-bones/56/rotation = Quaternion(0.09300004, -0.009782082, -0.059858404, 0.99381703)
-bones/57/rotation = Quaternion(0.090273075, 0.00024369721, 0.003045501, 0.99591243)
+bones/56/rotation = Quaternion(0.09443166, -0.009874116, -0.05975832, 0.99368715)
+bones/57/rotation = Quaternion(0.09137779, 0.00024282896, 0.0031094898, 0.99581146)
 bones/58/rotation = Quaternion(2.9802322e-08, 2.9802322e-08, -2.9802322e-08, 1)
-bones/60/rotation = Quaternion(0.16597277, 0.009269199, -0.056483813, 0.9844678)
-bones/61/rotation = Quaternion(0.09080615, -0.0012755843, -0.00090445235, 0.9958674)
+bones/60/rotation = Quaternion(0.17817913, 0.008296373, -0.055359304, 0.9824046)
+bones/61/rotation = Quaternion(0.10315198, -0.0014533347, 0.00034860626, 0.9946645)
 bones/62/rotation = Quaternion(-4.4703484e-08, 5.9604645e-08, 1.4901161e-08, 1)
 bones/64/rotation = Quaternion(-0.14415519, 0.6830637, 0.112227246, 0.707141)
 bones/65/rotation = Quaternion(0.073342174, 0.07320519, -0.009673803, 0.9945694)
 bones/66/rotation = Quaternion(7.4505806e-08, 7.4505806e-08, 2.9802322e-08, 1)
-bones/70/rotation = Quaternion(0.511386, -0.47704393, -0.5499101, -0.45663166)
-bones/71/rotation = Quaternion(-0.14347935, 0.82685876, -0.5019121, 0.2092907)
-bones/72/rotation = Quaternion(0.0628671, 0.7136071, -0.061648596, 0.69499075)
-bones/75/rotation = Quaternion(-0.0894045, -0.4814518, -0.19543494, 0.8497154)
-bones/76/rotation = Quaternion(0.12027851, 0.05960059, 0.068088375, 0.9886075)
-bones/77/rotation = Quaternion(0.04598349, -0.00057495735, 0.0047481293, 0.99893075)
+bones/70/rotation = Quaternion(0.51655173, -0.4721387, -0.5481031, -0.45808566)
+bones/71/rotation = Quaternion(-0.13501525, 0.8277168, -0.49647877, 0.22397487)
+bones/72/rotation = Quaternion(0.081937976, 0.71180236, -0.0808224, 0.69288623)
+bones/75/rotation = Quaternion(-0.09920186, -0.48071375, -0.18549493, 0.8512726)
+bones/76/rotation = Quaternion(0.16577779, 0.061614145, 0.06672328, 0.9819723)
+bones/77/rotation = Quaternion(0.09188872, -0.00082199747, 0.006490526, 0.99574786)
 bones/78/rotation = Quaternion(-8.940697e-08, 8.940697e-08, 2.9802322e-08, 1)
-bones/80/rotation = Quaternion(0.19419485, -0.0064416537, 0.029684298, 0.9804926)
-bones/81/rotation = Quaternion(0.10917157, 0.011435731, -0.035822876, 0.9933114)
+bones/80/rotation = Quaternion(0.19979359, -0.0060637635, 0.0298228, 0.9793653)
+bones/81/rotation = Quaternion(0.11473855, 0.011345816, -0.03649471, 0.9926603)
 bones/82/rotation = Quaternion(0, -1.4901161e-08, -1.4901161e-08, 1)
-bones/84/rotation = Quaternion(0.12048516, 0.004995855, 0.053054642, 0.9912839)
-bones/85/rotation = Quaternion(0.09128228, 0.00053341663, -0.004472132, 0.99581486)
+bones/84/rotation = Quaternion(0.14957583, 0.006776877, 0.050756544, 0.9874234)
+bones/85/rotation = Quaternion(0.12053238, 0.00061372167, -0.006545676, 0.99268764)
 bones/86/rotation = Quaternion(2.9802322e-08, 2.9802322e-08, 2.9802322e-08, 1)
-bones/88/rotation = Quaternion(0.17718647, 0.011397949, 0.033166934, 0.9835522)
-bones/89/rotation = Quaternion(0.08183839, 0.0038570026, -0.00396263, 0.9966303)
+bones/88/rotation = Quaternion(0.1923992, 0.012110453, 0.031971693, 0.980721)
+bones/89/rotation = Quaternion(0.0972746, 0.003875466, -0.005049701, 0.99523723)
 bones/90/rotation = Quaternion(-2.9802322e-08, 5.9604645e-08, 2.9802322e-08, 1)
 bones/92/rotation = Quaternion(-0.13473581, -0.6693016, -0.08381585, 0.7258489)
 bones/93/rotation = Quaternion(0.10463706, -0.08199502, -0.012196097, 0.9910495)
 bones/94/rotation = Quaternion(7.450581e-08, 1.0430814e-07, -5.960465e-08, 1)
-bones/98/rotation = Quaternion(0.02454268, 0.12661292, 0.9889611, -0.07295778)
-bones/107/rotation = Quaternion(0.004600638, 0.99232, -0.123609096, 0.00085970917)
-bones/108/rotation = Quaternion(0.09327093, 0.71884376, -0.67646235, 0.13024174)
-bones/109/rotation = Quaternion(-0.024985489, 0.9995922, -0.0005036624, 0.013816497)
-bones/111/rotation = Quaternion(-0.060540803, 0.025226153, 0.9963065, -0.05542602)
-bones/120/rotation = Quaternion(-0.0023740274, 0.9970322, -0.076948725, 8.268116e-05)
-bones/121/rotation = Quaternion(-0.09890358, 0.6701034, -0.7334593, -0.05671964)
+bones/98/rotation = Quaternion(0.023146765, 0.12685563, 0.9886683, -0.07685585)
+bones/107/rotation = Quaternion(0.004777375, 0.99170035, -0.12847807, 0.0009968599)
+bones/108/rotation = Quaternion(0.09912423, 0.7163003, -0.6774115, 0.13491474)
+bones/109/rotation = Quaternion(-0.03047498, 0.99938256, 0.0006629801, 0.017476331)
+bones/111/rotation = Quaternion(-0.061082676, 0.021096865, 0.99620515, -0.058301605)
+bones/120/rotation = Quaternion(-0.0020987769, 0.9973755, -0.072372995, 0.00015128028)
+bones/121/rotation = Quaternion(-0.09111321, 0.6725524, -0.73256546, -0.052149728)
 bones/122/rotation = Quaternion(-0.008335556, 0.99966097, 0.024089333, 0.0053164433)
 
 [node name="Head" parent="CollisionShape3D/VRM/Root_/GeneralSkeleton" index="8"]
-transform = Transform3D(0.99988234, 0.0032956463, -0.014983591, -0.0029997323, 0.9998008, 0.019728877, 0.015045619, -0.019681618, 0.9996931, 0.027272815, 1.3809055, 0.020447792)
+transform = Transform3D(0.998488, 0.005743951, -0.05467142, -0.0040270514, 0.9994967, 0.03146247, 0.054824613, -0.031194732, 0.9980086, 0.033010863, 1.3807226, 0.01323471)
 
 [node name="secondary" parent="CollisionShape3D/VRM" index="1"]
 update_in_editor = true

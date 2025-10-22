@@ -1,12 +1,12 @@
 [gd_scene load_steps=77 format=3 uid="uid://e2w2uk33s4my"]
 
 [ext_resource type="Script" uid="uid://bgnmwonlivjeg" path="res://visual-novel/demos/FirstPrototype_Dialogic/scripts/vrm-character.gd" id="1_ryx2p"]
-[ext_resource type="PackedScene" uid="uid://d1bbfo5ds5i7y" path="res://vrm-characters/vrm/DoritaCorona.vrm" id="2_qwlly"]
+[ext_resource type="PackedScene" uid="uid://d1bbfo5ds5i7y" path="res://character_samples/vrm/DoritaCorona.vrm" id="2_qwlly"]
 [ext_resource type="Script" uid="uid://bh0kts1q2t2iu" path="res://addons/vrm/vrm_spring_bone.gd" id="3_e47yr"]
 [ext_resource type="Script" uid="uid://k0tkdr1fej6k" path="res://addons/vrm/vrm_collider_group.gd" id="4_kj5uk"]
 [ext_resource type="Script" uid="uid://p4cpsh67l24x" path="res://addons/vrm/vrm_collider.gd" id="5_ftswb"]
-[ext_resource type="AnimationLibrary" uid="uid://w6ygba13mihu" path="res://vrm-characters/animations/legacy/mixamo-female_locomotion.res" id="6_e47yr"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://bqfat2320tyi8" path="res://vrm-characters/animations/legacy/archlinux_anim_statemachine.res" id="6_qwlly"]
+[ext_resource type="AnimationLibrary" uid="uid://w6ygba13mihu" path="res://visual-novel/animations/legacy/mixamo-female_locomotion.res" id="6_e47yr"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://bqfat2320tyi8" path="res://visual-novel/animations/legacy/archlinux_anim_statemachine.res" id="6_qwlly"]
 [ext_resource type="Script" uid="uid://dofuv8cgmsp48" path="res://visual-novel/demos/FirstPrototype_Dialogic/scripts/vrm-animation_tree.gd" id="8_kj5uk"]
 
 [sub_resource type="Resource" id="Resource_n8vli"]
