@@ -1,5 +1,5 @@
 @tool 
-class_name DialogicNpc extends NovelCharacter
+class_name Npc extends NovelCharacter
 
 @export_category("Dialogic")
 @export var timeline: DialogicTimeline

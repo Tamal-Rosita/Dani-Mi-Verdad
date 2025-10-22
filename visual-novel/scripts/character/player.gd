@@ -1,7 +1,7 @@
 @tool
 class_name Player extends NovelCharacter
 
-var _interaction_character: DialogicNpc
+var _interaction_character: Npc
 var can_interact: bool
 	
 @onready var _interaction_hud: InteractionHud = $InteractionHUD
@@ -31,7 +31,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if Input.is_action_just_pressed("interact") and can_interact:
 				play_interaction()
 				
-func show_interaction(npc_character: DialogicNpc) -> void:
+func show_interaction(npc_character: Npc) -> void:
 	_interaction_character = npc_character
 	if _interaction_character.timeline == null: 
 		print_rich("[color=yellow]No timeline loaded to NPC")

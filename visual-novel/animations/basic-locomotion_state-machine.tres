@@ -1,16 +1,17 @@
 [gd_resource type="AnimationNodeStateMachine" load_steps=10 format=3 uid="uid://b7ylgyss6jgi2"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1l07c"]
-animation = &"basic_female_locomotion_library/Standing Jump"
+animation = &"basic-locomotion_library/Standing Jump"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sptpl"]
-animation = &"basic_female_locomotion_library/Regular Jump"
+animation = &"basic-locomotion_library/Regular Jump"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ybftw"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_1l07c")
-blend_point_0/pos = -1.0
+blend_point_0/pos = 0.0
 blend_point_1/node = SubResource("AnimationNodeAnimation_sptpl")
 blend_point_1/pos = 1.0
+min_space = 0.0
 sync = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c0w8h"]

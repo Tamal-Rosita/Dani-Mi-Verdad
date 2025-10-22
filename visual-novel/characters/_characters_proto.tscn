@@ -79,8 +79,9 @@ directional_shadow_blend_splits = true
 [node name="Controllers" type="Node" parent="."]
 script = ExtResource("2_gbhgd")
 
-[node name="PlayerController" type="Node" parent="Controllers"]
+[node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
 script = ExtResource("3_weir6")
+controlled_obj = NodePath("../../Characters/Player")
 
 [node name="Level" type="Node" parent="."]
 
