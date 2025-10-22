@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cjak0tauqrdbi"
-path="res://.godot/imported/Dani.vrm-2e3e6e1cfbeb5ff0fd16c2426db525cf.scn"
+path="res://.godot/imported/Dani.vrm-07f2e115d3e79e4de80b6276e9c51727.scn"
 
 [deps]
 
-source_file="res://visual-novel/GJDDM/vrm/Dani.vrm"
-dest_files=["res://.godot/imported/Dani.vrm-2e3e6e1cfbeb5ff0fd16c2426db525cf.scn"]
+source_file="res://visual-novel/GJDDM/characters/vrm/Dani.vrm"
+dest_files=["res://.godot/imported/Dani.vrm-07f2e115d3e79e4de80b6276e9c51727.scn"]
 
 [params]
 

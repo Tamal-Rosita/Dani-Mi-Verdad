@@ -1,18 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://c1ssm1pwte6yj"]
+[gd_scene load_steps=23 format=3 uid="uid://c1ssm1pwte6yj"]
 
-[ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="1_6ce5u"]
-[ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/controllers/pointer_capture.gd" id="2_yhlj7"]
-[ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://controller_examples/scripts/controllers/controller_player.gd" id="4_58k0h"]
-[ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://controller_examples/assets/textures/Black.png" id="5_rhqd7"]
-[ext_resource type="Texture2D" uid="uid://6wofk4ae5yf3" path="res://controller_examples/assets/textures/White.png" id="6_kscyx"]
-[ext_resource type="Texture2D" uid="uid://dkpqh8de7tb3n" path="res://controller_examples/assets/textures/Green.png" id="7_upj5d"]
-[ext_resource type="PackedScene" uid="uid://cqe35jnafmlk" path="res://controller_examples/scenes/DashPickup.tscn" id="8_iprex"]
-[ext_resource type="PackedScene" uid="uid://cumfdgm0slteb" path="res://visual-novel/GJDDM/characters/player.tscn" id="8_k5wml"]
-[ext_resource type="PackedScene" uid="uid://v1t6y25ohnld" path="res://visual-novel/GJDDM/characters/npc.tscn" id="8_m27op"]
-[ext_resource type="Script" uid="uid://b60p0g332w41m" path="res://visual-novel/scripts/camera/cinematic_camera.gd" id="11_4b4hv"]
+[ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="1_uv5li"]
+[ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/controllers/pointer_capture.gd" id="2_gbhgd"]
+[ext_resource type="Script" uid="uid://cxoo2wlaplh8v" path="res://controller_examples/scripts/controllers/controller_player.gd" id="3_weir6"]
+[ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://controller_examples/assets/textures/Black.png" id="4_qyhir"]
+[ext_resource type="Texture2D" uid="uid://6wofk4ae5yf3" path="res://controller_examples/assets/textures/White.png" id="5_m1ssq"]
+[ext_resource type="Texture2D" uid="uid://dkpqh8de7tb3n" path="res://controller_examples/assets/textures/Green.png" id="6_khved"]
+[ext_resource type="PackedScene" uid="uid://cqe35jnafmlk" path="res://controller_examples/scenes/DashPickup.tscn" id="7_apku4"]
+[ext_resource type="PackedScene" uid="uid://dcjpkqhi816nl" path="res://visual-novel/characters/novel_character_base.tscn" id="9_ypye0"]
+[ext_resource type="Script" uid="uid://b60p0g332w41m" path="res://visual-novel/scripts/camera/cinematic_camera.gd" id="10_e8lx2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
-panorama = ExtResource("1_6ce5u")
+panorama = ExtResource("1_uv5li")
 
 [sub_resource type="Sky" id="Sky_5ngqa"]
 sky_material = SubResource("PanoramaSkyMaterial_6c4vd")
@@ -25,7 +24,7 @@ tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajchh"]
-albedo_texture = ExtResource("5_rhqd7")
+albedo_texture = ExtResource("4_qyhir")
 uv1_triplanar = true
 texture_filter = 5
 
@@ -38,7 +37,7 @@ data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0,
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkvud"]
 albedo_color = Color(0.156, 0.78, 0.6656, 1)
-albedo_texture = ExtResource("6_kscyx")
+albedo_texture = ExtResource("5_m1ssq")
 uv1_triplanar = true
 texture_filter = 5
 
@@ -54,7 +53,7 @@ left_to_right = -2.0
 size = Vector3(5, 5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfpgv"]
-albedo_texture = ExtResource("7_upj5d")
+albedo_texture = ExtResource("6_khved")
 uv1_triplanar = true
 texture_filter = 5
 
@@ -78,11 +77,10 @@ directional_shadow_split_3 = 0.2
 directional_shadow_blend_splits = true
 
 [node name="Controllers" type="Node" parent="."]
-script = ExtResource("2_yhlj7")
+script = ExtResource("2_gbhgd")
 
-[node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
-script = ExtResource("4_58k0h")
-controlled_obj = NodePath("../../Characters/Player")
+[node name="PlayerController" type="Node" parent="Controllers"]
+script = ExtResource("3_weir6")
 
 [node name="Level" type="Node" parent="."]
 
@@ -204,23 +202,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.6)
 [node name="CSGBox3D5" type="CSGBox3D" parent="Level/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -0.8)
 
-[node name="DashPickup" parent="." instance=ExtResource("8_iprex")]
+[node name="DashPickup" parent="." instance=ExtResource("7_apku4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78498, 0, -1.4562)
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="Player" parent="Characters" instance=ExtResource("8_k5wml")]
-
-[node name="NPC" parent="Characters" instance=ExtResource("8_m27op")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -2, 0, -8.7)
+[node name="Player" parent="Characters" instance=ExtResource("9_ypye0")]
 
 [node name="Cameras" type="Node" parent="."]
 
 [node name="CinematicCamera" type="Camera3D" parent="Cameras"]
 transform = Transform3D(-0.8507096, -0.027090535, 0.5249374, 8.370282e-11, 0.9986711, 0.051538605, -0.52563596, 0.043844383, -0.84957904, 0.94658566, 1.3046398, 2.5475743)
-script = ExtResource("11_4b4hv")
+script = ExtResource("10_e8lx2")
 
 [node name="CinematicCamera2" type="Camera3D" parent="Cameras"]
 transform = Transform3D(0.0031589572, 0.17020866, -0.985403, 6.6087464e-09, 0.9854079, 0.17020951, 0.99999505, -0.00053769106, 0.00311286, -2.6623623, 1.753995, 4.1197286)
 fov = 30.0
-script = ExtResource("11_4b4hv")
+script = ExtResource("10_e8lx2")

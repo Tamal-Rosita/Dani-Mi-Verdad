@@ -3,7 +3,7 @@ class_name CharacterAnimationTree extends AnimationTree
 @export_category("Animation")
 
 @onready var novel_character: NovelCharacter = get_parent() as NovelCharacter
-@onready var dialogic_character: DialogicCharacter = novel_character.character
+@onready var dialogic_character: DialogicCharacter = novel_character.dialogic_character
 @onready var character_name: String = dialogic_character.display_name
 
 var total_time: int                   = 0

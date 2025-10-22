@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bv436sr2omwwt"
-path="res://.godot/imported/Gael.vrm-44376ecebe745d980af097668019d276.scn"
+path="res://.godot/imported/Gael.vrm-e4b035717f9275e29c77c81e38f203cd.scn"
 
 [deps]
 
-source_file="res://visual-novel/GJDDM/vrm/Gael.vrm"
-dest_files=["res://.godot/imported/Gael.vrm-44376ecebe745d980af097668019d276.scn"]
+source_file="res://visual-novel/GJDDM/characters/vrm/Gael.vrm"
+dest_files=["res://.godot/imported/Gael.vrm-e4b035717f9275e29c77c81e38f203cd.scn"]
 
 [params]
 

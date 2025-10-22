@@ -1,3 +1,4 @@
+@tool 
 class_name DialogicNpc extends NovelCharacter
 
 @export_category("Dialogic")

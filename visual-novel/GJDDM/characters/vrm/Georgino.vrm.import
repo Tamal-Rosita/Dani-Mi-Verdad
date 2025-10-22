@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c2ykbmo0bli6u"
-path="res://.godot/imported/Gerardo.vrm-a41799657b033307f00cc8d06efa6b1a.scn"
+uid="uid://0tshktn1ayev"
+path="res://.godot/imported/Georgino.vrm-9ad9acd7f31db7fb99fbc3e4898431a3.scn"
 
 [deps]
 
-source_file="res://visual-novel/GJDDM/vrm/Gerardo.vrm"
-dest_files=["res://.godot/imported/Gerardo.vrm-a41799657b033307f00cc8d06efa6b1a.scn"]
+source_file="res://visual-novel/GJDDM/characters/vrm/Georgino.vrm"
+dest_files=["res://.godot/imported/Georgino.vrm-9ad9acd7f31db7fb99fbc3e4898431a3.scn"]
 
 [params]
 
