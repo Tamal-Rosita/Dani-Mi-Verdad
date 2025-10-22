@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VRM-NovelEngine"
-run/main_scene="uid://dvxg1dwf5bdk"
+run/main_scene="uid://c1ssm1pwte6yj"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://bklxfuuu03836"
 
@@ -70,7 +70,7 @@ window/size/viewport_height=720
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/orbit_camera/plugin.cfg", "res://addons/vrm/plugin.cfg")
+enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/orbit_camera/plugin.cfg", "res://addons/plenticons/plugin.cfg", "res://addons/vrm/plugin.cfg")
 
 [global_group]
 

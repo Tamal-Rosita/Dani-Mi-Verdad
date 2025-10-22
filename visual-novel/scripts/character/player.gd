@@ -1,5 +1,3 @@
-@icon("res://visual-novel/scripts/icons/player3d_icon.svg")
-
 class_name Player extends NovelCharacter
 
 var _interaction_character: DialogicNpc

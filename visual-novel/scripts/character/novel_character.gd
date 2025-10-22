@@ -1,3 +1,4 @@
+@icon("res://addons/plenticons/icons/16x/creatures/person-red.png")
 class_name NovelCharacter extends CharacterBody3D
 
 @export_category("Dialogic")
