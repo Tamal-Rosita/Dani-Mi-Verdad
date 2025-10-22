@@ -1,4 +1,4 @@
-class_name CharacterMoodAnimTree extends AnimationTree
+class_name CharacterAnimationTree extends AnimationTree
 
 @export_category("Animation")
 
