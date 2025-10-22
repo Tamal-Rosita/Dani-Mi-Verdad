@@ -33,7 +33,7 @@ blend_point_3/pos = Vector2(-1, 0)
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_w1isf"]
 
 [resource]
-graph_offset = Vector2(-54.138245, 130.14726)
+graph_offset = Vector2(-47.198364, 92.793365)
 nodes/output/position = Vector2(1440, 180)
 nodes/BaseEmotion/node = ExtResource("1_rt54g")
 nodes/BaseEmotion/position = Vector2(460, 180)
