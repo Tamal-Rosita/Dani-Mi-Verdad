@@ -212,7 +212,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78498, 0, -1.4562)
 [node name="Player" parent="Characters" instance=ExtResource("8_k5wml")]
 
 [node name="NPC" parent="Characters" instance=ExtResource("8_m27op")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2321463, 4.7683716e-07, -7.99688)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -2, 0, -8.7)
 
 [node name="Cameras" type="Node" parent="."]
 
