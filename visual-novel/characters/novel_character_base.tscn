@@ -7,9 +7,9 @@
 [ext_resource type="Script" uid="uid://bh0kts1q2t2iu" path="res://addons/vrm/vrm_spring_bone.gd" id="4_igqhg"]
 [ext_resource type="Script" uid="uid://k0tkdr1fej6k" path="res://addons/vrm/vrm_collider_group.gd" id="5_wxfq7"]
 [ext_resource type="Script" uid="uid://p4cpsh67l24x" path="res://addons/vrm/vrm_collider.gd" id="6_ujtio"]
+[ext_resource type="Script" uid="uid://d3drp7l1lytlu" path="res://visual-novel/scripts/character/actions/action_jump.gd" id="9_bbd2j"]
 [ext_resource type="Script" uid="uid://cavoehjg14dyj" path="res://addons/character_controller/scripts/action_container.gd" id="10_d1hax"]
 [ext_resource type="Script" uid="uid://dn0l3kkomlwu7" path="res://controller_examples/scripts/simple_character/actions/action_move_simple.gd" id="11_tkh71"]
-[ext_resource type="Script" uid="uid://cqdsr3d0jkd4b" path="res://controller_examples/scripts/simple_character/actions/action_jump_simple.gd" id="12_855vv"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://dgubwui2tiafd" path="res://visual-novel/animations/novel-character_blendtree.tres" id="13_dca5i"]
 [ext_resource type="Script" uid="uid://b76mxvtweu40c" path="res://visual-novel/scripts/character/character_animation_tree.gd" id="14_ps3kr"]
 [ext_resource type="Script" uid="uid://boe8j3nxneke" path="res://visual-novel/scripts/camera/third_person_camera.gd" id="15_7vat7"]
@@ -567,11 +567,9 @@ metadata/_custom_type_script = "uid://cavoehjg14dyj"
 
 [node name="Move" type="Node" parent="ActionContainer"]
 script = ExtResource("11_tkh71")
-speed = 2.0
 
 [node name="Jump" type="Node" parent="ActionContainer"]
-script = ExtResource("12_855vv")
-JUMP_STRENGTH = 4.0
+script = ExtResource("9_bbd2j")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CollisionShape3D/ModelContainer/Dani")

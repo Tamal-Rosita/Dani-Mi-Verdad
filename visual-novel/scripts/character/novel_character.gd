@@ -37,7 +37,6 @@ signal interaction_toggle
 
 var _current_animation_player: AnimationPlayer
 
-
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		# Ensure ModelContainer exists in editor
@@ -47,11 +46,8 @@ func _ready() -> void:
 			collision_shape.add_child(container)
 			container.set_owner(get_tree().edited_scene_root)	
 	else:		
-		## TODO: Verify if necessary:
 		move_action.speed = speed
-		jump_action.JUMP_STRENGTH = jump_strength
-		##
-		
+		jump_action.jump_strength = jump_strength		
 		interaction_area.body_entered.connect(_on_interaction_area_3d_body_entered)
 		interaction_area.body_exited.connect(_on_interaction_area_3d_body_exited)				
 		Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
@@ -59,8 +55,7 @@ func _ready() -> void:
 		## TODO: Replace with signal of custom event (Cameras)?
 		Dialogic.Text.speaker_updated.connect(_on_dialogic_speaker_updated) # This is working
 		# Dialogic.Portraits.character_joined.connect(_on_dialogic_character_joined) # TODO: Use this as reference for Custom Event
-		##
-		
+		##		
 		if vrm_scene:
 			instantiate_model(vrm_scene)
 		
@@ -73,15 +68,6 @@ func _get_configuration_warnings() -> PackedStringArray:
 	if not animation_tree:
 		warnings.append("AnimationTree node is missing - needed for animations")
 	return warnings
-	
-func focus_character(active: bool) -> void:
-	dialogue_camera.make_current()
-	
-	## TODO: Verify following parameters
-	## Animation Focus parameter
-	animation_tree.set("parameters/conditions/Focus", active)
-	## Other parameters
-	animation_tree.set("parameters/conditions/Talk", !active)
 	
 func instantiate_model(scene: PackedScene) -> Node3D:
 	if not model_container:
@@ -98,6 +84,9 @@ func instantiate_model(scene: PackedScene) -> Node3D:
 	model_container.add_child(new_model)
 	_connect_animation_player(new_model)
 	return new_model
+	
+func _focus_character() -> void:
+	dialogue_camera.make_current()
 	
 func _set_character_type(value: String) -> void:
 	character_type = value
@@ -148,8 +137,18 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 		if result:
 			return result	
 	return null
-
 	
+#func _on_dialogic_character_joined(info: Dictionary) -> void:
+#	print("Timeline character joined")
+#	print(info)
+	
+func _on_dialogic_speaker_updated(new_character: DialogicCharacter) -> void:
+	if new_character == null: return
+	# print("Speaker updated: " + new_character.display_name + ":" + character.display_name)
+	if new_character == dialogic_character:
+		print("Focusing on: " + new_character.display_name)
+		_focus_character()
+		
 func _on_dialogic_timeline_ended() -> void:
 	animation_tree.reset()
 	interaction_toggle.emit(false)
@@ -157,17 +156,6 @@ func _on_dialogic_timeline_ended() -> void:
 func _on_dialogic_timeline_started() -> void:
 	animation_tree.reset()
 	interaction_toggle.emit(true)
-	
-func _on_dialogic_character_joined(info: Dictionary) -> void:
-	print("Timeline character joined")
-	print(info)
-	
-func _on_dialogic_speaker_updated(new_character: DialogicCharacter) -> void:
-	if new_character == null: return
-	# print("Speaker updated: " + new_character.display_name + ":" + character.display_name)
-	if new_character == dialogic_character:
-		print("Focusing on: " + new_character.display_name)
-		focus_character(true)
 	
 func _on_interaction_area_3d_body_entered(body: Node3D) -> void:
 	if body is NovelCharacter:
