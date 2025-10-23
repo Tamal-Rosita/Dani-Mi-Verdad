@@ -1,15 +1,38 @@
-[signal arg_type="dict" arg="{"amount":"0.4","character":"Celia","mood":"happy"}"]
-Celia: Pensé que no vendrías
-[signal arg_type="dict" arg="{"amount":"0.6","character":"Dani","mood":"angry"}"]
-Dani: Pensé en no hacerlo
-[signal arg_type="dict" arg="{"amount":".55","character":"Georgino","mood":"angry"}"]
-Georgino: A la familia le dará gusto que estés aquí
-[signal arg_type="dict" arg="{"amount":"0.35","character":"Dani","mood":"sad"}"]
-Dani: De qué estaba enfermo,.. mi papá?
-[signal arg_type="dict" arg="{"amount":"0.35","character":"Celia","mood":"surprised"}"]
-Celia: Enfermo? No estaba enfermo?
-[signal arg_type="dict" arg="{"amount":"0.65","character":"Dani","mood":"surprised"}"]
-Dani: De qué murió?
-[signal arg_type="dict" arg="{"amount":"0.45","character":"Georgino","mood":"surprised"}"]
-Georgino: No te dijeron?
+[character_3d character="Celia" mood="happy" amount="0.3"]
+[voice path="res://dialogic/voice/Act1-Celia_Pense-que-no-vendrias.mp3" volume="0.0"]
+Celia: Pensé que no vendrías.
+
+[character_3d character="Dani" mood="angry" amount="0.4"]
+[voice path="res://dialogic/voice/Act1-Dani_Pense-en-no-hacerlo.mp3" volume="0.0"]
+Dani: Pensé en no hacerlo.
+
+[character_3d character="Georgino" mood="happy" amount="0.3"]
+[voice path="res://dialogic/voice/Act1-Georgino_A-la-familia-le-dara-gusto-que-estes.mp3" volume="0.0"]
+Georgino: A la familia le dará gusto que estés aquí.
+
+[character_3d character="Dani" mood="sad" amount="0.5"]
+[voice path="res://dialogic/voice/Act1-Dani_De-que-estaba-enfermo-mi-papa.mp3" volume="0.0"]
+Dani: ¿De qué estaba enfermo, mi papá?
+
+[character_3d character="Celia" mood="surprised" amount="0.3"]
+[voice path="res://dialogic/voice/Act1-Celia_Enfermo-No-estaba-enfermo.mp3" volume="0.0"]
+Celia: ¿Enfermo? ¿No estaba enfermo?
+
+[character_3d character="Dani" mood="surprised" amount="0.4"]
+[voice path="res://dialogic/voice/Act1-Dani_De-que-murio.mp3" volume="0.0"]
+Dani: ¿De qué murió?
+
+[character_3d character="Georgino" mood="surprised" amount="0.3"]
+[voice path="res://dialogic/voice/Act1-Georgino_No-te-dijeron.mp3" volume="0.0"]
+Georgino: ¿No te dijeron?
+
+[character_3d character="Celia" mood="sad" amount="0.5"]
+Celia: Será mejor que le preguntes a Gerardo. Para mí es muy difícil decirlo.
+
+[character_3d character="Georgino" mood="angry" amount="0.3"]
+Georgino: Él fue el que lo encontró.
+
+[character_3d character="Dani" mood="surprised" amount="0.2"]
+Dani: Creo que no habló con él en dos años.
+
 [end_timeline]

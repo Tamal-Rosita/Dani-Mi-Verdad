@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VRM-NovelEngine"
-run/main_scene="uid://dvxg1dwf5bdk"
+run/main_scene="uid://bo1tni28i8w3i"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://bklxfuuu03836"
 
@@ -26,17 +26,14 @@ directories/dch_directory={
 "Dani": "res://dialogic/characters/Dani.dch",
 "Gael": "res://dialogic/characters/Gael.dch",
 "Georgino": "res://dialogic/characters/Georgino.dch",
-"NPC": "res://dialogic/characters/NPC.dch",
+"Gerardo": "res://dialogic/characters/Gerardo.dch",
 "archlinux-chan": "res://dialogic/characters/archlinux-chan.dch",
 "jaime": "res://dialogic/characters/jaime.dch"
 }
 directories/dtl_directory={
 "presentation": "res://dialogic/timelines/presentation.dtl",
-"prueba01": "res://dialogic/timelines/prueba01.dtl",
 "teatro_cinematica01": "res://dialogic/timelines/teatro_cinematica01.dtl",
-"test": "res://dialogic/timelines/test.dtl",
-"timelines/welcome": "res://dialogic/timelines/welcome.dtl",
-"welcome": "res://dialogic/timelines/welcome.dtl"
+"test": "res://dialogic/timelines/test.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://dialogic/styles/my_new_style.tres"]
@@ -70,7 +67,7 @@ window/size/viewport_height=720
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/orbit_camera/plugin.cfg", "res://addons/vrm/plugin.cfg")
+enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/orbit_camera/plugin.cfg", "res://addons/plenticons/plugin.cfg", "res://addons/vrm/plugin.cfg")
 
 [global_group]
 
