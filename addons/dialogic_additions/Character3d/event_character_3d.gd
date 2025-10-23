@@ -60,8 +60,8 @@ func get_shortcode_parameters() -> Dictionary:
 		#param_name 		: property_info
 		#"my_parameter"		: {"property": "property", "default": "Default"},
 		"character"			: {"property": "character_identifier", "default": ""},
-		"mood"				: {"property": "mood", "default": "happy"},
-		"amount"			: {"property": "amount", "default": "0.5"}
+		"mood"				: {"property": "mood", "default": ""},
+		"amount"			: {"property": "amount", "default": "0.0"}
 	}
 
 # You can alternatively overwrite these 3 functions: to_text(), from_text(), is_valid_event()
