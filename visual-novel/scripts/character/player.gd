@@ -10,26 +10,6 @@ var can_interact: bool
 func _ready() -> void:
 	super._ready()
 
-func _get_configuration_warnings() -> PackedStringArray:
-	var warnings: PackedStringArray = super._get_configuration_warnings()
-	# Add player-specific warnings
-	return warnings
-	
-func _on_dialogic_timeline_ended() -> void:
-	super._on_dialogic_timeline_ended()
-	if _cam_pivot.camera:
-		_cam_pivot.camera.make_current()
-	
-func _on_dialogic_timeline_started() -> void:
-	super._on_dialogic_timeline_started()
-	global_transform = _interaction_character.player_transform
-	
-func _unhandled_input(event: InputEvent) -> void:
-	match event.get_class():
-		"InputEventKey":
-			if Input.is_action_just_pressed("interact") and can_interact:
-				play_interaction()
-				
 func show_interaction(npc_character: Npc) -> void:
 	_interaction_character = npc_character
 	if _interaction_character.timeline == null: 
@@ -50,3 +30,24 @@ func start_dialogue(timeline: DialogicTimeline) -> void:
 	if Dialogic.current_timeline != null: return
 	Dialogic.start(timeline)
 	get_viewport().set_input_as_handled()
+
+func _get_configuration_warnings() -> PackedStringArray:
+	var warnings: PackedStringArray = super._get_configuration_warnings()
+	# Add player-specific warnings
+	return warnings
+	
+func _on_dialogic_timeline_ended() -> void:
+	super._on_dialogic_timeline_ended()
+	if _cam_pivot.camera:
+		_cam_pivot.camera.make_current()
+	
+func _on_dialogic_timeline_started() -> void:
+	super._on_dialogic_timeline_started()
+	global_transform = _interaction_character.player_transform
+	rotate_y(deg_to_rad(180))
+	
+func _unhandled_input(event: InputEvent) -> void:
+	match event.get_class():
+		"InputEventKey":
+			if Input.is_action_just_pressed("interact") and can_interact:
+				play_interaction()
