@@ -12,7 +12,7 @@ const CAMERA_BLEND : float = 0.05
 
 func _ready() -> void:
 	# prevent spring arm from colliding with owning character
-	spring_arm.add_excluded_object(get_parent().get_rid()) 
+	spring_arm.add_excluded_object(get_parent().get_parent().get_rid()) 
 	
 	
 func change_fov(setting: FOV) -> void:

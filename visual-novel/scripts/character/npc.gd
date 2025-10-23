@@ -4,8 +4,6 @@ class_name Npc extends NovelCharacter
 @export_category("Dialogic")
 @export var timeline: DialogicTimeline
 
-@onready var player_socket: Node3D =  $Socket
-
 func _on_interaction_area_3d_body_entered(body: Node3D) -> void:
 	super._on_interaction_area_3d_body_entered(body)
 	if not timeline: 

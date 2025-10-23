@@ -32,14 +32,18 @@ signal interaction_toggle
 # Action Nodes
 @onready var move_action: ActionNode = $ActionContainer/Move
 @onready var jump_action: ActionNode = $ActionContainer/Jump
-# Component nodes
-@onready var _collision_shape: CollisionShape3D = $"CollisionShape3D"
-@onready var _model_container = $"CollisionShape3D/ModelContainer"
-@onready var _animation_tree: CharacterAnimationTree = $AnimationTree
-@onready var _camera_pivot: ThirdPersonCamera = $CameraPivot
-@onready var _front_camera_pivot: FrontCharacterCamera = $FrontCameraPivot
+## Component nodes
+# Public
+@onready var camera_pivot: ThirdPersonCamera = $CameraPivot
+@onready var collision_shape: CollisionShape3D = $CollisionShape3D
 @onready var gaze_target: Node3D = $GazeTarget
-@onready var interaction_area: Area3D = $InteractionArea3D
+@onready var interaction_area: Area3D = $CollisionShape3D/InteractionArea3D
+@onready var socket: Node3D =  $CollisionShape3D/Socket
+# Private
+@onready var _animation_tree: CharacterAnimationTree = $AnimationTree
+@onready var _front_camera_pivot: FrontCharacterCamera = $CollisionShape3D/FrontCameraPivot
+@onready var _model_container = $CollisionShape3D/ModelContainer
+
 
 var _current_animation_player: AnimationPlayer
 var _vrm_model: VRMTopLevel
@@ -50,7 +54,7 @@ func _ready() -> void:
 		if not _model_container:
 			var container = Node3D.new()
 			container.name = "ModelContainer"
-			_collision_shape.add_child(container)
+			collision_shape.add_child(container)
 			container.set_owner(get_tree().edited_scene_root)	
 	else:		
 		move_action.speed = speed
@@ -176,10 +180,11 @@ func _update_node_heights(height: float) -> void:
 	# Adjusted height to face ratio
 	var face_height = adjusted_height * face_height_ratio
 	# Adjust camera pivots 
-	if _camera_pivot:
-		_camera_pivot.position.y = adjusted_height 
+	if camera_pivot:
+		camera_pivot.position.y = adjusted_height 
+	# Child of CollisionShape
 	if _front_camera_pivot:
-		_front_camera_pivot.position.y = face_height
+		_front_camera_pivot.position.y = face_height - collision_shape.position.y
 	# Adjust face target (e.g., for dialogic look-at)
 	if gaze_target:
 		gaze_target.position.y = face_height

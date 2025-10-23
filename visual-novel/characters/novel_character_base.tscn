@@ -25,6 +25,9 @@
 radius = 0.3
 height = 1.6514161
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5bp1d"]
+size = Vector3(0.85, 1.8, 1)
+
 [sub_resource type="SkeletonProfileHumanoid" id="SkeletonProfileHumanoid_k5oxq"]
 
 [sub_resource type="BoneMap" id="BoneMap_81if8"]
@@ -622,9 +625,6 @@ hit_radius_scale = 0.02
 gravity_scale = 0.0
 center_node = NodePath("../Root_")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5bp1d"]
-size = Vector3(0.85, 1.8, 1)
-
 [node name="NovelCharacter" type="CharacterBody3D" groups=["ControllableCharacter"]]
 collision_layer = 3
 slide_on_ceiling = false
@@ -640,6 +640,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82869476, 0)
 shape = SubResource("CapsuleShape3D_giq0b")
 script = ExtResource("4_bbd2j")
 
+[node name="FrontCameraPivot" type="Node3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54856616, 0)
+script = ExtResource("14_g2ba7")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CollisionShape3D/FrontCameraPivot"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+spring_length = 0.75
+
+[node name="Camera3D" type="Camera3D" parent="CollisionShape3D/FrontCameraPivot/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+current = true
+fov = 40.0
+
+[node name="InteractionArea3D" type="Area3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.82869476, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionShape3D/InteractionArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.4)
+shape = SubResource("BoxShape3D_5bp1d")
+
 [node name="ModelContainer" type="Node3D" parent="CollisionShape3D"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.82869476, 0)
 
@@ -648,6 +670,9 @@ vrm_meta = SubResource("Resource_jn62j")
 spring_bones = Array[ExtResource("7_dkogs")]([SubResource("Resource_jq5i1"), SubResource("Resource_c6e2k"), SubResource("Resource_3bluc"), SubResource("Resource_glbqg"), SubResource("Resource_oilup"), SubResource("Resource_pfds0"), SubResource("Resource_j3amh"), SubResource("Resource_otuxe"), SubResource("Resource_5yqww"), SubResource("Resource_yvw1u"), SubResource("Resource_yfy40"), SubResource("Resource_khffn"), SubResource("Resource_n5vnl"), SubResource("Resource_gqf5g"), SubResource("Resource_t0yyk"), SubResource("Resource_58371"), SubResource("Resource_tx4pr"), SubResource("Resource_7hcwq"), SubResource("Resource_y6ed4"), SubResource("Resource_5hubv"), SubResource("Resource_prw1e")])
 collider_groups = Array[ExtResource("8_sel01")]([SubResource("Resource_8v5os"), SubResource("Resource_7yqsp"), SubResource("Resource_mchte"), SubResource("Resource_rpf6f"), SubResource("Resource_cxxsp"), SubResource("Resource_ke3nv"), SubResource("Resource_62hua"), SubResource("Resource_iorha"), SubResource("Resource_vs7i3"), SubResource("Resource_yawqe"), SubResource("Resource_dhocr"), SubResource("Resource_q03fn")])
 collider_library = Array[ExtResource("9_p1b4h")]([SubResource("Resource_78phj"), SubResource("Resource_v5cyk"), SubResource("Resource_2032r"), SubResource("Resource_qqe83"), SubResource("Resource_vcv4x"), SubResource("Resource_pyg0m"), SubResource("Resource_hvk6x"), SubResource("Resource_x26b8"), SubResource("Resource_3sqk1"), SubResource("Resource_wt1w6"), SubResource("Resource_xws3o"), SubResource("Resource_dgcv5"), SubResource("Resource_n4v1x"), SubResource("Resource_sbb4a"), SubResource("Resource_7xh58"), SubResource("Resource_6i5ld"), SubResource("Resource_hqiw1"), SubResource("Resource_u3q4h"), SubResource("Resource_xgohy"), SubResource("Resource_6g51n"), SubResource("Resource_t4p7f"), SubResource("Resource_mywla"), SubResource("Resource_mv1yx"), SubResource("Resource_qjfro"), SubResource("Resource_jbni8"), SubResource("Resource_exe75"), SubResource("Resource_ijc8k"), SubResource("Resource_2ao73")])
+
+[node name="Socket" type="Node3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.82869476, -1.45)
 
 [node name="ActionContainer" type="Node" parent="."]
 script = ExtResource("10_d1hax")
@@ -693,30 +718,11 @@ spring_length = 1.25
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25)
+current = true
 fov = 45.0
-
-[node name="FrontCameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3772609, 0)
-script = ExtResource("14_g2ba7")
-
-[node name="SpringArm3D" type="SpringArm3D" parent="FrontCameraPivot"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-spring_length = 0.75
-
-[node name="Camera3D" type="Camera3D" parent="FrontCameraPivot/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
-fov = 40.0
 
 [node name="GazeTarget" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3772609, -0.75)
-
-[node name="InteractionArea3D" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.4)
-shape = SubResource("BoxShape3D_5bp1d")
 
 [node name="MovementManager" type="Node" parent="." node_paths=PackedStringArray("active_state")]
 script = ExtResource("16_dpxsw")
@@ -760,6 +766,3 @@ theme_override_font_sizes/font_size = 28
 text = "Press X to interact."
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Socket" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.45)
