@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c1ssm1pwte6yj"]
+[gd_scene load_steps=27 format=3 uid="uid://c1ssm1pwte6yj"]
 
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="1_uv5li"]
 [ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/controllers/pointer_capture.gd" id="2_gbhgd"]
@@ -7,8 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://6wofk4ae5yf3" path="res://controller_examples/assets/textures/White.png" id="5_m1ssq"]
 [ext_resource type="Texture2D" uid="uid://dkpqh8de7tb3n" path="res://controller_examples/assets/textures/Green.png" id="6_khved"]
 [ext_resource type="PackedScene" uid="uid://cqe35jnafmlk" path="res://controller_examples/scenes/DashPickup.tscn" id="7_apku4"]
+[ext_resource type="Resource" uid="uid://cc3s0aeroky4r" path="res://dialogic/characters/Celia.dch" id="9_gbhgd"]
+[ext_resource type="Script" uid="uid://dm8eqq0apdd5l" path="res://visual-novel/scripts/character/npc.gd" id="9_qyhir"]
+[ext_resource type="PackedScene" uid="uid://b7xheyflqsu7l" path="res://visual-novel/GJDDM/characters/packed/celia.scn" id="9_uv5li"]
 [ext_resource type="PackedScene" uid="uid://dcjpkqhi816nl" path="res://visual-novel/characters/novel_character_base.tscn" id="9_ypye0"]
 [ext_resource type="Script" uid="uid://b60p0g332w41m" path="res://visual-novel/scripts/camera/cinematic_camera.gd" id="10_e8lx2"]
+[ext_resource type="Resource" uid="uid://csq4mmryytt7l" path="res://dialogic/timelines/teatro_cinematica01.dtl" id="10_m1ssq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
 panorama = ExtResource("1_uv5li")
@@ -209,6 +213,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78498, 0, -1.4562)
 [node name="Characters" type="Node" parent="."]
 
 [node name="Player" parent="Characters" instance=ExtResource("9_ypye0")]
+character_type = "Player"
+
+[node name="Celia" parent="Characters" instance=ExtResource("9_ypye0")]
+transform = Transform3D(-0.98114115, 0, -0.1932927, 0, 1, 0, 0.1932927, 0, -0.98114115, 0, 0, -2.8795447)
+script = ExtResource("9_qyhir")
+timeline = ExtResource("10_m1ssq")
+dialogic_character = ExtResource("9_gbhgd")
+vrm_scene = ExtResource("9_uv5li")
 
 [node name="Cameras" type="Node" parent="."]
 

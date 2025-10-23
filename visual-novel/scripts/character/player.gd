@@ -9,7 +9,6 @@ var can_interact: bool
 
 func _ready() -> void:
 	super._ready()
-	_interaction_hud.visible = false
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray = super._get_configuration_warnings()
@@ -36,13 +35,12 @@ func show_interaction(npc_character: Npc) -> void:
 	if _interaction_character.timeline == null: 
 		print_rich("[color=yellow]No timeline loaded to NPC")
 		return
-	_interaction_hud.update_character_interaction(npc_character.dialogic_character.display_name)
 	can_interact = true
-	_interaction_hud.visible = true
+	_interaction_hud.display(npc_character.dialogic_character.display_name)
 
 func hide_interaction() -> void:
 	can_interact = false
-	_interaction_hud.visible = false
+	_interaction_hud.hide()
 	
 func play_interaction() -> void:
 	hide_interaction()

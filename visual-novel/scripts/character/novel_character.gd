@@ -2,6 +2,8 @@
 @tool
 class_name NovelCharacter extends CharacterBody3D
 
+@export_enum("Player", "NPC") var character_type: String = "NPC" : set = _set_character_type
+
 @export_category("Dialogic")
 @export var dialogic_character: DialogicCharacter
 
@@ -23,13 +25,14 @@ class_name NovelCharacter extends CharacterBody3D
 
 signal interaction_toggle
 
+# Action Nodes
 @onready var move_action: ActionNode = $ActionContainer/Move
 @onready var jump_action: ActionNode = $ActionContainer/Jump
-
+# Component nodes
 @onready var animation_tree: AnimationTree = $AnimationTree
-@onready var dialogue_camera: Camera3D = $DialogueCamera
-
 @onready var collision_shape = $"CollisionShape3D"
+@onready var dialogue_camera: Camera3D = $DialogueCamera
+@onready var interaction_area: Area3D = $InteractionArea3D
 @onready var model_container = collision_shape.find_child("ModelContainer")
 
 var _current_animation_player: AnimationPlayer
@@ -44,15 +47,20 @@ func _ready() -> void:
 			collision_shape.add_child(container)
 			container.set_owner(get_tree().edited_scene_root)	
 	else:		
-		# TODO: Verify if necessary:
+		## TODO: Verify if necessary:
 		move_action.speed = speed
 		jump_action.JUMP_STRENGTH = jump_strength
-				
+		##
+		
+		interaction_area.body_entered.connect(_on_interaction_area_3d_body_entered)
+		interaction_area.body_exited.connect(_on_interaction_area_3d_body_exited)				
 		Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
 		Dialogic.timeline_started.connect(_on_dialogic_timeline_started)
 		## TODO: Replace with signal of custom event (Cameras)?
 		Dialogic.Text.speaker_updated.connect(_on_dialogic_speaker_updated) # This is working
 		# Dialogic.Portraits.character_joined.connect(_on_dialogic_character_joined) # TODO: Use this as reference for Custom Event
+		##
+		
 		if vrm_scene:
 			instantiate_model(vrm_scene)
 		
@@ -90,6 +98,24 @@ func instantiate_model(scene: PackedScene) -> Node3D:
 	model_container.add_child(new_model)
 	_connect_animation_player(new_model)
 	return new_model
+	
+func _set_character_type(value: String) -> void:
+	character_type = value
+	_update_character_type()
+	
+func _update_character_type() -> void:
+	if not Engine.is_editor_hint():
+		return
+	# Update script inheritance based on type
+	var script = get_script()
+	print("Updating character type to " + character_type.to_snake_case() + ". Current script : " + str(script))
+	match character_type:
+		"Player":
+			if not script is GDScript or script.resource_path.get_file() != "player.gd":
+				set_script(load("res://visual-novel/scripts/character/player.gd"))
+		"NPC":
+			if not script is GDScript or script.resource_path.get_file() != "npc.gd":
+				set_script(load("res://visual-novel/scripts/character/npc.gd"))
 	
 func _set_vrm_scene(value: PackedScene) -> void:
 	vrm_scene = value
@@ -143,10 +169,10 @@ func _on_dialogic_speaker_updated(new_character: DialogicCharacter) -> void:
 	
 func _on_interaction_area_3d_body_entered(body: Node3D) -> void:
 	if body is NovelCharacter:
-		# print("Entered character interaction area")
+		print("Entered character interaction area")
 		return
 
 func _on_interaction_area_3d_body_exited(body: Node3D) -> void:
 	if  body is NovelCharacter:
-		# print("Exited character interaction area")
+		print("Exited character interaction area")
 		return
