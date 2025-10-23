@@ -5,7 +5,6 @@ var _interaction_character: Npc
 var can_interact: bool
 	
 @onready var _interaction_hud: InteractionHud = $InteractionHUD
-@onready var _cam_pivot: ThirdPersonCamera = $CamPivot
 
 func _ready() -> void:
 	super._ready()
@@ -38,13 +37,20 @@ func _get_configuration_warnings() -> PackedStringArray:
 	
 func _on_dialogic_timeline_ended() -> void:
 	super._on_dialogic_timeline_ended()
-	if _cam_pivot.camera:
-		_cam_pivot.camera.make_current()
+	if _camera_pivot.camera:
+		_camera_pivot.camera.make_current()
 	
 func _on_dialogic_timeline_started() -> void:
 	super._on_dialogic_timeline_started()
-	global_transform = _interaction_character.player_transform
-	rotate_y(deg_to_rad(180))
+	var target_socket: Node3D = _interaction_character.player_socket
+	## Root global_position
+	global_position = target_socket.global_position
+	var target_euler: Vector3 = Vector3(
+		target_socket.global_rotation.x, 
+		target_socket.global_rotation.y + deg_to_rad(180), 
+		target_socket.global_rotation.z)
+	## CollisionShape global_rotation
+	_collision_shape.global_rotation = target_euler
 	
 func _unhandled_input(event: InputEvent) -> void:
 	match event.get_class():

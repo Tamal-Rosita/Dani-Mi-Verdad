@@ -10,6 +10,10 @@ class_name NovelCharacter extends CharacterBody3D
 @export_category("VRM")
 @export var vrm_scene: PackedScene : set = _set_vrm_scene
 
+@export_category("Camera")
+@export var camera_height_offset: float = -0.1 #Offset from top of hear
+@export var face_height_ratio: float = 0.9 # 90% of height for face target 
+
 @export_category("Locomotion")
 @export var speed: float = 2.0:
 	set(v):
@@ -29,21 +33,24 @@ signal interaction_toggle
 @onready var move_action: ActionNode = $ActionContainer/Move
 @onready var jump_action: ActionNode = $ActionContainer/Jump
 # Component nodes
-@onready var animation_tree: CharacterAnimationTree = $AnimationTree
-@onready var collision_shape = $"CollisionShape3D"
-@onready var dialogue_camera: Camera3D = $DialogueCamera
+@onready var _collision_shape: CollisionShape3D = $"CollisionShape3D"
+@onready var _model_container = $"CollisionShape3D/ModelContainer"
+@onready var _animation_tree: CharacterAnimationTree = $AnimationTree
+@onready var _camera_pivot: ThirdPersonCamera = $CameraPivot
+@onready var _front_camera_pivot: FrontCharacterCamera = $FrontCameraPivot
+@onready var gaze_target: Node3D = $GazeTarget
 @onready var interaction_area: Area3D = $InteractionArea3D
-@onready var model_container = collision_shape.find_child("ModelContainer")
 
 var _current_animation_player: AnimationPlayer
+var _vrm_model: VRMTopLevel
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		# Ensure ModelContainer exists in editor
-		if not model_container:
+		if not _model_container:
 			var container = Node3D.new()
 			container.name = "ModelContainer"
-			collision_shape.add_child(container)
+			_collision_shape.add_child(container)
 			container.set_owner(get_tree().edited_scene_root)	
 	else:		
 		move_action.speed = speed
@@ -57,7 +64,8 @@ func _ready() -> void:
 		# Dialogic.Portraits.character_joined.connect(_on_dialogic_character_joined) # TODO: Use this as reference for Custom Event
 		##		
 		if vrm_scene:
-			instantiate_model(vrm_scene)
+			_vrm_model = instantiate_model(vrm_scene)
+			_adjust_camera_nodes()
 		
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray = []
@@ -65,28 +73,29 @@ func _get_configuration_warnings() -> PackedStringArray:
 		warnings.append("DialogicCharacter resource is not assigned")
 	if not vrm_scene:
 		warnings.append("VRM scene is not assigned")
-	if not animation_tree:
+	if not _animation_tree:
 		warnings.append("AnimationTree node is missing - needed for animations")
 	return warnings
 	
 func instantiate_model(scene: PackedScene) -> Node3D:
-	if not model_container:
+	if not _model_container:
 		push_error("ModelContainer is missing!")
 		return null
 	if not scene:
 		push_error("No scene provided to instantiate!")
 		return null
 	# Clear the current model
-	for child in model_container.get_children():
+	for child in _model_container.get_children():
 		child.queue_free()	
 	# Instantiate and add the new model
 	var new_model = scene.instantiate()
-	model_container.add_child(new_model)
+	_model_container.add_child(new_model)
 	_connect_animation_player(new_model)
 	return new_model
 	
 func _focus_character() -> void:
-	dialogue_camera.make_current()
+	if _front_camera_pivot.camera:
+		_front_camera_pivot.camera.make_current()
 	
 func _set_character_type(value: String) -> void:
 	character_type = value
@@ -113,19 +122,77 @@ func _set_vrm_scene(value: PackedScene) -> void:
 func _refresh_model() -> void:
 	if not Engine.is_editor_hint():
 		return
-	if model_container and vrm_scene:
-		var vrm_model: Node3D = instantiate_model(vrm_scene)
+	if _model_container and vrm_scene:
+		_vrm_model = instantiate_model(vrm_scene)		
+		_adjust_camera_nodes()
+		# Wait a frame for the model to be fully instantiated
+		#call_deferred("_adjust_camera_nodes")
 		# Make sure it's editable in editor
-		vrm_model.set_owner(get_tree().edited_scene_root)
+		_vrm_model.set_owner(get_tree().edited_scene_root)		
+		
+func _adjust_camera_nodes() -> void:
+#	if not Engine.is_editor_hint():
+#		return
+	var height: float = _calculate_character_height()
+	# print("Character height: " + str(height))
+	if height > 0:
+		_update_node_heights(height)
+		
+func _calculate_character_height() -> float:
+	var aabb: AABB = _get_character_aabb()
+	if aabb.has_volume():
+		return aabb.size.y
+	return 0.0
+
+func _get_character_aabb() -> AABB:
+	var aabb: AABB
+	for mesh in _get_all_mesh_instances():
+		var mesh_transform = mesh.global_transform
+		var mesh_aabb = mesh.get_aabb()
+		mesh_aabb = AABB(mesh_transform * mesh_aabb.position, mesh_aabb.size)
+		# print("Mesh name: " + mesh.name + " with volume: " + str(mesh_aabb.get_volume()))
+		if aabb.has_volume():
+			aabb = aabb.merge(mesh_aabb)
+		else:
+			aabb = mesh_aabb
+	return aabb
+
+func _get_all_mesh_instances() -> Array[MeshInstance3D]:
+	var meshes: Array[MeshInstance3D] = []
+	for child in _model_container.get_children():
+		if child.name == _vrm_model.name: # Taking both characters: new and old, need to filter.
+			_collect_mesh_instances(child, meshes)
+	return meshes
+
+func _collect_mesh_instances(node: Node, meshes: Array[MeshInstance3D]) -> void:
+	if node is MeshInstance3D:
+		meshes.append(node as MeshInstance3D)
+	for child in node.get_children():
+		_collect_mesh_instances(child, meshes)
+
+func _update_node_heights(height: float) -> void:
+	# Top of head + small offset
+	var adjusted_height = height + camera_height_offset
+	# Adjusted height to face ratio
+	var face_height = adjusted_height * face_height_ratio
+	# Adjust camera pivots 
+	if _camera_pivot:
+		_camera_pivot.position.y = adjusted_height 
+	if _front_camera_pivot:
+		_front_camera_pivot.position.y = face_height
+	# Adjust face target (e.g., for dialogic look-at)
+	if gaze_target:
+		gaze_target.position.y = face_height
+
 		
 func _connect_animation_player(model_node: Node) -> void:
 	# Find AnimationPlayer in the VRM model
 	var animation_player: AnimationPlayer = _find_animation_player(model_node)	
-	if animation_player and animation_tree:
+	if animation_player and _animation_tree:
 		_current_animation_player = animation_player
-		animation_tree.anim_player = animation_tree.get_path_to(animation_player)
-		print("AnimationPlayer connected to AnimationTree: ", animation_player.name)
-	elif animation_tree:
+		_animation_tree.anim_player = _animation_tree.get_path_to(animation_player)
+		# print("AnimationPlayer connected to AnimationTree: ", animation_player.name)
+	elif _animation_tree:
 		push_warning("No AnimationPlayer found in VRM model for AnimationTree")
 
 func _find_animation_player(node: Node) -> AnimationPlayer:
@@ -150,19 +217,19 @@ func _on_dialogic_speaker_updated(new_character: DialogicCharacter) -> void:
 		_focus_character()
 		
 func _on_dialogic_timeline_ended() -> void:
-	animation_tree.reset()
+	_animation_tree.reset()
 	interaction_toggle.emit(false)
 	
 func _on_dialogic_timeline_started() -> void:
-	animation_tree.reset()
+	_animation_tree.reset()
 	interaction_toggle.emit(true)
 	
 func _on_interaction_area_3d_body_entered(body: Node3D) -> void:
 	if body is NovelCharacter:
-		print("Entered character interaction area")
+		#print("Entered character interaction area")
 		return
 
 func _on_interaction_area_3d_body_exited(body: Node3D) -> void:
 	if  body is NovelCharacter:
-		print("Exited character interaction area")
+		#print("Exited character interaction area")
 		return

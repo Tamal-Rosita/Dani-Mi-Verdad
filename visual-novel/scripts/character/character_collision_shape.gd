@@ -8,8 +8,8 @@ const LERP_VALUE : float = 0.15
 var _movement_class: MovementState 
 var _movement_manager: MovementStateManager
 
-@onready var _character: CharacterBody3D = $".."
-@onready var _cam_pivot: Node3D = $"../CamPivot"
+@onready var _character: NovelCharacter = $".."
+@onready var _cam_pivot: ThirdPersonCamera = $"../CameraPivot"
 
 
 func _ready() -> void:
