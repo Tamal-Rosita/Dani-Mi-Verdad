@@ -11,13 +11,13 @@ class_name NovelCharacter extends CharacterBody3D
 @export var vrm_scene: PackedScene : set = _set_vrm_scene
 
 @export_category("Locomotion")
-@export var speed: float = 2:
+@export var speed: float = 2.0:
 	set(v):
 		speed = v
 		if (move_action != null):
 			move_action.speed = speed
 					
-@export var jump_strength: float = 3:
+@export var jump_strength: float = 4.0:
 	set(v):
 		jump_strength = v
 		if (jump_action != null):
@@ -29,7 +29,7 @@ signal interaction_toggle
 @onready var move_action: ActionNode = $ActionContainer/Move
 @onready var jump_action: ActionNode = $ActionContainer/Jump
 # Component nodes
-@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var animation_tree: CharacterAnimationTree = $AnimationTree
 @onready var collision_shape = $"CollisionShape3D"
 @onready var dialogue_camera: Camera3D = $DialogueCamera
 @onready var interaction_area: Area3D = $InteractionArea3D
@@ -151,9 +151,11 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 
 	
 func _on_dialogic_timeline_ended() -> void:
+	animation_tree.reset()
 	interaction_toggle.emit(false)
 	
 func _on_dialogic_timeline_started() -> void:
+	animation_tree.reset()
 	interaction_toggle.emit(true)
 	
 func _on_dialogic_character_joined(info: Dictionary) -> void:

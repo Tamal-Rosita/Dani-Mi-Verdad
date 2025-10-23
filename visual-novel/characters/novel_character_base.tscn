@@ -567,31 +567,33 @@ metadata/_custom_type_script = "uid://cavoehjg14dyj"
 
 [node name="Move" type="Node" parent="ActionContainer"]
 script = ExtResource("11_tkh71")
+speed = 2.0
 
 [node name="Jump" type="Node" parent="ActionContainer"]
 script = ExtResource("12_855vv")
+JUMP_STRENGTH = 4.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CollisionShape3D/ModelContainer/Dani")
 tree_root = ExtResource("13_dca5i")
 anim_player = NodePath("../CollisionShape3D/ModelContainer/Dani/AnimationPlayer")
-parameters/BaseEmotion/blend_position = Vector2(-0.278, -0.553)
+parameters/BaseEmotion/blend_position = Vector2(-0.249, -0.211)
 parameters/Locomotion/conditions/JUMP = false
 parameters/Locomotion/Jump/blend_position = 0.0
 parameters/Locomotion/Motion/blend_position = 0.0
-parameters/TotalAdd/add_amount = 1.0
-parameters/FaceExpression/viseme/current_state = "aa"
-parameters/FaceExpression/viseme/transition_request = ""
-parameters/FaceExpression/viseme/current_index = 0
-parameters/FaceExpression/expression/add_amount = 0.75
-parameters/FaceExpression/mood/current_state = "angry"
+parameters/FaceAdd/add_amount = 0.9
+parameters/FaceExpression/mood/current_state = "sad"
 parameters/FaceExpression/mood/transition_request = ""
 parameters/FaceExpression/mood/current_index = 0
-parameters/FaceExpression/viseme_amount/blend_amount = 0.0
 parameters/FaceExpression/mood_amount/blend_amount = 0.0
-parameters/EmotionAdd/add_amount = 0.0
+parameters/FaceExpression/expression/add_amount = 0.85
+parameters/FaceExpression/viseme_amount/blend_amount = 0.0
+parameters/FaceExpression/viseme/current_state = ""
+parameters/FaceExpression/viseme/transition_request = ""
+parameters/FaceExpression/viseme/current_index = 0
+parameters/BaseEmotionAdd/add_amount = 1.0
 parameters/Gaze/blend_position = Vector2(0, 0)
-parameters/FaceAdd/add_amount = 1.0
+parameters/GazeAdd/add_amount = 1.0
 script = ExtResource("14_ps3kr")
 
 [node name="CamPivot" type="Node3D" parent="."]

@@ -26,7 +26,7 @@ func _execute() -> void:
 		finish()
 		return
 	
-	print("Setting " + character.display_name + " avatar mood: "+ mood +" ("+ str(amount) +").")
+	print("Setting " + character.display_name + " character mood: "+ mood +" ("+ str(amount) +").")
 	
 	var dictionary: Dictionary = {
 		"character": character.display_name, 

@@ -7,10 +7,10 @@ class_name CharacterAnimationTree extends AnimationTree
 @onready var character_name: String = dialogic_character.display_name
 
 var total_time: int                   = 0
-var mood_amount_path: String          = "parameters/FaceExpression/mood_amount/blend_amount"
 var mood_state_path: String           = "parameters/FaceExpression/mood/transition_request"	
-var viseme_amount_path: String        = "parameters/FaceExpression/viseme_amount/blend_amount"
+var mood_amount_path: String          = "parameters/FaceExpression/mood_amount/blend_amount"
 var viseme_state_path: String         = "parameters/FaceExpression/viseme/transition_request"
+var viseme_amount_path: String        = "parameters/FaceExpression/viseme_amount/blend_amount"
 
 
 func _process(delta):
@@ -20,6 +20,10 @@ func _process(delta):
 
 func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_dictionary_signal)
+
+func reset() -> void:
+	set(mood_amount_path, 0)
+	set(viseme_amount_path, 0)
 
 
 func update_anim(time: float) -> float:
