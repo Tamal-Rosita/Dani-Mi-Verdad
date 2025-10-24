@@ -8,7 +8,8 @@ var can_interact: bool
 
 func _ready() -> void:
 	super._ready()
-	reset_camera()
+	if not Engine.is_editor_hint():
+		reset_camera()
 
 func hide_interaction() -> void:
 	can_interact = false
@@ -19,7 +20,7 @@ func play_interaction() -> void:
 	start_dialogue(_interaction_character.timeline)
 
 func reset_camera() -> void:
-	if camera_pivot.camera:
+	if camera_pivot and camera_pivot.camera:
 		camera_pivot.camera.make_current()
 
 func show_interaction(npc_character: Npc) -> void:
