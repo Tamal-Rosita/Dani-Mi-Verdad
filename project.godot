@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VRM-NovelEngine"
-run/main_scene="uid://bo1tni28i8w3i"
+run/main_scene="uid://l8bpgmry05va"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://bklxfuuu03836"
 
@@ -27,6 +27,8 @@ directories/dch_directory={
 "Gael": "res://dialogic/characters/Gael.dch",
 "Georgino": "res://dialogic/characters/Georgino.dch",
 "Gerardo": "res://dialogic/characters/Gerardo.dch",
+"Natalia": "res://dialogic/characters/Natalia.dch",
+"Samuel": "res://dialogic/characters/Samuel.dch",
 "archlinux-chan": "res://dialogic/characters/archlinux-chan.dch",
 "jaime": "res://dialogic/characters/jaime.dch"
 }

@@ -42,7 +42,7 @@ func _process(delta):
 		return
 
 	var target_pos = target.global_position
-	var new_position = _current_position
+	var new_position: Vector3 = _current_position
 
 	# Calculate half dimensions for dead zone boundaries
 	var half_width = dead_zone_width * 0.5
