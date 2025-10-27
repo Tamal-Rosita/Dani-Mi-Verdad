@@ -69,7 +69,8 @@ func _on_dialogic_timeline_started() -> void:
 	collision_shape.global_rotation = target_euler
 	
 func _unhandled_input(event: InputEvent) -> void:
-	match event.get_class():
-		"InputEventKey":
-			if Input.is_action_just_pressed("interact") and can_interact:
-				play_interaction()
+	if can_interact and event.is_action_pressed("interact"):
+		play_interaction()
+	
+#	match event.get_class():
+#		"InputEventKey":
