@@ -20,6 +20,7 @@ config/icon="uid://bklxfuuu03836"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
 
 [dialogic]
 
