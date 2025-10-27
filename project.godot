@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="VRM-NovelEngine"
-run/main_scene="uid://l8bpgmry05va"
+run/main_scene="uid://chqiuwdf2m23e"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.1882353, 0.20392157, 0.27450982, 1)
+boot_splash/image="uid://d2bbfkl2ymk7"
 config/icon="uid://bklxfuuu03836"
 
 [autoload]
@@ -33,6 +35,7 @@ directories/dch_directory={
 "jaime": "res://dialogic/characters/jaime.dch"
 }
 directories/dtl_directory={
+"metro_samuel": "res://dialogic/timelines/metro_samuel.dtl",
 "presentation": "res://dialogic/timelines/presentation.dtl",
 "teatro_cinematica01": "res://dialogic/timelines/teatro_cinematica01.dtl",
 "test": "res://dialogic/timelines/test.dtl"
@@ -139,4 +142,6 @@ interact={
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
