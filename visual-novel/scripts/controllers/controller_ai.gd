@@ -1,5 +1,4 @@
-extends Controller
-
+class_name ControllerAi extends Controller
 
 @export var can_control: bool = true
 
@@ -9,23 +8,31 @@ extends Controller
 
 var _last_input_window: float = 0.0
 var _action_container: ActionContainer
-var _cam_pivot: Node3D
 
-var _npc: NovelCharacter  
-
+var _npc: NovelCharacter
 
 func _on_controlled_obj_change():
 	_action_container = controlled_obj.get_node("ActionContainer")
-	_cam_pivot = controlled_obj.find_child("CameraPivot", false)	
-	
 	_npc = controlled_obj as NovelCharacter
+	_npc.interaction_area_entered.connect(_on_interaction_area_entered)
+	_npc.interaction_area_exited.connect(_on_interaction_area_exited)
 	_npc.interaction_toggle.connect(_on_interaction_toggle)
 	
+func _on_interaction_area_entered(other: NovelCharacter)-> void:
+	if other.dialogic_character.get_instance_id() == _npc.dialogic_character.get_instance_id():
+		return
+	can_control = false
+	# print("Interaction entered character:" + other.dialogic_character.display_name)
+
+func _on_interaction_area_exited(other: NovelCharacter)-> void:
+	if other.dialogic_character.get_instance_id() == _npc.dialogic_character.get_instance_id():
+		return
+	can_control = true
+	# print("Interaction exited character:" + other.dialogic_character.display_name)
 
 func _on_interaction_toggle(is_active: bool):
 	can_control = not is_active
-	# print("Player interaction " + ("started" if is_active else "ended"))
-	
+	print("Player interaction " + ("started" if is_active else "ended"))
 	
 func _process(delta: float) -> void:
 	if not can_control:
@@ -39,5 +46,3 @@ func _process(delta: float) -> void:
 		_last_input_window -= delta
 	
 	_action_container.play_action("MOVE", {"input_direction":current_direction})
-	if _cam_pivot:
-		_cam_pivot.set_direction(Vector2(current_direction.x, current_direction.z))
