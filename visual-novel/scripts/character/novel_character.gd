@@ -28,6 +28,10 @@ class_name NovelCharacter extends CharacterBody3D
 			jump_action.JUMP_STRENGTH = jump_strength		
 
 signal interaction_toggle
+signal interaction_area_entered
+signal interaction_area_exited
+
+var is_busy: bool
 
 # Action Nodes
 @onready var move_action: ActionNode = $ActionContainer/Move
@@ -222,19 +226,23 @@ func _on_dialogic_speaker_updated(new_character: DialogicCharacter) -> void:
 		_focus_character()
 		
 func _on_dialogic_timeline_ended() -> void:
+	is_busy = false
 	_animation_tree.reset()
 	interaction_toggle.emit(false)
 	
 func _on_dialogic_timeline_started() -> void:
+	is_busy = true
 	_animation_tree.reset()
 	interaction_toggle.emit(true)
 	
 func _on_interaction_area_3d_body_entered(body: Node3D) -> void:
-	if body is NovelCharacter:
-		#print("Entered character interaction area")
+	if  body is not NovelCharacter or body == self:
 		return
+	interaction_area_entered.emit(body as NovelCharacter)
+	#print("Entered character interaction area")
 
 func _on_interaction_area_3d_body_exited(body: Node3D) -> void:
-	if  body is NovelCharacter:
-		#print("Exited character interaction area")
+	if  body is not NovelCharacter or body == self:
 		return
+	interaction_area_exited.emit(body as NovelCharacter)
+	#print("Exited character interaction area")

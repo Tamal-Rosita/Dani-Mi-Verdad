@@ -44,6 +44,6 @@ func _on_dialogic_dictionary_signal(argument: Dictionary) -> void:
 	if argument["mood"] != null:
 		var mood               = argument["mood"]
 		var mood_amount: float = float(argument["amount"])
-		print("Setting " + mood + " mood for " + character_name + ": " + mood + " with amount: " + str(mood_amount))
 		set(mood_amount_path, mood_amount)
 		set(mood_state_path, mood)
+		#print("Setting " + mood + " mood for " + character_name + ": " + mood + " with amount: " + str(mood_amount))

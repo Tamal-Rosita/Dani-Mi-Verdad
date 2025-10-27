@@ -1,9 +1,14 @@
 @tool
 class_name Player extends NovelCharacter
 
-var _interaction_character: Npc
+@export_category("Camera")
+@export var use_override_camera: bool = false
+
 var can_interact: bool
-	
+var override_camera: Camera3D
+
+var _interaction_character: Npc
+
 @onready var _interaction_hud: InteractionHud = $InteractionHUD
 
 func _ready() -> void:
@@ -20,10 +25,16 @@ func play_interaction() -> void:
 	start_dialogue(_interaction_character.timeline)
 
 func reset_camera() -> void:
-	if camera_pivot and camera_pivot.camera:
+	if not camera_pivot or not camera_pivot.camera:
+		return
+	if use_override_camera and override_camera:
+		override_camera.make_current()
+	elif not use_override_camera:
 		camera_pivot.camera.make_current()
-
+	
 func show_interaction(npc_character: Npc) -> void:
+	if is_busy: 
+		return
 	_interaction_character = npc_character
 	if _interaction_character.timeline == null: 
 		print_rich("[color=yellow]No timeline loaded to NPC")

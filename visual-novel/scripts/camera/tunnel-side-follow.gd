@@ -1,4 +1,5 @@
 extends Camera3D
+#TODO: RENAME class
 
 # The target node to follow (assign in the inspector)
 @export var target: Node3D
@@ -36,11 +37,14 @@ func _ready():
 		_current_position = global_position
 	else:
 		push_warning("Camera3D: No target assigned!")
+	
+	if target is Player:
+			target.override_camera = self
 
 func _process(delta):
 	if not target:
 		return
-
+		
 	var target_pos = target.global_position
 	var new_position: Vector3 = _current_position
 
