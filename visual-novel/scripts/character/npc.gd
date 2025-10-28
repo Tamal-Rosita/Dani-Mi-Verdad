@@ -19,5 +19,5 @@ func _on_interaction_area_3d_body_exited(body: Node3D) -> void:
 		print_rich("[color=yellow]No timeline loaded to NPC")
 		return
 	if  body is Player:
-		body.hide_interaction()
+		body.hide_interaction() ## TODO: DEBOUNCE!
 		#print("Player exited NPC space")

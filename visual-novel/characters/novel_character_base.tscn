@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://dcjpkqhi816nl"]
+[gd_scene load_steps=88 format=3 uid="uid://dcjpkqhi816nl"]
 
 [ext_resource type="Script" uid="uid://dm8eqq0apdd5l" path="res://visual-novel/scripts/character/npc.gd" id="1_g2ba7"]
 [ext_resource type="Resource" uid="uid://cvlejtq8lb04k" path="res://dialogic/timelines/test.dtl" id="2_g2ba7"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://to2l8lodveh7" path="res://controller_examples/scripts/simple_character/movement_grounded_complex.gd" id="17_cw4mi"]
 [ext_resource type="Script" uid="uid://bfko83h8e0kgo" path="res://visual-novel/scripts/character/interaction_hud.gd" id="18_oauqq"]
 [ext_resource type="FontFile" uid="uid://be864bbfg1jpj" path="res://visual-novel/GJDDM/fonts/Lexend-VariableFont_wght.ttf" id="19_b60j4"]
+[ext_resource type="Script" path="res://visual-novel/scripts/character/character_debug_view.gd" id="21_sel01"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_giq0b"]
 radius = 0.3
@@ -766,3 +767,25 @@ theme_override_font_sizes/font_size = 28
 text = "Press X to interact."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Debug" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="ColorRect" type="ColorRect" parent="Debug"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("21_sel01")
+
+[connection signal="interaction_toggle" from="." to="Debug/ColorRect" method="_on_novel_character_interaction_toggle"]
