@@ -14,7 +14,7 @@
 [ext_resource type="Resource" path="res://dialogic/characters/Samuel.dch" id="12_4csst"]
 [ext_resource type="Script" uid="uid://b60p0g332w41m" path="res://visual-novel/scripts/camera/cinematic_camera.gd" id="12_fvxhw"]
 [ext_resource type="PackedScene" uid="uid://sdh35wqa8in5" path="res://visual-novel/GJDDM/characters/packed/gael.scn" id="13_ysntx"]
-[ext_resource type="AudioStream" uid="uid://berkaxv81ur7o" path="res://visual-novel/GJDDM/music/some music.mp3" id="15_wqukl"]
+[ext_resource type="AudioStream" uid="uid://i1y5e2k0si46" path="res://visual-novel/GJDDM/music/soundtrackish.mp3" id="15_wqukl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
 panorama = ExtResource("1_gtwdc")

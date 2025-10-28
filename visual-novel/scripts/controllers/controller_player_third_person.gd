@@ -36,3 +36,7 @@ func get_input_tracking() -> Vector3:
 func process_unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		_cam_pivot.rotate_view(event.relative)
+		return
+	## TODO: Improve this
+	var cam_rotate = Input.get_vector("cam_left", "cam_right", "cam_up", "cam_down")	
+	_cam_pivot.rotate_view(cam_rotate)
