@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://to2l8lodveh7" path="res://controller_examples/scripts/simple_character/movement_grounded_complex.gd" id="17_cw4mi"]
 [ext_resource type="Script" uid="uid://bfko83h8e0kgo" path="res://visual-novel/scripts/character/interaction_hud.gd" id="18_oauqq"]
 [ext_resource type="FontFile" uid="uid://be864bbfg1jpj" path="res://visual-novel/GJDDM/fonts/Lexend-VariableFont_wght.ttf" id="19_b60j4"]
-[ext_resource type="Script" path="res://visual-novel/scripts/character/character_debug_view.gd" id="21_sel01"]
+[ext_resource type="Script" uid="uid://13wffcoo1pgt" path="res://visual-novel/scripts/character/character_debug_view.gd" id="21_sel01"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_giq0b"]
 radius = 0.3

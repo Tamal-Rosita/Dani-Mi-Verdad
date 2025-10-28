@@ -22,6 +22,7 @@ func hide_interaction() -> void:
 	
 func play_interaction() -> void:
 	hide_interaction()
+	_stop_movement()
 	start_dialogue(_interaction_character.timeline)
 
 func reset_camera() -> void:
@@ -54,10 +55,16 @@ func _get_configuration_warnings() -> PackedStringArray:
 	
 func _on_dialogic_timeline_ended() -> void:
 	super._on_dialogic_timeline_ended()
+	_play_movement()
 	reset_camera()
 	
-func _on_dialogic_timeline_started() -> void:
+func _on_dialogic_timeline_started() -> void:	
 	super._on_dialogic_timeline_started()
+#	_move_to_socket()
+#	call_deferred("_move_to_socket")
+	get_tree().create_timer(250).timeout.connect(_move_to_socket)
+	
+func _move_to_socket():
 	var target_socket: Node3D = _interaction_character.socket
 	## Root global_position
 	global_position = target_socket.global_position
@@ -65,6 +72,7 @@ func _on_dialogic_timeline_started() -> void:
 		target_socket.global_rotation.x, 
 		target_socket.global_rotation.y + deg_to_rad(180), 
 		target_socket.global_rotation.z)
+	print(target_euler)
 	## CollisionShape global_rotation
 	collision_shape.global_rotation = target_euler
 	

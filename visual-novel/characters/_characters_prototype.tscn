@@ -1,19 +1,21 @@
-[gd_scene load_steps=28 format=3 uid="uid://c1ssm1pwte6yj"]
+[gd_scene load_steps=30 format=3 uid="uid://c1ssm1pwte6yj"]
 
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="1_gtwdc"]
 [ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/controllers/pointer_capture.gd" id="2_tjttc"]
-[ext_resource type="Script" path="res://visual-novel/scripts/controllers/controller_player_third_person.gd" id="3_ysntx"]
+[ext_resource type="Script" uid="uid://b5jsh373vm15" path="res://visual-novel/scripts/controllers/controller_player_third_person.gd" id="3_ysntx"]
+[ext_resource type="Script" uid="uid://dmcynp0g0020r" path="res://visual-novel/scripts/controllers/controller_ai.gd" id="4_1ox6j"]
 [ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://controller_examples/assets/textures/Black.png" id="4_wqukl"]
 [ext_resource type="Texture2D" uid="uid://6wofk4ae5yf3" path="res://controller_examples/assets/textures/White.png" id="5_1ox6j"]
 [ext_resource type="Texture2D" uid="uid://dkpqh8de7tb3n" path="res://controller_examples/assets/textures/Green.png" id="6_4csst"]
 [ext_resource type="PackedScene" uid="uid://cqe35jnafmlk" path="res://controller_examples/scenes/DashPickup.tscn" id="7_i1567"]
 [ext_resource type="PackedScene" uid="uid://dcjpkqhi816nl" path="res://visual-novel/characters/novel_character_base.tscn" id="8_sk686"]
 [ext_resource type="Script" uid="uid://ctpibhc6cx70y" path="res://visual-novel/scripts/character/player.gd" id="9_ysntx"]
-[ext_resource type="PackedScene" uid="uid://dlge6ve26slvp" path="res://visual-novel/GJDDM/characters/packed/gerardo.scn" id="10_ysntx"]
+[ext_resource type="PackedScene" uid="uid://dh6bl7wdssg5h" path="res://visual-novel/GJDDM/characters/packed/natalia.scn" id="10_wqukl"]
 [ext_resource type="Resource" path="res://dialogic/timelines/metro_samuel.dtl" id="11_1ox6j"]
 [ext_resource type="Resource" path="res://dialogic/characters/Samuel.dch" id="12_4csst"]
 [ext_resource type="Script" uid="uid://b60p0g332w41m" path="res://visual-novel/scripts/camera/cinematic_camera.gd" id="12_fvxhw"]
 [ext_resource type="PackedScene" uid="uid://sdh35wqa8in5" path="res://visual-novel/GJDDM/characters/packed/gael.scn" id="13_ysntx"]
+[ext_resource type="AudioStream" uid="uid://berkaxv81ur7o" path="res://visual-novel/GJDDM/music/some music.mp3" id="15_wqukl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
 panorama = ExtResource("1_gtwdc")
@@ -87,6 +89,10 @@ script = ExtResource("2_tjttc")
 [node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
 script = ExtResource("3_ysntx")
 controlled_obj = NodePath("../../Characters/Dani")
+
+[node name="AIController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+script = ExtResource("4_1ox6j")
+controlled_obj = NodePath("../../Characters/Celia")
 
 [node name="Level" type="Node" parent="."]
 
@@ -217,12 +223,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78498, 0, -1.4562)
 script = ExtResource("9_ysntx")
 use_override_camera = false
 character_type = "Player"
-vrm_scene = ExtResource("10_ysntx")
+vrm_scene = ExtResource("10_wqukl")
 camera_height_offset = -0.1
 face_height_ratio = 0.9
 
 [node name="Celia" parent="Characters" instance=ExtResource("8_sk686")]
-transform = Transform3D(-0.9885071, 0, -0.15117462, 0, 1, 0, 0.15117462, 0, -0.9885071, -1.0464168, 0, -6.4039307)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0464168, 0, -6.4039307)
 timeline = ExtResource("11_1ox6j")
 dialogic_character = ExtResource("12_4csst")
 vrm_scene = ExtResource("13_ysntx")
@@ -239,3 +245,8 @@ script = ExtResource("12_fvxhw")
 transform = Transform3D(0.0031589572, 0.17020866, -0.985403, 6.6087464e-09, 0.9854079, 0.17020951, 0.99999505, -0.00053769106, 0.00311286, -2.6623623, 1.753995, 4.1197286)
 fov = 30.0
 script = ExtResource("12_fvxhw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_wqukl")
+pitch_scale = 0.8
+autoplay = true
