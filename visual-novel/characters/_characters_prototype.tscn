@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c1ssm1pwte6yj"]
+[gd_scene load_steps=29 format=3 uid="uid://c1ssm1pwte6yj"]
 
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="1_gtwdc"]
 [ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/controllers/pointer_capture.gd" id="2_tjttc"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cqe35jnafmlk" path="res://controller_examples/scenes/DashPickup.tscn" id="7_i1567"]
 [ext_resource type="PackedScene" uid="uid://dcjpkqhi816nl" path="res://visual-novel/characters/novel_character_base.tscn" id="8_sk686"]
 [ext_resource type="Script" uid="uid://ctpibhc6cx70y" path="res://visual-novel/scripts/character/player.gd" id="9_ysntx"]
-[ext_resource type="PackedScene" uid="uid://dh6bl7wdssg5h" path="res://visual-novel/GJDDM/characters/packed/natalia.scn" id="10_wqukl"]
 [ext_resource type="Resource" path="res://dialogic/timelines/metro_samuel.dtl" id="11_1ox6j"]
 [ext_resource type="Resource" path="res://dialogic/characters/Samuel.dch" id="12_4csst"]
 [ext_resource type="Script" uid="uid://b60p0g332w41m" path="res://visual-novel/scripts/camera/cinematic_camera.gd" id="12_fvxhw"]
@@ -223,7 +222,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78498, 0, -1.4562)
 script = ExtResource("9_ysntx")
 use_override_camera = false
 character_type = "Player"
-vrm_scene = ExtResource("10_wqukl")
 camera_height_offset = -0.1
 face_height_ratio = 0.9
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1gnuhcoqng01"
+path="res://.godot/imported/more tracks.mp3-ee83d63130daf65bc5968da37efd5a4a.mp3str"
+
+[deps]
+
+source_file="res://visual-novel/GJDDM/music/more tracks.mp3"
+dest_files=["res://.godot/imported/more tracks.mp3-ee83d63130daf65bc5968da37efd5a4a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
