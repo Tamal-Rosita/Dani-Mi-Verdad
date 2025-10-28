@@ -1,0 +1,19 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=4 format=3 uid="uid://pty7uywsm1l4"]
+
+[ext_resource type="AnimationNodeStateMachine" uid="uid://cxfy8yoexr8he" path="res://visual-novel/animations/legacy/female_sitting_listening_blendtree.tres" id="1_ae450"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_pvj2n"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_06xad"]
+animation = &"ou"
+
+[resource]
+graph_offset = Vector2(-753.16895, -107.346985)
+nodes/output/position = Vector2(340, 140)
+nodes/AnimationNodeStateMachine/node = ExtResource("1_ae450")
+nodes/AnimationNodeStateMachine/position = Vector2(-400, 0)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_06xad")
+nodes/Animation/position = Vector2(-300, 320)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_pvj2n")
+nodes/Add2/position = Vector2(100, 80)
+node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"AnimationNodeStateMachine", &"Add2", 1, &"Animation"]

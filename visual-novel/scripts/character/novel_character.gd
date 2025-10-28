@@ -28,6 +28,10 @@ class_name NovelCharacter extends CharacterBody3D
 			jump_action.JUMP_STRENGTH = jump_strength		
 
 signal interaction_toggle
+signal interaction_area_entered
+signal interaction_area_exited
+
+var is_busy: bool
 
 # Action Nodes
 @onready var move_action: ActionNode = $ActionContainer/Move
@@ -43,6 +47,7 @@ signal interaction_toggle
 @onready var _animation_tree: CharacterAnimationTree = $AnimationTree
 @onready var _front_camera_pivot: FrontCharacterCamera = $CollisionShape3D/FrontCameraPivot
 @onready var _model_container = $CollisionShape3D/ModelContainer
+@onready var _grounded_movement: MovementGroundedComplex = $MovementManager/GroundedMovement # Improve this!
 
 
 var _current_animation_player: AnimationPlayer
@@ -68,7 +73,7 @@ func _ready() -> void:
 		# Dialogic.Portraits.character_joined.connect(_on_dialogic_character_joined) # TODO: Use this as reference for Custom Event
 		##		
 		if vrm_scene:
-			_vrm_model = instantiate_model(vrm_scene)
+			_vrm_model = _instantiate_model(vrm_scene)
 			_adjust_camera_nodes()
 		
 func _get_configuration_warnings() -> PackedStringArray:
@@ -81,7 +86,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 		warnings.append("AnimationTree node is missing - needed for animations")
 	return warnings
 	
-func instantiate_model(scene: PackedScene) -> Node3D:
+func _instantiate_model(scene: PackedScene) -> Node3D:
 	if not _model_container:
 		push_error("ModelContainer is missing!")
 		return null
@@ -105,6 +110,14 @@ func _set_character_type(value: String) -> void:
 	character_type = value
 	_update_character_type()
 	
+func _stop_movement() -> void:
+	_grounded_movement.disable_all_movement() # TODO: not working by itself
+	_grounded_movement.exit()
+
+func _play_movement() -> void:
+	_grounded_movement.enable_all_movement() # TODO: not working by itself (at all?)
+	_grounded_movement.enter()
+	
 func _update_character_type() -> void:
 	if not Engine.is_editor_hint():
 		return
@@ -127,10 +140,10 @@ func _refresh_model() -> void:
 	if not Engine.is_editor_hint():
 		return
 	if _model_container and vrm_scene:
-		_vrm_model = instantiate_model(vrm_scene)		
-		_adjust_camera_nodes()
+		_vrm_model = _instantiate_model(vrm_scene)		
+#		_adjust_camera_nodes()
 		# Wait a frame for the model to be fully instantiated
-		#call_deferred("_adjust_camera_nodes")
+		call_deferred("_adjust_camera_nodes")
 		# Make sure it's editable in editor
 		_vrm_model.set_owner(get_tree().edited_scene_root)		
 		
@@ -138,7 +151,7 @@ func _adjust_camera_nodes() -> void:
 #	if not Engine.is_editor_hint():
 #		return
 	var height: float = _calculate_character_height()
-	# print("Character height: " + str(height))
+#	print("Character height: " + str(height))
 	if height > 0:
 		_update_node_heights(height)
 		
@@ -154,7 +167,7 @@ func _get_character_aabb() -> AABB:
 		var mesh_transform = mesh.global_transform
 		var mesh_aabb = mesh.get_aabb()
 		mesh_aabb = AABB(mesh_transform * mesh_aabb.position, mesh_aabb.size)
-		# print("Mesh name: " + mesh.name + " with volume: " + str(mesh_aabb.get_volume()))
+#		print("Mesh name: " + mesh.name + " with volume: " + str(mesh_aabb.get_volume()))
 		if aabb.has_volume():
 			aabb = aabb.merge(mesh_aabb)
 		else:
@@ -196,7 +209,7 @@ func _connect_animation_player(model_node: Node) -> void:
 	if animation_player and _animation_tree:
 		_current_animation_player = animation_player
 		_animation_tree.anim_player = _animation_tree.get_path_to(animation_player)
-		# print("AnimationPlayer connected to AnimationTree: ", animation_player.name)
+#		print("AnimationPlayer connected to AnimationTree: ", animation_player.name)
 	elif _animation_tree:
 		push_warning("No AnimationPlayer found in VRM model for AnimationTree")
 
@@ -216,25 +229,30 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 	
 func _on_dialogic_speaker_updated(new_character: DialogicCharacter) -> void:
 	if new_character == null: return
-	# print("Speaker updated: " + new_character.display_name + ":" + character.display_name)
+#	print("Speaker updated: " + new_character.display_name + ":" + character.display_name)
 	if new_character == dialogic_character:
-		print("Focusing on: " + new_character.display_name)
+#		print("Focusing on: " + new_character.display_name)
 		_focus_character()
 		
 func _on_dialogic_timeline_ended() -> void:
+	is_busy = false
 	_animation_tree.reset()
 	interaction_toggle.emit(false)
 	
 func _on_dialogic_timeline_started() -> void:
+	is_busy = true
 	_animation_tree.reset()
+	_stop_movement()
 	interaction_toggle.emit(true)
 	
 func _on_interaction_area_3d_body_entered(body: Node3D) -> void:
-	if body is NovelCharacter:
-		#print("Entered character interaction area")
+	if  body is not NovelCharacter or body == self:
 		return
+	interaction_area_entered.emit(body as NovelCharacter)
+	#print("Entered character interaction area")
 
 func _on_interaction_area_3d_body_exited(body: Node3D) -> void:
-	if  body is NovelCharacter:
-		#print("Exited character interaction area")
+	if  body is not NovelCharacter or body == self:
 		return
+	interaction_area_exited.emit(body as NovelCharacter)
+#	print("Exited character interaction area")

@@ -26,14 +26,13 @@ func _execute() -> void:
 		finish()
 		return
 	
-	print("Setting " + character.display_name + " character mood: "+ mood +" ("+ str(amount) +").")
-	
 	var dictionary: Dictionary = {
 		"character": character.display_name, 
 		"mood": mood,
 		"amount": str(amount)
 	}
-	Dialogic.signal_event.emit(dictionary)
+	Dialogic.signal_event.emit(dictionary)	
+	print("Setting " + character.display_name + " character mood: "+ mood +" ("+ str(amount) +").")
 	
 	finish() # called to continue with the next event
 

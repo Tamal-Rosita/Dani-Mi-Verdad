@@ -1,19 +1,11 @@
 class_name ControllerPlayer extends Controller
 
-## provides input to ActionContainer
-## example of player controller
-
-@export var can_control: bool = true
+## Provides input to ActionContainer
 
 const DOUBLE_TAP_DELAY: float = 0.25
 
-var _cam_pivot: Node3D
 var _action_container: ActionContainer
-
-var _player: NovelCharacter
-
 var _last_input_window: float = 0.0
-var _last_input: StringName
 var _input_tracking: Dictionary[StringName, Variant] = \
 {
 	"move":Vector3.ZERO,
@@ -21,30 +13,16 @@ var _input_tracking: Dictionary[StringName, Variant] = \
 	"jump":false, 
 	"slide":false,
 }
-
+var _last_input: StringName
 
 func _on_controlled_obj_change():
 	if _action_container and _action_container.action_exit.is_connected(_on_action_exit):
 		_action_container.action_exit.disconnect(_on_action_exit)
-	
-	_cam_pivot = controlled_obj.get_node("CameraPivot")
-	if _cam_pivot.camera:
-		_cam_pivot.camera.make_current()
-	
 	_action_container = controlled_obj.get_node("ActionContainer")
 	_action_container.action_exit.connect(_on_action_exit) # needed to prevent missed inputs
-		# warning: can cause inf loop
-		# evaluate_all_input -> stop_action -> action_exit -> evaluate_all_input
-		# actions must not enter and exit in the same frame
-		
-	_player = controlled_obj as NovelCharacter
-	_player.interaction_toggle.connect(_on_interaction_toggle)
-	
-
-func _on_interaction_toggle(is_active: bool):
-	can_control = not is_active
-	# print("Player interaction " + ("started" if is_active else "ended"))
-
+			# warning: can cause inf loop
+			# evaluate_all_input -> stop_action -> action_exit -> evaluate_all_input
+			# actions must not enter and exit in the same frame
 
 func _process(delta: float) -> void:
 	if _last_input_window > 0.0:
@@ -54,23 +32,23 @@ func _process(delta: float) -> void:
 	
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
-		
-	if not can_control:
-		return
 	
-	var input: Vector2 = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards").rotated(-_cam_pivot.rotation.y)
-	_input_tracking["move"] = Vector3(input.x, 0.0, input.y)
+	_input_tracking["move"] = get_input_tracking()
 	evaluate_input("move")
+
+func get_input_tracking() -> Vector3:
+	var input: Vector2 = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards") 
+	return Vector3(input.x, 0.0, input.y)
+
+func process_unhandled_input(event: InputEvent) -> void:
+#	print(event)
+	return	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 		
-	if not can_control:
-		return
-	
-	if event is InputEventMouseMotion:
-		_cam_pivot.rotate_view(event.relative)
+	process_unhandled_input(event)
 	
 	for check in ["run", "jump", "dash"]:
 		if event.is_action(check):
@@ -90,7 +68,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func evaluate_input(key: String, double_tap: bool = false) -> void:
 	match key:
 		"move":
-			_action_container.play_action("MOVE", {"input_direction":_input_tracking["move"], "aim_direction":_cam_pivot.get_cam_forward()})
+			_action_container.play_action("MOVE", {"input_direction":_input_tracking["move"]})
 		"run":
 			if _input_tracking[key]:
 				_action_container.play_action("RUN")
@@ -110,7 +88,6 @@ func evaluate_input(key: String, double_tap: bool = false) -> void:
 func evaluate_all_input() -> void:
 	for action in _input_tracking.keys():
 		evaluate_input(action)
-
 
 func _on_action_exit(_action_id: StringName) -> void:
 	evaluate_all_input()

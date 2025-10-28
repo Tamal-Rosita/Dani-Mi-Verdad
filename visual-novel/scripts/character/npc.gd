@@ -9,15 +9,19 @@ func _on_interaction_area_3d_body_entered(body: Node3D) -> void:
 	if not timeline: 
 		print_rich("[color=yellow]No timeline loaded to NPC")
 		return
-	if body is Player:
-		print("Player entered NPC space")
+	if body is Player and not is_busy:
+		_animation_tree.reset() # TODO: Improve
+		_stop_movement()
 		body.show_interaction(self)
+		#print("Player entered NPC space")
 
 func _on_interaction_area_3d_body_exited(body: Node3D) -> void:
 	super._on_interaction_area_3d_body_exited(body)
 	if not timeline: 
 		print_rich("[color=yellow]No timeline loaded to NPC")
 		return
-	if  body is Player:
-		print("Player exited NPC space")
-		body.hide_interaction()
+	if  body is Player and not is_busy:
+		_animation_tree.reset() # TODO: Improve
+		_play_movement()
+		body.hide_interaction() ## TODO: DEBOUNCE!
+		#print("Player exited NPC space")

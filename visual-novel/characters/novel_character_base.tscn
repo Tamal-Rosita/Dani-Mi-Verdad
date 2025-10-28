@@ -1,10 +1,10 @@
-[gd_scene load_steps=87 format=3 uid="uid://dcjpkqhi816nl"]
+[gd_scene load_steps=88 format=3 uid="uid://dcjpkqhi816nl"]
 
 [ext_resource type="Script" uid="uid://dm8eqq0apdd5l" path="res://visual-novel/scripts/character/npc.gd" id="1_g2ba7"]
-[ext_resource type="Resource" uid="uid://cvlejtq8lb04k" path="res://dialogic/timelines/test.dtl" id="2_g2ba7"]
 [ext_resource type="Resource" uid="uid://d1b2iumhe8cs3" path="res://dialogic/characters/Dani.dch" id="2_qyqdh"]
 [ext_resource type="PackedScene" uid="uid://c3mkywf5liwxn" path="res://visual-novel/GJDDM/characters/packed/dani.scn" id="3_caevh"]
 [ext_resource type="Script" uid="uid://dghe01mlbjpjf" path="res://visual-novel/scripts/character/character_collision_shape.gd" id="4_bbd2j"]
+[ext_resource type="Script" uid="uid://bcekj387woorp" path="res://addons/vrm/vrm_toplevel.gd" id="6_sel01"]
 [ext_resource type="Script" uid="uid://bh0kts1q2t2iu" path="res://addons/vrm/vrm_spring_bone.gd" id="7_dkogs"]
 [ext_resource type="Script" uid="uid://d3mxeltt7jxm2" path="res://addons/vrm/vrm_meta.gd" id="7_p1b4h"]
 [ext_resource type="Script" uid="uid://k0tkdr1fej6k" path="res://addons/vrm/vrm_collider_group.gd" id="8_sel01"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://to2l8lodveh7" path="res://controller_examples/scripts/simple_character/movement_grounded_complex.gd" id="17_cw4mi"]
 [ext_resource type="Script" uid="uid://bfko83h8e0kgo" path="res://visual-novel/scripts/character/interaction_hud.gd" id="18_oauqq"]
 [ext_resource type="FontFile" uid="uid://be864bbfg1jpj" path="res://visual-novel/GJDDM/fonts/Lexend-VariableFont_wght.ttf" id="19_b60j4"]
+[ext_resource type="Script" uid="uid://13wffcoo1pgt" path="res://visual-novel/scripts/character/character_debug_view.gd" id="21_sel01"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_giq0b"]
 radius = 0.3
@@ -629,7 +630,6 @@ center_node = NodePath("../Root_")
 collision_layer = 3
 slide_on_ceiling = false
 script = ExtResource("1_g2ba7")
-timeline = ExtResource("2_g2ba7")
 dialogic_character = ExtResource("2_qyqdh")
 vrm_scene = ExtResource("3_caevh")
 camera_height_offset = -0.225
@@ -641,7 +641,7 @@ shape = SubResource("CapsuleShape3D_giq0b")
 script = ExtResource("4_bbd2j")
 
 [node name="FrontCameraPivot" type="Node3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54856616, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5485661, 0)
 script = ExtResource("14_g2ba7")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CollisionShape3D/FrontCameraPivot"]
@@ -665,8 +665,10 @@ shape = SubResource("BoxShape3D_5bp1d")
 [node name="ModelContainer" type="Node3D" parent="CollisionShape3D"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.82869476, 0)
 
-[node name="Dani" parent="CollisionShape3D/ModelContainer" instance=ExtResource("3_caevh")]
+[node name="Dani" type="Node3D" parent="CollisionShape3D/ModelContainer" instance=ExtResource("3_caevh")]
+script = ExtResource("6_sel01")
 vrm_meta = SubResource("Resource_jn62j")
+update_in_editor = true
 spring_bones = Array[ExtResource("7_dkogs")]([SubResource("Resource_jq5i1"), SubResource("Resource_c6e2k"), SubResource("Resource_3bluc"), SubResource("Resource_glbqg"), SubResource("Resource_oilup"), SubResource("Resource_pfds0"), SubResource("Resource_j3amh"), SubResource("Resource_otuxe"), SubResource("Resource_5yqww"), SubResource("Resource_yvw1u"), SubResource("Resource_yfy40"), SubResource("Resource_khffn"), SubResource("Resource_n5vnl"), SubResource("Resource_gqf5g"), SubResource("Resource_t0yyk"), SubResource("Resource_58371"), SubResource("Resource_tx4pr"), SubResource("Resource_7hcwq"), SubResource("Resource_y6ed4"), SubResource("Resource_5hubv"), SubResource("Resource_prw1e")])
 collider_groups = Array[ExtResource("8_sel01")]([SubResource("Resource_8v5os"), SubResource("Resource_7yqsp"), SubResource("Resource_mchte"), SubResource("Resource_rpf6f"), SubResource("Resource_cxxsp"), SubResource("Resource_ke3nv"), SubResource("Resource_62hua"), SubResource("Resource_iorha"), SubResource("Resource_vs7i3"), SubResource("Resource_yawqe"), SubResource("Resource_dhocr"), SubResource("Resource_q03fn")])
 collider_library = Array[ExtResource("9_p1b4h")]([SubResource("Resource_78phj"), SubResource("Resource_v5cyk"), SubResource("Resource_2032r"), SubResource("Resource_qqe83"), SubResource("Resource_vcv4x"), SubResource("Resource_pyg0m"), SubResource("Resource_hvk6x"), SubResource("Resource_x26b8"), SubResource("Resource_3sqk1"), SubResource("Resource_wt1w6"), SubResource("Resource_xws3o"), SubResource("Resource_dgcv5"), SubResource("Resource_n4v1x"), SubResource("Resource_sbb4a"), SubResource("Resource_7xh58"), SubResource("Resource_6i5ld"), SubResource("Resource_hqiw1"), SubResource("Resource_u3q4h"), SubResource("Resource_xgohy"), SubResource("Resource_6g51n"), SubResource("Resource_t4p7f"), SubResource("Resource_mywla"), SubResource("Resource_mv1yx"), SubResource("Resource_qjfro"), SubResource("Resource_jbni8"), SubResource("Resource_exe75"), SubResource("Resource_ijc8k"), SubResource("Resource_2ao73")])
@@ -766,3 +768,25 @@ theme_override_font_sizes/font_size = 28
 text = "Press X to interact."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Debug" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="ColorRect" type="ColorRect" parent="Debug"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("21_sel01")
+
+[connection signal="interaction_toggle" from="." to="Debug/ColorRect" method="_on_novel_character_interaction_toggle"]

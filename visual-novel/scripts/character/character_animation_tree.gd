@@ -11,6 +11,7 @@ var mood_state_path: String           = "parameters/FaceExpression/mood/transiti
 var mood_amount_path: String          = "parameters/FaceExpression/mood_amount/blend_amount"
 var viseme_state_path: String         = "parameters/FaceExpression/viseme/transition_request"
 var viseme_amount_path: String        = "parameters/FaceExpression/viseme_amount/blend_amount"
+var motion_amount: String 			  = "parameters/Locomotion/Motion/blend_position"
 
 
 func _process(delta):
@@ -24,6 +25,7 @@ func _ready():
 func reset() -> void:
 	set(mood_amount_path, 0)
 	set(viseme_amount_path, 0)
+	set(motion_amount, 0)
 
 
 func update_anim(time: float) -> float:
@@ -44,6 +46,6 @@ func _on_dialogic_dictionary_signal(argument: Dictionary) -> void:
 	if argument["mood"] != null:
 		var mood               = argument["mood"]
 		var mood_amount: float = float(argument["amount"])
-		print("Setting " + mood + " mood for " + character_name + ": " + mood + " with amount: " + str(mood_amount))
 		set(mood_amount_path, mood_amount)
 		set(mood_state_path, mood)
+		#print("Setting " + mood + " mood for " + character_name + ": " + mood + " with amount: " + str(mood_amount))
