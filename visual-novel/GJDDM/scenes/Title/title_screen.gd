@@ -18,7 +18,7 @@ func _input(event: InputEvent) -> void:
 		can_play = false
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_packed(first_scene)
+	SceneLoader.change_scene_to_packed(first_scene)
 
 func _on_credits_pressed() -> void:
 	credits_screem.visible = true

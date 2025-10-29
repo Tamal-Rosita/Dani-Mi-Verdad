@@ -12,5 +12,6 @@ Samuel: No te preocupes! estás lista?
 
 [character_3d character="Dani" mood="sad" amount="0.4"]
 Dani: Vamos, hay una cosa que quiero contarte en el camino...
+set {can_travel} = true
 
 [end_timeline]

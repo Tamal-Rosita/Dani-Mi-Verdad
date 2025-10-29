@@ -1,0 +1,192 @@
+[gd_scene load_steps=14 format=3 uid="uid://dxr6tx84dmgbd"]
+
+[ext_resource type="Script" uid="uid://dwxnvtyurpb2p" path="res://visual-novel/GJDDM/scenes/Title/loading_screen.gd" id="1_p3xr8"]
+[ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="3_wnio7"]
+[ext_resource type="Theme" uid="uid://ceus317shnq1c" path="res://visual-novel/GJDDM/scenes/Title/title_theme.tres" id="4_5wvav"]
+[ext_resource type="Texture2D" uid="uid://ucur5ommpudt" path="res://visual-novel/GJDDM/images/logo_Dani_nobg.png" id="5_beqa6"]
+[ext_resource type="Texture2D" uid="uid://con0qeebjjbx5" path="res://visual-novel/GJDDM/images/logo_MVerdad_nobg.png" id="6_p4kse"]
+[ext_resource type="FontFile" uid="uid://dtywg1ystm1bc" path="res://visual-novel/GJDDM/fonts/Tinos-Regular.ttf" id="7_bmg3w"]
+[ext_resource type="FontFile" uid="uid://wuhj8m88kwvf" path="res://visual-novel/GJDDM/fonts/Tinos-Bold.ttf" id="8_eryh6"]
+[ext_resource type="FontFile" uid="uid://bgpyfkuscjs" path="res://visual-novel/GJDDM/fonts/Tinos-BoldItalic.ttf" id="9_1ok8w"]
+[ext_resource type="FontFile" uid="uid://banhcbf57o5qn" path="res://visual-novel/GJDDM/fonts/Tinos-Italic.ttf" id="10_64jtg"]
+[ext_resource type="Texture2D" uid="uid://c8bl1ouj0nn5s" path="res://visual-novel/GJDDM/images/logo_pan_de_muerto.png" id="10_ykyq3"]
+
+[sub_resource type="Animation" id="Animation_ykyq3"]
+resource_name = "loading_screen"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Loading/PanMuerto:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="Animation" id="Animation_y48lw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Loading/PanMuerto:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y48lw"]
+_data = {
+&"RESET": SubResource("Animation_y48lw"),
+&"loading_screen": SubResource("Animation_ykyq3")
+}
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p3xr8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y48lw")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wnio7")
+volume_db = -18.0
+pitch_scale = 1.2
+autoplay = true
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.98422354, 0.98169917, 0.9816975, 1)
+
+[node name="TamalRosita©2025" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.5
+offset_top = -40.0
+offset_right = 92.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_5wvav")
+text = "Tamal Rosita © MMXXV"
+horizontal_alignment = 1
+
+[node name="Dani" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.35200003
+offset_left = -192.0
+offset_top = 64.0
+offset_right = 192.0
+offset_bottom = 91.90398
+grow_horizontal = 2
+pivot_offset = Vector2(192, 128)
+texture = ExtResource("5_beqa6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MiVerdad" type="TextureRect" parent="Dani"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_right = 256.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(256, 128)
+texture = ExtResource("6_p4kse")
+stretch_mode = 5
+
+[node name="Loading" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.72
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = 0.055999756
+offset_right = 141.0
+offset_bottom = -141.38397
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(141, 20)
+theme = ExtResource("4_5wvav")
+theme_override_fonts/normal_font = ExtResource("7_bmg3w")
+theme_override_fonts/bold_font = ExtResource("8_eryh6")
+theme_override_fonts/bold_italics_font = ExtResource("9_1ok8w")
+theme_override_fonts/italics_font = ExtResource("10_64jtg")
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 26
+theme_override_font_sizes/bold_italics_font_size = 26
+theme_override_font_sizes/italics_font_size = 26
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[pulse freq=0.33 color=#ffffff00 ease=-1.5]Cargando...[/pulse]"
+horizontal_alignment = 1
+
+[node name="PanMuerto" type="TextureRect" parent="Loading"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("10_ykyq3")
+expand_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="Loading"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11000001
+anchor_top = 1.0
+anchor_right = 0.89000005
+anchor_bottom = 1.0
+offset_left = -0.020002365
+offset_right = 0.019989014
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(110, 0)
+theme = ExtResource("4_5wvav")
+step = 0.1
+show_percentage = false

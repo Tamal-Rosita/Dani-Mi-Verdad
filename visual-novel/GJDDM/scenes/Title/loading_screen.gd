@@ -1,0 +1,21 @@
+class_name LoadingScreen extends Control
+
+@onready var progress_bar: ProgressBar = $Loading/ProgressBar
+var next_scene: String
+var can_load: bool = true
+
+func _ready() -> void:
+	next_scene = SceneLoader.next_scene
+	ResourceLoader.load_threaded_request(next_scene)
+	
+func _process(delta: float) -> void:
+	var status: Array[Variant] = []
+	ResourceLoader.load_threaded_get_status(next_scene, status)
+	
+	var progress = status[0] * 100
+	progress_bar.value = progress
+	
+	if progress >= 100 and can_load:
+		can_load = false
+		var packed_scene = ResourceLoader.load_threaded_get(next_scene)
+		get_tree().change_scene_to_packed(packed_scene)
