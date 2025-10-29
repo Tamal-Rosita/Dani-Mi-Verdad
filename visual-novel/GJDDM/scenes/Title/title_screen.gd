@@ -1,0 +1,24 @@
+extends Control
+
+@export var can_play: bool = true
+@export var first_scene: PackedScene
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var credits_screem: Control = $Credits
+
+var is_playing: bool = false
+
+func _input(event: InputEvent) -> void:
+	if is_playing or not can_play:
+		return
+#	if InputEventMouseMotion: 
+#		return
+	if event.is_action_pressed("interact") or event.is_action_pressed("ui_accept"):
+		animation_player.play("title_start")
+		can_play = false
+
+func _on_start_pressed() -> void:
+	get_tree().change_scene_to_packed(first_scene)
+
+func _on_credits_pressed() -> void:
+	credits_screem.visible = true
