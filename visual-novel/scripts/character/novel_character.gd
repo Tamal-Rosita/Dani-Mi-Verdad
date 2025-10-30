@@ -151,7 +151,7 @@ func _adjust_camera_nodes() -> void:
 #	if not Engine.is_editor_hint():
 #		return
 	var height: float = _calculate_character_height()
-#	print("Character height: " + str(height))
+	print("Character height: " + str(height))
 	if height > 0:
 		_update_node_heights(height)
 		
