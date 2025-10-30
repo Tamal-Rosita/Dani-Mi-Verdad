@@ -21,6 +21,7 @@ config/icon="uid://bklxfuuu03836"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
+SceneLoader="*res://visual-novel/scripts/globals/scene_loader.gd"
 
 [dialogic]
 

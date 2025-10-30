@@ -740,7 +740,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78498, 0, -1.4562)
 
 [node name="Dani" parent="Characters" instance=ExtResource("8_sk686")]
 script = ExtResource("9_ysntx")
-use_override_camera = true
+use_override_camera = false
 character_type = "Player"
 vrm_scene = ExtResource("11_4csst")
 camera_height_offset = -0.1
