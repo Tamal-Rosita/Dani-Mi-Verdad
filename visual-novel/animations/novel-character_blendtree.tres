@@ -1,10 +1,16 @@
-[gd_resource type="AnimationNodeBlendTree" load_steps=12 format=3 uid="uid://dgubwui2tiafd"]
+[gd_resource type="AnimationNodeBlendTree" load_steps=20 format=3 uid="uid://dgubwui2tiafd"]
 
 [ext_resource type="AnimationNodeBlendSpace2D" uid="uid://b8y7ptxnl4w76" path="res://visual-novel/animations/face-emotions_blend-space2d.tres" id="1_rfivk"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://cqttxdeqj08lr" path="res://visual-novel/animations/face-animation_blendtree.res" id="2_jnvbf"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://b7ylgyss6jgi2" path="res://visual-novel/animations/basic-locomotion_state-machine.tres" id="3_1c22v"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_cnjg4"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_jnvbf"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_rfivk"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_e4uwh"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_w1isf"]
 
@@ -30,7 +36,32 @@ blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_p4tl3")
 blend_point_3/pos = Vector2(-1, 0)
 
-[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_e4uwh"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vn8jc"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2c55i"]
+animation = &"blinkLeft"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_4djv5"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_vn8jc")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_2c55i")
+blend_point_1/pos = 1.0
+min_space = 0.0
+value_label = "0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jnvbf"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1c22v"]
+animation = &"blinkRight"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_xp6r4"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_jnvbf")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_1c22v")
+blend_point_1/pos = 1.0
+min_space = 0.0
 
 [resource]
 nodes/output/position = Vector2(1440, 180)
@@ -45,7 +76,15 @@ nodes/FaceExpression/position = Vector2(460, 220)
 nodes/BaseEmotionAdd/node = SubResource("AnimationNodeAdd2_cnjg4")
 nodes/BaseEmotionAdd/position = Vector2(720, 260)
 nodes/Gaze/node = SubResource("AnimationNodeBlendSpace2D_leu68")
-nodes/Gaze/position = Vector2(460, 660)
-nodes/GazeAdd/node = SubResource("AnimationNodeAdd2_e4uwh")
-nodes/GazeAdd/position = Vector2(960, 360)
-node_connections = [&"output", 0, &"FaceAdd", &"FaceAdd", 0, &"Locomotion", &"FaceAdd", 1, &"GazeAdd", &"BaseEmotionAdd", 0, &"FaceExpression", &"BaseEmotionAdd", 1, &"BaseEmotion", &"GazeAdd", 0, &"BaseEmotionAdd", &"GazeAdd", 1, &"Gaze"]
+nodes/Gaze/position = Vector2(320, 660)
+nodes/EyesAdd/node = SubResource("AnimationNodeAdd2_e4uwh")
+nodes/EyesAdd/position = Vector2(960, 360)
+nodes/BlinkEyesAdd/node = SubResource("AnimationNodeAdd2_rfivk")
+nodes/BlinkEyesAdd/position = Vector2(582.3439, 874.3718)
+nodes/BlinkAdd/node = SubResource("AnimationNodeAdd2_jnvbf")
+nodes/BlinkAdd/position = Vector2(780, 660)
+nodes/LeftBlink/node = SubResource("AnimationNodeBlendSpace1D_4djv5")
+nodes/LeftBlink/position = Vector2(320, 900)
+nodes/RightBlink/node = SubResource("AnimationNodeBlendSpace1D_xp6r4")
+nodes/RightBlink/position = Vector2(320, 1100)
+node_connections = [&"output", 0, &"FaceAdd", &"FaceAdd", 0, &"Locomotion", &"FaceAdd", 1, &"EyesAdd", &"BaseEmotionAdd", 0, &"FaceExpression", &"BaseEmotionAdd", 1, &"BaseEmotion", &"EyesAdd", 0, &"BaseEmotionAdd", &"EyesAdd", 1, &"BlinkAdd", &"BlinkEyesAdd", 0, &"LeftBlink", &"BlinkEyesAdd", 1, &"RightBlink", &"BlinkAdd", 0, &"Gaze", &"BlinkAdd", 1, &"BlinkEyesAdd"]

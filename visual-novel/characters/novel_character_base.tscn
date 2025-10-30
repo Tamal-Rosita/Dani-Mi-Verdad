@@ -1,12 +1,10 @@
-[gd_scene load_steps=88 format=3 uid="uid://dcjpkqhi816nl"]
+[gd_scene load_steps=83 format=3 uid="uid://dcjpkqhi816nl"]
 
 [ext_resource type="Script" uid="uid://dm8eqq0apdd5l" path="res://visual-novel/scripts/character/npc.gd" id="1_g2ba7"]
 [ext_resource type="Resource" uid="uid://d1b2iumhe8cs3" path="res://dialogic/characters/Dani.dch" id="2_qyqdh"]
 [ext_resource type="PackedScene" uid="uid://c3mkywf5liwxn" path="res://visual-novel/GJDDM/characters/packed/dani.scn" id="3_caevh"]
 [ext_resource type="Script" uid="uid://dghe01mlbjpjf" path="res://visual-novel/scripts/character/character_collision_shape.gd" id="4_bbd2j"]
-[ext_resource type="Script" uid="uid://bcekj387woorp" path="res://addons/vrm/vrm_toplevel.gd" id="6_sel01"]
 [ext_resource type="Script" uid="uid://bh0kts1q2t2iu" path="res://addons/vrm/vrm_spring_bone.gd" id="7_dkogs"]
-[ext_resource type="Script" uid="uid://d3mxeltt7jxm2" path="res://addons/vrm/vrm_meta.gd" id="7_p1b4h"]
 [ext_resource type="Script" uid="uid://k0tkdr1fej6k" path="res://addons/vrm/vrm_collider_group.gd" id="8_sel01"]
 [ext_resource type="Script" uid="uid://d3drp7l1lytlu" path="res://visual-novel/scripts/character/actions/action_jump.gd" id="9_bbd2j"]
 [ext_resource type="Script" uid="uid://p4cpsh67l24x" path="res://addons/vrm/vrm_collider.gd" id="9_p1b4h"]
@@ -28,87 +26,6 @@ height = 1.6514161
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5bp1d"]
 size = Vector3(0.85, 1.8, 1)
-
-[sub_resource type="SkeletonProfileHumanoid" id="SkeletonProfileHumanoid_k5oxq"]
-
-[sub_resource type="BoneMap" id="BoneMap_81if8"]
-profile = SubResource("SkeletonProfileHumanoid_k5oxq")
-bonemap = null
-bone_map/Root = &""
-bone_map/Hips = &"J_Bip_C_Hips"
-bone_map/Spine = &"J_Bip_C_Spine"
-bone_map/Chest = &"J_Bip_C_Chest"
-bone_map/UpperChest = &"J_Bip_C_UpperChest"
-bone_map/Neck = &"J_Bip_C_Neck"
-bone_map/Head = &"J_Bip_C_Head"
-bone_map/LeftEye = &"J_Adj_L_FaceEye"
-bone_map/RightEye = &"J_Adj_R_FaceEye"
-bone_map/Jaw = &""
-bone_map/LeftShoulder = &"J_Bip_L_Shoulder"
-bone_map/LeftUpperArm = &"J_Bip_L_UpperArm"
-bone_map/LeftLowerArm = &"J_Bip_L_LowerArm"
-bone_map/LeftHand = &"J_Bip_L_Hand"
-bone_map/LeftThumbMetacarpal = &"J_Bip_L_Thumb1"
-bone_map/LeftThumbProximal = &"J_Bip_L_Thumb2"
-bone_map/LeftThumbDistal = &"J_Bip_L_Thumb3"
-bone_map/LeftIndexProximal = &"J_Bip_L_Index1"
-bone_map/LeftIndexIntermediate = &"J_Bip_L_Index2"
-bone_map/LeftIndexDistal = &"J_Bip_L_Index3"
-bone_map/LeftMiddleProximal = &"J_Bip_L_Middle1"
-bone_map/LeftMiddleIntermediate = &"J_Bip_L_Middle2"
-bone_map/LeftMiddleDistal = &"J_Bip_L_Middle3"
-bone_map/LeftRingProximal = &"J_Bip_L_Ring1"
-bone_map/LeftRingIntermediate = &"J_Bip_L_Ring2"
-bone_map/LeftRingDistal = &"J_Bip_L_Ring3"
-bone_map/LeftLittleProximal = &"J_Bip_L_Little1"
-bone_map/LeftLittleIntermediate = &"J_Bip_L_Little2"
-bone_map/LeftLittleDistal = &"J_Bip_L_Little3"
-bone_map/RightShoulder = &"J_Bip_R_Shoulder"
-bone_map/RightUpperArm = &"J_Bip_R_UpperArm"
-bone_map/RightLowerArm = &"J_Bip_R_LowerArm"
-bone_map/RightHand = &"J_Bip_R_Hand"
-bone_map/RightThumbMetacarpal = &"J_Bip_R_Thumb1"
-bone_map/RightThumbProximal = &"J_Bip_R_Thumb2"
-bone_map/RightThumbDistal = &"J_Bip_R_Thumb3"
-bone_map/RightIndexProximal = &"J_Bip_R_Index1"
-bone_map/RightIndexIntermediate = &"J_Bip_R_Index2"
-bone_map/RightIndexDistal = &"J_Bip_R_Index3"
-bone_map/RightMiddleProximal = &"J_Bip_R_Middle1"
-bone_map/RightMiddleIntermediate = &"J_Bip_R_Middle2"
-bone_map/RightMiddleDistal = &"J_Bip_R_Middle3"
-bone_map/RightRingProximal = &"J_Bip_R_Ring1"
-bone_map/RightRingIntermediate = &"J_Bip_R_Ring2"
-bone_map/RightRingDistal = &"J_Bip_R_Ring3"
-bone_map/RightLittleProximal = &"J_Bip_R_Little1"
-bone_map/RightLittleIntermediate = &"J_Bip_R_Little2"
-bone_map/RightLittleDistal = &"J_Bip_R_Little3"
-bone_map/LeftUpperLeg = &"J_Bip_L_UpperLeg"
-bone_map/LeftLowerLeg = &"J_Bip_L_LowerLeg"
-bone_map/LeftFoot = &"J_Bip_L_Foot"
-bone_map/LeftToes = &"J_Bip_L_ToeBase"
-bone_map/RightUpperLeg = &"J_Bip_R_UpperLeg"
-bone_map/RightLowerLeg = &"J_Bip_R_LowerLeg"
-bone_map/RightFoot = &"J_Bip_R_Foot"
-bone_map/RightToes = &"J_Bip_R_ToeBase"
-
-[sub_resource type="Resource" id="Resource_jn62j"]
-resource_name = "CLICK TO SEE METADATA"
-script = ExtResource("7_p1b4h")
-title = "Dani 1"
-version = "1.0.0"
-authors = PackedStringArray("Seb Porthoz")
-author = "Seb Porthoz"
-contact_information = "https://hub.vroid.com/en/users/120652816"
-references = PackedStringArray("")
-allowed_user_name = "OnlyAuthor"
-violent_usage = "Disallow"
-sexual_usage = "Disallow"
-commercial_usage_type = "PersonalNonProfit"
-allow_redistribution = "Disallow"
-license_name = "Redistribution_Prohibited"
-humanoid_bone_mapping = SubResource("BoneMap_81if8")
-exporter_version = "VRoid-1.16.4"
-spec_version = "0.0"
 
 [sub_resource type="Resource" id="Resource_jq5i1"]
 resource_name = "Bust"
@@ -665,10 +582,7 @@ shape = SubResource("BoxShape3D_5bp1d")
 [node name="ModelContainer" type="Node3D" parent="CollisionShape3D"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.82869476, 0)
 
-[node name="Dani" type="Node3D" parent="CollisionShape3D/ModelContainer" instance=ExtResource("3_caevh")]
-script = ExtResource("6_sel01")
-vrm_meta = SubResource("Resource_jn62j")
-update_in_editor = true
+[node name="@Node3D@164054" parent="CollisionShape3D/ModelContainer" instance=ExtResource("3_caevh")]
 spring_bones = Array[ExtResource("7_dkogs")]([SubResource("Resource_jq5i1"), SubResource("Resource_c6e2k"), SubResource("Resource_3bluc"), SubResource("Resource_glbqg"), SubResource("Resource_oilup"), SubResource("Resource_pfds0"), SubResource("Resource_j3amh"), SubResource("Resource_otuxe"), SubResource("Resource_5yqww"), SubResource("Resource_yvw1u"), SubResource("Resource_yfy40"), SubResource("Resource_khffn"), SubResource("Resource_n5vnl"), SubResource("Resource_gqf5g"), SubResource("Resource_t0yyk"), SubResource("Resource_58371"), SubResource("Resource_tx4pr"), SubResource("Resource_7hcwq"), SubResource("Resource_y6ed4"), SubResource("Resource_5hubv"), SubResource("Resource_prw1e")])
 collider_groups = Array[ExtResource("8_sel01")]([SubResource("Resource_8v5os"), SubResource("Resource_7yqsp"), SubResource("Resource_mchte"), SubResource("Resource_rpf6f"), SubResource("Resource_cxxsp"), SubResource("Resource_ke3nv"), SubResource("Resource_62hua"), SubResource("Resource_iorha"), SubResource("Resource_vs7i3"), SubResource("Resource_yawqe"), SubResource("Resource_dhocr"), SubResource("Resource_q03fn")])
 collider_library = Array[ExtResource("9_p1b4h")]([SubResource("Resource_78phj"), SubResource("Resource_v5cyk"), SubResource("Resource_2032r"), SubResource("Resource_qqe83"), SubResource("Resource_vcv4x"), SubResource("Resource_pyg0m"), SubResource("Resource_hvk6x"), SubResource("Resource_x26b8"), SubResource("Resource_3sqk1"), SubResource("Resource_wt1w6"), SubResource("Resource_xws3o"), SubResource("Resource_dgcv5"), SubResource("Resource_n4v1x"), SubResource("Resource_sbb4a"), SubResource("Resource_7xh58"), SubResource("Resource_6i5ld"), SubResource("Resource_hqiw1"), SubResource("Resource_u3q4h"), SubResource("Resource_xgohy"), SubResource("Resource_6g51n"), SubResource("Resource_t4p7f"), SubResource("Resource_mywla"), SubResource("Resource_mv1yx"), SubResource("Resource_qjfro"), SubResource("Resource_jbni8"), SubResource("Resource_exe75"), SubResource("Resource_ijc8k"), SubResource("Resource_2ao73")])
@@ -687,10 +601,10 @@ script = ExtResource("11_tkh71")
 script = ExtResource("9_bbd2j")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../CollisionShape3D/ModelContainer/Dani")
+root_node = NodePath("../CollisionShape3D/ModelContainer/@Node3D@164054")
 tree_root = ExtResource("13_dca5i")
-anim_player = NodePath("../CollisionShape3D/ModelContainer/Dani/AnimationPlayer")
-parameters/BaseEmotion/blend_position = Vector2(-0.249, -0.211)
+anim_player = NodePath("../CollisionShape3D/ModelContainer/@Node3D@164054/AnimationPlayer")
+parameters/BaseEmotion/blend_position = Vector2(-0.257, -0.482)
 parameters/Locomotion/conditions/JUMP = false
 parameters/Locomotion/Jump/blend_position = 0.0
 parameters/Locomotion/Motion/blend_position = 0.0
@@ -706,7 +620,11 @@ parameters/FaceExpression/viseme/transition_request = ""
 parameters/FaceExpression/viseme/current_index = 0
 parameters/BaseEmotionAdd/add_amount = 1.0
 parameters/Gaze/blend_position = Vector2(0, 0)
-parameters/GazeAdd/add_amount = 1.0
+parameters/EyesAdd/add_amount = 1.0
+parameters/BlinkEyesAdd/add_amount = 1.0
+parameters/BlinkAdd/add_amount = 1.0
+parameters/LeftBlink/blend_position = 0.0
+parameters/RightBlink/blend_position = 0.0
 script = ExtResource("14_ps3kr")
 
 [node name="CameraPivot" type="Node3D" parent="."]
@@ -770,6 +688,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Debug" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
