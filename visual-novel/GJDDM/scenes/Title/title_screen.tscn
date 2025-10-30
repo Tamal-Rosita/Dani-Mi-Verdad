@@ -1,0 +1,388 @@
+[gd_scene load_steps=15 format=3 uid="uid://b8jxdrxgy40ka"]
+
+[ext_resource type="Texture2D" uid="uid://ucur5ommpudt" path="res://visual-novel/GJDDM/images/logo_Dani_nobg.png" id="1_40kix"]
+[ext_resource type="Script" uid="uid://o6ftp2me12xm" path="res://visual-novel/GJDDM/scenes/Title/title_screen.gd" id="1_ap0rb"]
+[ext_resource type="PackedScene" uid="uid://chqiuwdf2m23e" path="res://visual-novel/GJDDM/scenes/Metro/Metro.scn" id="2_f51hh"]
+[ext_resource type="Texture2D" uid="uid://con0qeebjjbx5" path="res://visual-novel/GJDDM/images/logo_MVerdad_nobg.png" id="2_rv6d7"]
+[ext_resource type="PackedScene" uid="uid://2vtrjter7tpk" path="res://visual-novel/GJDDM/scenes/Title/credits_screen.tscn" id="2_sdhdo"]
+[ext_resource type="FontFile" uid="uid://dtywg1ystm1bc" path="res://visual-novel/GJDDM/fonts/Tinos-Regular.ttf" id="3_rv6d7"]
+[ext_resource type="FontFile" uid="uid://wuhj8m88kwvf" path="res://visual-novel/GJDDM/fonts/Tinos-Bold.ttf" id="4_sm04f"]
+[ext_resource type="FontFile" uid="uid://bgpyfkuscjs" path="res://visual-novel/GJDDM/fonts/Tinos-BoldItalic.ttf" id="5_5t4e0"]
+[ext_resource type="FontFile" uid="uid://banhcbf57o5qn" path="res://visual-novel/GJDDM/fonts/Tinos-Italic.ttf" id="6_rmur0"]
+[ext_resource type="Theme" uid="uid://ceus317shnq1c" path="res://visual-novel/GJDDM/scenes/Title/title_theme.tres" id="8_phf25"]
+[ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="11_gnge8"]
+
+[sub_resource type="Animation" id="Animation_5t4e0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dani/MiVerdad:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Call2Action:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Call2Action:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dani:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dani:offset_top")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Dani:offset_bottom")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [127.90398]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Dani/MiVerdad:offset_bottom")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [160.0]
+}
+
+[sub_resource type="Animation" id="Animation_sm04f"]
+resource_name = "title_animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dani/MiVerdad:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.45, 0.45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Call2Action:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.56666666, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Call2Action:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [true, false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5666666, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5666666, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dani:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dani:offset_top")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [100.0, 64.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Dani:offset_bottom")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [128.0, 91.90398]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Dani/MiVerdad:offset_bottom")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [160.0, 140.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rmur0"]
+_data = {
+&"RESET": SubResource("Animation_5t4e0"),
+&"title_start": SubResource("Animation_sm04f")
+}
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ap0rb")
+first_scene = ExtResource("2_f51hh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rmur0")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_gnge8")
+volume_db = -18.0
+pitch_scale = 1.2
+autoplay = true
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.98422354, 0.98169917, 0.9816975, 1)
+
+[node name="TamalRosita©2025" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.5
+offset_top = -40.0
+offset_right = 92.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("8_phf25")
+text = "Tamal Rosita © MMXXV"
+horizontal_alignment = 1
+
+[node name="Dani" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.35200003
+offset_left = -192.0
+offset_top = 100.0
+offset_right = 192.0
+offset_bottom = 127.90398
+grow_horizontal = 2
+pivot_offset = Vector2(192, 128)
+texture = ExtResource("1_40kix")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MiVerdad" type="TextureRect" parent="Dani"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_right = 256.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(256, 128)
+texture = ExtResource("2_rv6d7")
+stretch_mode = 5
+
+[node name="Call2Action" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -160.0
+offset_right = 141.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(141, 20)
+theme = ExtResource("8_phf25")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_rv6d7")
+theme_override_fonts/bold_font = ExtResource("4_sm04f")
+theme_override_fonts/bold_italics_font = ExtResource("5_5t4e0")
+theme_override_fonts/italics_font = ExtResource("6_rmur0")
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 26
+theme_override_font_sizes/bold_italics_font_size = 26
+theme_override_font_sizes/italics_font_size = 26
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[pulse freq=0.33 color=#ffffff00 ease=-1.5]Presiona X para comenzar[/pulse]"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.822
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -111.84003
+offset_right = 89.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("8_phf25")
+text = "Comenzar"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_phf25")
+text = "Créditos"
+
+[node name="Credits" parent="." instance=ExtResource("2_sdhdo")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

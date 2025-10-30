@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://ceus317shnq1c"]
+
+[ext_resource type="FontFile" uid="uid://be864bbfg1jpj" path="res://visual-novel/GJDDM/fonts/Lexend-VariableFont_wght.ttf" id="1_o3mfu"]
+[ext_resource type="StyleBox" uid="uid://ccfttpjihxvf" path="res://visual-novel/GJDDM/scenes/Title/button_hover_style-box-flat.tres" id="2_eivay"]
+[ext_resource type="StyleBox" uid="uid://075wyrte8gbq" path="res://visual-novel/GJDDM/scenes/Title/button_normal_style-box-flat.tres" id="3_4gj1x"]
+[ext_resource type="FontFile" uid="uid://nad6tak8bjx8" path="res://visual-novel/GJDDM/fonts/RobotoSlab-VariableFont_wght.ttf" id="4_ag4je"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phf25"]
+content_margin_left = 30.0
+content_margin_top = 12.0
+content_margin_right = 30.0
+content_margin_bottom = 12.0
+bg_color = Color(0.44193304, 0.10721926, 0.15685567, 1)
+skew = Vector2(0.3, 0.05)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9851268, 0.90168136, 0.9182216, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(0.081380434, 0.08138045, 0.081380434, 0.6)
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exdgq"]
+bg_color = Color(0.44313726, 0.105882354, 0.15686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvnvn"]
+bg_color = Color(0.6313726, 0.2627451, 0.36862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2e1y"]
+content_margin_left = 3.0
+content_margin_top = 0.0
+content_margin_right = 3.0
+content_margin_bottom = 0.0
+
+[resource]
+Button/colors/font_hover_color = Color(0.24477616, 0.24477643, 0.244777, 1)
+Button/colors/font_pressed_color = Color(0.98888177, 0.94324636, 0.95227677, 1)
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_o3mfu")
+Button/styles/hover = ExtResource("2_eivay")
+Button/styles/normal = ExtResource("3_4gj1x")
+Button/styles/pressed = SubResource("StyleBoxFlat_phf25")
+Label/colors/font_color = Color(0.21950102, 0.21950102, 0.21950093, 1)
+Label/colors/font_shadow_color = Color(0.9529412, 0.63529414, 0.7176471, 0.36078432)
+Label/font_sizes/font_size = 19
+Label/fonts/font = ExtResource("4_ag4je")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_exdgq")
+ProgressBar/styles/fill = null
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_bvnvn")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_g2e1y")

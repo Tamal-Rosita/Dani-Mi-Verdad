@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VRM-NovelEngine"
-run/main_scene="uid://c1ssm1pwte6yj"
+run/main_scene="uid://b8jxdrxgy40ka"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.1882353, 0.20392157, 0.27450982, 1)
 boot_splash/image="uid://d2bbfkl2ymk7"
@@ -21,6 +21,7 @@ config/icon="uid://bklxfuuu03836"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
+SceneLoader="*res://visual-novel/scripts/globals/scene_loader.gd"
 
 [dialogic]
 
@@ -44,7 +45,9 @@ directories/dtl_directory={
 glossary/default_case_sensitive=true
 layout/style_list=["res://dialogic/styles/my_new_style.tres"]
 layout/default_style="res://dialogic/styles/my_new_style.tres"
-variables={}
+variables={
+"can_travel": false
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -66,11 +69,6 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 
-[display]
-
-window/size/viewport_width=1280
-window/size/viewport_height=720
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/orbit_camera/plugin.cfg", "res://addons/plenticons/plugin.cfg", "res://addons/signal_lens/plugin.cfg", "res://addons/vrm/plugin.cfg")
@@ -81,6 +79,14 @@ ControllableCharacter="Controllable Characters that use ActionContainer"
 
 [input]
 
+ui_accept={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194310,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":6,"pressure":0.0,"pressed":true,"script":null)
+]
+}
 move_left={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)

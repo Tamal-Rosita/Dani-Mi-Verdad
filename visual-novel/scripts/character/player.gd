@@ -60,9 +60,9 @@ func _on_dialogic_timeline_ended() -> void:
 	
 func _on_dialogic_timeline_started() -> void:	
 	super._on_dialogic_timeline_started()
-#	_move_to_socket()
+	_move_to_socket()
 #	call_deferred("_move_to_socket")
-	get_tree().create_timer(250).timeout.connect(_move_to_socket)
+#	get_tree().create_timer(250).timeout.connect(_move_to_socket)
 	
 func _move_to_socket():
 	var target_socket: Node3D = _interaction_character.socket

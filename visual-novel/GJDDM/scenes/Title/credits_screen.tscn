@@ -1,0 +1,172 @@
+[gd_scene load_steps=11 format=3 uid="uid://2vtrjter7tpk"]
+
+[ext_resource type="Script" uid="uid://blnvi2vw2ho8d" path="res://visual-novel/GJDDM/scenes/Title/credits_screen.gd" id="1_is0y6"]
+[ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="2_2uqxk"]
+[ext_resource type="Theme" uid="uid://ceus317shnq1c" path="res://visual-novel/GJDDM/scenes/Title/title_theme.tres" id="3_drekl"]
+[ext_resource type="Texture2D" uid="uid://con0qeebjjbx5" path="res://visual-novel/GJDDM/images/logo_MVerdad_nobg.png" id="4_6kkw6"]
+[ext_resource type="Texture2D" uid="uid://ucur5ommpudt" path="res://visual-novel/GJDDM/images/logo_Dani_nobg.png" id="5_ru8pt"]
+[ext_resource type="FontFile" uid="uid://dtywg1ystm1bc" path="res://visual-novel/GJDDM/fonts/Tinos-Regular.ttf" id="6_8tbhs"]
+[ext_resource type="FontFile" uid="uid://wuhj8m88kwvf" path="res://visual-novel/GJDDM/fonts/Tinos-Bold.ttf" id="7_tajls"]
+[ext_resource type="FontFile" uid="uid://bgpyfkuscjs" path="res://visual-novel/GJDDM/fonts/Tinos-BoldItalic.ttf" id="8_c655q"]
+[ext_resource type="Texture2D" uid="uid://kwk8ola23icj" path="res://addons/dialogic/Modules/Jump/icon_return.svg" id="8_drekl"]
+[ext_resource type="FontFile" uid="uid://banhcbf57o5qn" path="res://visual-novel/GJDDM/fonts/Tinos-Italic.ttf" id="9_pri38"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_is0y6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2uqxk")
+pitch_scale = 1.2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9843137, 0.98039216, 0.98039216, 1)
+
+[node name="TamalRosita©2025" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 547.5
+offset_top = -30.0
+offset_right = -547.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_drekl")
+text = "Tamal Rosita © 2025"
+horizontal_alignment = 1
+
+[node name="Dani" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.089
+anchor_right = 0.5
+anchor_bottom = 0.26700002
+offset_left = -256.0
+offset_top = -64.08
+offset_right = 256.0
+offset_bottom = 63.75998
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(256, 128)
+texture = ExtResource("5_ru8pt")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="MiVerdad" type="TextureRect" parent="Dani"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -31.0
+offset_right = 256.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(256, 0)
+texture = ExtResource("4_6kkw6")
+stretch_mode = 5
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_right = 0.15
+offset_left = -50.0
+offset_top = 80.0
+offset_right = 50.0
+grow_horizontal = 2
+scale = Vector2(0.85, 0.85)
+theme = ExtResource("3_drekl")
+theme_override_icons/icon = ExtResource("8_drekl")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.375
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = -340.0
+offset_top = 0.07998657
+offset_right = 340.0
+offset_bottom = -0.24005127
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(340, 200)
+theme = ExtResource("3_drekl")
+
+[node name="ScrollCredits" type="RichTextLabel" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_drekl")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_8tbhs")
+theme_override_fonts/bold_font = ExtResource("7_tajls")
+theme_override_fonts/bold_italics_font = ExtResource("8_c655q")
+theme_override_fonts/italics_font = ExtResource("9_pri38")
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 26
+theme_override_font_sizes/bold_italics_font_size = 26
+theme_override_font_sizes/italics_font_size = 26
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[b]Hecho con [color=#a1435e][url=https://github.com/Aestial/Godot-VRM-NovelEngine/]VRM Novel Engine[/url][/color][/b]
+por Jaime Hernández
+
+[b]Producción Ejecutiva[/b]
+Sakbé Corona
+
+[b]Basado en el guión original[/b]
+por Sebastián Porthoz y Saúl
+
+[b]Adaptación[/b]
+J. Hernández
+
+[b]Banda sonora[/b]
+Ram Srinivasan 
+S. Porthoz
+
+[b]Casting[/b]
+S. Porthoz
+
+[b]Escenografía[/b]
+J. Hernández
+
+[b]Agradecimientos especiales[/b]
+Instituto Nacional Antropología e Historia
+Universidad Nacional Autónoma de México
+Facultad de Ingeniería
+Mermelada de Juegos
+Héctor Guerrero
+Daniel B.
+David R.
+Ode 3D
+Ricardo L.
+pakita
+[font_size=22}]y a todos los que han hecho
+posible nuestra aventura...[/font_size]
+"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
