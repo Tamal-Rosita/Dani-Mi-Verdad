@@ -630,8 +630,6 @@ script = ExtResource("14_ps3kr")
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4346467, 0)
 script = ExtResource("15_7vat7")
-normal_fov = 45.0
-run_fov = 60.0
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
 spring_length = 1.25

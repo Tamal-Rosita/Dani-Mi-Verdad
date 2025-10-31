@@ -3,6 +3,8 @@ class_name Player extends NovelCharacter
 
 @export_category("Camera")
 @export var use_override_camera: bool = false
+@export var fov: ThirdPersonCamera.FOV = ThirdPersonCamera.FOV.NORMAL
+@export var camera_distance: float = 1.0
 
 var can_interact: bool
 var override_camera: Camera3D
@@ -31,6 +33,8 @@ func reset_camera() -> void:
 	if use_override_camera and override_camera:
 		override_camera.make_current()
 	elif not use_override_camera:
+		camera_pivot.set_length(camera_distance)
+		camera_pivot.change_fov(fov)
 		camera_pivot.camera.make_current()
 	
 func show_interaction(npc_character: Npc) -> void:
