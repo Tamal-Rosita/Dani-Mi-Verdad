@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0xs1hfu8nh2u"]
+
+[ext_resource type="PackedScene" uid="uid://bu6hn1n850voj" path="res://visual-novel/GJDDM/scenes/Laberinto/hall_maze_4x4.blend" id="1_i2tw3"]
+
+[node name="hall_maze_4x4" instance=ExtResource("1_i2tw3")]
