@@ -2,7 +2,7 @@ extends Node3D
 
 @export var next_scene: PackedScene
 
-const dialogic_var: String = "metro_talk_with_samuel" 
+const dialogic_var: String = "theatre_talk_with_celia" 
 
 @onready var quest_control: Control = $QuestControl 
 
@@ -20,4 +20,3 @@ func _on_next_scene_body_entered(body: Node3D) -> void:
 		
 func _deferred_change_scene() -> void:
 	SceneLoader.change_scene_to_packed(next_scene)
-

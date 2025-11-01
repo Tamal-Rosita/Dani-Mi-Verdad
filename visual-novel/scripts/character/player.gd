@@ -44,7 +44,6 @@ func show_interaction(npc_character: Npc) -> void:
 		return
 	_interaction_character = npc_character
 	if _interaction_character.timeline == null: 
-		print_rich("[color=yellow]No timeline loaded to NPC")
 		return
 	can_interact = true
 	_interaction_hud.display(npc_character.dialogic_character.display_name)

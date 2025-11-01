@@ -47,7 +47,8 @@ glossary/default_case_sensitive=true
 layout/style_list=["res://dialogic/styles/my_new_style.tres"]
 layout/default_style="res://dialogic/styles/my_new_style.tres"
 variables={
-"metro_talk_with_samuel": false
+"metro_talk_with_samuel": false,
+"theatre_talk_with_celia": false
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
