@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/controllers/pointer_capture.gd" id="4_siao4"]
 [ext_resource type="Script" uid="uid://b5jsh373vm15" path="res://visual-novel/scripts/controllers/controller_player_third_person.gd" id="5_2fk5y"]
 [ext_resource type="PackedScene" uid="uid://dcjpkqhi816nl" path="res://visual-novel/characters/novel_character_base.tscn" id="6_j3tyg"]
-[ext_resource type="Script" uid="uid://ctpibhc6cx70y" path="res://visual-novel/scripts/character/player.gd" id="7_kw1c7"]
+[ext_resource type="Script" uid="uid://ctpibhc6cx70y" path="res://visual-novel/scripts/character/player.gd" id="7_e8a7m"]
 [ext_resource type="Texture2D" uid="uid://dvar72mo5xo53" path="res://visual-novel/GJDDM/scenes/Laberinto/textures/Wood24b.JPG" id="14_ygn2f"]
 [ext_resource type="MeshLibrary" uid="uid://n7u3cctqnsi2" path="res://visual-novel/GJDDM/scenes/Laberinto/hall_maze_meshlibrary.tres" id="15_k0j6u"]
 [ext_resource type="Texture2D" uid="uid://bukj87xokogkx" path="res://visual-novel/GJDDM/scenes/Laberinto/textures/Wall36_256x512.jpg" id="15_xejsl"]
@@ -575,10 +575,10 @@ controlled_obj = NodePath("../../NovelCharacter")
 
 [node name="NovelCharacter" parent="." instance=ExtResource("6_j3tyg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5542009, 1)
-script = ExtResource("7_kw1c7")
-use_override_camera = false
+script = ExtResource("7_e8a7m")
+camera_distance = 1.5
 fov = 2
-camera_distance = 1.75
+use_override_camera = false
 character_type = "Player"
 camera_height_offset = -0.1
 face_height_ratio = 0.9

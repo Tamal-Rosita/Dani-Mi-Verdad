@@ -131,6 +131,7 @@ func _update_character_type() -> void:
 		"NPC":
 			if not script is GDScript or script.resource_path.get_file() != "npc.gd":
 				set_script(load("res://visual-novel/scripts/character/npc.gd"))
+	notify_property_list_changed()
 	
 func _set_vrm_scene(value: PackedScene) -> void:
 	vrm_scene = value
@@ -145,7 +146,8 @@ func _refresh_model() -> void:
 		# Wait a frame for the model to be fully instantiated
 		call_deferred("_adjust_camera_nodes")
 		# Make sure it's editable in editor
-		_vrm_model.set_owner(get_tree().edited_scene_root)		
+		_vrm_model.set_owner(get_tree().edited_scene_root)
+#		notify_property_list_changed()		
 		
 func _adjust_camera_nodes() -> void:
 #	if not Engine.is_editor_hint():

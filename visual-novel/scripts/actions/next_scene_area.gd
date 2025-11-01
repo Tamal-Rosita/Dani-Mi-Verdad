@@ -6,7 +6,7 @@ func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node3D) -> void:
-	if body is Player and Dialogic.VAR.get_variable("can_travel"):
+	if body is Player:
 		call_deferred("_deferred_change_scene")
 		
 func _deferred_change_scene() -> void:
