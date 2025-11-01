@@ -22,6 +22,7 @@ config/icon="uid://bklxfuuu03836"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
 SceneLoader="*res://visual-novel/scripts/globals/scene_loader.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [dialogic]
 
@@ -46,7 +47,7 @@ glossary/default_case_sensitive=true
 layout/style_list=["res://dialogic/styles/my_new_style.tres"]
 layout/default_style="res://dialogic/styles/my_new_style.tres"
 variables={
-"can_travel": false
+"metro_talk_with_samuel": false
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -71,7 +72,7 @@ text/autopauses={}
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/orbit_camera/plugin.cfg", "res://addons/plenticons/plugin.cfg", "res://addons/signal_lens/plugin.cfg", "res://addons/timchi_maze_generation/plugin.cfg", "res://addons/vrm/plugin.cfg")
+enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/orbit_camera/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plenticons/plugin.cfg", "res://addons/signal_lens/plugin.cfg", "res://addons/timchi_maze_generation/plugin.cfg", "res://addons/vrm/plugin.cfg")
 
 [global_group]
 
@@ -174,6 +175,10 @@ cam_down={
 
 3d_physics/layer_1="world"
 3d_physics/layer_2="player"
+
+[physics]
+
+common/physics_interpolation=true
 
 [rendering]
 
