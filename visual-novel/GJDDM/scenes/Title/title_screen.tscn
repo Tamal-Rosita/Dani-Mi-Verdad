@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8jxdrxgy40ka"]
+[gd_scene load_steps=16 format=3 uid="uid://b8jxdrxgy40ka"]
 
 [ext_resource type="Texture2D" uid="uid://ucur5ommpudt" path="res://visual-novel/GJDDM/images/logo_Dani_nobg.png" id="1_40kix"]
 [ext_resource type="Script" uid="uid://o6ftp2me12xm" path="res://visual-novel/GJDDM/scenes/Title/title_screen.gd" id="1_ap0rb"]
 [ext_resource type="PackedScene" uid="uid://chqiuwdf2m23e" path="res://visual-novel/GJDDM/scenes/Metro/Metro.scn" id="2_f51hh"]
 [ext_resource type="Texture2D" uid="uid://con0qeebjjbx5" path="res://visual-novel/GJDDM/images/logo_MVerdad_nobg.png" id="2_rv6d7"]
 [ext_resource type="PackedScene" uid="uid://2vtrjter7tpk" path="res://visual-novel/GJDDM/scenes/Title/credits_screen.tscn" id="2_sdhdo"]
+[ext_resource type="PackedScene" uid="uid://c8oqm4oj4ku2f" path="res://visual-novel/GJDDM/scenes/Laberinto/PrimerLaberinto.tscn" id="3_f0brm"]
 [ext_resource type="FontFile" uid="uid://dtywg1ystm1bc" path="res://visual-novel/GJDDM/fonts/Tinos-Regular.ttf" id="3_rv6d7"]
 [ext_resource type="FontFile" uid="uid://wuhj8m88kwvf" path="res://visual-novel/GJDDM/fonts/Tinos-Bold.ttf" id="4_sm04f"]
 [ext_resource type="FontFile" uid="uid://bgpyfkuscjs" path="res://visual-novel/GJDDM/fonts/Tinos-BoldItalic.ttf" id="5_5t4e0"]
@@ -125,7 +126,7 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id="Animation_sm04f"]
 resource_name = "title_animation"
-length = 2.0
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -133,7 +134,7 @@ tracks/0/path = NodePath("Dani/MiVerdad:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.5, 0.5), Vector2(0.45, 0.45)]
@@ -145,7 +146,7 @@ tracks/1/path = NodePath("Call2Action:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.56666666, 2),
+"times": PackedFloat32Array(0, 0.36666662, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
@@ -157,7 +158,7 @@ tracks/2/path = NodePath("Call2Action:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.7, 2),
+"times": PackedFloat32Array(0, 0.49999994, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [true, false, false]
@@ -169,7 +170,7 @@ tracks/3/path = NodePath("VBoxContainer:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.5666666, 2),
+"times": PackedFloat32Array(1.0666666, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -181,7 +182,7 @@ tracks/4/path = NodePath("VBoxContainer:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.5666666, 2),
+"times": PackedFloat32Array(0, 1.0666666, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [false, true, true]
@@ -193,7 +194,7 @@ tracks/5/path = NodePath("Dani:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.8, 0.8)]
@@ -205,7 +206,7 @@ tracks/6/path = NodePath("Dani:offset_top")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [100.0, 64.0]
@@ -217,7 +218,7 @@ tracks/7/path = NodePath("Dani:offset_bottom")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [128.0, 91.90398]
@@ -229,7 +230,7 @@ tracks/8/path = NodePath("Dani/MiVerdad:offset_bottom")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [160.0, 140.0]
@@ -250,6 +251,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ap0rb")
 first_scene = ExtResource("2_f51hh")
+maze_scene = ExtResource("3_f0brm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -269,7 +271,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.98422354, 0.98169917, 0.9816975, 1)
+color = Color(1, 0.98039216, 0.9607843, 1)
 
 [node name="TamalRosita©2025" type="Label" parent="."]
 layout_mode = 1
@@ -375,6 +377,13 @@ size_flags_vertical = 0
 theme = ExtResource("8_phf25")
 text = "Comenzar"
 
+[node name="Maze" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("8_phf25")
+text = "Laberinto"
+
 [node name="Credits" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_phf25")
@@ -385,4 +394,5 @@ visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Maze" to="." method="_on_maze_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

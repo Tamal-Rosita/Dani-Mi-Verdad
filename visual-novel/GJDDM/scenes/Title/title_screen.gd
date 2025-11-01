@@ -2,6 +2,7 @@ extends Control
 
 @export var can_play: bool = true
 @export var first_scene: PackedScene
+@export var maze_scene: PackedScene
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var credits_screem: Control = $Credits
@@ -19,6 +20,9 @@ func _input(event: InputEvent) -> void:
 
 func _on_start_pressed() -> void:
 	SceneLoader.change_scene_to_packed(first_scene)
+
+func _on_maze_pressed() -> void:
+	SceneLoader.change_scene_to_packed(maze_scene)
 
 func _on_credits_pressed() -> void:
 	credits_screem.visible = true
