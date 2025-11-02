@@ -4,15 +4,16 @@ extends Node3D
 
 const dialogic_var: String = "metro_talk_with_samuel" 
 
-@onready var quest_control: Control = $QuestControl 
+@onready var quest_canvas_layer: CanvasLayer = $QuestCanvasLayer 
 
 func _ready() -> void:
-	quest_control.visible = not Dialogic.VAR.get_variable(dialogic_var)
+	Dialogic.VAR.set_variable(dialogic_var, false) # TODO: Replace with save state
+	quest_canvas_layer.visible = not Dialogic.VAR.get_variable(dialogic_var)
 	Dialogic.VAR.variable_changed.connect(_on_var_changed)
 	
 func _on_var_changed(info: Dictionary) -> void:
 	if info["variable"] == dialogic_var:
-		quest_control.visible = not info["new_value"]
+		quest_canvas_layer.visible = not info["new_value"]
 
 func _on_next_scene_body_entered(body: Node3D) -> void:
 	if body is Player and Dialogic.VAR.get_variable(dialogic_var):
@@ -21,3 +22,5 @@ func _on_next_scene_body_entered(body: Node3D) -> void:
 func _deferred_change_scene() -> void:
 	SceneLoader.change_scene_to_packed(next_scene)
 
+func _on_pause_canvas_layer_restarted() -> void:
+	Dialogic.VAR.set_variable(dialogic_var, false)

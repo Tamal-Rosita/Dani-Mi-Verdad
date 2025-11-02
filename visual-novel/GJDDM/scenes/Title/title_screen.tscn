@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ucur5ommpudt" path="res://visual-novel/GJDDM/images/logo_Dani_nobg.png" id="1_40kix"]
 [ext_resource type="Script" uid="uid://o6ftp2me12xm" path="res://visual-novel/GJDDM/scenes/Title/title_screen.gd" id="1_ap0rb"]
-[ext_resource type="PackedScene" uid="uid://chqiuwdf2m23e" path="res://visual-novel/GJDDM/scenes/Metro/Metro.scn" id="2_f51hh"]
+[ext_resource type="PackedScene" uid="uid://blu4mw3t0n8rs" path="res://visual-novel/GJDDM/scenes/Metro/Metro.tscn" id="2_f0brm"]
 [ext_resource type="Texture2D" uid="uid://con0qeebjjbx5" path="res://visual-novel/GJDDM/images/logo_MVerdad_nobg.png" id="2_rv6d7"]
 [ext_resource type="PackedScene" uid="uid://2vtrjter7tpk" path="res://visual-novel/GJDDM/scenes/Title/credits_screen.tscn" id="2_sdhdo"]
 [ext_resource type="PackedScene" uid="uid://c8oqm4oj4ku2f" path="res://visual-novel/GJDDM/scenes/Laberinto/PrimerLaberinto.tscn" id="3_f0brm"]
@@ -250,7 +250,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ap0rb")
-first_scene = ExtResource("2_f51hh")
+first_scene = ExtResource("2_f0brm")
 maze_scene = ExtResource("3_f0brm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

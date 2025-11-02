@@ -1,0 +1,331 @@
+[gd_scene load_steps=33 format=3 uid="uid://blu4mw3t0n8rs"]
+
+[ext_resource type="Script" uid="uid://bibyrurha2rr5" path="res://visual-novel/GJDDM/scenes/Metro/metro_scene.gd" id="1_ig1qo"]
+[ext_resource type="PackedScene" uid="uid://c8oqm4oj4ku2f" path="res://visual-novel/GJDDM/scenes/Laberinto/PrimerLaberinto.tscn" id="2_a0iqd"]
+[ext_resource type="AudioStream" uid="uid://di7417f8o8shi" path="res://visual-novel/GJDDM/music/Metro_Panteones.ogg" id="3_0677m"]
+[ext_resource type="LightmapGIData" uid="uid://doxpkb7am7d7s" path="res://visual-novel/GJDDM/scenes/Metro/Metro.lmbake" id="4_304w4"]
+[ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="5_dfpb5"]
+[ext_resource type="PackedScene" uid="uid://dbg1prbc0j7t5" path="res://visual-novel/GJDDM/scenes/Title/pause_screen.tscn" id="6_82ycx"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_k80vs"]
+[ext_resource type="Script" uid="uid://dmcynp0g0020r" path="res://visual-novel/scripts/controllers/controller_ai.gd" id="8_uf1nu"]
+[ext_resource type="Script" uid="uid://cve242f0ec8v" path="res://visual-novel/scripts/controllers/controller_player.gd" id="9_s84md"]
+[ext_resource type="PackedScene" uid="uid://56203yb3xiie" path="res://visual-novel/GJDDM/scenes/Metro/MetroPanteones_lowpoly/MetroPanteones.glb" id="10_hg0j6"]
+[ext_resource type="Script" uid="uid://dolmygaj003k5" path="res://visual-novel/scripts/actions/area_control_message.gd" id="11_qymc2"]
+[ext_resource type="FontFile" uid="uid://be864bbfg1jpj" path="res://visual-novel/GJDDM/fonts/Lexend-VariableFont_wght.ttf" id="12_5ttf7"]
+[ext_resource type="Script" uid="uid://cyhet5seln3dr" path="res://visual-novel/scripts/text/rich_text_ghost.gd" id="13_gnjaq"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="14_kq5fm"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="15_vl85n"]
+[ext_resource type="PackedScene" uid="uid://dcjpkqhi816nl" path="res://visual-novel/characters/novel_character_base.tscn" id="16_ppuyq"]
+[ext_resource type="Script" uid="uid://ctpibhc6cx70y" path="res://visual-novel/scripts/character/player.gd" id="17_hwmpg"]
+[ext_resource type="PackedScene" uid="uid://71d1ne4f0jsp" path="res://visual-novel/GJDDM/characters/packed/nadia.scn" id="18_u5r2f"]
+[ext_resource type="Resource" uid="uid://oygcpypq6kpq" path="res://dialogic/timelines/metro_samuel.dtl" id="19_n5fj1"]
+[ext_resource type="Resource" path="res://dialogic/characters/Samuel.dch" id="20_lha4i"]
+[ext_resource type="PackedScene" uid="uid://do1f5t0qor5r5" path="res://visual-novel/GJDDM/characters/packed/samuel.scn" id="21_g47qq"]
+[ext_resource type="Script" uid="uid://of56gkqy8xs8" path="res://visual-novel/scripts/canvas/quest_canvas_layer.gd" id="22_gyynt"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
+panorama = ExtResource("5_dfpb5")
+
+[sub_resource type="Sky" id="Sky_5ngqa"]
+sky_material = SubResource("PanoramaSkyMaterial_6c4vd")
+
+[sub_resource type="Environment" id="Environment_ctwiv"]
+background_mode = 1
+background_color = Color(0.7019608, 0.69411767, 0.6431373, 1)
+background_energy_multiplier = 1.5
+sky = SubResource("Sky_5ngqa")
+ambient_light_color = Color(0.32915837, 0.3291584, 0.3291584, 1)
+ambient_light_energy = 1.5
+tonemap_white = 1.5
+fog_enabled = true
+adjustment_saturation = 1.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_berkl"]
+size = Vector3(15.196026, 4.6590757, 0.79493713)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uu0ky"]
+size = Vector3(15.808697, 3.7187867, 0.6838417)
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_berkl"]
+script = ExtResource("13_gnjaq")
+metadata/_custom_type_script = "uid://cyhet5seln3dr"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jr3gu"]
+size = Vector3(12.591696, 3.7187867, 0.8367996)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2i0kx"]
+size = Vector3(12.934795, 3.7187867, 0.79493713)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_funw1"]
+size = Vector3(26.907635, 2.7002044, 0.6650467)
+
+[sub_resource type="Resource" id="Resource_berkl"]
+script = ExtResource("15_vl85n")
+
+[node name="Metro" type="Node3D"]
+script = ExtResource("1_ig1qo")
+next_scene = ExtResource("2_a0iqd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0677m")
+volume_db = -10.0
+autoplay = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7357071, 0.6772998, 0, -0.6772998, 0.7357071, 0, 2.9475758, 0)
+light_color = Color(0.90671605, 0.94047564, 0.8134223, 1)
+light_energy = 0.5
+light_indirect_energy = 1.25
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_max_distance = 125.0
+sky_mode = 1
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+supersampling = true
+interior = true
+max_texture_size = 2048
+generate_probes_subdiv = 1
+light_data = ExtResource("4_304w4")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.755188, 2.5835783, 2.6792662)
+size = Vector3(10.108871, 6.564144, 63.259476)
+interior = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ctwiv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4873819, 2.629788, 8.595219)
+current = true
+fov = 60.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("7_k80vs")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Controllers" type="Node" parent="."]
+
+[node name="AIController-PatrolLine" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+script = ExtResource("8_uf1nu")
+INPUT_DELAY = 2.5
+rotation_angle = 180.0
+controlled_obj = NodePath("../../Characters/Samuel")
+
+[node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+script = ExtResource("9_s84md")
+controlled_obj = NodePath("../../Characters/Dani (Player)")
+
+[node name="Scenario" type="Node" parent="."]
+
+[node name="MetroPanteones" parent="Scenario" instance=ExtResource("10_hg0j6")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.00056767464, -0.008535385, 0.009282351)
+
+[node name="Limits" type="Node" parent="Scenario"]
+
+[node name="Rail1_StaticBody3D" type="StaticBody3D" parent="Scenario/Limits"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7219191, 1.2193948)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Limits/Rail1_StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.226642, 0.49927878, 0.01802063)
+shape = SubResource("BoxShape3D_berkl")
+
+[node name="Rail1_LimitWarning" type="Area3D" parent="Scenario/Limits"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7219191, 1.8545952)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("11_qymc2")
+message_text = "[shake rate=20.0 level=5 connected=1][color=gold]No caigas a las vías![/color][/shake]"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Limits/Rail1_LimitWarning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.13483, 0.23923564, 0.17852211)
+shape = SubResource("BoxShape3D_uu0ky")
+
+[node name="Control" type="Control" parent="Scenario/Limits/Rail1_LimitWarning"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Scenario/Limits/Rail1_LimitWarning/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -151.0
+offset_top = -223.0
+offset_right = 149.0
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("12_5ttf7")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1][color=gold]Warning text lol![/color][/shake]"
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_berkl")]
+
+[node name="Rail2_StaticBody3D" type="StaticBody3D" parent="Scenario/Limits"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.561382, 1.7219191, 1.2193948)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Limits/Rail2_StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.908844, 0.029134274, 0.038951874)
+shape = SubResource("BoxShape3D_jr3gu")
+
+[node name="Rail2_LimitWarning" type="Area3D" parent="Scenario/Limits"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.561382, 1.7219191, 1.8545952)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("11_qymc2")
+message_text = "[shake rate=20.0 level=5 connected=1][color=gold]No caigas a las vías![/color][/shake]"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Limits/Rail2_LimitWarning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1487465, 0.23923564, 0.082206726)
+shape = SubResource("BoxShape3D_2i0kx")
+
+[node name="Control" type="Control" parent="Scenario/Limits/Rail2_LimitWarning"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Scenario/Limits/Rail2_LimitWarning/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -151.0
+offset_top = -223.0
+offset_right = 149.0
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("12_5ttf7")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1][color=gold]No caigas a las vías![/color][/shake]"
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_berkl")]
+
+[node name="NextScene" type="Area3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.020721, 2.3869772, 4.4704065)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/NextScene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.019907, -0.16024971, -2.5208473)
+shape = SubResource("BoxShape3D_funw1")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4873819, 2.629788, 8.595219)
+top_level = true
+script = ExtResource("14_kq5fm")
+follow_mode = 5
+follow_target = NodePath("../Characters/Dani (Player)")
+tween_resource = SubResource("Resource_berkl")
+follow_offset = Vector3(0, 1.5, 1.5)
+follow_damping = true
+follow_axis_lock = 3
+follow_distance = 1.4
+dead_zone_width = 0.1
+spring_length = 1.4
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="QuestCanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+script = ExtResource("22_gyynt")
+
+[node name="Control" type="Control" parent="QuestCanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="QuestCanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -24.0
+offset_right = 350.0
+offset_bottom = 26.0
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="QuestCanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("12_5ttf7")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "• Habla con Samuel"
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_berkl")]
+
+[node name="PauseCanvasLayer" parent="." instance=ExtResource("6_82ycx")]
+layer = 10
+
+[node name="Characters" type="Node" parent="."]
+
+[node name="Dani (Player)" parent="Characters" node_paths=PackedStringArray("override_camera") instance=ExtResource("16_ppuyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4873819, 1.129788, 5.695219)
+script = ExtResource("17_hwmpg")
+camera_distance = 1.0
+fov = 0
+use_override_camera = false
+override_camera = NodePath("../../Camera3D")
+character_type = "Player"
+dialogic_character = null
+vrm_scene = ExtResource("18_u5r2f")
+camera_height_offset = -0.1
+face_height_ratio = 0.9
+speed = 2.2
+jump_strength = 3.85
+
+[node name="Samuel" parent="Characters" instance=ExtResource("16_ppuyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 1.135, 6)
+timeline = ExtResource("19_n5fj1")
+dialogic_character = ExtResource("20_lha4i")
+vrm_scene = ExtResource("21_g47qq")
+camera_height_offset = -0.1
+face_height_ratio = 0.9
+speed = 1.55
+
+[connection signal="body_entered" from="Scenario/Limits/Rail1_LimitWarning" to="Scenario/Limits/Rail1_LimitWarning" method="_on_body_entered"]
+[connection signal="body_exited" from="Scenario/Limits/Rail1_LimitWarning" to="Scenario/Limits/Rail1_LimitWarning" method="_on_body_exited"]
+[connection signal="body_entered" from="Scenario/Limits/Rail2_LimitWarning" to="Scenario/Limits/Rail2_LimitWarning" method="_on_body_entered"]
+[connection signal="body_exited" from="Scenario/Limits/Rail2_LimitWarning" to="Scenario/Limits/Rail2_LimitWarning" method="_on_body_exited"]
+[connection signal="body_entered" from="Scenario/NextScene" to="." method="_on_next_scene_body_entered"]
+[connection signal="pause_toggle" from="PauseCanvasLayer" to="QuestCanvasLayer" method="_on_pause_canvas_layer_pause_toggle"]
+[connection signal="restarted" from="PauseCanvasLayer" to="." method="_on_pause_canvas_layer_restarted"]
