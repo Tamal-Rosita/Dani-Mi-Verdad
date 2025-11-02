@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b8jxdrxgy40ka"]
+[gd_scene load_steps=17 format=3 uid="uid://b8jxdrxgy40ka"]
 
 [ext_resource type="Texture2D" uid="uid://ucur5ommpudt" path="res://visual-novel/GJDDM/images/logo_Dani_nobg.png" id="1_40kix"]
 [ext_resource type="Script" uid="uid://o6ftp2me12xm" path="res://visual-novel/GJDDM/scenes/Title/title_screen.gd" id="1_ap0rb"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://dtywg1ystm1bc" path="res://visual-novel/GJDDM/fonts/Tinos-Regular.ttf" id="3_rv6d7"]
 [ext_resource type="FontFile" uid="uid://wuhj8m88kwvf" path="res://visual-novel/GJDDM/fonts/Tinos-Bold.ttf" id="4_sm04f"]
 [ext_resource type="FontFile" uid="uid://bgpyfkuscjs" path="res://visual-novel/GJDDM/fonts/Tinos-BoldItalic.ttf" id="5_5t4e0"]
+[ext_resource type="Script" uid="uid://uwu3rtv0q2cw" path="res://visual-novel/scripts/actions/pointer_release.gd" id="5_yb7vh"]
 [ext_resource type="FontFile" uid="uid://banhcbf57o5qn" path="res://visual-novel/GJDDM/fonts/Tinos-Italic.ttf" id="6_rmur0"]
 [ext_resource type="Theme" uid="uid://ceus317shnq1c" path="res://visual-novel/GJDDM/scenes/Title/title_theme.tres" id="8_phf25"]
 [ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="11_gnge8"]
@@ -272,6 +273,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.98039216, 0.9607843, 1)
+script = ExtResource("5_yb7vh")
 
 [node name="TamalRosita©2025" type="Label" parent="."]
 layout_mode = 1

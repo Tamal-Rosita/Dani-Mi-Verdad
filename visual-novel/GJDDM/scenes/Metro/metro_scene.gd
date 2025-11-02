@@ -16,8 +16,10 @@ func _on_var_changed(info: Dictionary) -> void:
 		quest_canvas_layer.visible = not info["new_value"]
 
 func _on_next_scene_body_entered(body: Node3D) -> void:
-	if body is Player and Dialogic.VAR.get_variable(dialogic_var):
-		call_deferred("_deferred_change_scene")
+	if not Dialogic.VAR.get_variable(dialogic_var) or body is not NovelCharacter or \
+			not body.character_type == NovelCharacter.CharacterType.PLAYER:
+		return
+	call_deferred("_deferred_change_scene")
 		
 func _deferred_change_scene() -> void:
 	SceneLoader.change_scene_to_packed(next_scene)

@@ -211,7 +211,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1.3655106, 1.3385816, 1.3116524, 0.8235294)
+color = Color(1.365921, 1.3389841, 1.3120472, 0.78431374)
 
 [node name="TamalRosita©2025" type="Label" parent="."]
 anchors_preset = 7

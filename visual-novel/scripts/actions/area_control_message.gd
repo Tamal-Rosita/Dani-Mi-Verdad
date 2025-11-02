@@ -10,10 +10,12 @@ func _ready() -> void:
 	rich_text_label.text = message_text
 
 func _on_body_entered(body: Node3D) -> void:
-	if body is Player:
-		warning_control.visible = true
+	if body is not NovelCharacter or not body.character_type == NovelCharacter.CharacterType.PLAYER:
+		return
+	warning_control.visible = true
 
 
 func _on_body_exited(body: Node3D) -> void:
-	if body is Player: 
-		warning_control.visible = false
+	if body is not NovelCharacter or not body.character_type == NovelCharacter.CharacterType.PLAYER:
+		return 
+	warning_control.visible = false

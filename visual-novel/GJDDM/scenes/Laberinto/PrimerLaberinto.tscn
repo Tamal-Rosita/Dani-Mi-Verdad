@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://c8oqm4oj4ku2f"]
+[gd_scene load_steps=37 format=4 uid="uid://c8oqm4oj4ku2f"]
 
 [ext_resource type="AudioStream" uid="uid://c1gnuhcoqng01" path="res://visual-novel/GJDDM/music/more tracks.mp3" id="1_pa80t"]
 [ext_resource type="LightmapGIData" uid="uid://oxdlvuawk3s6" path="res://visual-novel/GJDDM/scenes/Laberinto/PrimerLaberinto.lmbake" id="2_nr84j"]
@@ -6,13 +6,16 @@
 [ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/actions/pointer_capture.gd" id="4_siao4"]
 [ext_resource type="Script" uid="uid://b5jsh373vm15" path="res://visual-novel/scripts/controllers/controller_player_third_person.gd" id="5_2fk5y"]
 [ext_resource type="PackedScene" uid="uid://dcjpkqhi816nl" path="res://visual-novel/characters/novel_character_base.tscn" id="6_j3tyg"]
-[ext_resource type="Script" uid="uid://ctpibhc6cx70y" path="res://visual-novel/scripts/character/player.gd" id="7_e8a7m"]
+[ext_resource type="Resource" uid="uid://d1b2iumhe8cs3" path="res://dialogic/characters/Dani.dch" id="8_spmur"]
+[ext_resource type="PackedScene" uid="uid://c3mkywf5liwxn" path="res://visual-novel/GJDDM/characters/packed/dani.scn" id="8_ygn2f"]
+[ext_resource type="PackedScene" uid="uid://bo1tni28i8w3i" path="res://visual-novel/GJDDM/scenes/Teatro/Teatro.tscn" id="10_spmur"]
 [ext_resource type="Texture2D" uid="uid://dvar72mo5xo53" path="res://visual-novel/GJDDM/scenes/Laberinto/textures/Wood24b.JPG" id="14_ygn2f"]
 [ext_resource type="MeshLibrary" uid="uid://n7u3cctqnsi2" path="res://visual-novel/GJDDM/scenes/Laberinto/hall_maze_meshlibrary.tres" id="15_k0j6u"]
 [ext_resource type="Texture2D" uid="uid://bukj87xokogkx" path="res://visual-novel/GJDDM/scenes/Laberinto/textures/Wall36_256x512.jpg" id="15_xejsl"]
+[ext_resource type="PackedScene" uid="uid://dbg1prbc0j7t5" path="res://visual-novel/GJDDM/scenes/Title/pause_screen.tscn" id="15_ygn2f"]
 [ext_resource type="Texture2D" uid="uid://cs1xqd67rbgha" path="res://visual-novel/GJDDM/scenes/Laberinto/textures/Wood17a.jpg" id="16_pa80t"]
+[ext_resource type="PackedScene" uid="uid://by06s53b5eiiq" path="res://visual-novel/canvas/quest_canvas_layer.tscn" id="16_ygn2f"]
 [ext_resource type="Script" uid="uid://dt3jo0v5y4sy5" path="res://visual-novel/scripts/actions/next_scene_area.gd" id="17_pk5jr"]
-[ext_resource type="PackedScene" uid="uid://bq23k26ijrjrk" path="res://visual-novel/GJDDM/scenes/Teatro/Teatro.scn" id="18_pa80t"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7k8ah"]
 panorama = ExtResource("3_kdbmg")
@@ -571,24 +574,21 @@ script = ExtResource("4_siao4")
 
 [node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
 script = ExtResource("5_2fk5y")
-controlled_obj = NodePath("../../NovelCharacter")
+controlled_obj = NodePath("../../Player")
 
-[node name="NovelCharacter" parent="." instance=ExtResource("6_j3tyg")]
+[node name="Player" parent="." instance=ExtResource("6_j3tyg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5542009, 1)
-script = ExtResource("7_e8a7m")
-camera_distance = 1.5
+character_type = 1
+dialogic_character = ExtResource("8_spmur")
+vrm_scene = ExtResource("8_ygn2f")
 fov = 2
-use_override_camera = false
-character_type = "Player"
-camera_height_offset = -0.1
-face_height_ratio = 0.9
 
 [node name="NextScene" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1.5, -54)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("17_pk5jr")
-scene = ExtResource("18_pa80t")
+scene = ExtResource("10_spmur")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NextScene"]
 shape = SubResource("BoxShape3D_n1mu4")
@@ -601,3 +601,8 @@ baked_meshes = [SubResource("ArrayMesh_ygn2f"), SubResource("ArrayMesh_xejsl"), 
 data = {
 "cells": PackedInt32Array(65535, 0, 1048576, 65535, 65535, 1048578, 65535, 65534, 1048578, 0, 65533, 2, 1, 65533, 2, 2, 65533, 2, 3, 65533, 2, 4, 65533, 2, 5, 65534, 1441794, 5, 65535, 1441794, 5, 0, 1441794, 5, 1, 1441794, 3, 3, 1441794, 3, 4, 1441794, 4, 2, 655362, 6, 2, 655362, 7, 2, 655362, 8, 2, 655362, 9, 2, 655362, 10, 2, 655362, 11, 2, 655362, 13, 2, 655362, 14, 3, 1048578, 14, 4, 1048578, 13, 5, 2, 12, 5, 2, 11, 5, 2, 10, 5, 2, 9, 5, 2, 8, 5, 2, 7, 5, 2, 6, 5, 2, 5, 5, 2, 4, 5, 2, 12, 1, 1441794, 12, 0, 1441794, 12, 65535, 1441794, 12, 65534, 1441794, 12, 65533, 1441794, 12, 65532, 1441794, 12, 65531, 1441794, 12, 65530, 1441794, 12, 65529, 1441794, 13, 65528, 655362, 14, 65528, 655362, 15, 65528, 655362, 16, 65528, 655362, 17, 65528, 655362, 18, 65528, 655362, 19, 65528, 655362, 20, 65527, 1048578, 20, 65526, 1048578, 20, 65525, 1048578, 20, 65524, 1048578, 20, 65523, 1048578, 20, 65522, 1048578, 20, 65521, 1048578, 20, 65519, 1048578, 20, 65518, 1048578, 20, 65517, 1048578, 20, 65516, 1048578, 13, 65519, 1048578, 13, 65518, 1048578, 13, 65517, 1048578, 13, 65516, 1048578, 14, 65515, 2, 15, 65515, 2, 16, 65515, 2, 17, 65515, 2, 18, 65515, 2, 19, 65515, 2, 14, 65520, 2, 15, 65520, 2, 16, 65520, 2, 17, 65520, 2, 18, 65520, 2, 19, 65520, 2, 12, 65524, 1441794, 12, 65525, 1441794, 12, 65526, 1441794, 12, 65527, 1441794, 11, 65528, 655362, 10, 65528, 655362, 9, 65528, 655362, 8, 65528, 655362, 7, 65528, 655362, 6, 65528, 655362, 11, 65523, 655362, 10, 65523, 655362, 9, 65523, 655362, 8, 65523, 655362, 6, 65523, 655362, 5, 65523, 655362, 4, 65523, 655362, 3, 65523, 655362, 2, 65523, 655362, 1, 65523, 655362, 0, 65523, 655362, 6, 65525, 655362, 5, 65525, 655362, 4, 65525, 655362, 3, 65525, 655362, 2, 65525, 655362, 1, 65525, 655362, 0, 65525, 655362, 65534, 65525, 655362, 65533, 65525, 655362, 65532, 65525, 655362, 65531, 65525, 655362, 65530, 65525, 655362, 65529, 65525, 655362, 65528, 65524, 1048578, 65528, 65523, 1048578, 65535, 65524, 1048578, 7, 65524, 1048578, 5, 65529, 1048578, 5, 65530, 1048578, 5, 65531, 1048578, 5, 65532, 1048578, 65528, 65522, 1441792, 65528, 65525, 1048577, 65535, 65523, 1, 7, 65525, 655361, 12, 65523, 1441793, 20, 65528, 655361, 20, 65515, 1441793, 13, 65515, 1, 13, 65520, 1048577, 5, 65528, 1, 3, 2, 1, 14, 2, 1441793, 14, 5, 655361, 3, 5, 1048577, 65535, 65533, 1, 20, 65520, 655363, 7, 65523, 1441795, 65535, 65525, 1048579, 5, 65533, 655363, 5, 2, 1048579, 12, 2, 1048579, 12, 65528, 1048580)
 }
+
+[node name="PauseCanvasLayer" parent="." instance=ExtResource("15_ygn2f")]
+
+[node name="QuestCanvasLayer" parent="." instance=ExtResource("16_ygn2f")]
+text_content = "Sal del laberinto"

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dbg1prbc0j7t5" path="res://visual-novel/GJDDM/scenes/Title/pause_screen.tscn" id="6_82ycx"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_k80vs"]
 [ext_resource type="Script" uid="uid://dmcynp0g0020r" path="res://visual-novel/scripts/controllers/controller_ai.gd" id="8_uf1nu"]
+[ext_resource type="PackedScene" uid="uid://c3mkywf5liwxn" path="res://visual-novel/GJDDM/characters/packed/dani.scn" id="9_ig1qo"]
 [ext_resource type="Script" uid="uid://cve242f0ec8v" path="res://visual-novel/scripts/controllers/controller_player.gd" id="9_s84md"]
 [ext_resource type="PackedScene" uid="uid://56203yb3xiie" path="res://visual-novel/GJDDM/scenes/Metro/MetroPanteones_lowpoly/MetroPanteones.glb" id="10_hg0j6"]
 [ext_resource type="Script" uid="uid://dolmygaj003k5" path="res://visual-novel/scripts/actions/area_control_message.gd" id="11_qymc2"]
@@ -16,12 +17,11 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="14_kq5fm"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="15_vl85n"]
 [ext_resource type="PackedScene" uid="uid://dcjpkqhi816nl" path="res://visual-novel/characters/novel_character_base.tscn" id="16_ppuyq"]
-[ext_resource type="Script" uid="uid://ctpibhc6cx70y" path="res://visual-novel/scripts/character/player.gd" id="17_hwmpg"]
-[ext_resource type="PackedScene" uid="uid://71d1ne4f0jsp" path="res://visual-novel/GJDDM/characters/packed/nadia.scn" id="18_u5r2f"]
+[ext_resource type="Resource" uid="uid://d1b2iumhe8cs3" path="res://dialogic/characters/Dani.dch" id="19_ig1qo"]
 [ext_resource type="Resource" uid="uid://oygcpypq6kpq" path="res://dialogic/timelines/metro_samuel.dtl" id="19_n5fj1"]
 [ext_resource type="Resource" path="res://dialogic/characters/Samuel.dch" id="20_lha4i"]
 [ext_resource type="PackedScene" uid="uid://do1f5t0qor5r5" path="res://visual-novel/GJDDM/characters/packed/samuel.scn" id="21_g47qq"]
-[ext_resource type="Script" uid="uid://of56gkqy8xs8" path="res://visual-novel/scripts/canvas/quest_canvas_layer.gd" id="22_gyynt"]
+[ext_resource type="PackedScene" uid="uid://by06s53b5eiiq" path="res://visual-novel/canvas/quest_canvas_layer.tscn" id="21_ig1qo"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
 panorama = ExtResource("5_dfpb5")
@@ -107,6 +107,26 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("7_k80vs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Characters" type="Node" parent="."]
+
+[node name="Dani (Player)" parent="Characters" node_paths=PackedStringArray("override_camera") instance=ExtResource("16_ppuyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4873819, 1.129788, 5.695219)
+character_type = 1
+dialogic_character = ExtResource("19_ig1qo")
+vrm_scene = ExtResource("9_ig1qo")
+camera_distance = 1.0
+use_override_camera = true
+override_camera = NodePath("../../Camera3D")
+speed = 2.25
+jump_strength = 3.75
+
+[node name="Samuel" parent="Characters" instance=ExtResource("16_ppuyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 1.135, 6)
+dialogic_character = ExtResource("20_lha4i")
+character_timeline = ExtResource("19_n5fj1")
+vrm_scene = ExtResource("21_g47qq")
+speed = 1.5
 
 [node name="Controllers" type="Node" parent="."]
 
@@ -252,80 +272,15 @@ dead_zone_width = 0.1
 spring_length = 1.4
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="QuestCanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
-script = ExtResource("22_gyynt")
-
-[node name="Control" type="Control" parent="QuestCanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="QuestCanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 50.0
-offset_top = -24.0
-offset_right = 350.0
-offset_bottom = 26.0
-grow_vertical = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="QuestCanvasLayer/Control/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_right = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/normal_font = ExtResource("12_5ttf7")
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "• Habla con Samuel"
-vertical_alignment = 1
-custom_effects = [SubResource("RichTextEffect_berkl")]
-
 [node name="PauseCanvasLayer" parent="." instance=ExtResource("6_82ycx")]
 layer = 10
 
-[node name="Characters" type="Node" parent="."]
-
-[node name="Dani (Player)" parent="Characters" node_paths=PackedStringArray("override_camera") instance=ExtResource("16_ppuyq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4873819, 1.129788, 5.695219)
-script = ExtResource("17_hwmpg")
-camera_distance = 1.0
-fov = 0
-use_override_camera = false
-override_camera = NodePath("../../Camera3D")
-character_type = "Player"
-dialogic_character = null
-vrm_scene = ExtResource("18_u5r2f")
-camera_height_offset = -0.1
-face_height_ratio = 0.9
-speed = 2.2
-jump_strength = 3.85
-
-[node name="Samuel" parent="Characters" instance=ExtResource("16_ppuyq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 1.135, 6)
-timeline = ExtResource("19_n5fj1")
-dialogic_character = ExtResource("20_lha4i")
-vrm_scene = ExtResource("21_g47qq")
-camera_height_offset = -0.1
-face_height_ratio = 0.9
-speed = 1.55
+[node name="QuestCanvasLayer" parent="." instance=ExtResource("21_ig1qo")]
+text_content = "Habla con Samuel"
 
 [connection signal="body_entered" from="Scenario/Limits/Rail1_LimitWarning" to="Scenario/Limits/Rail1_LimitWarning" method="_on_body_entered"]
 [connection signal="body_exited" from="Scenario/Limits/Rail1_LimitWarning" to="Scenario/Limits/Rail1_LimitWarning" method="_on_body_exited"]
 [connection signal="body_entered" from="Scenario/Limits/Rail2_LimitWarning" to="Scenario/Limits/Rail2_LimitWarning" method="_on_body_entered"]
 [connection signal="body_exited" from="Scenario/Limits/Rail2_LimitWarning" to="Scenario/Limits/Rail2_LimitWarning" method="_on_body_exited"]
 [connection signal="body_entered" from="Scenario/NextScene" to="." method="_on_next_scene_body_entered"]
-[connection signal="pause_toggle" from="PauseCanvasLayer" to="QuestCanvasLayer" method="_on_pause_canvas_layer_pause_toggle"]
 [connection signal="restarted" from="PauseCanvasLayer" to="." method="_on_pause_canvas_layer_restarted"]
