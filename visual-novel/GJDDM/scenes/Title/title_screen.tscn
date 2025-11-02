@@ -257,8 +257,8 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_k6ijq")
-volume_db = -18.0
-pitch_scale = 1.2
+volume_db = -3.0
+pitch_scale = 1.15
 autoplay = true
 
 [node name="Background" type="ColorRect" parent="."]

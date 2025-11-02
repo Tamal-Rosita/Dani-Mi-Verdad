@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 func _on_var_changed(info: Dictionary) -> void:
 	if info["variable"] == dialogic_var:
-		quest_canvas_layer.is_completed = not info["new_value"]
+		quest_canvas_layer.is_completed = info["new_value"]
 
 func _on_next_scene_body_entered(body: Node3D) -> void:
 	if not Dialogic.VAR.get_variable(dialogic_var) or body is not NovelCharacter or \

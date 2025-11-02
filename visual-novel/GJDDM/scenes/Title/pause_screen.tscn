@@ -200,8 +200,8 @@ speed_scale = 1.5
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 2
 stream = ExtResource("4_cjhvj")
-volume_db = -18.0
-pitch_scale = 1.2
+volume_db = -5.0
+pitch_scale = 0.8
 autoplay = true
 
 [node name="Background" type="ColorRect" parent="."]

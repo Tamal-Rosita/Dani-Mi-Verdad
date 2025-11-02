@@ -86,11 +86,6 @@ func _validate_property(property: Dictionary) -> void:
 	
 	if property.name == "override_camera" and character_type == CharacterType.NPC:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
-		
-	################
-	## Player
-	################
-	
 
 
 func _get_configuration_warnings() -> PackedStringArray:

@@ -23,6 +23,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
 SceneLoader="*res://visual-novel/scripts/globals/scene_loader.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+CinematicManager="*res://visual-novel/scripts/globals/cinematic_manager.gd"
 
 [dialogic]
 
@@ -78,6 +79,7 @@ enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://a
 [global_group]
 
 ControllableCharacter="Controllable Characters that use ActionContainer"
+CinematicCameras=""
 
 [input]
 

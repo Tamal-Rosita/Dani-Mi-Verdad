@@ -47,7 +47,8 @@ next_scene = ExtResource("2_moqlh")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_erxi2")
-volume_db = -15.0
+volume_db = -5.0
+pitch_scale = 0.5
 autoplay = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -126,6 +127,7 @@ script = ExtResource("4_iqxkc")
 
 [node name="AIController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
 script = ExtResource("5_fke2d")
+INPUT_DELAY = 1.0
 controlled_obj = NodePath("../../Characters/Gerardo")
 
 [node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
