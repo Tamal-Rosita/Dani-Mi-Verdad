@@ -1,14 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://dcjpkqhi816nl"]
+[gd_scene load_steps=27 format=3 uid="uid://dcjpkqhi816nl"]
 
 [ext_resource type="Script" uid="uid://ca63xg0wacmbc" path="res://visual-novel/scripts/character/novel_character.gd" id="1_g2ba7"]
-[ext_resource type="PackedScene" uid="uid://71d1ne4f0jsp" path="res://visual-novel/GJDDM/characters/packed/nadia.scn" id="3_dkogs"]
+[ext_resource type="Resource" uid="uid://d1b2iumhe8cs3" path="res://dialogic/characters/Dani.dch" id="2_uit4r"]
+[ext_resource type="PackedScene" uid="uid://dh6bl7wdssg5h" path="res://visual-novel/GJDDM/characters/packed/natalia.scn" id="3_dqhvf"]
 [ext_resource type="Script" uid="uid://dghe01mlbjpjf" path="res://visual-novel/scripts/character/character_collision_shape.gd" id="4_bbd2j"]
 [ext_resource type="Script" uid="uid://d3drp7l1lytlu" path="res://visual-novel/scripts/character/actions/action_jump.gd" id="9_bbd2j"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_dkogs"]
 [ext_resource type="Script" uid="uid://cavoehjg14dyj" path="res://addons/character_controller/scripts/action_container.gd" id="10_d1hax"]
 [ext_resource type="Script" uid="uid://dn0l3kkomlwu7" path="res://controller_examples/scripts/simple_character/actions/action_move_simple.gd" id="11_tkh71"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="12_caevh"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://dgubwui2tiafd" path="res://visual-novel/animations/novel-character_blendtree.tres" id="13_dca5i"]
-[ext_resource type="Script" uid="uid://cws751hb7y7gb" path="res://visual-novel/scripts/camera/front_character_camera.gd" id="14_g2ba7"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_dkogs"]
+[ext_resource type="Script" uid="uid://cws751hb7y7gb" path="res://visual-novel/scripts/camera/portrait_camera.gd" id="14_g2ba7"]
 [ext_resource type="Script" uid="uid://b76mxvtweu40c" path="res://visual-novel/scripts/character/character_animation_tree.gd" id="14_ps3kr"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="14_sel01"]
 [ext_resource type="Script" uid="uid://boe8j3nxneke" path="res://visual-novel/scripts/camera/third_person_camera.gd" id="15_7vat7"]
 [ext_resource type="Script" uid="uid://dhxeoug7ju6y3" path="res://addons/character_controller/scripts/movement_state_manager.gd" id="16_dpxsw"]
 [ext_resource type="Script" uid="uid://to2l8lodveh7" path="res://controller_examples/scripts/simple_character/movement_grounded_complex.gd" id="17_cw4mi"]
@@ -16,9 +21,29 @@
 [ext_resource type="FontFile" uid="uid://be864bbfg1jpj" path="res://visual-novel/GJDDM/fonts/Lexend-VariableFont_wght.ttf" id="19_b60j4"]
 [ext_resource type="Script" uid="uid://13wffcoo1pgt" path="res://visual-novel/scripts/character/character_debug_view.gd" id="21_sel01"]
 
+[sub_resource type="Resource" id="Resource_p1b4h"]
+script = ExtResource("13_dkogs")
+duration = 0.25
+transition = 6
+
+[sub_resource type="Resource" id="Resource_g43u5"]
+script = ExtResource("14_sel01")
+fov = 50.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_giq0b"]
 radius = 0.3
 height = 1.6514161
+
+[sub_resource type="Resource" id="Resource_dqhvf"]
+script = ExtResource("13_dkogs")
+duration = 0.0
+metadata/_custom_type_script = "uid://8umksf8e80fw"
+
+[sub_resource type="Resource" id="Resource_dkogs"]
+script = ExtResource("14_sel01")
+fov = 40.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5bp1d"]
 size = Vector3(0.85, 1.8, 1)
@@ -27,41 +52,9 @@ size = Vector3(0.85, 1.8, 1)
 collision_layer = 3
 slide_on_ceiling = false
 script = ExtResource("1_g2ba7")
-vrm_scene = ExtResource("3_dkogs")
+dialogic_character = ExtResource("2_uit4r")
+vrm_scene = ExtResource("3_dqhvf")
 camera_distance = 1.5
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82869476, 0)
-shape = SubResource("CapsuleShape3D_giq0b")
-script = ExtResource("4_bbd2j")
-
-[node name="FrontCameraPivot" type="Node3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5450617, 0)
-script = ExtResource("14_g2ba7")
-
-[node name="SpringArm3D" type="SpringArm3D" parent="CollisionShape3D/FrontCameraPivot"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-spring_length = 0.75
-
-[node name="Camera3D" type="Camera3D" parent="CollisionShape3D/FrontCameraPivot/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
-current = true
-fov = 40.0
-
-[node name="InteractionArea3D" type="Area3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.82869476, 0)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionShape3D/InteractionArea3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.4)
-shape = SubResource("BoxShape3D_5bp1d")
-
-[node name="ModelContainer" type="Node3D" parent="CollisionShape3D"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.82869476, 0)
-
-[node name="Socket" type="Node3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.82869476, -1.45)
 
 [node name="ActionContainer" type="Node" parent="."]
 script = ExtResource("10_d1hax")
@@ -74,9 +67,9 @@ script = ExtResource("11_tkh71")
 script = ExtResource("9_bbd2j")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../CollisionShape3D/ModelContainer/Nadia")
+root_node = NodePath("../CollisionShape3D/ModelContainer/Natalia")
 tree_root = ExtResource("13_dca5i")
-anim_player = NodePath("../CollisionShape3D/ModelContainer/Nadia/AnimationPlayer")
+anim_player = NodePath("../CollisionShape3D/ModelContainer/Natalia/AnimationPlayer")
 parameters/BaseEmotion/blend_position = Vector2(-0.257, -0.482)
 parameters/Locomotion/conditions/JUMP = false
 parameters/Locomotion/Jump/blend_position = 0.0
@@ -100,20 +93,71 @@ parameters/LeftBlink/blend_position = 0.0
 parameters/RightBlink/blend_position = 0.0
 script = ExtResource("14_ps3kr")
 
-[node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.526396, 0)
+[node name="Camera3D" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4978504, 1.25)
+current = true
+fov = 50.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("9_dkogs")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="ThirdPersonCamera" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4978504, 0)
 script = ExtResource("15_7vat7")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
+[node name="SpringArm3D" type="SpringArm3D" parent="ThirdPersonCamera"]
 spring_length = 1.25
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
+[node name="PhantomCamera3D" type="Node3D" parent="ThirdPersonCamera/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25)
-current = true
-fov = 45.0
+script = ExtResource("12_caevh")
+priority = 2
+tween_resource = SubResource("Resource_p1b4h")
+camera_3d_resource = SubResource("Resource_g43u5")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82869476, 0)
+shape = SubResource("CapsuleShape3D_giq0b")
+script = ExtResource("4_bbd2j")
+
+[node name="PortraitCamera" type="Node3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5193706, 0)
+script = ExtResource("14_g2ba7")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CollisionShape3D/PortraitCamera"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+spring_length = 0.75
+
+[node name="PhantomCamera3D" type="Node3D" parent="CollisionShape3D/PortraitCamera/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+script = ExtResource("12_caevh")
+priority = 1
+tween_resource = SubResource("Resource_dqhvf")
+camera_3d_resource = SubResource("Resource_dkogs")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="InteractionArea3D" type="Area3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.82869476, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionShape3D/InteractionArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.4)
+shape = SubResource("BoxShape3D_5bp1d")
+
+[node name="ModelContainer" type="Node3D" parent="CollisionShape3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.82869476, 0)
+
+[node name="Socket" type="Node3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.82869476, -1.45)
 
 [node name="GazeTarget" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3737564, -0.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3480654, -0.75)
 
 [node name="MovementManager" type="Node" parent="." node_paths=PackedStringArray("active_state")]
 script = ExtResource("16_dpxsw")

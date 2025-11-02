@@ -1,4 +1,4 @@
-class_name FrontCharacterCamera extends Node3D
+class_name PortraitCamera extends Node3D
 
 @export_group("CAM")
 @export var normal_fov : float = 40.0
@@ -8,12 +8,20 @@ enum FOV {NORMAL, CLOSEUP}
 const CAMERA_BLEND : float = 0.05
 
 @onready var spring_arm : SpringArm3D = $SpringArm3D
-@onready var camera : Camera3D = $SpringArm3D/Camera3D
+@onready var camera : PhantomCamera3D = $SpringArm3D/PhantomCamera3D
 
 func _ready() -> void:
 	# prevent spring arm from colliding with owning character
 	spring_arm.add_excluded_object(get_parent().get_parent().get_rid()) 
 	
+func override_priority()-> void:
+	camera.priority_override = true
+	
+func reset_priority() -> void:
+	camera.priority = 0
+		
+func set_priority(value: int) -> void:
+	camera.priority = value
 	
 func change_fov(setting: FOV) -> void:
 	match setting:
