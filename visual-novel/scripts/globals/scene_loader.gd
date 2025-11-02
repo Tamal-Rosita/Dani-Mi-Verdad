@@ -3,7 +3,7 @@ extends Node
 # TODO: Update with default not in project dir.
 var loading_screen: PackedScene = preload("res://visual-novel/GJDDM/scenes/Title/loading_screen.tscn")
 
-var next_scene: String = "res://visual-novel/GJDDM/scenes/Teatro/Teatro.scn"
+var next_scene: String
 
 func change_scene_to_packed(scene: PackedScene) -> void:
 	change_scene_to(scene.resource_path) 

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://by06s53b5eiiq"]
+
+[ext_resource type="Script" uid="uid://of56gkqy8xs8" path="res://visual-novel/scripts/canvas/quest_canvas_layer.gd" id="1_2jiy1"]
+[ext_resource type="FontFile" uid="uid://be864bbfg1jpj" path="res://visual-novel/GJDDM/fonts/Lexend-VariableFont_wght.ttf" id="2_f6rot"]
+[ext_resource type="Script" uid="uid://cyhet5seln3dr" path="res://visual-novel/scripts/text/rich_text_ghost.gd" id="3_xrdea"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_berkl"]
+script = ExtResource("3_xrdea")
+metadata/_custom_type_script = "uid://cyhet5seln3dr"
+
+[node name="QuestCanvasLayer" type="CanvasLayer"]
+layer = 0
+script = ExtResource("1_2jiy1")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -24.0
+offset_right = 350.0
+offset_bottom = 26.0
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("2_f6rot")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[Quest Text Content]"
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_berkl")]

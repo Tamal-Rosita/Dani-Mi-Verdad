@@ -1,0 +1,167 @@
+[gd_scene load_steps=29 format=3 uid="uid://bo1tni28i8w3i"]
+
+[ext_resource type="Script" uid="uid://cs4vhptasqvn8" path="res://visual-novel/GJDDM/scenes/Teatro/teatro_scene.gd" id="1_lh2u1"]
+[ext_resource type="PackedScene" uid="uid://n5itw40xq2ct" path="res://visual-novel/GJDDM/scenes/Title/title_screen.tscn" id="2_moqlh"]
+[ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="2_r44f8"]
+[ext_resource type="LightmapGIData" uid="uid://bilnxui2wser3" path="res://visual-novel/GJDDM/scenes/Teatro/Teatro.lmbake" id="3_moqlh"]
+[ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/actions/pointer_capture.gd" id="4_iqxkc"]
+[ext_resource type="Script" uid="uid://dmcynp0g0020r" path="res://visual-novel/scripts/controllers/controller_ai.gd" id="5_fke2d"]
+[ext_resource type="Script" uid="uid://b5jsh373vm15" path="res://visual-novel/scripts/controllers/controller_player_third_person.gd" id="6_j6c7d"]
+[ext_resource type="PackedScene" uid="uid://m1a7qyjqcf8c" path="res://visual-novel/GJDDM/scenes/Teatro/TeatroEscenario-Roseland/TeatroEscenario.glb" id="7_hkm3h"]
+[ext_resource type="PackedScene" uid="uid://c3mkywf5liwxn" path="res://visual-novel/GJDDM/characters/packed/dani.scn" id="7_r44f8"]
+[ext_resource type="PackedScene" uid="uid://dveiskc5tymxk" path="res://visual-novel/GJDDM/scenes/Teatro/props/marble-table/marble-table.scn" id="8_dnvx3"]
+[ext_resource type="PackedScene" uid="uid://cfla0n73sht3c" path="res://visual-novel/GJDDM/scenes/Teatro/props/coffin/coffin.scn" id="9_6gkaq"]
+[ext_resource type="PackedScene" uid="uid://cqe35jnafmlk" path="res://controller_examples/scenes/DashPickup.tscn" id="10_4xiyf"]
+[ext_resource type="PackedScene" uid="uid://dcjpkqhi816nl" path="res://visual-novel/characters/novel_character_base.tscn" id="11_eh4ho"]
+[ext_resource type="Resource" uid="uid://d1b2iumhe8cs3" path="res://dialogic/characters/Dani.dch" id="13_kjm0u"]
+[ext_resource type="Resource" uid="uid://cc3s0aeroky4r" path="res://dialogic/characters/Celia.dch" id="14_ltws0"]
+[ext_resource type="Resource" uid="uid://csq4mmryytt7l" path="res://dialogic/timelines/teatro_cinematica01.dtl" id="15_l5vpx"]
+[ext_resource type="PackedScene" uid="uid://b7xheyflqsu7l" path="res://visual-novel/GJDDM/characters/packed/celia.scn" id="16_w3yw7"]
+[ext_resource type="Resource" uid="uid://d3kvwtjr0p7ea" path="res://dialogic/characters/Georgino.dch" id="17_qaq7y"]
+[ext_resource type="PackedScene" uid="uid://dvmqfe5ce7ivn" path="res://visual-novel/GJDDM/characters/packed/georgino.scn" id="18_rxsw2"]
+[ext_resource type="Resource" uid="uid://es3q6vqcq7jv" path="res://dialogic/characters/Gerardo.dch" id="19_g6ygx"]
+[ext_resource type="PackedScene" uid="uid://dlge6ve26slvp" path="res://visual-novel/GJDDM/characters/packed/gerardo.scn" id="20_xsr36"]
+[ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="21_erxi2"]
+[ext_resource type="PackedScene" uid="uid://by06s53b5eiiq" path="res://visual-novel/canvas/quest_canvas_layer.tscn" id="24_moqlh"]
+[ext_resource type="PackedScene" uid="uid://dbg1prbc0j7t5" path="res://visual-novel/GJDDM/scenes/Title/pause_screen.tscn" id="24_r44f8"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
+panorama = ExtResource("2_r44f8")
+
+[sub_resource type="Sky" id="Sky_5ngqa"]
+sky_material = SubResource("PanoramaSkyMaterial_6c4vd")
+
+[sub_resource type="Environment" id="Environment_ctwiv"]
+background_mode = 1
+background_color = Color(0.14607593, 0.10500472, 0.08121536, 1)
+sky = SubResource("Sky_5ngqa")
+fog_enabled = true
+fog_light_color = Color(0.44, 0.34848, 0.3344, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_umvgm"]
+size = Vector3(3.9442592, 1.823548, 3.375733)
+
+[node name="Theatre" type="Node3D"]
+script = ExtResource("1_lh2u1")
+next_scene = ExtResource("2_moqlh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_erxi2")
+volume_db = -15.0
+autoplay = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.17364824, 0.9848078, 0, -0.9848078, 0.17364824, 0, 7, 0)
+light_color = Color(0.58, 0.52084, 0.47559997, 1)
+light_energy = 0.85
+light_specular = 1.707
+light_bake_mode = 1
+directional_shadow_mode = 0
+sky_mode = 1
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+supersampling = true
+interior = true
+max_texture_size = 4096
+light_data = ExtResource("3_moqlh")
+
+[node name="LightmapProbe" type="LightmapProbe" parent="LightmapGI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -12)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6269696, 1.3563083, -9.181744)
+light_color = Color(0.87, 0.79112, 0.5742, 1)
+light_bake_mode = 1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9352856, 0.73714924, -9.930909)
+light_color = Color(0.87, 0.79112, 0.5742, 1)
+light_bake_mode = 1
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27313423, 8.120704, -3.334692)
+intensity = 0.75
+size = Vector3(30.671154, 20.522463, 36.40142)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ctwiv")
+
+[node name="Cameras" type="Node" parent="."]
+
+[node name="CinematicCamera" type="Camera3D" parent="Cameras"]
+transform = Transform3D(0.6723289, -0.03815158, 0.7392688, 0, 0.998671, 0.0515386, -0.74025255, -0.034650892, 0.67143536, 7.865282, 1.0737379, 0.1088953)
+
+[node name="CinematicCamera2" type="Camera3D" parent="Cameras"]
+transform = Transform3D(-0.46174866, 0.15097767, -0.8740674, 0, 0.9854079, 0.1702095, 0.8870108, 0.07859401, -0.45501077, -7.589, 4.972, -9.368)
+fov = 51.9
+
+[node name="Characters" type="Node" parent="."]
+
+[node name="Dani (Player)" parent="Characters" instance=ExtResource("11_eh4ho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.09091, 0.71417886, 13.383465)
+character_type = 1
+dialogic_character = ExtResource("13_kjm0u")
+vrm_scene = ExtResource("7_r44f8")
+speed = 1.75
+jump_strength = 3.75
+
+[node name="Celia" parent="Characters" instance=ExtResource("11_eh4ho")]
+transform = Transform3D(-0.25934166, 0, -0.9657856, 0, 1, 0, 0.9657856, 0, -0.25934166, 0.7132734, -1.3123465, -4.1936073)
+dialogic_character = ExtResource("14_ltws0")
+character_timeline = ExtResource("15_l5vpx")
+vrm_scene = ExtResource("16_w3yw7")
+
+[node name="Georgino" parent="Characters" instance=ExtResource("11_eh4ho")]
+transform = Transform3D(-0.8092735, 0, 0.5874323, 0, 1, 0, -0.5874323, 0, -0.8092735, 1.8277557, -1.3268542, -4.67728)
+dialogic_character = ExtResource("17_qaq7y")
+vrm_scene = ExtResource("18_rxsw2")
+
+[node name="Gerardo" parent="Characters" instance=ExtResource("11_eh4ho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5654788, 0, -7.9373503)
+dialogic_character = ExtResource("19_g6ygx")
+vrm_scene = ExtResource("20_xsr36")
+
+[node name="Controllers" type="Node" parent="."]
+script = ExtResource("4_iqxkc")
+
+[node name="AIController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+script = ExtResource("5_fke2d")
+controlled_obj = NodePath("../../Characters/Gerardo")
+
+[node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
+script = ExtResource("6_j6c7d")
+controlled_obj = NodePath("../../Characters/Dani (Player)")
+
+[node name="Level" type="Node" parent="."]
+
+[node name="TeatroEscenario" parent="Level" instance=ExtResource("7_hkm3h")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.007405281, 9.536743e-07, -0.011737347)
+
+[node name="MesaMarmol" parent="Level" instance=ExtResource("8_dnvx3")]
+transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.9396926, 0, 0, -10.5)
+
+[node name="NextScene" type="Area3D" parent="Level"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0.73177403, -10.5)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NextScene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.065383606, 0.2780785, -0.079800606)
+shape = SubResource("BoxShape3D_umvgm")
+
+[node name="Ataud" parent="Level" instance=ExtResource("9_6gkaq")]
+transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.9396926, 0, 0.73177403, -10.5)
+mass = 10.0
+
+[node name="Pickup" parent="Level" instance=ExtResource("10_4xiyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7499032, -1.321914, -3.238368)
+visible = false
+
+[node name="PauseCanvasLayer" parent="." instance=ExtResource("24_r44f8")]
+
+[node name="QuestCanvasLayer" parent="." instance=ExtResource("24_moqlh")]
+text_content = "Habla con Celia"
+
+[connection signal="body_entered" from="Level/NextScene" to="." method="_on_next_scene_body_entered"]
+[connection signal="pause_toggle" from="PauseCanvasLayer" to="." method="_on_pause_canvas_layer_pause_toggle"]
+[connection signal="restarted" from="PauseCanvasLayer" to="." method="_on_pause_canvas_layer_restarted"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://2vtrjter7tpk"]
+[gd_scene load_steps=13 format=3 uid="uid://2vtrjter7tpk"]
 
 [ext_resource type="Script" uid="uid://blnvi2vw2ho8d" path="res://visual-novel/GJDDM/scenes/Title/credits_screen.gd" id="1_is0y6"]
 [ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="2_2uqxk"]
@@ -10,6 +10,11 @@
 [ext_resource type="FontFile" uid="uid://bgpyfkuscjs" path="res://visual-novel/GJDDM/fonts/Tinos-BoldItalic.ttf" id="8_c655q"]
 [ext_resource type="Texture2D" uid="uid://kwk8ola23icj" path="res://addons/dialogic/Modules/Jump/icon_return.svg" id="8_drekl"]
 [ext_resource type="FontFile" uid="uid://banhcbf57o5qn" path="res://visual-novel/GJDDM/fonts/Tinos-Italic.ttf" id="9_pri38"]
+[ext_resource type="Script" uid="uid://cyhet5seln3dr" path="res://visual-novel/scripts/text/rich_text_ghost.gd" id="11_jwu6h"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_77y2m"]
+script = ExtResource("11_jwu6h")
+metadata/_custom_type_script = "uid://cyhet5seln3dr"
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -33,7 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.9843137, 0.98039216, 0.98039216, 1)
+color = Color(1, 0.98039216, 0.9607843, 1)
 
 [node name="TamalRosita©2025" type="Label" parent="."]
 layout_mode = 1
@@ -138,7 +143,7 @@ por Jaime Hernández
 Sakbé Corona
 
 [b]Basado en el guión original[/b]
-por Sebastián Porthoz y Saúl
+por Sebastián Porthoz y Saúl Uribe
 
 [b]Adaptación[/b]
 J. Hernández
@@ -163,10 +168,11 @@ Daniel B.
 David R.
 Ode 3D
 Ricardo L.
-pakita
-[font_size=22}]y a todos los que han hecho
-posible nuestra aventura...[/font_size]
+[color=peru]Pakita[/color]
+[ghost freq=1.0 span=10.0][font_size=24}]Y a todos los que ya 
+cruzaron al Mictlán.[/font_size][/ghost]
 "
 horizontal_alignment = 1
+custom_effects = [SubResource("RichTextEffect_77y2m")]
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

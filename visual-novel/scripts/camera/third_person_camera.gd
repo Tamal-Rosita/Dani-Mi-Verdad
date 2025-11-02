@@ -5,13 +5,14 @@ class_name ThirdPersonCamera extends Node3D
 @export_group("CAM")
 @export var sensitivity_x : float = 0.005
 @export var sensitivity_y : float = 0.005
-@export var normal_fov : float = 75.0
-@export var run_fov : float = 90.0
+@export var normal_fov : float = 45.0
+@export var run_fov : float = 75.0
+@export var maze_fov : float = 90.0
 
 @export_group("Spring Arm")
 @export var auto_set_len : bool = false
 
-enum FOV {NORMAL, RUN}
+enum FOV {NORMAL, RUN, MAZE}
 const CAMERA_BLEND : float = 0.05
 
 @onready var spring_arm : SpringArm3D = $SpringArm3D
@@ -23,19 +24,27 @@ func _ready() -> void:
 	spring_arm.add_excluded_object(get_parent().get_rid()) 
 	
 	if auto_set_len:
-		spring_arm.spring_length = spring_arm.global_position.distance_to(camera.global_position)
+		set_length(spring_arm.global_position.distance_to(camera.global_position))
+		
 
+func set_length(value: float) -> void:
+	spring_arm.spring_length = value
+	
+func set_fov(value: float) -> void:
+#	camera.fov = lerp(camera.fov, value, CAMERA_BLEND)
+	camera.fov = value
 
 func _physics_process(_delta: float) -> void:
 	smooth_move_y(0.07) # 0.7 just feels good
 
-
 func change_fov(setting: FOV) -> void:
 	match setting:
 		FOV.NORMAL:
-			camera.fov = lerp(camera.fov, normal_fov, CAMERA_BLEND)
+			set_fov(normal_fov)
 		FOV.RUN:
-			camera.fov = lerp(camera.fov, run_fov, CAMERA_BLEND)
+			set_fov(run_fov)
+		FOV.MAZE: 
+			set_fov(maze_fov)
 
 func rotate_view(vec: Vector2) -> void:
 	rotation.x -= vec.y * sensitivity_y

@@ -1,3 +1,5 @@
+set {theatre_talk_with_celia} = true
+
 [character_3d character="Celia" mood="happy" amount="0.3"]
 [voice path="res://dialogic/voice/Act1-Celia_Pense-que-no-vendrias.mp3" volume="0.0"]
 Celia: Pensé que no vendrías.
