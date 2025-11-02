@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://2vtrjter7tpk"]
+[gd_scene load_steps=12 format=3 uid="uid://2vtrjter7tpk"]
 
 [ext_resource type="Script" uid="uid://blnvi2vw2ho8d" path="res://visual-novel/GJDDM/scenes/Title/credits_screen.gd" id="1_is0y6"]
-[ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="2_2uqxk"]
 [ext_resource type="Theme" uid="uid://ceus317shnq1c" path="res://visual-novel/GJDDM/scenes/Title/title_theme.tres" id="3_drekl"]
 [ext_resource type="Texture2D" uid="uid://con0qeebjjbx5" path="res://visual-novel/GJDDM/images/logo_MVerdad_nobg.png" id="4_6kkw6"]
 [ext_resource type="Texture2D" uid="uid://ucur5ommpudt" path="res://visual-novel/GJDDM/images/logo_Dani_nobg.png" id="5_ru8pt"]
@@ -26,10 +25,6 @@ grow_vertical = 2
 script = ExtResource("1_is0y6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_2uqxk")
-pitch_scale = 1.2
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
