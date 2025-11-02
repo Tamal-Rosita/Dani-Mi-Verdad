@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VRM-NovelEngine"
-run/main_scene="uid://b8jxdrxgy40ka"
+run/main_scene="uid://n5itw40xq2ct"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.1882353, 0.20392157, 0.27450982, 1)
 boot_splash/image="uid://d2bbfkl2ymk7"

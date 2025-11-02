@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://bo1tni28i8w3i"]
 
 [ext_resource type="Script" uid="uid://cs4vhptasqvn8" path="res://visual-novel/GJDDM/scenes/Teatro/teatro_scene.gd" id="1_lh2u1"]
-[ext_resource type="PackedScene" uid="uid://b8jxdrxgy40ka" path="res://visual-novel/GJDDM/scenes/Title/title_screen.tscn" id="2_moqlh"]
+[ext_resource type="PackedScene" uid="uid://n5itw40xq2ct" path="res://visual-novel/GJDDM/scenes/Title/title_screen.tscn" id="2_moqlh"]
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="2_r44f8"]
 [ext_resource type="LightmapGIData" uid="uid://bilnxui2wser3" path="res://visual-novel/GJDDM/scenes/Teatro/Teatro.lmbake" id="3_moqlh"]
 [ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/actions/pointer_capture.gd" id="4_iqxkc"]
@@ -163,3 +163,5 @@ visible = false
 text_content = "Habla con Celia"
 
 [connection signal="body_entered" from="Level/NextScene" to="." method="_on_next_scene_body_entered"]
+[connection signal="pause_toggle" from="PauseCanvasLayer" to="." method="_on_pause_canvas_layer_pause_toggle"]
+[connection signal="restarted" from="PauseCanvasLayer" to="." method="_on_pause_canvas_layer_restarted"]

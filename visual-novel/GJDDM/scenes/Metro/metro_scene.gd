@@ -4,7 +4,7 @@ extends Node3D
 
 const dialogic_var: String = "metro_talk_with_samuel" 
 
-@onready var quest_canvas_layer: CanvasLayer = $QuestCanvasLayer 
+@onready var quest_canvas_layer: QuestCanvasLayer = $QuestCanvasLayer 
 
 func _ready() -> void:
 	Dialogic.VAR.set_variable(dialogic_var, false) # TODO: Replace with save state
@@ -26,3 +26,6 @@ func _deferred_change_scene() -> void:
 
 func _on_pause_canvas_layer_restarted() -> void:
 	Dialogic.VAR.set_variable(dialogic_var, false)
+
+func _on_pause_canvas_layer_pause_toggle(value: bool) -> void:
+	quest_canvas_layer.is_displayed = not value

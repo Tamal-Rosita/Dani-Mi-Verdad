@@ -1,18 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8jxdrxgy40ka"]
+[gd_scene load_steps=15 format=3 uid="uid://n5itw40xq2ct"]
 
-[ext_resource type="Texture2D" uid="uid://ucur5ommpudt" path="res://visual-novel/GJDDM/images/logo_Dani_nobg.png" id="1_40kix"]
-[ext_resource type="Script" uid="uid://o6ftp2me12xm" path="res://visual-novel/GJDDM/scenes/Title/title_screen.gd" id="1_ap0rb"]
-[ext_resource type="PackedScene" uid="uid://blu4mw3t0n8rs" path="res://visual-novel/GJDDM/scenes/Metro/Metro.tscn" id="2_f0brm"]
-[ext_resource type="Texture2D" uid="uid://con0qeebjjbx5" path="res://visual-novel/GJDDM/images/logo_MVerdad_nobg.png" id="2_rv6d7"]
-[ext_resource type="PackedScene" uid="uid://2vtrjter7tpk" path="res://visual-novel/GJDDM/scenes/Title/credits_screen.tscn" id="2_sdhdo"]
-[ext_resource type="PackedScene" uid="uid://c8oqm4oj4ku2f" path="res://visual-novel/GJDDM/scenes/Laberinto/PrimerLaberinto.tscn" id="3_f0brm"]
-[ext_resource type="FontFile" uid="uid://dtywg1ystm1bc" path="res://visual-novel/GJDDM/fonts/Tinos-Regular.ttf" id="3_rv6d7"]
-[ext_resource type="FontFile" uid="uid://wuhj8m88kwvf" path="res://visual-novel/GJDDM/fonts/Tinos-Bold.ttf" id="4_sm04f"]
-[ext_resource type="FontFile" uid="uid://bgpyfkuscjs" path="res://visual-novel/GJDDM/fonts/Tinos-BoldItalic.ttf" id="5_5t4e0"]
-[ext_resource type="Script" uid="uid://uwu3rtv0q2cw" path="res://visual-novel/scripts/actions/pointer_release.gd" id="5_yb7vh"]
-[ext_resource type="FontFile" uid="uid://banhcbf57o5qn" path="res://visual-novel/GJDDM/fonts/Tinos-Italic.ttf" id="6_rmur0"]
-[ext_resource type="Theme" uid="uid://ceus317shnq1c" path="res://visual-novel/GJDDM/scenes/Title/title_theme.tres" id="8_phf25"]
-[ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="11_gnge8"]
+[ext_resource type="Script" uid="uid://o6ftp2me12xm" path="res://visual-novel/GJDDM/scenes/Title/title_screen.gd" id="1_h5chg"]
+[ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="2_k6ijq"]
+[ext_resource type="Script" uid="uid://uwu3rtv0q2cw" path="res://visual-novel/scripts/actions/pointer_release.gd" id="3_mk3lo"]
+[ext_resource type="Theme" uid="uid://ceus317shnq1c" path="res://visual-novel/GJDDM/scenes/Title/title_theme.tres" id="4_vdjla"]
+[ext_resource type="Texture2D" uid="uid://ucur5ommpudt" path="res://visual-novel/GJDDM/images/logo_Dani_nobg.png" id="5_cwna3"]
+[ext_resource type="Texture2D" uid="uid://con0qeebjjbx5" path="res://visual-novel/GJDDM/images/logo_MVerdad_nobg.png" id="6_wfivq"]
+[ext_resource type="FontFile" uid="uid://dtywg1ystm1bc" path="res://visual-novel/GJDDM/fonts/Tinos-Regular.ttf" id="7_5jvqr"]
+[ext_resource type="FontFile" uid="uid://wuhj8m88kwvf" path="res://visual-novel/GJDDM/fonts/Tinos-Bold.ttf" id="8_o55dc"]
+[ext_resource type="FontFile" uid="uid://bgpyfkuscjs" path="res://visual-novel/GJDDM/fonts/Tinos-BoldItalic.ttf" id="9_8kgqu"]
+[ext_resource type="FontFile" uid="uid://banhcbf57o5qn" path="res://visual-novel/GJDDM/fonts/Tinos-Italic.ttf" id="10_twe40"]
+[ext_resource type="PackedScene" uid="uid://2vtrjter7tpk" path="res://visual-novel/GJDDM/scenes/Title/credits_screen.tscn" id="11_tr5xv"]
 
 [sub_resource type="Animation" id="Animation_5t4e0"]
 length = 0.001
@@ -250,9 +248,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ap0rb")
-first_scene = ExtResource("2_f0brm")
-maze_scene = ExtResource("3_f0brm")
+script = ExtResource("1_h5chg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -260,7 +256,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_gnge8")
+stream = ExtResource("2_k6ijq")
 volume_db = -18.0
 pitch_scale = 1.2
 autoplay = true
@@ -273,7 +269,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.98039216, 0.9607843, 1)
-script = ExtResource("5_yb7vh")
+script = ExtResource("3_mk3lo")
 
 [node name="TamalRosita©2025" type="Label" parent="."]
 layout_mode = 1
@@ -288,7 +284,7 @@ offset_right = 92.5
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("8_phf25")
+theme = ExtResource("4_vdjla")
 text = "Tamal Rosita © MMXXV"
 horizontal_alignment = 1
 
@@ -304,7 +300,7 @@ offset_right = 192.0
 offset_bottom = 127.90398
 grow_horizontal = 2
 pivot_offset = Vector2(192, 128)
-texture = ExtResource("1_40kix")
+texture = ExtResource("5_cwna3")
 expand_mode = 1
 stretch_mode = 5
 
@@ -322,7 +318,7 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(256, 128)
-texture = ExtResource("2_rv6d7")
+texture = ExtResource("6_wfivq")
 stretch_mode = 5
 
 [node name="Call2Action" type="RichTextLabel" parent="."]
@@ -339,12 +335,12 @@ offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(141, 20)
-theme = ExtResource("8_phf25")
+theme = ExtResource("4_vdjla")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_rv6d7")
-theme_override_fonts/bold_font = ExtResource("4_sm04f")
-theme_override_fonts/bold_italics_font = ExtResource("5_5t4e0")
-theme_override_fonts/italics_font = ExtResource("6_rmur0")
+theme_override_fonts/normal_font = ExtResource("7_5jvqr")
+theme_override_fonts/bold_font = ExtResource("8_o55dc")
+theme_override_fonts/bold_italics_font = ExtResource("9_8kgqu")
+theme_override_fonts/italics_font = ExtResource("10_twe40")
 theme_override_font_sizes/normal_font_size = 26
 theme_override_font_sizes/bold_font_size = 26
 theme_override_font_sizes/bold_italics_font_size = 26
@@ -376,22 +372,22 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme = ExtResource("8_phf25")
+theme = ExtResource("4_vdjla")
 text = "Comenzar"
 
 [node name="Maze" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme = ExtResource("8_phf25")
+theme = ExtResource("4_vdjla")
 text = "Laberinto"
 
 [node name="Credits" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("8_phf25")
+theme = ExtResource("4_vdjla")
 text = "Créditos"
 
-[node name="Credits" parent="." instance=ExtResource("2_sdhdo")]
+[node name="Credits" parent="." instance=ExtResource("11_tr5xv")]
 visible = false
 layout_mode = 1
 

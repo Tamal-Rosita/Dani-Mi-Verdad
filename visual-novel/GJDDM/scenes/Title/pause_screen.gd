@@ -1,6 +1,6 @@
-extends CanvasLayer
+class_name PauseScreen extends CanvasLayer
 
-@export var menu_scene: PackedScene
+@export var menu_scene_name: StringName = "res://visual-novel/GJDDM/scenes/Title/title_screen.tscn"
 
 signal pause_toggle
 signal restarted
@@ -40,8 +40,10 @@ func _on_options_pressed() -> void:
 	options_screen.visible = true
 
 func _on_restart_pressed() -> void:
+	get_tree().paused = false
 	restarted.emit()
 	get_tree().reload_current_scene()
 
 func _on_exit_pressed() -> void:
-	SceneLoader.change_scene_to_packed(menu_scene)
+	get_tree().paused = false
+	SceneLoader.change_scene_to(menu_scene_name)

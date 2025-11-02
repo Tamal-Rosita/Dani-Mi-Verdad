@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://blu4mw3t0n8rs"]
+[gd_scene load_steps=34 format=3 uid="uid://blu4mw3t0n8rs"]
 
 [ext_resource type="Script" uid="uid://bibyrurha2rr5" path="res://visual-novel/GJDDM/scenes/Metro/metro_scene.gd" id="1_ig1qo"]
 [ext_resource type="PackedScene" uid="uid://c8oqm4oj4ku2f" path="res://visual-novel/GJDDM/scenes/Laberinto/PrimerLaberinto.tscn" id="2_a0iqd"]
@@ -22,6 +22,7 @@
 [ext_resource type="Resource" path="res://dialogic/characters/Samuel.dch" id="20_lha4i"]
 [ext_resource type="PackedScene" uid="uid://do1f5t0qor5r5" path="res://visual-novel/GJDDM/characters/packed/samuel.scn" id="21_g47qq"]
 [ext_resource type="PackedScene" uid="uid://by06s53b5eiiq" path="res://visual-novel/canvas/quest_canvas_layer.tscn" id="21_ig1qo"]
+[ext_resource type="PackedScene" uid="uid://n5itw40xq2ct" path="res://visual-novel/GJDDM/scenes/Title/title_screen.tscn" id="22_a0iqd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
 panorama = ExtResource("5_dfpb5")
@@ -98,7 +99,7 @@ environment = SubResource("Environment_ctwiv")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4873819, 2.629788, 8.595219)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4873819, 2.529788, 7.695219)
 current = true
 fov = 60.0
 
@@ -258,22 +259,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.019907, -0.16024971, -2.52
 shape = SubResource("BoxShape3D_funw1")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4873819, 2.629788, 8.595219)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4873819, 2.529788, 7.695219)
 top_level = true
 script = ExtResource("14_kq5fm")
 follow_mode = 5
 follow_target = NodePath("../Characters/Dani (Player)")
 tween_resource = SubResource("Resource_berkl")
-follow_offset = Vector3(0, 1.5, 1.5)
+follow_offset = Vector3(0, 1.4, 1)
 follow_damping = true
 follow_axis_lock = 3
-follow_distance = 1.4
 dead_zone_width = 0.1
-spring_length = 1.4
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="PauseCanvasLayer" parent="." instance=ExtResource("6_82ycx")]
-layer = 10
+menu_scene = ExtResource("22_a0iqd")
 
 [node name="QuestCanvasLayer" parent="." instance=ExtResource("21_ig1qo")]
 text_content = "Habla con Samuel"
@@ -283,4 +282,5 @@ text_content = "Habla con Samuel"
 [connection signal="body_entered" from="Scenario/Limits/Rail2_LimitWarning" to="Scenario/Limits/Rail2_LimitWarning" method="_on_body_entered"]
 [connection signal="body_exited" from="Scenario/Limits/Rail2_LimitWarning" to="Scenario/Limits/Rail2_LimitWarning" method="_on_body_exited"]
 [connection signal="body_entered" from="Scenario/NextScene" to="." method="_on_next_scene_body_entered"]
+[connection signal="pause_toggle" from="PauseCanvasLayer" to="." method="_on_pause_canvas_layer_pause_toggle"]
 [connection signal="restarted" from="PauseCanvasLayer" to="." method="_on_pause_canvas_layer_restarted"]

@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbg1prbc0j7t5"]
+[gd_scene load_steps=9 format=3 uid="uid://dbg1prbc0j7t5"]
 
 [ext_resource type="Script" uid="uid://drjouadoqh2l6" path="res://visual-novel/GJDDM/scenes/Title/pause_screen.gd" id="1_8rjon"]
-[ext_resource type="PackedScene" uid="uid://b8jxdrxgy40ka" path="res://visual-novel/GJDDM/scenes/Title/title_screen.tscn" id="2_x0uuk"]
 [ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="4_cjhvj"]
 [ext_resource type="Theme" uid="uid://ceus317shnq1c" path="res://visual-novel/GJDDM/scenes/Title/title_theme.tres" id="5_m2464"]
 [ext_resource type="Texture2D" uid="uid://ucur5ommpudt" path="res://visual-novel/GJDDM/images/logo_Dani_nobg.png" id="6_2nt3f"]
@@ -189,8 +188,8 @@ _data = {
 
 [node name="PauseCanvasLayer" type="CanvasLayer"]
 process_mode = 3
+layer = 10
 script = ExtResource("1_8rjon")
-menu_scene = ExtResource("2_x0uuk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

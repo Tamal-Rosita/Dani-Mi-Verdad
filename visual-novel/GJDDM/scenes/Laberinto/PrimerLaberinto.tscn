@@ -1,6 +1,7 @@
-[gd_scene load_steps=37 format=4 uid="uid://c8oqm4oj4ku2f"]
+[gd_scene load_steps=38 format=4 uid="uid://c8oqm4oj4ku2f"]
 
 [ext_resource type="AudioStream" uid="uid://c1gnuhcoqng01" path="res://visual-novel/GJDDM/music/more tracks.mp3" id="1_pa80t"]
+[ext_resource type="Script" uid="uid://b6av5wcf5pl2e" path="res://visual-novel/GJDDM/scenes/Laberinto/maze1_scene.gd" id="1_ygn2f"]
 [ext_resource type="LightmapGIData" uid="uid://oxdlvuawk3s6" path="res://visual-novel/GJDDM/scenes/Laberinto/PrimerLaberinto.lmbake" id="2_nr84j"]
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="3_kdbmg"]
 [ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/actions/pointer_capture.gd" id="4_siao4"]
@@ -14,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://bukj87xokogkx" path="res://visual-novel/GJDDM/scenes/Laberinto/textures/Wall36_256x512.jpg" id="15_xejsl"]
 [ext_resource type="PackedScene" uid="uid://dbg1prbc0j7t5" path="res://visual-novel/GJDDM/scenes/Title/pause_screen.tscn" id="15_ygn2f"]
 [ext_resource type="Texture2D" uid="uid://cs1xqd67rbgha" path="res://visual-novel/GJDDM/scenes/Laberinto/textures/Wood17a.jpg" id="16_pa80t"]
+[ext_resource type="PackedScene" uid="uid://n5itw40xq2ct" path="res://visual-novel/GJDDM/scenes/Title/title_screen.tscn" id="16_xejsl"]
 [ext_resource type="PackedScene" uid="uid://by06s53b5eiiq" path="res://visual-novel/canvas/quest_canvas_layer.tscn" id="16_ygn2f"]
-[ext_resource type="Script" uid="uid://dt3jo0v5y4sy5" path="res://visual-novel/scripts/actions/next_scene_area.gd" id="17_pk5jr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7k8ah"]
 panorama = ExtResource("3_kdbmg")
@@ -538,6 +539,8 @@ _surfaces = [{
 }]
 
 [node name="PrimerLaberinto" type="Node3D"]
+script = ExtResource("1_ygn2f")
+next_scene = ExtResource("10_spmur")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_pa80t")
@@ -587,8 +590,6 @@ fov = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1.5, -54)
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("17_pk5jr")
-scene = ExtResource("10_spmur")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NextScene"]
 shape = SubResource("BoxShape3D_n1mu4")
@@ -603,6 +604,11 @@ data = {
 }
 
 [node name="PauseCanvasLayer" parent="." instance=ExtResource("15_ygn2f")]
+menu_scene = ExtResource("16_xejsl")
 
 [node name="QuestCanvasLayer" parent="." instance=ExtResource("16_ygn2f")]
 text_content = "Sal del laberinto"
+
+[connection signal="body_entered" from="NextScene" to="." method="_on_next_scene_body_entered"]
+[connection signal="pause_toggle" from="PauseCanvasLayer" to="." method="_on_pause_canvas_layer_pause_toggle"]
+[connection signal="restarted" from="PauseCanvasLayer" to="." method="_on_pause_canvas_layer_restarted"]

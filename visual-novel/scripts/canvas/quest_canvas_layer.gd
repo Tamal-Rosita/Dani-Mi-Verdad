@@ -11,14 +11,9 @@ class_name QuestCanvasLayer extends CanvasLayer
 var is_completed:= false:
 	set = _set_is_completed,
 	get = _get_is_completed
-
+	
 func _ready() -> void:
 	is_displayed = false
-	
-func _on_pause_canvas_layer_pause_toggle(value: bool) -> void:
-	if is_completed:
-		return
-	is_displayed = not value
 	
 func _set_is_completed(value: bool) -> void:
 	is_completed = value
