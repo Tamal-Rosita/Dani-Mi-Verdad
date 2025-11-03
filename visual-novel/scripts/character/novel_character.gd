@@ -47,6 +47,7 @@ signal interaction_area_exited
 var can_interact: bool
 var is_busy: bool
 
+var _can_wake:= true
 var _current_animation_player: AnimationPlayer
 var _interaction_character: NovelCharacter
 var _vrm_model: VRMTopLevel
@@ -123,11 +124,12 @@ func _ready() -> void:
 	## TODO: Replace with signal of custom event (Cameras)?
 	Dialogic.Text.speaker_updated.connect(_on_dialogic_speaker_updated) # This is working
 	# Dialogic.Portraits.character_joined.connect(_on_dialogic_character_joined) # TODO: Use this as reference for Custom Event
-	
-	if character_type == CharacterType.PLAYER:	
-		reset_camera()
 		
 func _unhandled_input(event: InputEvent) -> void:
+	if _can_wake and character_type == CharacterType.PLAYER:	
+		_can_wake = false
+		reset_camera()
+	
 	if character_type == CharacterType.PLAYER and can_interact and \
 			event.is_action_pressed("interact"):
 		play_interaction()			
@@ -144,7 +146,7 @@ func reset_camera() -> void:
 		return
 	third_person_camera.set_length(camera_distance)
 	third_person_camera.change_fov(fov)
-	third_person_camera.set_priority(0 if use_override_camera else 2)
+	third_person_camera.set_priority(2 if use_override_camera else 5)
 		
 func hide_interaction() -> void:
 	can_interact = false

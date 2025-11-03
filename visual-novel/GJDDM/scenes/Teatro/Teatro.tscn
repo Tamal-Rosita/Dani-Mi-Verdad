@@ -1,19 +1,23 @@
-[gd_scene load_steps=29 format=3 uid="uid://bo1tni28i8w3i"]
+[gd_scene load_steps=44 format=3 uid="uid://bo1tni28i8w3i"]
 
 [ext_resource type="Script" uid="uid://cs4vhptasqvn8" path="res://visual-novel/GJDDM/scenes/Teatro/teatro_scene.gd" id="1_lh2u1"]
 [ext_resource type="PackedScene" uid="uid://n5itw40xq2ct" path="res://visual-novel/GJDDM/scenes/Title/title_screen.tscn" id="2_moqlh"]
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://controller_examples/assets/textures/Sky.png" id="2_r44f8"]
+[ext_resource type="AudioStream" uid="uid://bwtsrqq7ehdi6" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.ogg" id="3_lh2u1"]
 [ext_resource type="LightmapGIData" uid="uid://bilnxui2wser3" path="res://visual-novel/GJDDM/scenes/Teatro/Teatro.lmbake" id="3_moqlh"]
 [ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/actions/pointer_capture.gd" id="4_iqxkc"]
 [ext_resource type="Script" uid="uid://dmcynp0g0020r" path="res://visual-novel/scripts/controllers/controller_ai.gd" id="5_fke2d"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_fke2d"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="6_iqxkc"]
 [ext_resource type="Script" uid="uid://b5jsh373vm15" path="res://visual-novel/scripts/controllers/controller_player_third_person.gd" id="6_j6c7d"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_fke2d"]
 [ext_resource type="PackedScene" uid="uid://m1a7qyjqcf8c" path="res://visual-novel/GJDDM/scenes/Teatro/TeatroEscenario-Roseland/TeatroEscenario.glb" id="7_hkm3h"]
 [ext_resource type="PackedScene" uid="uid://c3mkywf5liwxn" path="res://visual-novel/GJDDM/characters/packed/dani.scn" id="7_r44f8"]
 [ext_resource type="PackedScene" uid="uid://dveiskc5tymxk" path="res://visual-novel/GJDDM/scenes/Teatro/props/marble-table/marble-table.scn" id="8_dnvx3"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="8_j6c7d"]
 [ext_resource type="PackedScene" uid="uid://cfla0n73sht3c" path="res://visual-novel/GJDDM/scenes/Teatro/props/coffin/coffin.scn" id="9_6gkaq"]
 [ext_resource type="PackedScene" uid="uid://cqe35jnafmlk" path="res://controller_examples/scenes/DashPickup.tscn" id="10_4xiyf"]
 [ext_resource type="PackedScene" uid="uid://dcjpkqhi816nl" path="res://visual-novel/characters/novel_character_base.tscn" id="11_eh4ho"]
-[ext_resource type="Resource" uid="uid://d1b2iumhe8cs3" path="res://dialogic/characters/Dani.dch" id="13_kjm0u"]
 [ext_resource type="Resource" uid="uid://cc3s0aeroky4r" path="res://dialogic/characters/Celia.dch" id="14_ltws0"]
 [ext_resource type="Resource" uid="uid://csq4mmryytt7l" path="res://dialogic/timelines/teatro_cinematica01.dtl" id="15_l5vpx"]
 [ext_resource type="PackedScene" uid="uid://b7xheyflqsu7l" path="res://visual-novel/GJDDM/characters/packed/celia.scn" id="16_w3yw7"]
@@ -21,7 +25,6 @@
 [ext_resource type="PackedScene" uid="uid://dvmqfe5ce7ivn" path="res://visual-novel/GJDDM/characters/packed/georgino.scn" id="18_rxsw2"]
 [ext_resource type="Resource" uid="uid://es3q6vqcq7jv" path="res://dialogic/characters/Gerardo.dch" id="19_g6ygx"]
 [ext_resource type="PackedScene" uid="uid://dlge6ve26slvp" path="res://visual-novel/GJDDM/characters/packed/gerardo.scn" id="20_xsr36"]
-[ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="21_erxi2"]
 [ext_resource type="PackedScene" uid="uid://by06s53b5eiiq" path="res://visual-novel/canvas/quest_canvas_layer.tscn" id="24_moqlh"]
 [ext_resource type="PackedScene" uid="uid://dbg1prbc0j7t5" path="res://visual-novel/GJDDM/scenes/Title/pause_screen.tscn" id="24_r44f8"]
 
@@ -38,6 +41,63 @@ sky = SubResource("Sky_5ngqa")
 fog_enabled = true
 fog_light_color = Color(0.44, 0.34848, 0.3344, 1)
 
+[sub_resource type="Resource" id="Resource_hkm3h"]
+script = ExtResource("7_fke2d")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_dnvx3"]
+script = ExtResource("8_j6c7d")
+fov = 49.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="Resource" id="Resource_ltws0"]
+script = ExtResource("7_fke2d")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_l5vpx"]
+script = ExtResource("8_j6c7d")
+fov = 40.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="Resource" id="Resource_ccqnx"]
+script = ExtResource("7_fke2d")
+duration = 2.5
+transition = 5
+
+[sub_resource type="Resource" id="Resource_kjm0u"]
+script = ExtResource("8_j6c7d")
+fov = 45.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="Resource" id="Resource_4xiyf"]
+script = ExtResource("7_fke2d")
+duration = 0.0
+transition = 3
+ease = 1
+
+[sub_resource type="Resource" id="Resource_eh4ho"]
+script = ExtResource("8_j6c7d")
+fov = 55.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="Resource" id="Resource_iqxkc"]
+script = ExtResource("7_fke2d")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_fke2d"]
+script = ExtResource("8_j6c7d")
+fov = 58.9
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="Resource" id="Resource_j6c7d"]
+script = ExtResource("7_fke2d")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_6gkaq"]
+script = ExtResource("8_j6c7d")
+fov = 60.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_umvgm"]
 size = Vector3(3.9442592, 1.823548, 3.375733)
 
@@ -46,7 +106,7 @@ script = ExtResource("1_lh2u1")
 next_scene = ExtResource("2_moqlh")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("21_erxi2")
+stream = ExtResource("3_lh2u1")
 volume_db = -5.0
 pitch_scale = 0.5
 autoplay = true
@@ -89,45 +149,133 @@ environment = SubResource("Environment_ctwiv")
 
 [node name="Cameras" type="Node" parent="."]
 
-[node name="CinematicCamera" type="Camera3D" parent="Cameras"]
-transform = Transform3D(0.6723289, -0.03815158, 0.7392688, 0, 0.998671, 0.0515386, -0.74025255, -0.034650892, 0.67143536, 7.865282, 1.0737379, 0.1088953)
+[node name="Camera3D" type="Camera3D" parent="Cameras"]
+transform = Transform3D(0.99779576, -0.023320546, 0.062127337, 9.313226e-10, 0.93621594, 0.35142455, -0.06636004, -0.3506499, 0.93415236, 0, 3.25, 4)
+fov = 58.9
 
-[node name="CinematicCamera2" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.46174866, 0.15097767, -0.8740674, 0, 0.9854079, 0.1702095, 0.8870108, 0.07859401, -0.45501077, -7.589, 4.972, -9.368)
-fov = 51.9
+[node name="PhantomCameraHost" type="Node" parent="Cameras/Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("6_fke2d")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="SpawnPhantomCamera3D" type="Node3D" parent="Cameras" groups=["CinematicCameras"]]
+transform = Transform3D(0.6401096, 0.0669603, 0.7653598, 0, 0.99619454, -0.08715572, -0.76828337, 0.055789225, 0.6376738, 7.47, 1.959, 13.465)
+script = ExtResource("6_iqxkc")
+priority = 3
+tween_resource = SubResource("Resource_hkm3h")
+camera_3d_resource = SubResource("Resource_dnvx3")
+follow_offset = Vector3(0, 1.4, 1)
+follow_damping = true
+follow_axis_lock = 3
+dead_zone_width = 0.1
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="C1_PhantomCamera3D" type="Node3D" parent="Cameras" node_paths=PackedStringArray("look_at_target", "look_at_targets") groups=["CinematicCameras"]]
+transform = Transform3D(-0.93176025, -0.044110034, -0.36038488, 0, 0.9925926, -0.12149038, 0.36307427, -0.11319989, -0.92485833, 0.25, 0.15, -3)
+script = ExtResource("6_iqxkc")
+priority = 3
+look_at_mode = 3
+look_at_target = NodePath("../../Characters/Georgino")
+look_at_targets = [NodePath("../../Characters/Celia"), NodePath("../../Characters/Georgino"), NodePath("../../Characters/Dani (Player)")]
+tween_resource = SubResource("Resource_ltws0")
+camera_3d_resource = SubResource("Resource_l5vpx")
+follow_offset = Vector3(0, 1.4, 1)
+follow_damping = true
+follow_axis_lock = 3
+dead_zone_width = 0.1
+look_at_offset = Vector3(0, 1.4, 0)
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="C2_PhantomCamera3D" type="Node3D" parent="Cameras" node_paths=PackedStringArray("look_at_target") groups=["CinematicCameras"]]
+transform = Transform3D(-0.96645343, 0.013288943, -0.25649852, 9.313226e-10, 0.9986602, 0.05173967, 0.25684255, 0.050003953, -0.96515894, 0.316, 0.245, -6.101)
+script = ExtResource("6_iqxkc")
+look_at_mode = 3
+look_at_target = NodePath("../../Level/Ataud")
+tween_resource = SubResource("Resource_ccqnx")
+camera_3d_resource = SubResource("Resource_kjm0u")
+follow_offset = Vector3(0, 1.4, 1)
+follow_damping = true
+follow_axis_lock = 3
+dead_zone_width = 0.1
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="C3_PhantomCamera3D" type="Node3D" parent="Cameras" node_paths=PackedStringArray("look_at_target") groups=["CinematicCameras"]]
+transform = Transform3D(-0.9988049, 0.016262285, 0.046064768, 0, 0.9429632, -0.33289513, -0.048851017, -0.3324977, -0.94183743, 0.074, 0.197, -12.013)
+script = ExtResource("6_iqxkc")
+look_at_mode = 2
+look_at_target = NodePath("../../Level/Ataud")
+tween_resource = SubResource("Resource_4xiyf")
+camera_3d_resource = SubResource("Resource_eh4ho")
+follow_offset = Vector3(0, 1.4, 1)
+follow_damping = true
+follow_axis_lock = 3
+dead_zone_width = 0.1
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="C4_PhantomCamera3D" type="Node3D" parent="Cameras" node_paths=PackedStringArray("look_at_target") groups=["CinematicCameras"]]
+transform = Transform3D(0.99779576, -0.023320546, 0.062127337, 9.313226e-10, 0.93621594, 0.35142455, -0.06636004, -0.3506499, 0.93415236, 0, 3.25, 4)
+script = ExtResource("6_iqxkc")
+priority_override = true
+look_at_mode = 3
+look_at_target = NodePath("../../Level/Ataud")
+tween_resource = SubResource("Resource_iqxkc")
+camera_3d_resource = SubResource("Resource_fke2d")
+follow_offset = Vector3(0, 1.4, 1)
+follow_damping = true
+follow_axis_lock = 3
+dead_zone_width = 0.1
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="C5_PhantomCamera3D" type="Node3D" parent="Cameras" node_paths=PackedStringArray("look_at_target") groups=["CinematicCameras"]]
+transform = Transform3D(0.81675047, -0.0184455, 0.5766962, 0, 0.9994884, 0.031968452, -0.5769911, -0.026110232, 0.8163331, 7.725, 1.16, 0.435)
+script = ExtResource("6_iqxkc")
+look_at_mode = 2
+look_at_target = NodePath("../../Level/Ataud")
+tween_resource = SubResource("Resource_j6c7d")
+camera_3d_resource = SubResource("Resource_6gkaq")
+follow_offset = Vector3(0, 1.4, 1)
+follow_damping = true
+follow_axis_lock = 3
+dead_zone_width = 0.1
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Characters" type="Node" parent="."]
 
 [node name="Dani (Player)" parent="Characters" instance=ExtResource("11_eh4ho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.09091, 0.71417886, 13.383465)
 character_type = 1
-dialogic_character = ExtResource("13_kjm0u")
 vrm_scene = ExtResource("7_r44f8")
 speed = 1.75
 jump_strength = 3.75
 
 [node name="Celia" parent="Characters" instance=ExtResource("11_eh4ho")]
-transform = Transform3D(-0.25934166, 0, -0.9657856, 0, 1, 0, 0.9657856, 0, -0.25934166, 0.7132734, -1.3123465, -4.1936073)
+transform = Transform3D(-0.25934166, 0, -0.9657856, 0, 1, 0, 0.9657856, 0, -0.25934166, 0.007584691, -1.3123465, -4.532336)
 dialogic_character = ExtResource("14_ltws0")
 character_timeline = ExtResource("15_l5vpx")
 vrm_scene = ExtResource("16_w3yw7")
+speed = 1.5
+jump_strength = 3.0
 
 [node name="Georgino" parent="Characters" instance=ExtResource("11_eh4ho")]
-transform = Transform3D(-0.8092735, 0, 0.5874323, 0, 1, 0, -0.5874323, 0, -0.8092735, 1.8277557, -1.3268542, -4.67728)
+transform = Transform3D(-0.8092735, 0, 0.5874323, 0, 1, 0, -0.5874323, 0, -0.8092735, 1.122067, -1.3268542, -5.0160093)
 dialogic_character = ExtResource("17_qaq7y")
 vrm_scene = ExtResource("18_rxsw2")
+speed = 2.5
 
 [node name="Gerardo" parent="Characters" instance=ExtResource("11_eh4ho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5654788, 0, -7.9373503)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.505754, 0, -8.272907)
 dialogic_character = ExtResource("19_g6ygx")
 vrm_scene = ExtResource("20_xsr36")
+speed = 1.5
 
 [node name="Controllers" type="Node" parent="."]
 script = ExtResource("4_iqxkc")
 
 [node name="AIController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]
 script = ExtResource("5_fke2d")
-INPUT_DELAY = 1.0
+INPUT_DELAY = 3.5
+current_direction = Vector3(0, 0, 1)
 controlled_obj = NodePath("../../Characters/Gerardo")
 
 [node name="PlayerController" type="Node" parent="Controllers" node_paths=PackedStringArray("controlled_obj")]

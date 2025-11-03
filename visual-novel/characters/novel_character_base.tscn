@@ -23,8 +23,8 @@
 
 [sub_resource type="Resource" id="Resource_p1b4h"]
 script = ExtResource("13_dkogs")
-duration = 0.25
-transition = 6
+duration = 1.5
+transition = 1
 
 [sub_resource type="Resource" id="Resource_g43u5"]
 script = ExtResource("14_sel01")
