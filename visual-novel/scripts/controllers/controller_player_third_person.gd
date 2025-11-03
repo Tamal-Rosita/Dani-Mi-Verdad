@@ -4,7 +4,7 @@ var _cam_pivot: Node3D
 
 func _on_controlled_obj_change():
 	super._on_controlled_obj_change()	
-	_cam_pivot = controlled_obj.get_node("CameraPivot")
+	_cam_pivot = controlled_obj.get_node("ThirdPersonCamera")
 	if _cam_pivot.camera:
 		_cam_pivot.camera.make_current()
 		

@@ -4,7 +4,7 @@ var _cam_pivot: Node3D
 
 func _on_controlled_obj_change():
 	super._on_controlled_obj_change()
-	_cam_pivot = controlled_obj.find_child("CameraPivot", false)
+	_cam_pivot = controlled_obj.find_child("ThirdPersonCamera", false)
 	
 func _process(delta: float) -> void:
 	super._process(delta)

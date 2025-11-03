@@ -16,7 +16,7 @@ enum FOV {NORMAL, RUN, MAZE}
 const CAMERA_BLEND : float = 0.05
 
 @onready var spring_arm : SpringArm3D = $SpringArm3D
-@onready var camera : Camera3D = $SpringArm3D/Camera3D
+@onready var camera : PhantomCamera3D = $SpringArm3D/PhantomCamera3D
 
 
 func _ready() -> void:
@@ -25,13 +25,20 @@ func _ready() -> void:
 	
 	if auto_set_len:
 		set_length(spring_arm.global_position.distance_to(camera.global_position))
+	
+func override_priority()-> void:
+	camera.priority_override = true
+	
+func reset_priority() -> void:
+	camera.priority = 0
 		
+func set_priority(value: int) -> void:
+	camera.priority = value
 
 func set_length(value: float) -> void:
 	spring_arm.spring_length = value
 	
 func set_fov(value: float) -> void:
-#	camera.fov = lerp(camera.fov, value, CAMERA_BLEND)
 	camera.fov = value
 
 func _physics_process(_delta: float) -> void:

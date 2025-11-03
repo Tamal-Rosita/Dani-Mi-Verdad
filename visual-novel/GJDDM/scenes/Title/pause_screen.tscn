@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dbg1prbc0j7t5"]
 
 [ext_resource type="Script" uid="uid://drjouadoqh2l6" path="res://visual-novel/GJDDM/scenes/Title/pause_screen.gd" id="1_8rjon"]
-[ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="4_cjhvj"]
+[ext_resource type="AudioStream" uid="uid://bwtsrqq7ehdi6" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.ogg" id="2_wqpmg"]
 [ext_resource type="Theme" uid="uid://ceus317shnq1c" path="res://visual-novel/GJDDM/scenes/Title/title_theme.tres" id="5_m2464"]
 [ext_resource type="Texture2D" uid="uid://ucur5ommpudt" path="res://visual-novel/GJDDM/images/logo_Dani_nobg.png" id="6_2nt3f"]
 [ext_resource type="Texture2D" uid="uid://con0qeebjjbx5" path="res://visual-novel/GJDDM/images/logo_MVerdad_nobg.png" id="7_exp1r"]
@@ -199,9 +199,8 @@ speed_scale = 1.5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 2
-stream = ExtResource("4_cjhvj")
-volume_db = -18.0
-pitch_scale = 1.2
+stream = ExtResource("2_wqpmg")
+volume_db = -3.0
 autoplay = true
 
 [node name="Background" type="ColorRect" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://c8oqm4oj4ku2f"]
+[gd_scene load_steps=36 format=4 uid="uid://c8oqm4oj4ku2f"]
 
 [ext_resource type="AudioStream" uid="uid://c1gnuhcoqng01" path="res://visual-novel/GJDDM/music/more tracks.mp3" id="1_pa80t"]
 [ext_resource type="Script" uid="uid://b6av5wcf5pl2e" path="res://visual-novel/GJDDM/scenes/Laberinto/maze1_scene.gd" id="1_ygn2f"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://cdhj5gruoyjwg" path="res://visual-novel/scripts/actions/pointer_capture.gd" id="4_siao4"]
 [ext_resource type="Script" uid="uid://b5jsh373vm15" path="res://visual-novel/scripts/controllers/controller_player_third_person.gd" id="5_2fk5y"]
 [ext_resource type="PackedScene" uid="uid://dcjpkqhi816nl" path="res://visual-novel/characters/novel_character_base.tscn" id="6_j3tyg"]
-[ext_resource type="Resource" uid="uid://d1b2iumhe8cs3" path="res://dialogic/characters/Dani.dch" id="8_spmur"]
 [ext_resource type="PackedScene" uid="uid://c3mkywf5liwxn" path="res://visual-novel/GJDDM/characters/packed/dani.scn" id="8_ygn2f"]
 [ext_resource type="PackedScene" uid="uid://bo1tni28i8w3i" path="res://visual-novel/GJDDM/scenes/Teatro/Teatro.tscn" id="10_spmur"]
 [ext_resource type="Texture2D" uid="uid://dvar72mo5xo53" path="res://visual-novel/GJDDM/scenes/Laberinto/textures/Wood24b.JPG" id="14_ygn2f"]
@@ -15,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://bukj87xokogkx" path="res://visual-novel/GJDDM/scenes/Laberinto/textures/Wall36_256x512.jpg" id="15_xejsl"]
 [ext_resource type="PackedScene" uid="uid://dbg1prbc0j7t5" path="res://visual-novel/GJDDM/scenes/Title/pause_screen.tscn" id="15_ygn2f"]
 [ext_resource type="Texture2D" uid="uid://cs1xqd67rbgha" path="res://visual-novel/GJDDM/scenes/Laberinto/textures/Wood17a.jpg" id="16_pa80t"]
-[ext_resource type="PackedScene" uid="uid://n5itw40xq2ct" path="res://visual-novel/GJDDM/scenes/Title/title_screen.tscn" id="16_xejsl"]
 [ext_resource type="PackedScene" uid="uid://by06s53b5eiiq" path="res://visual-novel/canvas/quest_canvas_layer.tscn" id="16_ygn2f"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7k8ah"]
@@ -582,7 +580,6 @@ controlled_obj = NodePath("../../Player")
 [node name="Player" parent="." instance=ExtResource("6_j3tyg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5542009, 1)
 character_type = 1
-dialogic_character = ExtResource("8_spmur")
 vrm_scene = ExtResource("8_ygn2f")
 fov = 2
 
@@ -604,7 +601,6 @@ data = {
 }
 
 [node name="PauseCanvasLayer" parent="." instance=ExtResource("15_ygn2f")]
-menu_scene = ExtResource("16_xejsl")
 
 [node name="QuestCanvasLayer" parent="." instance=ExtResource("16_ygn2f")]
 text_content = "Sal del laberinto"

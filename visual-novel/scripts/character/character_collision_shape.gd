@@ -9,7 +9,7 @@ var _movement_class: MovementState
 var _movement_manager: MovementStateManager
 
 @onready var _character: NovelCharacter = $".."
-@onready var _cam_pivot: ThirdPersonCamera = $"../CameraPivot"
+@onready var _cam_pivot: ThirdPersonCamera = $"../ThirdPersonCamera"
 
 
 func _ready() -> void:

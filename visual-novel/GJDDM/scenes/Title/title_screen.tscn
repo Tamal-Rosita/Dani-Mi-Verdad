@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://n5itw40xq2ct"]
 
 [ext_resource type="Script" uid="uid://o6ftp2me12xm" path="res://visual-novel/GJDDM/scenes/Title/title_screen.gd" id="1_h5chg"]
-[ext_resource type="AudioStream" uid="uid://t545wqkfac13" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.mp3" id="2_k6ijq"]
+[ext_resource type="AudioStream" uid="uid://bwtsrqq7ehdi6" path="res://visual-novel/GJDDM/music/TeatroMendoza_1.1.ogg" id="2_disog"]
 [ext_resource type="Script" uid="uid://uwu3rtv0q2cw" path="res://visual-novel/scripts/actions/pointer_release.gd" id="3_mk3lo"]
 [ext_resource type="Theme" uid="uid://ceus317shnq1c" path="res://visual-novel/GJDDM/scenes/Title/title_theme.tres" id="4_vdjla"]
 [ext_resource type="Texture2D" uid="uid://ucur5ommpudt" path="res://visual-novel/GJDDM/images/logo_Dani_nobg.png" id="5_cwna3"]
@@ -256,8 +256,8 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_k6ijq")
-volume_db = -18.0
+stream = ExtResource("2_disog")
+volume_db = -3.0
 pitch_scale = 1.2
 autoplay = true
 

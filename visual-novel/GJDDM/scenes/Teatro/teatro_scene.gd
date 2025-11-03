@@ -12,7 +12,8 @@ func _ready() -> void:
 	
 func _on_var_changed(info: Dictionary) -> void:
 	if info["variable"] == dialogic_var:
-		quest_canvas_layer.is_completed = not info["new_value"]
+		print("Updating " + dialogic_var)
+		quest_canvas_layer.is_completed = info["new_value"]
 
 func _on_next_scene_body_entered(body: Node3D) -> void:
 	if not Dialogic.VAR.get_variable(dialogic_var) or body is not NovelCharacter or \
@@ -23,9 +24,8 @@ func _on_next_scene_body_entered(body: Node3D) -> void:
 func _deferred_change_scene() -> void:
 	SceneLoader.change_scene_to_packed(next_scene)
 
-
-func _on_pause_canvas_layer_pause_toggle() -> void:
-	Dialogic.VAR.set_variable(dialogic_var, false)
-
-func _on_pause_canvas_layer_restarted(value: bool) -> void:
+func _on_pause_canvas_layer_pause_toggle(value: bool) -> void:
 	quest_canvas_layer.is_displayed = not value
+
+func _on_pause_canvas_layer_restarted() -> void:
+	Dialogic.VAR.set_variable(dialogic_var, false)

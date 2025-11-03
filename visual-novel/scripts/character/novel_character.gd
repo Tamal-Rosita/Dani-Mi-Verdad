@@ -14,20 +14,18 @@ enum CharacterType {
 @export_category("Dialogic")
 @export var dialogic_character: DialogicCharacter
 @export var character_timeline: DialogicTimeline
-
 @export_category("VRM")
 @export var vrm_scene: PackedScene : set = _set_vrm_scene
 
-@export_category("Camera")
-@export var camera_height_offset: float = -0.1 #Offset from top of hear
-@export var face_height_ratio: float = 0.9 # 90% of height for face target 
-
-@export_category("Player camera")
-@export var camera_distance: float = 1.0
-@export var fov: ThirdPersonCamera.FOV = ThirdPersonCamera.FOV.NORMAL
 @export_category("Override camera")
 @export var use_override_camera: bool = false
-@export var override_camera: Camera3D
+@export var override_camera: PhantomCamera3D
+@export_category("Face Camera")
+@export var camera_height_offset: float = -0.1 #Offset from top of hear
+@export var face_height_ratio: float = 0.9 # 90% of height for face target 
+@export_category("Third Person Camera")
+@export var camera_distance: float = 1.0
+@export var fov: ThirdPersonCamera.FOV = ThirdPersonCamera.FOV.NORMAL
 
 @export_category("Locomotion")
 @export var speed: float = 2.0:
@@ -49,6 +47,7 @@ signal interaction_area_exited
 var can_interact: bool
 var is_busy: bool
 
+var _can_wake:= true
 var _current_animation_player: AnimationPlayer
 var _interaction_character: NovelCharacter
 var _vrm_model: VRMTopLevel
@@ -58,14 +57,14 @@ var _vrm_model: VRMTopLevel
 @onready var jump_action: ActionNode = $ActionContainer/Jump
 ## Component nodes
 # Public
-@onready var camera_pivot: ThirdPersonCamera = $CameraPivot
+@onready var third_person_camera: ThirdPersonCamera = $ThirdPersonCamera
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 @onready var gaze_target: Node3D = $GazeTarget
 @onready var interaction_area: Area3D = $CollisionShape3D/InteractionArea3D
 @onready var socket: Node3D =  $CollisionShape3D/Socket
 # Private
 @onready var _animation_tree: CharacterAnimationTree = $AnimationTree
-@onready var _front_camera_pivot: FrontCharacterCamera = $CollisionShape3D/FrontCameraPivot
+@onready var _portrait_camera: PortraitCamera = $CollisionShape3D/PortraitCamera
 @onready var _interaction_hud: InteractionHud = $InteractionHUD
 @onready var _model_container: Node3D = $CollisionShape3D/ModelContainer
 @onready var _grounded_movement: MovementGroundedComplex = $MovementManager/GroundedMovement # Improve this!
@@ -86,11 +85,6 @@ func _validate_property(property: Dictionary) -> void:
 	
 	if property.name == "override_camera" and character_type == CharacterType.NPC:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
-		
-	################
-	## Player
-	################
-	
 
 
 func _get_configuration_warnings() -> PackedStringArray:
@@ -130,25 +124,29 @@ func _ready() -> void:
 	## TODO: Replace with signal of custom event (Cameras)?
 	Dialogic.Text.speaker_updated.connect(_on_dialogic_speaker_updated) # This is working
 	# Dialogic.Portraits.character_joined.connect(_on_dialogic_character_joined) # TODO: Use this as reference for Custom Event
-	
-	if character_type == CharacterType.PLAYER:	
-		reset_camera()
 		
 func _unhandled_input(event: InputEvent) -> void:
+	if _can_wake and character_type == CharacterType.PLAYER:	
+		_can_wake = false
+		reset_camera()
+	
 	if character_type == CharacterType.PLAYER and can_interact and \
 			event.is_action_pressed("interact"):
 		play_interaction()			
 		
 func reset_camera() -> void:
-	if not camera_pivot or not camera_pivot.camera:
+	print("Resetting character cameras")
+	if _portrait_camera:
+		_portrait_camera.set_priority(1)
+	if character_type != CharacterType.PLAYER:
 		return
-	print("Setting player cameras")
-	camera_pivot.set_length(camera_distance)
-	camera_pivot.change_fov(fov)
-	if use_override_camera and override_camera:
-		override_camera.make_current()
-	elif not use_override_camera:
-		camera_pivot.camera.make_current()
+	if override_camera: 
+		override_camera.set_priority(5 if use_override_camera else 0)
+	if not third_person_camera or not third_person_camera.camera:
+		return
+	third_person_camera.set_length(camera_distance)
+	third_person_camera.change_fov(fov)
+	third_person_camera.set_priority(2 if use_override_camera else 5)
 		
 func hide_interaction() -> void:
 	can_interact = false
@@ -190,8 +188,9 @@ func _instantiate_model(scene: PackedScene) -> Node3D:
 	return new_model
 	
 func _focus_character() -> void:
-	if _front_camera_pivot.camera:
-		_front_camera_pivot.camera.make_current()
+	if not _portrait_camera:
+		return
+	_portrait_camera.set_priority(8)
 
 func _get_character_type() -> CharacterType:
 	return character_type
@@ -270,11 +269,11 @@ func _update_node_heights(height: float) -> void:
 	# Adjusted height to face ratio
 	var face_height = adjusted_height * face_height_ratio
 	# Adjust camera pivots 
-	if camera_pivot:
-		camera_pivot.position.y = adjusted_height 
+	if third_person_camera:
+		third_person_camera.position.y = adjusted_height 
 	# Child of CollisionShape
-	if _front_camera_pivot:
-		_front_camera_pivot.position.y = face_height - collision_shape.position.y
+	if _portrait_camera:
+		_portrait_camera.position.y = face_height - collision_shape.position.y
 	# Adjust face target (e.g., for dialogic look-at)
 	if gaze_target:
 		gaze_target.position.y = face_height
@@ -314,10 +313,9 @@ func _on_dialogic_speaker_updated(new_character: DialogicCharacter) -> void:
 func _on_dialogic_timeline_ended() -> void:
 	is_busy = false
 	_animation_tree.reset()
+	_play_movement()
+	reset_camera()
 	interaction_toggle.emit(false)
-	if character_type == CharacterType.PLAYER:
-		_play_movement()
-		reset_camera()
 	
 func _on_dialogic_timeline_started() -> void:
 	is_busy = true
@@ -326,8 +324,9 @@ func _on_dialogic_timeline_started() -> void:
 	interaction_toggle.emit(true)
 	if character_type == CharacterType.PLAYER:
 		_move_to_socket()
-#		call_deferred("_move_to_socket")
-#		get_tree().create_timer(250).timeout.connect(_move_to_socket)
+		return
+		call_deferred("_move_to_socket")
+		get_tree().create_timer(250).timeout.connect(_move_to_socket)
 	
 func _on_interaction_area_3d_body_entered(body: Node3D) -> void:
 	if is_busy or character_type == CharacterType.PLAYER or \

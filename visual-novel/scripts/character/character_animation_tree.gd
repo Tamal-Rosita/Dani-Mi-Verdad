@@ -111,7 +111,8 @@ func _blink_coroutine(duration: float):
 	while t < half_duration:
 		forced_blink_value = t / half_duration  # 0.0 to 1.0
 		t += get_process_delta_time()
-		await get_tree().process_frame
+		if get_tree():
+			await get_tree().process_frame
 	
 	# Eyelids fully closed
 	forced_blink_value = 1.0
